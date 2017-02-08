@@ -38,10 +38,11 @@
 (column-number-mode 1)
 (global-hl-line-mode)
 
-;; Use smartline
+;; Use smart-mode-line
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
-(setq sml/theme 'dark)
+(sml/setup)
+(sml/apply-theme 'dark)
 
 ;; NOTE: airline is extremely slow, do not use it
 ;; (require 'airline-themes)
