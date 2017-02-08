@@ -51,7 +51,7 @@
 ;; TODO: Figure out how to load a theme randomly.
 ;; (load-theme 'ujelly t t)
 ;; (load-theme 'avk-daylight t t)
-(load-theme 'noctilux t t)
+(load-theme 'monokai t t)
 ;; (load-theme 'flatui t t)
 (load-theme 'atom-one-dark)
 ;; (load-theme 'airline-doom-one)
@@ -64,7 +64,7 @@
       )
 
   (progn
-    (enable-theme 'noctilux)
+    (enable-theme 'monokai)
     ;; (enable-theme 'airline-base16-shell-dark)
     )
   )

@@ -71,10 +71,10 @@
   (package-refresh-contents)
   (package-install 'exec-path-from-shell))
 
-; Themes
-(unless (package-installed-p 'base16-theme)
+;; Themes
+(unless (package-installed-p 'monokai-theme)
   (package-refresh-contents)
-  (package-install 'base16-theme))
+  (package-install 'monokai-theme))
 
 (unless (package-installed-p 'noctilux-theme)
   (package-refresh-contents)
