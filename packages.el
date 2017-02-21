@@ -126,6 +126,14 @@
   (package-refresh-contents)
   (package-install 'yaml-mode))
 
+(unless (package-installed-p 'jade-mode)
+  (package-refresh-contents)
+  (package-install 'jade-mode))
+
+(unless (package-installed-p 'less-css-mode)
+  (package-refresh-contents)
+  (package-install 'less-css-mode))
+
 ; Git
 (unless (package-installed-p 'magit)
   (package-refresh-contents)
