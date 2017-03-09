@@ -100,6 +100,14 @@
   (package-refresh-contents)
   (package-install 'atom-one-dark-theme))
 
+(unless (package-installed-p 'color-theme-approximate)
+  (package-refresh-contents)
+  (package-install 'color-theme-approximate))
+
+(unless (package-installed-p 'helm-themes)
+  (package-refresh-contents)
+  (package-install 'helm-themes))
+
 ; Elixir
 (unless (package-installed-p 'elixir-mode)
   (package-refresh-contents)
