@@ -142,6 +142,11 @@
   (package-refresh-contents)
   (package-install 'less-css-mode))
 
+; Web mode for editing erb
+(unless (package-installed-p 'web-mode)
+  (package-refresh-contents)
+  (package-install 'web-mode))
+
 ; Git
 (unless (package-installed-p 'magit)
   (package-refresh-contents)

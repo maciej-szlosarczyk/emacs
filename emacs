@@ -19,7 +19,7 @@
  '(foreground-color "#cccccc")
  '(package-selected-packages
    (quote
-    (helm-themes less-css-mode jade-mode zenburn-theme monokai-theme smart-mode-line-powerline-theme smart-mode-line mode-icons airline-themes atom-one-dark-theme neotree ant rainbow-delimiters rust-mode scala-mode haskell-mode yasnippet yaml-mode ujelly-theme rvm ruby-end rinari noctilux-theme markdown-mode jira indent-guide helm-projectile helm-ag haml-mode flycheck flatui-theme exec-path-from-shell evil-terminal-cursor-changer evil-nerd-commenter evil-magit evil-leader dumb-jump dockerfile-mode diff-hl base16-theme avk-emacs-themes alchemist aggressive-indent ag)))
+    (web-mode helm-themes less-css-mode jade-mode zenburn-theme monokai-theme smart-mode-line-powerline-theme smart-mode-line mode-icons airline-themes atom-one-dark-theme neotree ant rainbow-delimiters rust-mode scala-mode haskell-mode yasnippet yaml-mode ujelly-theme rvm ruby-end rinari noctilux-theme markdown-mode jira indent-guide helm-projectile helm-ag haml-mode flycheck flatui-theme exec-path-from-shell evil-terminal-cursor-changer evil-nerd-commenter evil-magit evil-leader dumb-jump dockerfile-mode diff-hl base16-theme avk-emacs-themes alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
  '(custom-safe-themes
    (quote
