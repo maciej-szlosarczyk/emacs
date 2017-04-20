@@ -21,3 +21,6 @@
 
 ;; Do not insert encoding comments ;;
 (setq ruby-insert-encoding-magic-comment nil)
+
+;; Use web mode for erb
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
