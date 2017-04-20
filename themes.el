@@ -14,19 +14,18 @@
 (sml/setup)
 (sml/apply-theme 'light)
 
-;; NOTE: airline is extremely slow, do not use it
-;; (require 'airline-themes)
-;; (airline-themes-set-modeline)
+;; Display time on mode line
+(setq display-time-format "%H:%M")
+(display-time-mode t)
 
-;; TODO: Figure out how to load a theme randomly.
+;; NOTE: airline is extremely slow, do not use it
+
 ;; (load-theme 'ujelly t t)
 (load-theme 'avk-daylight t t)
 (load-theme 'monokai t t)
 ;; (load-theme 'flatui t t)
 (load-theme 'atom-one-dark t t)
 (load-theme 'flatui t t)
-;; (load-theme 'airline-doom-one)
-;; (load-theme 'airline-base16-shell-dark)
 
 (require 'helm-themes)
 (if (display-graphic-p)
