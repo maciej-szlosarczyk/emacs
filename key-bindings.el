@@ -1,5 +1,5 @@
-;;; keybindings.el --- Summary
-;;; Commentary: Maciej Szlosarczyk keybindings
+;;; keybindings.el -- Summary
+;;; Commentary:
 ;;; Code:
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
@@ -35,8 +35,6 @@
   "gs"  'magit-status
   "gL"  'magit-log
   "gco" 'magit-checkout)
-
-(evil-leader/set-key "fc" 'global-flycheck-mode)
 
 (evil-leader/set-key "al" 'align-regexp)
 (evil-leader/set-key "ir" 'indent-region)

@@ -1,9 +1,7 @@
 ;;; Languages -- summary
 ;;; Commentary:
 
-
 ;;; Code:
-
 ;;;; Major languages ;;;;
 ;;; Ruby
 (defun ruby-mode-config ()
@@ -44,6 +42,7 @@
 (add-hook 'rust-mode-hook 'rust-mode-config)
 
 ;;; Elixir
+;; Note: there is no flycheck support for Elixir yet
 (require 'alchemist)
 (defun elixir-mode-config ()
   "Call elixir mode config."
@@ -51,7 +50,6 @@
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (alchemist-mode 1)
-  (flycheck-mode 1)
   (set-line-limit-80-tab-2)
   (ruby-end-mode))
 
