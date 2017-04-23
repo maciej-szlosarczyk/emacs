@@ -65,6 +65,7 @@
 
 ; load custom config files
 (load "~/.emacs.d/packages.el")
+(load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/behaviour.el")
 (load "~/.emacs.d/themes.el")
 (load "~/.emacs.d/key-bindings.el")

@@ -57,17 +57,11 @@
 ;; Show trailing whitespaces and remove whitespace on save
 (setq-default show-trailing-whitespace t)
 (setq whitespace-style '(face trailing lines-tail trailing))
-(setq whitespace-line-column 80)
+
 (add-hook 'before-save-hook 'delete-trailing-lines)
 
 ;; Tabs are spaces and are general at 2. Guide indent with lines
 (setq-default indent-tabs-mode nil)
-(setq tab-width 2)
-(setq tab-stop-list (quote(2 4 6 8 10 12 14 16 20 22 24 26 28 30 32 34 36 38 40
-                             42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74
-                             76 78 80)))
-;; (require 'indent-guide)
-;; (indent-guide-global-mode)
 
 ; Insert newline on save
 (setq require-final-newline t)
@@ -84,6 +78,25 @@
 
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
+;; Use this function for ruby, elixir and such
+(defun set-line-limit-80-tab-2 ()
+    (setq whitespace-line-column 80)
+    (setq tab-width 2)
+    (setq tab-stop-list (quote(2 4 6 8 10 12 14 16 20 22 24 26 28 30 32 34 36 38
+                                 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70
+                                 72 74 76 78 80))))
+
+;; Use this function for rust
+(defun set-line-limit-99-tab-4 ()
+    (setq whitespace-line-column 99)
+    (setq tab-width 4)
+    (setq tab-stop-list (quote(4 8 12 16 24 28 32 36 40 44 48 52 56 60
+                                 64 68 72 76 80 84 88 92 96))))
+
+;; By default, use 80
+(set-line-limit-80-tab-2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;; additional features  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -133,10 +146,5 @@
 ;; (add-to-list 'default-frame-alist '(alpha . (94 . 90)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Additional loads ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; Language specific stuff
-(load "~/.emacs.d/ruby.el")
-(load "~/.emacs.d/elixir.el")
-(load "~/.emacs.d/javascript.el")
-(load "~/.emacs.d/web-mode.el")
+(load "~/.emacs.d/languages.el")
 ;;; behaviour.el ends here

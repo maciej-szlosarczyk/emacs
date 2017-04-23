@@ -26,6 +26,7 @@
 ;; (load-theme 'flatui t t)
 (load-theme 'atom-one-dark t t)
 (load-theme 'flatui t t)
+(load-theme 'noctilux t t)
 
 (require 'helm-themes)
 (if (display-graphic-p)
@@ -35,9 +36,10 @@
       ;; (helm-themes 'avk-daylight t))
 
   (progn
-    (enable-theme 'monokai))
-    ;; (helm-themes 'monokai t))
+    ;; (enable-theme 'flatui))
+    (enable-theme 'flatui)
     ;; (enable-theme 'airline-base16-shell-dark)
+    )
   )
 
 (color-theme-approximate-on)
