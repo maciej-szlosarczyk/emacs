@@ -44,13 +44,13 @@
 (add-hook 'rust-mode-hook 'rust-mode-config)
 
 ;;; Elixir
+(require 'alchemist)
 (defun elixir-mode-config ()
   "Call elixir mode config."
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (require 'alchemist)
-  (alchemist-mode)
+  (alchemist-mode 1)
   (flycheck-mode 1)
   (set-line-limit-80-tab-2)
   (ruby-end-mode))
