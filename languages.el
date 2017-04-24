@@ -10,9 +10,6 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 
-  (set-line-80)
-  (set-tab-2)
-
   (aggressive-mode-indent)
   (defun align-to-colon (begin end)
     "Align region to colon signs"
@@ -31,6 +28,7 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)))
 
 (add-hook 'ruby-mode-hook 'ruby-mode-config)
+(add-hook 'ruby-mode-hook 'set-line-80)
 
 ;;; Rust
 (defun rust-mode-config ()
@@ -39,14 +37,12 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 
-  (whitespace-mode -1)
-  (set-line-99)
   (set-tab-4)
-  (whitespace-mode 1)
 
   (flycheck-mode 1))
 
 (add-hook 'rust-mode-hook 'rust-mode-config)
+(add-hook 'rust-mode-hook 'set-line-99)
 
 ;;; Elixir
 ;; Note: there is no flycheck support for Elixir yet
@@ -58,12 +54,13 @@
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (alchemist-mode 1)
 
-  (set-line-80)
   (set-tab-2)
 
   (ruby-end-mode))
 
 (add-hook 'elixir-mode-hook 'elixir-mode-config)
+(add-hook 'elixir-mode-hook 'set-line-80)
+
 
 ;;; Elisp
 (defun elisp-mode-config ()
@@ -72,12 +69,12 @@
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
 
-  (set-line-80)
   (set-tab-2)
 
   (flycheck-mode 1))
 
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+(add-hook 'emacs-lisp-mode-hook 'set-line-80)
 
 ;;;; Other things ;;;;;
 ;;; Javascript

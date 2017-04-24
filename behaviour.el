@@ -44,13 +44,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
-(require 'whitespace)
+(require 'column-enforce-mode)
+(add-hook 'prog-mode-hook 'column-enforce-mode)
+
 ;; (setq whitespace-space 'underline)
 (toggle-truncate-lines t)
 
 ;; Show trailing whitespaces and remove whitespace on save
+(require 'whitespace)
 (setq-default show-trailing-whitespace t)
-(setq whitespace-style '(face trailing lines-tail trailing))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(setq whitespace-style '(face trailing empty))
 
 (add-hook 'before-save-hook 'delete-trailing-lines)
 
@@ -74,22 +78,17 @@
 (delete-selection-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
-;; Use this function for ruby, elixir and such
-(defun set-line-80 ()
-  "Set line length to 80."
-  (interactive)
-  (whitespace-mode -1)
-  (setq whitespace-line-column 80)
-  (whitespace-mode 1))
-
-
-;; Use this function for rust
 (defun set-line-99 ()
-  "Set line length to 99."
   (interactive)
-  (whitespace-mode -1)
-  (setq whitespace-line-column 99)
-  (whitespace-mode 1))
+  (setq column-enforce-column 99)
+  (column-enforce-mode -1)
+  (column-enforce-mode 1))
+
+(defun set-line-80 ()
+  (interactive)
+  (setq column-enforce-column 80)
+  (column-enforce-mode -1)
+  (column-enforce-mode 1))
 
 (defun set-tab-4 ()
   "Set tab length to 4 spaces."

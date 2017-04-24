@@ -14,6 +14,7 @@
    ["#ecf0f1" "#e74c3c" "#2ecc71" "#f1c40f" "#2492db" "#9b59b6" "#1abc9c" "#2c3e50"])
  '(background-color "#202020")
  '(background-mode dark)
+ '(column-enforce-column 99)
  '(cursor-color "#cccccc")
  '(custom-safe-themes
    (quote
@@ -24,7 +25,7 @@
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
  '(package-selected-packages
    (quote
-    (column-marker web-mode helm-themes less-css-mode jade-mode zenburn-theme monokai-theme smart-mode-line-powerline-theme smart-mode-line mode-icons airline-themes atom-one-dark-theme neotree ant rainbow-delimiters rust-mode scala-mode haskell-mode yasnippet yaml-mode ujelly-theme rvm ruby-end rinari noctilux-theme markdown-mode jira indent-guide helm-projectile helm-ag haml-mode flycheck flatui-theme exec-path-from-shell evil-terminal-cursor-changer evil-nerd-commenter evil-magit evil-leader dumb-jump dockerfile-mode diff-hl base16-theme avk-emacs-themes alchemist aggressive-indent ag)))
+    (column-enforce-mode column-marker web-mode helm-themes less-css-mode jade-mode zenburn-theme monokai-theme smart-mode-line-powerline-theme smart-mode-line mode-icons airline-themes atom-one-dark-theme neotree ant rainbow-delimiters rust-mode scala-mode haskell-mode yasnippet yaml-mode ujelly-theme rvm ruby-end rinari noctilux-theme markdown-mode jira indent-guide helm-projectile helm-ag haml-mode flycheck flatui-theme exec-path-from-shell evil-terminal-cursor-changer evil-nerd-commenter evil-magit evil-leader dumb-jump dockerfile-mode diff-hl base16-theme avk-emacs-themes alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")
