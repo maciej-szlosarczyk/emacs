@@ -46,8 +46,6 @@
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
 (require 'whitespace)
 ;; (setq whitespace-space 'underline)
-
-(add-hook 'prog-mode-hook 'whitespace-mode)
 (toggle-truncate-lines t)
 
 ;; Show trailing whitespaces and remove whitespace on save
@@ -77,24 +75,37 @@
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
 ;; Use this function for ruby, elixir and such
-(defun set-line-limit-80-tab-2 ()
-  "Set line length to 80 and indentation to 2."
+(defun set-line-80 ()
+  "Set line length to 80."
+  (interactive)
+  (whitespace-mode -1)
   (setq whitespace-line-column 80)
+  (whitespace-mode 1))
+
+
+;; Use this function for rust
+(defun set-line-99 ()
+  "Set line length to 99."
+  (interactive)
+  (whitespace-mode -1)
+  (setq whitespace-line-column 99)
+  (whitespace-mode 1))
+
+(defun set-tab-4 ()
+  "Set tab length to 4 spaces."
+  (interactive)
+  (setq tab-width 4)
+  (setq tab-stop-list (quote(4 8 12 16 24 28 32 36 40 44 48 52 56 60 64 68 72 76
+                               80 84 88 92 96 100 104 108 112 116 120))))
+
+(defun set-tab-2 ()
+  "Set tab length to 2 spaces."
+  (interactive)
   (setq tab-width 2)
   (setq tab-stop-list (quote(2 4 6 8 10 12 14 16 20 22 24 26 28 30 32 34 36 38
                                40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70
-                               72 74 76 78 80))))
-
-;; Use this function for rust
-(defun set-line-limit-99-tab-4 ()
-  "Set line length to 99 and indentation to 4."
-  (setq whitespace-line-column 99)
-  (setq tab-width 4)
-  (setq tab-stop-list (quote(4 8 12 16 24 28 32 36 40 44 48 52 56 60
-                               64 68 72 76 80 84 88 92 96))))
-
-;; By default, use 80
-(set-line-limit-80-tab-2)
+                               72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102
+                               104 106 108 110 112 114 116 118 120))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;; additional features  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
