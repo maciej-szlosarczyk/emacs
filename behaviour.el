@@ -41,6 +41,8 @@
 (column-number-mode 1)
 (global-hl-line-mode)
 
+;; Turn off sounds
+(setq ring-bell-function 'ignore)
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
