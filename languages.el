@@ -10,22 +10,19 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 
-  (aggressive-mode-indent)
-  (defun align-to-colon (begin end)
-    "Align region to colon signs"
-    (align-regexp begin end
-                  (rx ":" (group (zero-or-mode (syntax-white))))))
-  ;; Do not align 'begin' and 'while' ;;
-  (setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
+  (aggressive-mode-indent))
 
-  ;; Do not indent inside the parenthasis
-  (setq ruby-deep-indent-paren nil)
+;; Do not align 'begin' and 'while' ;;
+(setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
 
-  ;; Do not insert encoding comments ;;
-  (setq ruby-insert-encoding-magic-comment nil)
+;; Do not indent inside the parenthasis
+(setq ruby-deep-indent-paren nil)
 
-  ;; Use web-mode for erb
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)))
+;; Do not insert encoding comments ;;
+(setq ruby-insert-encoding-magic-comment nil)
+
+;; Use web-mode for erb
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (add-hook 'ruby-mode-hook 'ruby-mode-config)
 (add-hook 'ruby-mode-hook 'set-line-80)

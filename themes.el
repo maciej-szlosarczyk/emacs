@@ -12,7 +12,7 @@
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
-(sml/apply-theme 'light)
+(sml/apply-theme 'dark)
 
 ;; Display time on mode line
 (setq display-time-format "%H:%M")
@@ -31,7 +31,7 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'flatui))
+      (enable-theme 'atom-one-dark))
       ;; (enable-theme 'airline-doom-one)
       ;; (helm-themes 'avk-daylight t))
 
