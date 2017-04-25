@@ -6,7 +6,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-; Behaviour
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Behaviour
 (unless (package-installed-p 'helm)
   (package-refresh-contents)
   (package-install 'helm))
@@ -28,20 +29,25 @@
   (package-refresh-contents)
   (package-install 'rainbow-delimiters))
 
-;; Neotree
-(unless (package-installed-p 'neotree)
-  (package-refresh-contents)
-  (package-install 'neotree))
-
-;; Powerline with mode-line icons
+;; Smart mode line
 (unless (package-installed-p 'smart-mode-line)
   (package-refresh-contents)
   (package-install 'smart-mode-line))
 
+;; Indentation and line length
 (unless (package-installed-p 'indent-guide)
   (package-refresh-contents)
   (package-install 'indent-guide))
 
+(unless (package-installed-p 'column-enforce-mode)
+  (package-refresh-contents)
+  (package-install 'column-enforce-mode))
+
+(unless (package-installed-p 'aggressive-indent)
+  (package-refresh-contents)
+  (package-install 'aggressive-indent))
+
+;; Project management
 (unless (package-installed-p 'projectile)
   (package-refresh-contents)
   (package-install 'projectile))
@@ -58,10 +64,6 @@
   (package-refresh-contents)
   (package-install 'helm-ag))
 
-(unless (package-installed-p 'aggressive-indent)
-  (package-refresh-contents)
-  (package-install 'aggressive-indent))
-
 (unless (package-installed-p 'dumb-jump)
   (package-refresh-contents)
   (package-install 'dumb-jump))
@@ -71,6 +73,33 @@
   (package-refresh-contents)
   (package-install 'exec-path-from-shell))
 
+;; Git
+(unless (package-installed-p 'magit)
+  (package-refresh-contents)
+  (package-install 'magit))
+
+(unless (package-installed-p 'diff-hl)
+  (package-refresh-contents)
+  (package-install 'diff-hl))
+
+(unless (package-installed-p 'evil-magit)
+  (package-refresh-contents)
+  (package-install 'evil-magit))
+
+;; Code quality and helpers
+(unless (package-installed-p 'flycheck)
+  (package-refresh-contents)
+  (package-install 'flycheck))
+
+(unless (package-installed-p 'projectile)
+  (package-refresh-contents)
+  (package-install 'projectile))
+
+(unless (package-installed-p 'yasnippet)
+  (package-refresh-contents)
+  (package-install 'yasnippet))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Themes
 (unless (package-installed-p 'monokai-theme)
   (package-refresh-contents)
@@ -108,7 +137,10 @@
   (package-refresh-contents)
   (package-install 'helm-themes))
 
-; Elixir
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Languages and frameworks
+
+;; Elixir
 (unless (package-installed-p 'elixir-mode)
   (package-refresh-contents)
   (package-install 'elixir-mode))
@@ -147,50 +179,27 @@
   (package-refresh-contents)
   (package-install 'web-mode))
 
-; Git
-(unless (package-installed-p 'magit)
-  (package-refresh-contents)
-  (package-install 'magit))
-
-(unless (package-installed-p 'diff-hl)
-  (package-refresh-contents)
-  (package-install 'diff-hl))
-
-(unless (package-installed-p 'evil-magit)
-  (package-refresh-contents)
-  (package-install 'evil-magit))
-
-; Code quality and helpers
-(unless (package-installed-p 'flycheck)
-  (package-refresh-contents)
-  (package-install 'flycheck))
-
-(unless (package-installed-p 'projectile)
-  (package-refresh-contents)
-  (package-install 'projectile))
-
-(unless (package-installed-p 'yasnippet)
-  (package-refresh-contents)
-  (package-install 'yasnippet))
-
 ; Markdown helper
 (unless (package-installed-p 'markdown-mode)
   (package-refresh-contents)
   (package-install 'markdown-mode))
 
+;; Docker
 (unless (package-installed-p 'dockerfile-mode)
   (package-refresh-contents)
   (package-install 'dockerfile-mode))
 
-; Scala, Haskell, Rust
+;; Haskell
 (unless (package-installed-p 'haskell-mode)
   (package-refresh-contents)
   (package-install 'haskell-mode))
 
+;; Scala
 (unless (package-installed-p 'scala-mode)
   (package-refresh-contents)
   (package-install 'scala-mode))
 
+;; Rust
 (unless (package-installed-p 'rust-mode)
   (package-refresh-contents)
   (package-install 'rust-mode))
