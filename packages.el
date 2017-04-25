@@ -194,4 +194,8 @@
 (unless (package-installed-p 'rust-mode)
   (package-refresh-contents)
   (package-install 'rust-mode))
-;;; elpa.el ends here
+
+(unless (package-installed-p 'racer)
+  (package-refresh-contents)
+  (package-install 'racer))
+;;; packages.el ends here

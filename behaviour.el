@@ -81,14 +81,23 @@
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
 (defun set-line-99 ()
+  "Set line length to 99 columns."
   (interactive)
   (setq column-enforce-column 99)
   (column-enforce-mode -1)
   (column-enforce-mode 1))
 
 (defun set-line-80 ()
+  "Set line length to 80 columns."
   (interactive)
   (setq column-enforce-column 80)
+  (column-enforce-mode -1)
+  (column-enforce-mode 1))
+
+(defun set-line-120 ()
+  "Set line length to 120 columns."
+  (interactive)
+  (setq column-enforce-column 120)
   (column-enforce-mode -1)
   (column-enforce-mode 1))
 

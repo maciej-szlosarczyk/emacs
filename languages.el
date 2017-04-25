@@ -9,6 +9,7 @@
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
 
   (aggressive-mode-indent))
 
@@ -33,13 +34,15 @@
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
 
-  (set-tab-4)
-
-  (flycheck-mode 1))
+  (set-tab-4))
 
 (add-hook 'rust-mode-hook 'rust-mode-config)
 (add-hook 'rust-mode-hook 'set-line-99)
+(add-hook 'rust-mode-hook 'racer-mode)
+(add-hook 'rust-mode-hook 'flycheck-mode)
+
 
 ;;; Elixir
 ;; Note: there is no flycheck support for Elixir yet
@@ -49,7 +52,7 @@
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (alchemist-mode 1)
+  (remove-hook 'html-mode-hook 'web-mode-config)
 
   (set-tab-2)
 
@@ -57,7 +60,7 @@
 
 (add-hook 'elixir-mode-hook 'elixir-mode-config)
 (add-hook 'elixir-mode-hook 'set-line-80)
-
+(add-hook 'elixir-mode-hook 'alchemist-mode)
 
 ;;; Elisp
 (defun elisp-mode-config ()
@@ -65,6 +68,7 @@
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
 
   (set-tab-2)
 
@@ -72,12 +76,27 @@
 
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 (add-hook 'emacs-lisp-mode-hook 'set-line-80)
+(add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
 
 ;;;; Other things ;;;;;
 ;;; Javascript
 (setq js-indent-level 2)
 
 ;;; Web-mode
+(defun web-mode-config ()
+  "Setup web mode."
+  (remove-hook 'rust-mode-hook 'rust-mode-config)
+  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
+  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+
+  (flycheck-mode 1))
+
+(add-hook 'html-mode-hook 'web-mode)
+(add-hook 'html-mode-hook 'web-mode-config)
+(add-hook 'html-mode-hook 'set-line-120)
+
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
+
+
 ;;; languages.el ends here
