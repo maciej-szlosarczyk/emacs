@@ -189,6 +189,11 @@
   (package-refresh-contents)
   (package-install 'dockerfile-mode))
 
+;; Jenkinsfile
+(unless (package-installed-p 'groovy-mode)
+  (package-refresh-contents)
+  (package-install 'groovy-mode))
+
 ;; Haskell
 (unless (package-installed-p 'haskell-mode)
   (package-refresh-contents)

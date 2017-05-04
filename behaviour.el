@@ -43,6 +43,9 @@
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)
+
+;; Enable y/n answers to questions
+(fset 'yes-or-no-p 'y-or-n-p)
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
