@@ -15,7 +15,6 @@ git clone git@github.com:maciej-szlosarczyk/emacs.git ~/.emacs.d
 ln -s ~/.emacs.d/emacs ~/.emacs
 ```
 
-
 ## Selected packages
 
 The following packages are included or required:
@@ -32,3 +31,8 @@ The following packages are included or required:
 ## Compatibility notes
 
 Tested on MacOS, requires additional packages such as ag (`the_silver_searcher`).
+
+## TODO
+
+1. Add and configure multiterm
+  * Add `multi-term-mode-hook` for trailing whitespace.

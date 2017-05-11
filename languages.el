@@ -98,5 +98,8 @@
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 
+;; CSS-mode
+(setq css-indent-offset 2)
+
 
 ;;; languages.el ends here

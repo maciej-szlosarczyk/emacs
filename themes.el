@@ -18,8 +18,6 @@
 (setq display-time-format "%H:%M")
 (display-time-mode t)
 
-;; NOTE: airline is extremely slow, do not use it
-
 ;; (load-theme 'ujelly t t)
 (load-theme 'avk-daylight t t)
 (load-theme 'monokai t t)
@@ -27,20 +25,14 @@
 (load-theme 'atom-one-dark t t)
 (load-theme 'flatui t t)
 (load-theme 'noctilux t t)
+(load-theme 'whiteboard t t)
 
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'atom-one-dark))
-      ;; (enable-theme 'airline-doom-one)
-      ;; (helm-themes 'avk-daylight t))
-
+      (enable-theme 'flatui))
   (progn
-    ;; (enable-theme 'flatui))
-    (enable-theme 'flatui)
-    ;; (enable-theme 'airline-base16-shell-dark)
-    )
-  )
+    (enable-theme 'flatui)))
 
 (color-theme-approximate-on)
 (set-face-attribute 'default nil :font "Hasklig 13")
