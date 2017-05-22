@@ -54,13 +54,12 @@
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
 
-  (set-tab-2)
-
-  (ruby-end-mode))
+  (set-tab-2))
 
 (add-hook 'elixir-mode-hook 'elixir-mode-config)
 (add-hook 'elixir-mode-hook 'set-line-80)
 (add-hook 'elixir-mode-hook 'alchemist-mode)
+(add-hook 'elixir-mode-hook 'ruby-end-mode)
 
 ;;; Elisp
 (defun elisp-mode-config ()
@@ -101,5 +100,7 @@
 ;; CSS-mode
 (setq css-indent-offset 2)
 
+;; Markdown mode
+(add-hook 'markdown-mode-hook 'set-line-80)
 
 ;;; languages.el ends here

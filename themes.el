@@ -34,7 +34,9 @@
   (progn
     (enable-theme 'flatui)))
 
-(color-theme-approximate-on)
+;; (color-theme-approximate-on)
 (set-face-attribute 'default nil :font "Hasklig 13")
 (set-face-attribute 'mode-line nil :font "Hasklig 12")
 (set-face-attribute 'linum nil :font "Hasklig 13")
+
+;;; themes.el end here

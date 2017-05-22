@@ -208,4 +208,9 @@
 (unless (package-installed-p 'racer)
   (package-refresh-contents)
   (package-install 'racer))
+
+;; Python
+(unless (package-installed-p 'elpy)
+  (package-refresh-contents)
+  (package-install 'elpy))
 ;;; packages.el ends here
