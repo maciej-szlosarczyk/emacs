@@ -32,13 +32,20 @@
 ;; (load-theme 'dichromacy t t)
 (load-theme 'base16-harmonic-dark t t)
 
+(defun base16-harmonic-custom ()
+  "Additional configuration for Base 16 theme."
+  (set-face-attribute 'linum nil :font "Hasklig 14"
+                      :slant 'normal
+                      :background "#0b1c2c")
+  (set-face-attribute 'mode-line nil :font "Hasklig 13"
+                      :background "#2c3a47")
+  (set-face-attribute 'fringe nil :background "#2c3a47"))
+
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
       (enable-theme 'base16-harmonic-dark)
-      (set-face-attribute 'linum nil :font "Hasklig 14"
-                    :slant 'normal
-                    :background "#0b1c2c"))
+      (base16-harmonic-custom))
   (progn
     (enable-theme 'flatui)))
 
@@ -46,7 +53,6 @@
 
 ;; Set font face
 (set-face-attribute 'default nil :font "Hasklig 13")
-(set-face-attribute 'mode-line nil :font "Hasklig 13")
 (set-face-attribute 'helm-selection nil :font "Hasklig 13")
 (set-face-attribute 'helm-header nil :font "Hasklig 15")
 
