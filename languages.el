@@ -37,7 +37,7 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
-  (set-tab-4)
+  (set-indent 4)
   (set-width 99))
 
 (add-hook 'rust-mode-hook 'rust-mode-config)
@@ -55,7 +55,7 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
-  (set-tab-2))
+  (set-indent 2))
 
 (add-hook 'elixir-mode-hook 'elixir-mode-config)
 (add-hook 'elixir-mode-hook (set-width 80))
@@ -71,7 +71,7 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
 
-  (set-tab-4)
+  (set-indent 4)
   (set-width 80))
 
 (add-hook 'haskell-mode-hook 'haskell-mode-config)
@@ -86,7 +86,7 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
-  (set-tab-2)
+  (set-indent 2)
 
   (flycheck-mode 1)
   (set-width 80))

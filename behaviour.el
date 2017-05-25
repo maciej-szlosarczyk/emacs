@@ -91,27 +91,16 @@
 (defun set-width (columns)
   "Set line length to X COLUMNS.
 Additional characters after X are highlighted."
-  (interactive "NNumber of columns to use:")
+  (interactive "NNumber of columns to use: ")
   (setq column-enforce-column columns)
   (column-enforce-mode -1)
   (column-enforce-mode 1))
 
-;;; TODO: Convert to proper functions
-(defun set-tab-4 ()
-  "Set tab length to 4 spaces."
-  (interactive)
-  (setq tab-width 4)
-  (setq tab-stop-list (quote(4 8 12 16 24 28 32 36 40 44 48 52 56 60 64 68 72 76
-                               80 84 88 92 96 100 104 108 112 116 120))))
-
-(defun set-tab-2 ()
-  "Set tab length to 2 spaces."
-  (interactive)
-  (setq tab-width 2)
-  (setq tab-stop-list (quote(2 4 6 8 10 12 14 16 20 22 24 26 28 30 32 34 36 38
-                               40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70
-                               72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102
-                               104 106 108 110 112 114 116 118 120))))
+(defun set-indent (step)
+  "Set indentation to X STEPs."
+  (interactive "NNumber of columns for one step: ")
+  (setq tab-width step)
+  (setq tab-stop-list (number-sequence step 200 step)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;; additional features  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
