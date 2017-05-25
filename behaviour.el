@@ -79,6 +79,10 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+; Show hex colors as colors
+(require 'rainbow-mode)
+(add-hook 'prog-mode-hook 'rainbow-mode)
+
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)
 

@@ -34,6 +34,11 @@
   (package-refresh-contents)
   (package-install 'smart-mode-line))
 
+;; Show hex colors in UI
+(unless (package-installed-p 'rainbow-mode)
+  (package-refresh-contents)
+  (package-install 'rainbow-mode))
+
 ;; Indentation and line length
 (unless (package-installed-p 'indent-guide)
   (package-refresh-contents)
@@ -133,6 +138,10 @@
   (package-refresh-contents)
   (package-install 'helm-themes))
 
+(unless (package-installed-p 'base16-theme)
+  (package-refresh-contents)
+  (package-install 'base16-theme))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Languages and frameworks
 
@@ -174,6 +183,11 @@
 (unless (package-installed-p 'web-mode)
   (package-refresh-contents)
   (package-install 'web-mode))
+
+; JSON prettifier
+(unless (package-installed-p 'json-reformat)
+  (package-refresh-contents)
+  (package-install 'json-reformat))
 
 ; Markdown helper
 (unless (package-installed-p 'markdown-mode)

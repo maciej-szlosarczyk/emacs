@@ -35,6 +35,7 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
   (set-tab-4))
 
@@ -42,7 +43,6 @@
 (add-hook 'rust-mode-hook 'set-line-99)
 (add-hook 'rust-mode-hook 'racer-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
-
 
 ;;; Elixir
 ;; Note: there is no flycheck support for Elixir yet
@@ -53,6 +53,7 @@
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
   (set-tab-2))
 
@@ -61,6 +62,21 @@
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (add-hook 'elixir-mode-hook 'ruby-end-mode)
 
+;;; Haskell
+(defun haskell-mode-config ()
+  "Call haskell mode config."
+  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
+  (remove-hook 'rust-mode-hook 'rust-mode-config)
+  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+
+  (set-tab-4))
+
+(add-hook 'haskell-mode-hook 'haskell-mode-config)
+(add-hook 'haskell-mode-hook 'set-line-80)
+(add-hook 'haskell-mode-hook 'flycheck-mode)
+
 ;;; Elisp
 (defun elisp-mode-config ()
   "Setup editor for Lisp."
@@ -68,6 +84,7 @@
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
   (set-tab-2)
 
