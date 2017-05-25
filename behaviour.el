@@ -87,27 +87,16 @@
 (delete-selection-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
-(defun set-line-99 ()
-  "Set line length to 99 columns."
-  (interactive)
-  (setq column-enforce-column 99)
+
+(defun set-width (columns)
+  "Set line length to X COLUMNS.
+Additional characters after X are highlighted."
+  (interactive "NNumber of columns to use:")
+  (setq column-enforce-column columns)
   (column-enforce-mode -1)
   (column-enforce-mode 1))
 
-(defun set-line-80 ()
-  "Set line length to 80 columns."
-  (interactive)
-  (setq column-enforce-column 80)
-  (column-enforce-mode -1)
-  (column-enforce-mode 1))
-
-(defun set-line-120 ()
-  "Set line length to 120 columns."
-  (interactive)
-  (setq column-enforce-column 120)
-  (column-enforce-mode -1)
-  (column-enforce-mode 1))
-
+;;; TODO: Convert to proper functions
 (defun set-tab-4 ()
   "Set tab length to 4 spaces."
   (interactive)
@@ -173,8 +162,8 @@
 You can disable `clean-buffer-list' by (cancel-timer clean-buffer-list-timer)."
   )
 
-;; run clean-buffer-list every 2 hours
-(setq clean-buffer-list-timer (run-at-time t 7200 'clean-buffer-list))
+;; run clean-buffer-list every 30 minutes
+(setq clean-buffer-list-timer (run-at-time t 1800 'clean-buffer-list))
 
 ;; kill everything, clean-buffer-list is very intelligent at not killing
 ;; unsaved buffer.

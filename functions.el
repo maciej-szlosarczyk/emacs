@@ -12,4 +12,15 @@
   (interactive "r")
   (align-regexp begin end
                 (rx ":" (group (zero-or-more (syntax whitespace))) ) 1 1))
+
+
+;;;; Functions to update font size
+(defun set-font-size (size)
+  "Set font SIZE to X px."
+  (interactive "NNew font size: ")
+  (set-face-attribute 'default nil :font (format "Hasklig %d" size))
+  (set-face-attribute 'helm-selection nil :font (format "Hasklig %d" size))
+  (set-face-attribute 'helm-header nil :font
+                      (format "Hasklig %d"
+                              (+ size 2))))
 ;;; functions.el ends here

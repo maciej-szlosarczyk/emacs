@@ -1,15 +1,7 @@
 ;;; themes.el -- Summary
 
 ;;; Commentary:
-
-;; (setq airline-helm-colors t)
-;; (setq airline-cursor-colors t)
-;; (setq airline-eshell-colors t)
-
 ;;; Code:
-
-;; Add mode line icons items
-;; (mode-icons-mode)
 
 ;; Use smart-mode-line
 (require 'smart-mode-line)
