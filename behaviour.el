@@ -87,14 +87,34 @@
 (delete-selection-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
-
+;;; NB! This does not work reliably, using the functions below
 (defun set-width (columns)
-  "Set line length to X COLUMNS.
-Additional characters after X are highlighted."
+  "Set line length to X COLUMNS."
   (interactive "NNumber of columns to use: ")
   (setq column-enforce-column columns)
   (column-enforce-mode -1)
   (column-enforce-mode 1))
+
+(defun set-width-99 ()
+   "Set line length to 99 columns."
+   (interactive)
+   (setq column-enforce-column 99)
+   (column-enforce-mode -1)
+   (column-enforce-mode 1))
+
+(defun set-width-80 ()
+   "Set line length to 80 columns."
+   (interactive)
+   (setq column-enforce-column 80)
+   (column-enforce-mode -1)
+   (column-enforce-mode 1))
+
+(defun set-width-120 ()
+   "Set line length to 120 columns."
+   (interactive)
+   (setq column-enforce-column 120)
+   (column-enforce-mode -1)
+   (column-enforce-mode 1))
 
 (defun set-indent (step)
   "Set indentation to X STEPs."
@@ -140,7 +160,7 @@ Additional characters after X are highlighted."
 ;; Add magit for git
 (require 'evil-magit)
 
-;; Remove unused buffers every 2 hours
+;; Remove unused buffers periodically
 (require 'midnight)
 
 ;;kill buffers if they were last disabled more than this seconds ago

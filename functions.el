@@ -19,6 +19,7 @@
   "Set font SIZE to X px."
   (interactive "NNew font size: ")
   (set-face-attribute 'default nil :font (format "Hasklig %d" size))
+  (set-face-attribute 'mode-line nil :font (format "Hasklig %d" size))
   (set-face-attribute 'helm-selection nil :font (format "Hasklig %d" size))
   (set-face-attribute 'helm-header nil :font
                       (format "Hasklig %d"

@@ -11,7 +11,7 @@
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
 
-  (aggressive-mode-indent))
+  (set-indent 2))
 
 ;; Do not align 'begin' and 'while' ;;
 (setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
@@ -26,7 +26,7 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (add-hook 'ruby-mode-hook 'ruby-mode-config)
-(add-hook 'ruby-mode-hook (set-width 80))
+(add-hook 'ruby-mode-hook 'set-width-80)
 
 ;;; Rust
 (defun rust-mode-config ()
@@ -37,12 +37,12 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
 
-  (set-indent 4)
-  (set-width 99))
+  (set-indent 4))
 
 (add-hook 'rust-mode-hook 'rust-mode-config)
 (add-hook 'rust-mode-hook 'racer-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
+(add-hook 'rust-mode-hook 'set-width-99)
 
 ;;; Elixir
 ;; Note: there is no flycheck support for Elixir yet
@@ -58,9 +58,9 @@
   (set-indent 2))
 
 (add-hook 'elixir-mode-hook 'elixir-mode-config)
-(add-hook 'elixir-mode-hook (set-width 80))
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (add-hook 'elixir-mode-hook 'ruby-end-mode)
+(add-hook 'elixir-mode-hook 'set-width-80)
 
 ;;; Haskell
 (defun haskell-mode-config ()
@@ -71,11 +71,11 @@
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
 
-  (set-indent 4)
-  (set-width 80))
+  (set-indent 4))
 
 (add-hook 'haskell-mode-hook 'haskell-mode-config)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
+(add-hook 'haskell-mode-hook 'set-width-80)
 
 ;;; Elisp
 (defun elisp-mode-config ()
@@ -93,6 +93,7 @@
 
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
+(add-hook 'emacs-lisp-mode-hook 'set-width-80)
 
 ;;;; Other things ;;;;;
 ;;; Javascript
@@ -106,10 +107,11 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
 
   (flycheck-mode 1)
-  (set-width 120))
+  (set-indent 2))
 
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'html-mode-hook 'web-mode-config)
+(add-hook 'markdown-mode-hook 'set-width-120)
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
@@ -120,7 +122,8 @@
 ;; Markdown mode
 (defun markdown-mode-config ()
   "Setup markdown mode."
-  (set-width 80))
+  (set-indent 2))
 (add-hook 'markdown-mode-hook 'markdown-mode-config)
+(add-hook 'markdown-mode-hook 'set-width-80)
 
 ;;; languages.el ends here
