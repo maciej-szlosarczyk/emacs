@@ -28,6 +28,9 @@
 (add-hook 'ruby-mode-hook 'ruby-mode-config)
 (add-hook 'ruby-mode-hook 'set-width-80)
 
+;; Use longer lines for HAML
+(add-hook 'haml-mode-hook 'set-width-120)
+
 ;;; Rust
 (defun rust-mode-config ()
   "Setup editor for rust."
