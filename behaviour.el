@@ -1,7 +1,6 @@
 ;;; behaviour.el ---  how emacs should behave
 ;;; Commentary:
 ;;; Code:
-;;; Safely save garbage files into emacs.d
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Overall behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq backup-directory-alist
@@ -151,6 +150,8 @@
 ;; Show projectile lists by most recently active
 (setq projectile-sort-order (quote recently-active))
 
+;; (add-hook 'projectile-find-file-hook 'projectile-invalidate-cache)
+
 ; Use VIM mode
 (require 'evil)
 (require 'evil-leader)
@@ -196,7 +197,4 @@ You can disable `clean-buffer-list' by (cancel-timer clean-buffer-list-timer)."
 (setq clean-buffer-list-kill-never-regexps
       (append '("^\\*EMMS Playlist\\*.*$")
 	      clean-buffer-list-kill-never-regexps-init))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Additional loads ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load "~/.emacs.d/languages.el")
 ;;; behaviour.el ends here

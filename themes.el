@@ -24,7 +24,7 @@
                       :background "#2c3a47")
 
   (set-face-attribute 'font-lock-comment-delimiter-face nil
-                      :foreground "#5F6D7A")
+                      :foreground "#aabcce")
   (set-face-attribute 'mode-line nil :font "Hasklig 13")
   (set-face-attribute 'fringe nil :background "#2c3a47"
                       :slant 'normal))

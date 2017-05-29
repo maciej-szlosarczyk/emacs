@@ -91,8 +91,7 @@
 
   (set-indent 2)
 
-  (flycheck-mode 1)
-  (set-width 80))
+  (flycheck-mode 1))
 
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
 (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
@@ -114,7 +113,7 @@
 
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'html-mode-hook 'web-mode-config)
-(add-hook 'markdown-mode-hook 'set-width-120)
+(add-hook 'html-mode-hook 'set-width-120)
 
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
