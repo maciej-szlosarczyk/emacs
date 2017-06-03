@@ -11,7 +11,7 @@
  '(ansi-color-names-vector
    ["#ecf0f1" "#e74c3c" "#2ecc71" "#f1c40f" "#2492db" "#9b59b6" "#1abc9c" "#2c3e50"])
  '(ansi-term-color-vector
-   [unspecified "#0b1c2c" "#bf8b56" "#56bf8b" "#8bbf56" "#9b78bc" "#bf568b" "#9b78bc" "#cbd6e2"])
+   [unspecified "#0b1c2c" "#bf8b56" "#56bf8b" "#8bbf56" "#9b78bc" "#bf568b" "#9b78bc" "#cbd6e2"] t)
  '(background-color "#202020")
  '(background-mode dark)
  '(column-enforce-column 99)
@@ -20,6 +20,9 @@
  '(foreground-color "#cccccc")
  '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
+ '(package-selected-packages
+   (quote
+    (dashboard color-theme-approximate smex yaml-mode web-mode ujelly-theme smart-mode-line scala-mode rvm ruby-end rainbow-mode rainbow-delimiters racer noctilux-theme monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl column-enforce-mode base16-theme avk-emacs-themes atom-one-dark-theme all-the-icons alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")
@@ -59,10 +62,5 @@
 (setq gc-cons-threshold 100000000)
 
 ; load custom config files
-(load "~/.emacs.d/packages.el")
-(load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/behaviour.el")
-(load "~/.emacs.d/themes.el")
-(load "~/.emacs.d/key-bindings.el")
-(load "~/.emacs.d/spelling.el")
+(load "~/.emacs.d/init.elc")
 ;;; emacs ends here

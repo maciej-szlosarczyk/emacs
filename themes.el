@@ -35,14 +35,15 @@
       (enable-theme 'base16-not-harmonic)
       (base16-harmonic-custom))
   (progn
+    (color-theme-approximate-on)
     (enable-theme 'flatui)))
 
 ;; (color-theme-approximate-on)
 
 ;; Set font face
-(set-face-attribute 'default nil :font "Hasklig 13")
-(set-face-attribute 'helm-selection nil :font "Hasklig 13")
-(set-face-attribute 'helm-header nil :font "Hasklig 15")
+(set-face-attribute 'default nil :font "Hasklig 15")
+(set-face-attribute 'helm-selection nil :font "Hasklig 15")
+(set-face-attribute 'helm-header nil :font "Hasklig 17")
 
 (provide 'themes)
 ;;; themes.el ends here

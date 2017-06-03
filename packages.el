@@ -106,6 +106,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Themes
+(unless (package-installed-p 'color-theme-approximate)
+  (package-refresh-contents)
+  (package-install 'color-theme-approximate))
+
 (unless (package-installed-p 'monokai-theme)
   (package-refresh-contents)
   (package-install 'monokai-theme))
