@@ -227,6 +227,10 @@
   (package-refresh-contents)
   (package-install 'racer))
 
+(unless (package-installed-p 'toml-mode)
+  (package-refresh-contents)
+  (package-install 'toml-mode))
+
 ;; Python
 (unless (package-installed-p 'elpy)
   (package-refresh-contents)
