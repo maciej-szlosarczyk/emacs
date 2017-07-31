@@ -10,6 +10,7 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
 
   (set-indent 2))
 
@@ -39,6 +40,7 @@
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
 
   (set-indent 4))
 
@@ -46,6 +48,21 @@
 (add-hook 'rust-mode-hook 'racer-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'rust-mode-hook 'set-width-99)
+
+;;; SQL
+(defun sql-mode-hook ()
+  "Editor setup for SQL."
+  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
+  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
+
+  (set-indent 4))
+
+(add-hook 'sql-mode-hook 'flycheck-mode)
+(add-hook 'sql-mode-hook 'set-width-120)
 
 ;;; Elixir
 ;; Note: there is no flycheck support for Elixir yet
@@ -57,6 +74,7 @@
   (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
 
   (set-indent 2))
 
@@ -88,6 +106,7 @@
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
   (remove-hook 'html-mode-hook 'web-mode-config)
   (remove-hook 'haskell-mode-hook 'haskell-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
 
   (set-indent 2)
 
@@ -97,6 +116,21 @@
 (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
 (add-hook 'emacs-lisp-mode-hook 'set-width-80)
 
+;;; Java
+(defun java-mode-config ()
+  "Setup editor for java."
+  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
+  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
+  (remove-hook 'html-mode-hook 'web-mode-config)
+  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
+  (remove-hook 'rust-mode-hook 'rust-mode-config)
+
+  (set-indent 2))
+
+(add-hook 'rust-mode-hook 'java-mode-config)
+(add-hook 'java-mode-hook 'flycheck-mode)
+(add-hook 'java-mode-hook 'set-width-120)
 ;;;; Other things ;;;;;
 ;;; Javascript
 (setq js-indent-level 2)
@@ -107,6 +141,7 @@
   (remove-hook 'rust-mode-hook 'rust-mode-config)
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
   (remove-hook 'elixir-mode-hook 'elixir-mode-config)
+  (remove-hook 'java-mode-hook 'java-mode-config)
 
   (flycheck-mode 1)
   (set-indent 2))
