@@ -235,4 +235,8 @@
 (unless (package-installed-p 'elpy)
   (package-refresh-contents)
   (package-install 'elpy))
+
+(unless (package-installed-p 'pyenv-mode)
+  (package-refresh-contents)
+  (package-install 'pyenv-mode))
 ;;; packages.el ends here
