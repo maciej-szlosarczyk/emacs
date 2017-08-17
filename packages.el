@@ -183,6 +183,10 @@
   (package-refresh-contents)
   (package-install 'less-css-mode))
 
+(unless (package-installed-p 'robe)
+  (package-refresh-contents)
+  (package-install 'robe))
+
 ; Web mode for editing erb
 (unless (package-installed-p 'web-mode)
   (package-refresh-contents)

@@ -23,6 +23,15 @@
 ;; Do not insert encoding comments ;;
 (setq ruby-insert-encoding-magic-comment nil)
 
+;; Use robe
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (rvm-activate-corresponding-ruby))
+
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
+(add-hook 'ruby-mode-hook 'robe-mode)
+
 ;; Use web-mode for erb
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
