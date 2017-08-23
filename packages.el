@@ -187,6 +187,10 @@
   (package-refresh-contents)
   (package-install 'robe))
 
+(unless (package-installed-p 'rspec-mode)
+  (package-refresh-contents)
+  (package-install 'rspec-mode))
+
 ; Web mode for editing erb
 (unless (package-installed-p 'web-mode)
   (package-refresh-contents)

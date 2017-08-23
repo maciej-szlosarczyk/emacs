@@ -24,13 +24,17 @@
 (setq ruby-insert-encoding-magic-comment nil)
 
 ;; Use robe
+(add-hook 'ruby-mode-hook 'robe-mode)
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(add-hook 'ruby-mode-hook 'robe-mode)
+;; User rspec-mode
+(add-hook 'ruby-mode-hook 'rspec-mode)
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 
 ;; Use web-mode for erb
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
