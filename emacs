@@ -22,7 +22,7 @@
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
  '(package-selected-packages
    (quote
-    (rspec-mode robe elm-yasnippets elm-mode company-jedi pyenv pyenv-mode toml-mode color-theme-approximate smex yaml-mode web-mode ujelly-theme smart-mode-line scala-mode rvm ruby-end rainbow-mode rainbow-delimiters racer noctilux-theme monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl column-enforce-mode base16-theme avk-emacs-themes atom-one-dark-theme all-the-icons alchemist aggressive-indent ag)))
+    (window-purpose rspec-mode robe elm-yasnippets elm-mode company-jedi pyenv pyenv-mode toml-mode color-theme-approximate smex yaml-mode web-mode ujelly-theme smart-mode-line scala-mode rvm ruby-end rainbow-mode rainbow-delimiters racer noctilux-theme monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl column-enforce-mode base16-theme avk-emacs-themes atom-one-dark-theme all-the-icons alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")

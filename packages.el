@@ -52,6 +52,11 @@
   (package-refresh-contents)
   (package-install 'aggressive-indent))
 
+;; Window management
+(unless (package-installed-p 'window-purpose)
+  (package-refresh-contents)
+  (package-install 'window-purpose))
+
 ;; Project management
 (unless (package-installed-p 'projectile)
   (package-refresh-contents)
