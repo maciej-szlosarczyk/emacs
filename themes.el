@@ -41,7 +41,7 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-unikitty-light)
+      (enable-theme 'base16-mexico-light)
       (base16-summerfruit-light-custom))
   (progn
     (color-theme-approximate-on)
