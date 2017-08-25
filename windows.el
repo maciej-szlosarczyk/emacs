@@ -12,6 +12,7 @@
 (add-to-list 'purpose-user-regexp-purposes '("_spec.rb\\(<.*>\\)?$" . test))
 (add-to-list 'purpose-user-regexp-purposes '("_test.exs\\(<.*>\\)?$" . test))
 (add-to-list 'purpose-user-mode-purposes '(shell-mode . test))
+(add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . test))
 
 ;; Enumarate through all stuff.
 (add-to-list 'purpose-user-regexp-purposes

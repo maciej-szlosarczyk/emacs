@@ -163,6 +163,7 @@
 
 ;; Show projectile lists by most recently active
 (setq projectile-sort-order (quote recently-active))
+(add-hook 'projectile-after-switch-project-hook 'magit-status)
 
 ;; (add-hook 'projectile-find-file-hook 'projectile-invalidate-cache)
 
