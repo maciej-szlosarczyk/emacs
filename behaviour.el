@@ -49,7 +49,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Trim trailing whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Save desktop session on exit
 (desktop-save-mode 1)

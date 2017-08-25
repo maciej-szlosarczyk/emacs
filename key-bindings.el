@@ -12,6 +12,7 @@
 (global-set-key (kbd "s-<up>") 'scroll-down) ; WTF is this reverse, I dunno
 (global-set-key (kbd "s-<down>") 'scroll-up)
 
+(require 'evil-leader)
 ;;;;;;;;; EVIL Leader ;;;;;;;;;;;;;;;;;;;;;;;;
 (evil-leader/set-leader "<SPC>")
 
@@ -53,17 +54,7 @@
 (evil-leader/set-key "Jl" 'dumb-jump-go); Jump to declaration
 (evil-leader/set-key "Jh" 'dumb-jump-back); Jump back from declariation
 
-(evil-leader/set-key "nt" 'neotree-toggle)
-
+(require 'evil)
 ;;; VIM insert mode things
 (define-key evil-insert-state-map "\C-a" 'company-yasnippet)
-
-;;; Neotree conflict resolution
-(add-hook 'neotree-mode-hook
-          (lambda ()
-            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
-
 ;;; key-bindings.el ends here

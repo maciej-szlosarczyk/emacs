@@ -47,12 +47,19 @@
     (color-theme-approximate-on)
     (enable-theme 'flatui)))
 
-;; (color-theme-approximate-on)
-
 ;; Set font face
 (set-face-attribute 'default nil :font "Hasklig 15")
 (set-face-attribute 'helm-selection nil :font "Hasklig 15")
 (set-face-attribute 'helm-header nil :font "Hasklig 17")
+
+;; Remove ugly black line
+(set-face-attribute 'vertical-border nil :foreground
+                    (face-attribute 'fringe :background))
+
+;; Set fringe colors to default, so it does not bother you.
+(set-face-attribute 'fringe nil
+                      :foreground (face-foreground 'default)
+                      :background (face-background 'default))
 
 (provide 'themes)
 ;;; themes.el ends here

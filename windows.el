@@ -30,6 +30,4 @@
 
 (setq purpose-use-default-configuration nil)
 (purpose-compile-user-configuration)
-(purpose-load-window-layout 'coding_with_magit)
-
 ;;; windows.el ends here
