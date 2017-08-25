@@ -47,12 +47,6 @@
 
 ;; Enable y/n answers to questions
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; Trim trailing whitespace on save
-(add-hook 'before-save-hook 'whitespace-cleanup)
-
-;; Save desktop session on exit
-(desktop-save-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
@@ -92,6 +86,10 @@
 
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
 ;;; NB! This does not work reliably, using the functions below

@@ -7,7 +7,7 @@
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
-(sml/apply-theme 'smart-mode-line-light)
+(sml/apply-theme 'respectful)
 
 ;; Display time on mode line
 (setq display-time-format "%H:%M")
@@ -41,8 +41,8 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-mexico-light)
-      (base16-summerfruit-light-custom))
+      (enable-theme 'base16-not-harmonic)
+      (base16-harmonic-custom))
   (progn
     (color-theme-approximate-on)
     (enable-theme 'flatui)))

@@ -41,6 +41,7 @@
 (evil-leader/set-key "ir" 'indent-region)
 (evil-leader/set-key "ac" 'align-to-colon)
 (evil-leader/set-key "cl" 'evilnc-comment-or-uncomment-lines)
+(evil-leader/set-key "WC" 'whitespace-cleanup)
 
 (evil-leader/set-key "Ps" 'helm-projectile-switch-project)
 (evil-leader/set-key "t"  'helm-projectile-find-file)

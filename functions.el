@@ -42,4 +42,14 @@
 
 (add-hook 'kill-emacs-hook 'byte-compile-init-dir)
 (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
+
+;; Always start in fullscreen
+(defun toggle-fullscreen ()
+  "Toggle full screen."
+  (interactive)
+  (set-frame-parameter
+     nil 'fullscreen
+     (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+
+(toggle-fullscreen)
 ;;; functions.el ends here
