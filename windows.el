@@ -12,6 +12,10 @@
 (add-to-list 'purpose-user-mode-purposes '(ruby-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(yaml-mode . code))
 
+;; Elixir
+(add-to-list 'purpose-user-regexp-purposes '("_test.exs\\(<.*>\\)?$" . test))
+(add-to-list 'purpose-user-mode-purposes '(elixir-mode . code))
+
 ;; Tools
 (add-to-list 'purpose-user-mode-purposes '(magit-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(help-mode . tools))
