@@ -127,17 +127,9 @@
   (package-refresh-contents)
   (package-install 'ujelly-theme))
 
-(unless (package-installed-p 'avk-emacs-themes)
-  (package-refresh-contents)
-  (package-install 'avk-emacs-themes))
-
 (unless (package-installed-p 'flatui-theme)
   (package-refresh-contents)
   (package-install 'flatui-theme))
-
-(unless (package-installed-p 'all-the-icons)
-  (package-refresh-contents)
-  (package-install 'all-the-icons))
 
 (unless (package-installed-p 'atom-one-dark-theme)
   (package-refresh-contents)

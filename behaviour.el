@@ -26,6 +26,8 @@
 (setq ns-pop-up-frames nil)
 
 ; Enable diff highlights (useful for git)
+(require 'diff-hl)
+
 (global-diff-hl-mode)
 (diff-hl-flydiff-mode)
 (diff-hl-margin-mode)
@@ -48,6 +50,9 @@
 
 ;; Trim trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Save desktop session on exit
+(desktop-save-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)

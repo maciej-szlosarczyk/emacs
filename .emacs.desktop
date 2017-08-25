@@ -1,0 +1,43 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Fri Aug 25 23:09:02 2017
+;; Desktop file format version 208
+;; Emacs version 25.2.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22944 33758 121905 0) (desktop . "208") "maciej@INBNOT022.local" nil nil ((((font-backend mac-ct) (fontsize . 0) (font . "-*-Hasklig-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#383838") (background-color . "#f8f8f8") (line-spacing) (left-fringe . 8) (right-fringe . 8) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen . fullboth) (display-type . color) (background-mode . light) (cursor-color . "#ab4642") (environment) (border-color . "#b8b8b8") (frameset--id . "832B-AC8B-938A-1FAC") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (display . "INBNOT022.local") (explicit-name) (tool-bar-position . top) (visibility . t) (height . 75) (width . 282) (left . 1) (top . 6)) ((min-height . 8) (min-width . 20) (min-height-ignore . 4) (min-width-ignore . 11) (min-height-safe . 2) (min-width-safe . 4) (min-pixel-height . 152) (min-pixel-width . 180) (min-pixel-height-ignore . 76) (min-pixel-width-ignore . 99) (min-pixel-height-safe . 38) (min-pixel-width-safe . 36)) vc (pixel-width . 2554) (pixel-height . 1406) (total-width . 284) (total-height . 74) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (hc (pixel-width . 2554) (pixel-height . 1159) (total-width . 284) (total-height . 61) (normal-height . 0.8285714285714285) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1683) (pixel-height . 1159) (total-width . 187) (total-height . 61) (normal-height . 1.0) (normal-width . 0.6603260869565217) (parameters (purpose-dedicated . t)) (buffer "functions.el" (selected) (hscroll . 0) (fringes 8 8 nil) (margins 2 . 1) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated) (point . 1453) (start . 1))) (leaf (last . t) (pixel-width . 871) (pixel-height . 1159) (total-width . 97) (total-height . 61) (normal-height . 1.0) (normal-width . 0.33967391304347827) (parameters (purpose-dedicated . t)) (buffer "*pu-dummy-test*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated) (point . 1) (start . 1)))) (leaf (last . t) (pixel-width . 2554) (pixel-height . 247) (total-width . 284) (total-height . 13) (normal-height . 0.17142857142857143) (normal-width . 1.0) (parameters (purpose-dedicated . t)) (buffer "*magit: .emacs.d" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated) (point . 188) (start . 1)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/maciej/.emacs.d/windows.el"
+  "windows.el"
+  'emacs-lisp-mode
+  '(diff-hl-mode diff-hl-flydiff-mode diff-hl-margin-mode diff-hl-margin-minor-mode linum-mode column-enforce-mode whitespace-mode yas-minor-mode rainbow-delimiters-mode rainbow-mode company-mode projectile-mode undo-tree-mode auto-revert-mode purpose-mode flycheck-mode)
+  307
+  '(301 nil)
+  nil
+  nil
+  '((tab-width . 2) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (242 165))))
+
+(desktop-create-buffer 208
+  "/Users/maciej/.emacs.d/functions.el"
+  "functions.el"
+  'emacs-lisp-mode
+  '(diff-hl-mode diff-hl-flydiff-mode diff-hl-margin-mode diff-hl-margin-minor-mode linum-mode column-enforce-mode whitespace-mode yas-minor-mode rainbow-delimiters-mode rainbow-mode company-mode projectile-mode undo-tree-mode auto-revert-mode purpose-mode flycheck-mode)
+  1453
+  '(1453 nil)
+  nil
+  nil
+  '((tab-width . 2) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
