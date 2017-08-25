@@ -63,6 +63,7 @@
 (setq whitespace-style '(face trailing empty))
 
 (add-hook 'before-save-hook 'delete-trailing-lines)
+(add-hook 'before-save-hook 'whitespace-cleanup) ; Cleanup whitespace on save
 
 ;; Tabs are spaces and are general at 2. Guide indent with lines
 (setq-default indent-tabs-mode nil)
