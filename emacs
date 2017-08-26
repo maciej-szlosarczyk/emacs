@@ -20,9 +20,6 @@
  '(foreground-color "#cccccc")
  '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
- '(package-selected-packages
-   (quote
-    (window-purpose)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")

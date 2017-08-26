@@ -47,6 +47,10 @@
 (unless (package-installed-p 'window-purpose)
   (package-install 'window-purpose))
 
+;; Dash integration
+(unless (package-installed-p 'dash-at-point)
+  (package-install 'dash-at-point))
+
 ;; Project management
 (unless (package-installed-p 'projectile)
   (package-install 'projectile))

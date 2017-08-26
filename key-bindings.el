@@ -55,6 +55,10 @@
 (evil-leader/set-key "Jl" 'dumb-jump-go); Jump to declaration
 (evil-leader/set-key "Jh" 'dumb-jump-back); Jump back from declariation
 
+;; Dash integration
+(require 'dash-at-point)
+(evil-leader/set-key "d" 'dash-at-point)
+
 (require 'evil)
 ;;; VIM insert mode things
 (define-key evil-insert-state-map "\C-a" 'company-yasnippet)
