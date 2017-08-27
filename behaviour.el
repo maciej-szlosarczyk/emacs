@@ -56,7 +56,7 @@
 ;; (setq whitespace-space 'underline)
 (toggle-truncate-lines t)
 
-;; Show trailing whitespaces and remove whitespace on save
+;; Show trailing whitespace and remove whitespace on save
 (require 'whitespace)
 (setq-default show-trailing-whitespace t)
 (add-hook 'prog-mode-hook 'whitespace-mode)

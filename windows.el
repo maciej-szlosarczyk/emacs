@@ -14,7 +14,7 @@
 (add-to-list 'purpose-user-mode-purposes '(shell-mode . test))
 (add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . test))
 
-;; Enumarate through all stuff.
+;; Enumerate through all stuff.
 (add-to-list 'purpose-user-regexp-purposes
              '("COMMIT_EDITMSG\\(<.*>\\)?$" . code))
 (add-to-list 'purpose-user-mode-purposes '(diff-mode . code))
@@ -28,6 +28,7 @@
 (add-to-list 'purpose-user-mode-purposes '(javascript-mode . code))
 
 ;; Tools
+(add-to-list 'purpose-user-mode-purposes '(dired-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(magit-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(help-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(helm-mode . tools))
@@ -36,7 +37,7 @@
 ;; Markdown and others
 (add-to-list 'purpose-user-mode-purposes '(markdown-mode . code))
 
-;; Elisp
+;; Emacs lisp
 (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . code))
 
 (setq purpose-use-default-configuration nil)
