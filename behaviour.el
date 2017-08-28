@@ -138,11 +138,20 @@
 
 ; Add completion
 (require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-tooltip-limit 10)
+(setq company-tooltip-limit 30)
+(setq company-tooltip-minimum-width 40)
 (setq company-idle-delay .1)
 (setq company-begin-commands '(self-insert-command))
 (setq company-selection-wrap-around t)
+
+(setq company-backends
+      '((company-files          ; files & directory
+         company-keywords       ; keywords
+         company-capf
+         company-yasnippet
+         )
+        (company-abbrev company-dabbrev)
+        ))
 
 ; Add project management
 (require 'projectile)

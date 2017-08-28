@@ -20,6 +20,9 @@
  '(foreground-color "#cccccc")
  '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
+ '(package-selected-packages
+   (quote
+    (company-jedi yaml-mode window-purpose web-mode ujelly-theme toml-mode smart-mode-line scala-mode rvm ruby-end rspec-mode robe rainbow-mode rainbow-delimiters racer pyenv-mode noctilux-theme neotree monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl dash-at-point column-enforce-mode color-theme-approximate base16-theme atom-one-dark-theme alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")

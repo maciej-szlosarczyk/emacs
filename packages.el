@@ -85,6 +85,9 @@
 (unless (package-installed-p 'flycheck)
   (package-install 'flycheck))
 
+(unless (package-installed-p 'flymake)
+  (package-install 'flymake))
+
 (unless (package-installed-p 'projectile)
   (package-install 'projectile))
 
@@ -193,6 +196,9 @@
 ;; Python
 (unless (package-installed-p 'elpy)
   (package-install 'elpy))
+
+(unless (package-installed-p 'company-jedi)
+  (package-install 'company-jedi))
 
 (unless (package-installed-p 'pyenv-mode)
   (package-install 'pyenv-mode))

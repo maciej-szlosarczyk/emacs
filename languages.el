@@ -9,6 +9,7 @@
 ;; Imports
 (load "~/.emacs.d/languages/ruby.elc")
 (load "~/.emacs.d/languages/python.elc")
+(load "~/.emacs.d/languages/elisp.elc")
 
 ;;; Rust
 (defun rust-mode-config ()
@@ -75,24 +76,6 @@
 (add-hook 'haskell-mode-hook 'haskell-mode-config)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook 'set-width-80)
-
-;;; Elisp
-(defun elisp-mode-config ()
-  "Setup editor for Lisp."
-  (remove-hook 'rust-mode-hook 'rust-mode-config)
-  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
-  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
-  (remove-hook 'html-mode-hook 'web-mode-config)
-  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
-  (remove-hook 'java-mode-hook 'java-mode-config)
-
-  (set-indent 2)
-
-  (flycheck-mode 1))
-
-(add-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-(add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
-(add-hook 'emacs-lisp-mode-hook 'set-width-80)
 
 ;;; Java
 (defun java-mode-config ()
