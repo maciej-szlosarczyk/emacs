@@ -9,8 +9,13 @@
 (add-to-list 'purpose-user-mode-purposes '(fundamental-mode . code))
 
 ;; Test
-(add-to-list 'purpose-user-regexp-purposes '("_spec.rb\\(<.*>\\)?$" . test))
-(add-to-list 'purpose-user-regexp-purposes '("_test.exs\\(<.*>\\)?$" . test))
+(add-to-list 'purpose-user-regexp-purposes
+             '("_spec\\.rb\\(<.*>\\)?$" . test)) ;; Rspec
+(add-to-list 'purpose-user-regexp-purposes
+             '("_test\\.exs\\(<.*>\\)?$" . test)) ;; Exunit
+(add-to-list 'purpose-user-regexp-purposes
+             '("test_.*\\.py\\(<.*>\\)?$" . test)) ;; Pytest
+
 (add-to-list 'purpose-user-mode-purposes '(shell-mode . test))
 (add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . test))
 
@@ -26,6 +31,7 @@
 (add-to-list 'purpose-user-mode-purposes '(java-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(python-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(javascript-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(xml-mode . code))
 
 ;; Tools
 (add-to-list 'purpose-user-mode-purposes '(dired-mode . tools))
@@ -33,6 +39,7 @@
 (add-to-list 'purpose-user-mode-purposes '(help-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(helm-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . tools))
+(add-to-list 'purpose-user-mode-purposes '(reb-mode . tools)) ;; Regexp builder
 
 ;; Markdown and others
 (add-to-list 'purpose-user-mode-purposes '(markdown-mode . code))

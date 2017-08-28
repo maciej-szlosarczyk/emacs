@@ -58,7 +58,6 @@
 
 ;; Show trailing whitespace and remove whitespace on save
 (require 'whitespace)
-(setq-default show-trailing-whitespace t)
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (setq whitespace-style '(face trailing empty))
 
@@ -163,8 +162,8 @@
 
 ;; Show projectile lists by most recently active
 (setq projectile-sort-order (quote recently-active))
-(add-hook 'projectile-after-switch-project-hook 'magit-status)
 
+;; (add-hook 'projectile-after-switch-project-hook 'magit-status)
 ;; (add-hook 'projectile-find-file-hook 'projectile-invalidate-cache)
 
 ; Use VIM mode

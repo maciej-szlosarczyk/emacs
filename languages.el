@@ -3,7 +3,14 @@
 
 ;;; Code:
 ;;;; Major languages ;;;;
+;;; Intial imports
+(require 'company)
+
 ;;; Ruby
+(require 'ruby-mode)
+(require 'robe)
+(require 'rvm)
+(require 'rspec-mode)
 (defun ruby-mode-config ()
   "Setup editor for Ruby."
   (remove-hook 'rust-mode-hook 'rust-mode-config)
@@ -26,6 +33,7 @@
 ;; Use robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  "Activate proper RVM on activation of Robe."
   (rvm-activate-corresponding-ruby))
 
 (eval-after-load 'company
@@ -63,6 +71,7 @@
 (add-hook 'rust-mode-hook 'set-width-99)
 
 ;;; Python
+(require 'elpy)
 (defun python-mode-config ()
   "Setup editor for Python."
   (remove-hook 'ruby-mode-hook 'ruby-mode-config)
@@ -170,6 +179,7 @@
 (setq js-indent-level 2)
 
 ;;; Web-mode
+(require 'web-mode)
 (defun web-mode-config ()
   "Setup web mode."
   (remove-hook 'rust-mode-hook 'rust-mode-config)
@@ -194,7 +204,15 @@
 (defun markdown-mode-config ()
   "Setup markdown mode."
   (set-indent 2))
+
 (add-hook 'markdown-mode-hook 'markdown-mode-config)
 (add-hook 'markdown-mode-hook 'set-width-80)
+
+;; Shell things
+(defun shell-mode-config ()
+  "Setup shell mode."
+  )
+
+(setq ansi-color-for-comint-mode t) ;; Properly display colors in shell mode
 
 ;;; languages.el ends here

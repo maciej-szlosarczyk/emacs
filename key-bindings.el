@@ -41,19 +41,17 @@
 (evil-leader/set-key "ir" 'indent-region)
 (evil-leader/set-key "ac" 'align-to-colon)
 (evil-leader/set-key "cl" 'evilnc-comment-or-uncomment-lines)
-(evil-leader/set-key "WC" 'whitespace-cleanup)
 
-(evil-leader/set-key "Ps" 'helm-projectile-switch-project)
+(evil-leader/set-key "ps" 'helm-projectile-switch-project)
 (evil-leader/set-key "t"  'helm-projectile-find-file)
-(evil-leader/set-key "ag" 'helm-projectile-ag)
-(evil-leader/set-key "Pc" 'projectile-invalidate-cache)
+(evil-leader/set-key "pa" 'helm-projectile-ag)
+(evil-leader/set-key "pc" 'projectile-invalidate-cache)
 (evil-leader/set-key "b"  'helm-buffers-list)
 
 (evil-leader/set-key "<SPC>" 'company-yasnippet)
-(evil-leader/set-key "rC" 'load-file "~/.emacs")
 
-(evil-leader/set-key "Jl" 'dumb-jump-go); Jump to declaration
-(evil-leader/set-key "Jh" 'dumb-jump-back); Jump back from declariation
+(evil-leader/set-key "jl" 'dumb-jump-go); Jump to declaration
+(evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declariation
 
 ;; Dash integration
 (require 'dash-at-point)
