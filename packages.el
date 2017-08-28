@@ -88,6 +88,9 @@
 (unless (package-installed-p 'flymake)
   (package-install 'flymake))
 
+(unless (package-installed-p 'flymake-cursor)
+  (package-install 'flymake-cursor))
+
 (unless (package-installed-p 'projectile)
   (package-install 'projectile))
 
@@ -154,6 +157,9 @@
 
 (unless (package-installed-p 'rspec-mode)
   (package-install 'rspec-mode))
+
+(unless (package-installed-p 'flymake-ruby)
+  (package-install 'flymake-ruby))
 
 ; Web mode for editing erb
 (unless (package-installed-p 'web-mode)

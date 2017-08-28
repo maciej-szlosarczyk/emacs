@@ -40,6 +40,8 @@
   (robe-mode 1)
   (company-mode 1)
   (rspec-mode 1)
+  (flymake-mode 1)
+  (flymake-ruby-load)
 
   ;; Activate RVM
   (rvm-activate-corresponding-ruby)

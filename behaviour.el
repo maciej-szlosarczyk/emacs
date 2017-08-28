@@ -144,6 +144,7 @@
 (setq company-begin-commands '(self-insert-command))
 (setq company-selection-wrap-around t)
 
+;; Set up default backends (overriden for specific languages)
 (setq company-backends
       '((company-files          ; files & directory
          company-keywords       ; keywords
@@ -174,9 +175,6 @@
 
 ;; Show projectile lists by most recently active
 (setq projectile-sort-order (quote recently-active))
-
-;; (add-hook 'projectile-after-switch-project-hook 'magit-status)
-;; (add-hook 'projectile-find-file-hook 'projectile-invalidate-cache)
 
 ; Use VIM mode
 (require 'evil)
