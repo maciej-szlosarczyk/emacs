@@ -6,52 +6,9 @@
 ;;; Intial imports
 (require 'company)
 
-;;; Ruby
-(require 'ruby-mode)
-(require 'robe)
-(require 'rvm)
-(require 'rspec-mode)
-(defun ruby-mode-config ()
-  "Setup editor for Ruby."
-  (remove-hook 'rust-mode-hook 'rust-mode-config)
-  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
-  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (remove-hook 'html-mode-hook 'web-mode-config)
-  (remove-hook 'java-mode-hook 'java-mode-config)
-
-  (set-indent 2))
-
-;; Do not align 'begin' and 'while' ;;
-(setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
-
-;; Do not indent inside the parenthasis
-(setq ruby-deep-indent-paren nil)
-
-;; Do not insert encoding comments ;;
-(setq ruby-insert-encoding-magic-comment nil)
-
-;; Use robe
-(add-hook 'ruby-mode-hook 'robe-mode)
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  "Activate proper RVM on activation of Robe."
-  (rvm-activate-corresponding-ruby))
-
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
-;; User rspec-mode
-(add-hook 'ruby-mode-hook 'rspec-mode)
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
-
-;; Use web-mode for erb
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-
-(add-hook 'ruby-mode-hook 'ruby-mode-config)
-(add-hook 'ruby-mode-hook 'set-width-80)
-
-;; Use longer lines for HAML
-(add-hook 'haml-mode-hook 'set-width-120)
+;; Imports
+(load "~/.emacs.d/languages/ruby.elc")
+(load "~/.emacs.d/languages/python.elc")
 
 ;;; Rust
 (defun rust-mode-config ()
@@ -69,28 +26,6 @@
 (add-hook 'rust-mode-hook 'racer-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'rust-mode-hook 'set-width-99)
-
-;;; Python
-(require 'elpy)
-(defun python-mode-config ()
-  "Setup editor for Python."
-  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
-  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
-  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (remove-hook 'html-mode-hook 'web-mode-config)
-  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
-  (remove-hook 'java-mode-hook 'java-mode-config)
-
-  (set-indent 4))
-
-(setq elpy-rpc-python-command "python3")
-(setq python-indent-guess-indent-offset 4)
-(setq python-indent-offset 4)
-
-(add-hook 'python-mode-hook 'python-mode-config)
-(add-hook 'python-mode-hook 'pyenv-mode)
-(add-hook 'python-mode-hook 'elpy-mode)
-(add-hook 'python-mode-hook 'set-width-79)
 
 ;;; SQL
 (defun sql-mode-hook ()
@@ -214,5 +149,5 @@
   )
 
 (setq ansi-color-for-comint-mode t) ;; Properly display colors in shell mode
-
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 ;;; languages.el ends here
