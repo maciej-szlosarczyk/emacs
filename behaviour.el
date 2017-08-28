@@ -154,6 +154,9 @@
         (company-abbrev company-dabbrev)
         ))
 
+;; Test, I do not know what it does yet.
+(setq company-tooltip-align-annotations t)
+
 ;; Do not required match to continue typing
 (setq company-require-match 'never)
 

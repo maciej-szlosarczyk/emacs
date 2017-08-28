@@ -211,4 +211,8 @@
 
 (unless (package-installed-p 'pyenv-mode)
   (package-install 'pyenv-mode))
+
+;; Javascript
+(unless (package-installed-p 'company-tern)
+        (package-install 'company-tern))
 ;;; packages.el ends here

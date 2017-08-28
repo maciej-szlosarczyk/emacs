@@ -36,7 +36,7 @@
 (add-to-list 'purpose-user-mode-purposes '(web-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(java-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(python-mode . code))
-(add-to-list 'purpose-user-mode-purposes '(javascript-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(js-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . code))
 
 ;; Other files that fall into 'code'

@@ -4,3 +4,4 @@ backups
 elpa
 *.elc
 recentf
+.python-environments*

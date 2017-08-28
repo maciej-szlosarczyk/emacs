@@ -57,7 +57,9 @@
 (require 'dash-at-point)
 (evil-leader/set-key "d" 'dash-at-point)
 
+;; Force company-yasnippet
+
 (require 'evil)
 ;;; VIM insert mode things
-(define-key evil-insert-state-map "\C-a" 'company-yasnippet)
+(define-key evil-insert-state-map "\C-a" 'company-complete)
 ;;; key-bindings.el ends here

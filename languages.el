@@ -13,6 +13,7 @@
 (load "~/.emacs.d/languages/elixir.elc")
 (load "~/.emacs.d/languages/rust.elc")
 (load "~/.emacs.d/languages/web.elc")
+(load "~/.emacs.d/languages/js.elc")
 
 ;;; SQL
 (defun sql-mode-hook ()

@@ -4,6 +4,8 @@
 ;;; Code:
 (require 'elpy)
 (require 'pyenv-mode)
+(require 'company-jedi)
+
 ;;========== Editor config =========================
 (defun editor-config-python ()
   "Setup editor for Python."
@@ -12,7 +14,18 @@
   (setq python-indent-guess-indent-offset 4)
   (setq python-indent-offset 4))
 
-;;========== Code completion
+;;========== Helper for pyenv ======================
+(defun ssbb-pyenv-hook ()
+  "Automatically activates pyenv version if .python-version file exists."
+  (f-traverse-upwards
+   (lambda (path)
+     (let ((pyenv-version-path (f-expand ".python-version" path)))
+       (if (f-exists? pyenv-version-path)
+           (pyenv-mode-set (s-trim (f-read-text pyenv-version-path 'utf-8))))))))
+
+(add-hook 'find-file-hook 'ssbb-pyenv-hook)
+
+;;========== Code completion =======================
 (defun completion-config-python ()
   "Code completion and inspection for Python."
   (elpy-mode 1)
