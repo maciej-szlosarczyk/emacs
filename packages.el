@@ -190,6 +190,9 @@
 (unless (package-installed-p 'racer)
   (package-install 'racer))
 
+(unless (package-installed-p 'company-racer)
+  (package-install 'company-racer))
+
 (unless (package-installed-p 'toml-mode)
   (package-install 'toml-mode))
 

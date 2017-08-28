@@ -1,4 +1,4 @@
-;;; Ruby -- summary
+;;; Elisp -- summary
 ;;; Commentary:
 
 ;;; Code:
@@ -21,4 +21,6 @@
 ;;========== Hooks =================================
 (add-hook 'emacs-lisp-mode-hook 'editor-config-elisp)
 (add-hook 'emacs-lisp-mode-hook 'completion-config-elisp)
+
+(provide 'elisp)
 ;;; elisp.el ends here
