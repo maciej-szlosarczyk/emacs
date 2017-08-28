@@ -43,12 +43,11 @@
 
   ;; Activate RVM
   (rvm-activate-corresponding-ruby)
+  (robe-start "yes")
 
   ;; Initalize completion
   (set (make-local-variable 'company-backends)
-       '((company-robe company-capf company-dabbrev-code company-yasnippet
-                       company-files)))
-  (ac-robe-setup))
+       '((company-robe company-dabbrev-code company-yasnippet))))
 
 ;;========== Hooks ================================
 (add-hook 'ruby-mode-hook 'editor-ruby-mode-config)

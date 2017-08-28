@@ -153,6 +153,9 @@
         (company-abbrev company-dabbrev)
         ))
 
+;; Do not required match to continue typing
+(setq company-require-match 'never)
+
 ; Add project management
 (require 'projectile)
 (projectile-mode)
