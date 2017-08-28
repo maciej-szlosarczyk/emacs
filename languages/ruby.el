@@ -16,7 +16,7 @@
   ;; Do not indent inside the parenthasis
   (setq ruby-deep-indent-paren nil)
 
-  ;; Do not insert encoding comments ;;
+  ;; Do not insert encoding comments
   (setq ruby-insert-encoding-magic-comment nil)
 
   ;; Use robe
@@ -32,8 +32,7 @@
 
   ;; User rspec-mode
   (add-hook 'ruby-mode-hook 'rspec-mode)
-  (eval-after-load 'rspec-mode
-    '(rspec-install-snippets))
+  (eval-after-load 'rspec-mode '(rspec-install-snippets))
 
   ;; Use web-mode for erb
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)))
