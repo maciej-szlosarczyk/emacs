@@ -45,7 +45,6 @@
 
   ;; Activate RVM
   (rvm-activate-corresponding-ruby)
-  (robe-start "yes")
 
   ;; Initalize completion
   (set (make-local-variable 'company-backends)

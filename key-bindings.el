@@ -48,8 +48,6 @@
 (evil-leader/set-key "pc" 'projectile-invalidate-cache)
 (evil-leader/set-key "b"  'helm-buffers-list)
 
-(evil-leader/set-key "<SPC>" 'company-yasnippet)
-
 (evil-leader/set-key "jl" 'dumb-jump-go); Jump to declaration
 (evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declariation
 
@@ -62,4 +60,5 @@
 (require 'evil)
 ;;; VIM insert mode things
 (define-key evil-insert-state-map "\C-a" 'company-complete)
+(define-key evil-insert-state-map "\C-q" 'company-yasnippet)
 ;;; key-bindings.el ends here
