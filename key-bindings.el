@@ -49,7 +49,7 @@
 (evil-leader/set-key "b"  'helm-buffers-list)
 
 (evil-leader/set-key "jl" 'dumb-jump-go); Jump to declaration
-(evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declariation
+(evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declaration
 
 ;; Dash integration
 (require 'dash-at-point)
