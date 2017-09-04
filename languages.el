@@ -7,13 +7,13 @@
 (require 'company)
 
 ;; Imports
-(load "~/.emacs.d/languages/ruby.elc")
-(load "~/.emacs.d/languages/python.elc")
-(load "~/.emacs.d/languages/elisp.elc")
-(load "~/.emacs.d/languages/elixir.elc")
-(load "~/.emacs.d/languages/rust.elc")
-(load "~/.emacs.d/languages/web.elc")
-(load "~/.emacs.d/languages/js.elc")
+(load "~/.emacs.d/languages/ruby.el")
+(load "~/.emacs.d/languages/python.el")
+(load "~/.emacs.d/languages/elisp.el")
+(load "~/.emacs.d/languages/elixir.el")
+(load "~/.emacs.d/languages/rust.el")
+(load "~/.emacs.d/languages/web.el")
+(load "~/.emacs.d/languages/js.el")
 
 ;;; SQL
 (defun sql-mode-hook ()
