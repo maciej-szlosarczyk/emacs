@@ -215,4 +215,7 @@
 ;; Javascript
 (unless (package-installed-p 'company-tern)
         (package-install 'company-tern))
+
+(unless (package-installed-p 'tide)
+  (package-install 'tide))
 ;;; packages.el ends here
