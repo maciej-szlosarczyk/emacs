@@ -214,8 +214,11 @@
 
 ;; Javascript
 (unless (package-installed-p 'company-tern)
-        (package-install 'company-tern))
+  (package-install 'company-tern))
 
 (unless (package-installed-p 'tide)
   (package-install 'tide))
+
+(unless (package-installed-p 'nvm)
+  (package-install 'nvm))
 ;;; packages.el ends here

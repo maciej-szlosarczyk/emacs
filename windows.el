@@ -20,7 +20,6 @@
 (add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . test))
 
 ;; Enumerate through all stuff.
-
 ;; Git things
 (add-to-list 'purpose-user-regexp-purposes
              '("COMMIT_EDITMSG\\(<.*>\\)?$" . code))

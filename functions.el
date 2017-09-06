@@ -40,8 +40,8 @@
             nil
             t))
 
-(add-hook 'kill-emacs-hook 'byte-compile-init-dir)
-(add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
+;; (add-hook 'kill-emacs-hook 'byte-compile-init-dir)
+;; (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
 
 ;; Always start in fullscreen
 (defun toggle-fullscreen ()
