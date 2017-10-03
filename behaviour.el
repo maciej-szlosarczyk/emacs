@@ -170,7 +170,6 @@
 (require 'helm-projectile)
 
 ;; Reload tags when switching projects
-(add-hook 'projectile-after-switch-project-hook 'projectile-regenerate-tags)
 (setq tags-revert-without-query 1)
 
 (with-eval-after-load 'helm-projectile
