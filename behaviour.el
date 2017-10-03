@@ -169,6 +169,10 @@
 (projectile-mode t)
 (require 'helm-projectile)
 
+;; Reload tags when switching projects
+(add-hook 'projectile-after-switch-project-hook 'projectile-regenerate-tags)
+(setq tags-revert-without-query 1)
+
 (with-eval-after-load 'helm-projectile
   (defvar helm-source-file-not-found
     (helm-build-dummy-source

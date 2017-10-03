@@ -21,6 +21,10 @@
 (unless (package-installed-p 'evil-nerd-commenter)
   (package-install 'evil-nerd-commenter))
 
+;; Ctags
+(unless (package-installed-p 'etags-select)
+  (package-install 'etags-select))
+
 ;; Rainbow delimiters
 (unless (package-installed-p 'rainbow-delimiters)
   (package-install 'rainbow-delimiters))

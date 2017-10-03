@@ -5,3 +5,4 @@ elpa
 *.elc
 recentf
 .python-environments*
+TAGS

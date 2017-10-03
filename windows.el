@@ -48,6 +48,7 @@
 (add-to-list 'purpose-user-mode-purposes '(help-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(helm-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . tools))
+(add-to-list 'purpose-user-mode-purposes '(etags-select-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(reb-mode . tools)) ;; Regexp builder
 
 (setq purpose-use-default-configuration nil)

@@ -16,8 +16,8 @@
   (flycheck-mode 1)
   (flymake-mode)
   (set (make-local-variable 'company-backends)
-       '((company-tern company-capf company-dabbrev-code company-yasnippet
-                        company-files))))
+       '((company-tern company-capf company-etags company-dabbrev-code
+                       company-yasnippet company-files))))
 
 ;;========== Tide mode ============================
 ;; TODO: Figure out how to use tide with Emacs and NVM.

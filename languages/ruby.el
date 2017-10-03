@@ -48,7 +48,7 @@
 
   ;; Initalize completion
   (set (make-local-variable 'company-backends)
-       '((company-robe company-dabbrev-code company-yasnippet))))
+       '((company-robe company-dabbrev-code company-yasnippet company-etags))))
 
 ;;========== Hooks ================================
 (add-hook 'ruby-mode-hook 'editor-ruby-mode-config)
