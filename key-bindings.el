@@ -48,8 +48,8 @@
 (evil-leader/set-key "pc" 'projectile-invalidate-cache)
 (evil-leader/set-key "b"  'helm-buffers-list)
 
-(evil-leader/set-key "jl" 'etags-select-find-tag-at-point); Jump to declaration
-(evil-leader/set-key "jh" 'pop-tag-mark); Jump back from declaration
+(evil-leader/set-key "j;" 'dumb-jump-go); Jump to declaration
+(evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declaration
 
 ;; Dash integration
 (require 'dash-at-point)

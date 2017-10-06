@@ -160,28 +160,6 @@
 ;; Do not required match to continue typing
 (setq company-require-match 'never)
 
-; Add project management
-(require 'projectile)
-(projectile-mode)
-(setq projectile-enable-caching t)
-(setq projectile-globally-ignored-directories (
-	append '("node_modules" ".svn") projectile-globally-ignored-directories))
-(projectile-mode t)
-(require 'helm-projectile)
-
-;; Reload tags when switching projects
-(setq tags-revert-without-query 1)
-
-(with-eval-after-load 'helm-projectile
-  (defvar helm-source-file-not-found
-    (helm-build-dummy-source
-        "Create file"
-      :action (lambda (cand) (find-file cand))))
-  (add-to-list 'helm-projectile-sources-list helm-source-file-not-found t))
-
-;; Show projectile lists by most recently active
-(setq projectile-sort-order (quote recently-active))
-
 ; Use VIM mode
 (require 'evil)
 (require 'evil-leader)
@@ -190,5 +168,52 @@
 
 ;; Add magit for git
 (require 'evil-magit)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;; Projectile  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'projectile)
+(projectile-mode)
+
+
+(defun projectile-regenerate-tags-if-exist ()
+  "Only regenerate tags if a tag file is present in the folder."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (when (or (file-exists-p (expand-file-name "TAGS"))
+              (file-exists-p (expand-file-name projectile-tags-file-name)))
+      (projectile-regenerate-tags))))
+
+(setq projectile-enable-caching t)
+;; Expire cache after 5 minutes
+(setq projectile-file-exists-local-cache-expire (* 2 60))
+
+;; Always create a new tag table list and reload without asking
+(setq tags-revert-without-query t)
+(setq tags-add-tables nil)
+
+;; Enable idle timer
+;; TODO: Does not work properly
+(setq projectile-enable-idle-timer t)
+(add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags-if-exist)
+(setq projectile-idle-timer-seconds 15)
+
+;; Run the tags if project was changed
+(add-hook 'projectile-after-switch-project-hook
+          'projectile-regenerate-tags-if-exist)
+
+;; Show projectile lists by most recently active
+(setq projectile-sort-order (quote recently-active))
+
+(setq projectile-globally-ignored-directories
+      (append '("node_modules" ".svn") projectile-globally-ignored-directories))
+
+(require 'helm-projectile)
+
+(with-eval-after-load 'helm-projectile
+  (defvar helm-source-file-not-found
+    (helm-build-dummy-source
+        "Create file"
+      :action (lambda (cand) (find-file cand))))
+  (add-to-list 'helm-projectile-sources-list helm-source-file-not-found t))
 
 ;;; behaviour.el ends here
