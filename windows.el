@@ -55,5 +55,7 @@
 (purpose-compile-user-configuration)
 
 ;; Load configuration by default
-(purpose-load-window-layout "coding_with_magit")
+(if (display-graphic-p)
+    (progn
+      (purpose-load-window-layout "coding_with_magit")))
 ;;; windows.el ends here
