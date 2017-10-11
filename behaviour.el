@@ -184,18 +184,10 @@
       (projectile-regenerate-tags))))
 
 (setq projectile-enable-caching t)
-;; Expire cache after 5 minutes
-(setq projectile-file-exists-local-cache-expire (* 2 60))
 
 ;; Always create a new tag table list and reload without asking
 (setq tags-revert-without-query t)
 (setq tags-add-tables nil)
-
-;; Enable idle timer
-;; TODO: Does not work properly
-(setq projectile-enable-idle-timer t)
-(add-hook 'projectile-idle-timer-hook 'projectile-regenerate-tags-if-exist)
-(setq projectile-idle-timer-seconds 15)
 
 ;; Run the tags if project was changed
 (add-hook 'projectile-after-switch-project-hook

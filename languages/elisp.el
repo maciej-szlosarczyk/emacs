@@ -15,12 +15,11 @@
   (company-mode 1)
   (flycheck-mode 1)
   (set (make-local-variable 'company-backends)
-       '((elisp-company company-capf company-dabbrev-code company-yasnippet
-                        company-files))))
+       '((elisp-company company-capf company-yasnippet company-files))))
 
 ;;========== Hooks =================================
 (add-hook 'emacs-lisp-mode-hook 'editor-config-elisp)
 (add-hook 'emacs-lisp-mode-hook 'completion-config-elisp)
 
 (provide 'elisp)
-;;; elisp.el ends here
+;;; elisp.el ends here.
