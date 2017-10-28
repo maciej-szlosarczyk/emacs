@@ -59,7 +59,7 @@
  )
 
 ;;; Set performance
-(setq gc-cons-threshold 100000000)
+(setq gc-cons-threshold 8000000)
 
 ; load custom config files
 (load "~/.emacs.d/init.elc")

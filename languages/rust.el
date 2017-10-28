@@ -15,7 +15,7 @@
   (racer-mode 1)
   (company-mode 1)
   (flycheck-mode 1)
-  (flymake-mode)
+  (flymake-mode 1)
   (set (make-local-variable 'company-backends)
        '((company-racer company-capf company-dabbrev-code company-yasnippet
                         company-files))))

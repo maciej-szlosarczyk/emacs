@@ -14,6 +14,7 @@
   ;; Indentation and line length
   (set-width-80)
   (set-indent 2)
+  (setq ruby-deep-indent-paren nil)
 
   ;; Do not align 'begin' and 'while' ;;
   (setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
@@ -48,7 +49,7 @@
 
   ;; Initalize completion
   (set (make-local-variable 'company-backends)
-       '((company-etags company-yasnippet company-files))))
+       '((company-yasnippet company-etags company-dabbrev-code company-files))))
 
 ;;========== Hooks ================================
 (add-hook 'ruby-mode-hook 'editor-ruby-mode-config)

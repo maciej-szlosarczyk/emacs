@@ -15,6 +15,8 @@
              '("_test\\.exs\\(<.*>\\)?$" . test)) ;; ExUnit
 (add-to-list 'purpose-user-regexp-purposes
              '("test_.*\\.py\\(<.*>\\)?$" . test)) ;; Pytest
+(add-to-list 'purpose-user-regexp-purposes
+             '("tests.rs\\(<.*>\\)?$" . test)) ;; Rust tests
 
 (add-to-list 'purpose-user-mode-purposes '(shell-mode . test))
 (add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . test))
@@ -37,6 +39,7 @@
 (add-to-list 'purpose-user-mode-purposes '(python-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(js-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(sql-mode . code))
 
 ;; Other files that fall into 'code'
 (add-to-list 'purpose-user-mode-purposes '(xml-mode . code))

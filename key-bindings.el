@@ -17,7 +17,7 @@
 (evil-leader/set-leader "<SPC>")
 
 (evil-leader/set-key
-  "w"  'kill-buffer
+  "w"  'delete-window
   ","  'previous-buffer
   "."  'next-buffer
   "k"  'kill-buffer-and-window

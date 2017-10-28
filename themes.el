@@ -12,7 +12,7 @@
 ;; Display time on mode line
 (setq display-time-format "%H:%M")
 (display-time-mode t)
-
+()
 (load-theme 'flatui t t)
 (load "~/.emacs.d/base16-not-harmonic-theme.el")
 (load-theme 'base16-not-harmonic t t)

@@ -4,14 +4,16 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Overall behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq backup-directory-alist
-      `(("" . "~/.emacs.d/backups")))
+      `((".*" . "~/.emacs_backups/auto-save-list")))
 (setq auto-save-file-name-transforms
-      `((".*" ,"~/.emacs.d/backups/auto-save" t)))
+      `((".*", "~/.emacs_backups/auto-save-list" t)))
+
 (setq backup-by-copying t)
 (setq delete-old-versions t
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
 
 ; Use Shells variables
 (when (memq window-system '(mac ns))
@@ -40,7 +42,7 @@
 ; Enable line numbers and show cursors position
 (global-linum-mode t)
 (column-number-mode 1)
-(global-hl-line-mode)
+;; (global-hl-line-mode)
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)
@@ -169,6 +171,10 @@
 ;; Add magit for git
 (require 'evil-magit)
 
+
+;; Additional configuration for flycheck.
+(require 'flycheck)
+(setq flycheck-highlighting-mode 'lines)
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Projectile  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'projectile)

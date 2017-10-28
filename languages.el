@@ -71,12 +71,4 @@
 
 (add-hook 'markdown-mode-hook 'markdown-mode-config)
 (add-hook 'markdown-mode-hook 'set-width-80)
-
-;; Shell things
-(defun shell-mode-config ()
-  "Setup shell mode."
-  )
-
-(setq ansi-color-for-comint-mode t) ;; Properly display colors in shell mode
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-;;; languages.el ends here
+;;; languages.el ends here.

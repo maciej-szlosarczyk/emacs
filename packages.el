@@ -5,10 +5,13 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
-(package-refresh-contents) ; Refresh only once, on startup
+(if (display-graphic-p) ; If GUI version
+    (progn
+      (package-refresh-contents))) ; Refresh only once, on startup
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Behaviour
+
 (unless (package-installed-p 'helm)
   (package-install 'helm))
 
@@ -67,6 +70,7 @@
 
 (unless (package-installed-p 'helm-ag)
   (package-install 'helm-ag))
+
 
 (unless (package-installed-p 'dumb-jump)
   (package-install 'dumb-jump))
