@@ -14,7 +14,6 @@
   kept-old-versions 2
   version-control t)
 
-
 ; Use Shells variables
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -206,12 +205,5 @@
       (append '("node_modules" ".svn") projectile-globally-ignored-directories))
 
 (require 'helm-projectile)
-
-(with-eval-after-load 'helm-projectile
-  (defvar helm-source-file-not-found
-    (helm-build-dummy-source
-        "Create file"
-      :action (lambda (cand) (find-file cand))))
-  (add-to-list 'helm-projectile-sources-list helm-source-file-not-found t))
 
 ;;; behaviour.el ends here

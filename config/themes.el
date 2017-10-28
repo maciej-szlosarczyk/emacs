@@ -14,7 +14,7 @@
 (display-time-mode t)
 ()
 (load-theme 'flatui t t)
-(load "~/.emacs.d/base16-not-harmonic-theme.el")
+(load "~/.emacs.d/config/base16-not-harmonic-theme.el")
 (load-theme 'base16-not-harmonic t t)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'base16-unikitty-light t t)

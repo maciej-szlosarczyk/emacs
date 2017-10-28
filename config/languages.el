@@ -7,28 +7,15 @@
 (require 'company)
 
 ;; Imports
-(load "~/.emacs.d/languages/ruby.el")
-(load "~/.emacs.d/languages/python.el")
-(load "~/.emacs.d/languages/elisp.el")
-(load "~/.emacs.d/languages/elixir.el")
-(load "~/.emacs.d/languages/rust.el")
-(load "~/.emacs.d/languages/web.el")
-(load "~/.emacs.d/languages/js.el")
+(load "~/.emacs.d/languages/ruby.elc")
+(load "~/.emacs.d/languages/python.elc")
+(load "~/.emacs.d/languages/elisp.elc")
+(load "~/.emacs.d/languages/elixir.elc")
+(load "~/.emacs.d/languages/rust.elc")
+(load "~/.emacs.d/languages/web.elc")
+(load "~/.emacs.d/languages/js.elc")
+(load "~/.emacs.d/languages/sql.elc")
 
-;;; SQL
-(defun sql-mode-hook ()
-  "Editor setup for SQL."
-  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
-  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
-  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (remove-hook 'html-mode-hook 'web-mode-config)
-  (remove-hook 'haskell-mode-hook 'haskell-mode-config)
-  (remove-hook 'java-mode-hook 'java-mode-config)
-
-  (set-indent 4))
-
-(add-hook 'sql-mode-hook 'flycheck-mode)
-(add-hook 'sql-mode-hook 'set-width-120)
 
 ;;; Haskell
 (defun haskell-mode-config ()

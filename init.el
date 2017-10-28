@@ -8,14 +8,14 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(load "~/.emacs.d/packages.elc")
-(load "~/.emacs.d/functions.elc")
-(load "~/.emacs.d/behaviour.elc")
-(load "~/.emacs.d/themes.elc")
-(load "~/.emacs.d/key-bindings.elc")
-(load "~/.emacs.d/spelling.elc")
-(load "~/.emacs.d/languages.elc")
-(load "~/.emacs.d/windows.elc")
+(load "~/.emacs.d/config/packages.elc")
+(load "~/.emacs.d/config/functions.elc")
+(load "~/.emacs.d/config/behaviour.elc")
+(load "~/.emacs.d/config/themes.elc")
+(load "~/.emacs.d/config/key-bindings.elc")
+(load "~/.emacs.d/config/spelling.elc")
+(load "~/.emacs.d/config/languages.elc")
+(load "~/.emacs.d/config/windows.elc")
 
 (provide 'init)
 ;;; init.el ends here
