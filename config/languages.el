@@ -15,22 +15,7 @@
 (load "~/.emacs.d/languages/web.elc")
 (load "~/.emacs.d/languages/js.elc")
 (load "~/.emacs.d/languages/sql.elc")
-
-
-;;; Haskell
-(defun haskell-mode-config ()
-  "Call haskell mode config."
-  (remove-hook 'ruby-mode-hook 'ruby-mode-config)
-  (remove-hook 'rust-mode-hook 'rust-mode-config)
-  (remove-hook 'emacs-lisp-mode-hook 'elisp-mode-config)
-  (remove-hook 'html-mode-hook 'web-mode-config)
-  (remove-hook 'elixir-mode-hook 'elixir-mode-config)
-
-  (set-indent 4))
-
-(add-hook 'haskell-mode-hook 'haskell-mode-config)
-(add-hook 'haskell-mode-hook 'flycheck-mode)
-(add-hook 'haskell-mode-hook 'set-width-80)
+(load "~/.emacs.d/languages/haskell.elc")
 
 ;;; Java
 (defun java-mode-config ()

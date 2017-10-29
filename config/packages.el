@@ -5,7 +5,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
-(if (display-graphic-p) ; If GUI version
+(if (display-graphic-p) ; Run this only if there's GUI
     (progn
       (package-refresh-contents))) ; Refresh only once, on startup
 
@@ -192,6 +192,12 @@
 ;; Haskell
 (unless (package-installed-p 'haskell-mode)
   (package-install 'haskell-mode))
+
+(unless (package-installed-p 'scion)
+  (package-install 'scion))
+
+(unless (package-installed-p 'company-ghci)
+  (package-install 'company-ghci))
 
 ;; Scala
 (unless (package-installed-p 'scala-mode)

@@ -3,20 +3,7 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Overall behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq backup-directory-alist
-      `((".*" . "~/.emacs_backups/auto-save-list")))
-(setq auto-save-file-name-transforms
-      `((".*", "~/.emacs_backups/auto-save-list" t)))
-
-(setq backup-by-copying t)
-(setq delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
-  version-control t)
-
-; Use Shells variables
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+(setq debug-on-error t)
 
 ;;; remove menu bar and icons
 (menu-bar-mode -1)
@@ -29,25 +16,34 @@
 ; Enable diff highlights (useful for git)
 (require 'diff-hl)
 
-(global-diff-hl-mode)
-(diff-hl-flydiff-mode)
-(diff-hl-margin-mode)
+(global-diff-hl-mode 1)
+(diff-hl-flydiff-mode 1)
+(diff-hl-margin-mode 1)
 (setq diff-hl-side 'right)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-
-; Add pgp binary
-(add-to-list 'exec-path "/usr/local/bin")
 
 ; Enable line numbers and show cursors position
 (global-linum-mode t)
 (column-number-mode 1)
-;; (global-hl-line-mode)
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)
 
 ;; Enable y/n answers to questions
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;#====================== Backup config #==============================
+(setq backup-directory-alist
+      `((".*" . "~/.emacs_backups/auto-save-list")))
+(setq auto-save-file-name-transforms
+      `((".*", "~/.emacs_backups/auto-save-list" t)))
+
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;; code behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add ruler at 80, do not wrap lines (can be overwritten later)
@@ -62,7 +58,6 @@
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (setq whitespace-style '(face trailing empty))
 
-(add-hook 'before-save-hook 'delete-trailing-lines)
 (add-hook 'before-save-hook 'whitespace-cleanup) ; Cleanup whitespace on save
 
 ;; Tabs are spaces and are general at 2. Guide indent with lines
@@ -90,6 +85,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; Add pgp binary
+(add-to-list 'exec-path "/usr/local/bin")
+
+; Use Shells variables
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 
 ;;;;;;;;;;;;;;;;;;;;;; indentation functions ;;;;;;;;;;;;;;;;;;;;;;
@@ -164,12 +166,11 @@
 ; Use VIM mode
 (require 'evil)
 (require 'evil-leader)
-(global-evil-leader-mode)
-(evil-mode 1)
+(global-evil-leader-mode t)
+(evil-mode t)
 
 ;; Add magit for git
 (require 'evil-magit)
-
 
 ;; Additional configuration for flycheck.
 (require 'flycheck)
@@ -178,7 +179,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;; Projectile  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'projectile)
 (projectile-mode)
-
 
 (defun projectile-regenerate-tags-if-exist ()
   "Only regenerate tags if a tag file is present in the folder."
