@@ -15,7 +15,7 @@
   (flycheck-mode 1)
   (flymake-mode 1)
   (set (make-local-variable 'company-backends)
-       '((company-ghci company-capf company-etags company-dabbrev-code
+       '((company-ghc company-capf company-etags company-dabbrev-code
                         company-yasnippet company-files))))
 
 :;========== Scion mode ============================
@@ -24,7 +24,7 @@
 ;;   (scion-mode 1))
 
 ;;========== Hooks =================================
-(add-hook 'haskell-mode-hook 'edito-config-haskell)
+(add-hook 'haskell-mode-hook 'editor-config-haskell)
 (add-hook 'haskell-mode-hook 'completion-config-haskell)
 ;; (add-hook 'haskell-mode-hook 'scion-config-haskell)
 

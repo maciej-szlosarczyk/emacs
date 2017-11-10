@@ -193,11 +193,8 @@
 (unless (package-installed-p 'haskell-mode)
   (package-install 'haskell-mode))
 
-(unless (package-installed-p 'scion)
-  (package-install 'scion))
-
-(unless (package-installed-p 'company-ghci)
-  (package-install 'company-ghci))
+(unless (package-installed-p 'company-ghc)
+  (package-install 'company-ghc))
 
 ;; Scala
 (unless (package-installed-p 'scala-mode)
@@ -215,6 +212,9 @@
 
 (unless (package-installed-p 'toml-mode)
   (package-install 'toml-mode))
+
+(unless (package-installed-p 'flycheck-rust)
+  (package-install 'flycheck-rust))
 
 ;; Python
 (unless (package-installed-p 'elpy)

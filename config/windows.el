@@ -34,12 +34,14 @@
 (add-to-list 'purpose-user-mode-purposes '(elixir-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(rust-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(haskell-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(haskell-cabal-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(web-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(java-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(python-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(js-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(sql-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(yaml-mode . code))
 
 ;; Other files that fall into 'code'
 (add-to-list 'purpose-user-mode-purposes '(xml-mode . code))
@@ -57,8 +59,14 @@
 (setq purpose-use-default-configuration nil)
 (purpose-compile-user-configuration)
 
-;; Load configuration by default
-(if (display-graphic-p)
-    (progn
-      (purpose-load-window-layout "coding_with_magit")))
+;; Functions for changing layout
+(defun purpose-big-screen ()
+  "Load coding_with_magit."
+  (interactive)
+  (purpose-load-window-layout "coding_with_magit"))
+
+(defun purpose-small-screen ()
+  "Load small_screen."
+  (interactive)
+  (purpose-load-window-layout "small_screen"))
 ;;; windows.el ends here

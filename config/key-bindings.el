@@ -11,6 +11,8 @@
 (global-set-key (kbd "s-<left>") 'beginning-of-line)
 (global-set-key (kbd "s-<up>") 'scroll-down) ; WTF is this reverse, I dunno
 (global-set-key (kbd "s-<down>") 'scroll-up)
+(global-set-key (kbd "<f8>") 'purpose-big-screen)
+(global-set-key (kbd "<f7>") 'purpose-small-screen)
 
 (require 'evil-leader)
 ;;;;;;;;; EVIL Leader ;;;;;;;;;;;;;;;;;;;;;;;;

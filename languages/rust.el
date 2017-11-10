@@ -16,6 +16,7 @@
   (company-mode 1)
   (flycheck-mode 1)
   (flymake-mode 1)
+  (flycheck-rust-setup)
   (set (make-local-variable 'company-backends)
        '((company-racer company-capf company-dabbrev-code company-yasnippet
                         company-files))))
