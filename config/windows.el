@@ -41,11 +41,13 @@
 (add-to-list 'purpose-user-mode-purposes '(js-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(sql-mode . code))
-(add-to-list 'purpose-user-mode-purposes '(yaml-mode . code))
 
 ;; Other files that fall into 'code'
 (add-to-list 'purpose-user-mode-purposes '(xml-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(markdown-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(terraform-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(yaml-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(dockerfile-mode . code))
 
 ;; Tools
 (add-to-list 'purpose-user-mode-purposes '(dired-mode . tools))
