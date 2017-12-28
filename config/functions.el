@@ -40,16 +40,16 @@
             nil
             t))
 
-(defun call-in-windowed-mode (callee)
+(defun byte-compile-in-windowed-mode ()
   "Call function passed as CALLEE only if run in window mode."
   (interactive)
   (if (display-graphic-p)
       (progn
-        (funcall callee))))
+        (byte-compile-init-dir))))
 
 ;; (call-in-windowed-mode 'byte-compile-init-dir)
 
-(add-hook 'kill-emacs-hook 'byte-compile-init-dir)
+(add-hook 'kill-emacs-hook 'byte-compile-in-windowed-mode)
 (add-hook 'emacs-lisp-mode-hook 'remove-elc-on-save)
 
 ;; Always start in fullscreen

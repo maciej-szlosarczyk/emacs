@@ -226,6 +226,10 @@
 (unless (package-installed-p 'pyenv-mode)
   (package-install 'pyenv-mode))
 
+;; SQL
+(unless (package-installed-p 'sql-indent)
+  (package-install 'sql-indent))
+
 ;; Javascript
 (unless (package-installed-p 'company-tern)
   (package-install 'company-tern))
