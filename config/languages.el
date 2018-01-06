@@ -16,6 +16,7 @@
 (load "~/.emacs.d/languages/js.elc")
 (load "~/.emacs.d/languages/sql.elc")
 (load "~/.emacs.d/languages/haskell.elc")
+(load "~/.emacs.d/languages/go.elc")
 
 ;;; Java
 (defun java-mode-config ()

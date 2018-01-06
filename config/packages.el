@@ -226,6 +226,16 @@
 (unless (package-installed-p 'pyenv-mode)
   (package-install 'pyenv-mode))
 
+;; Go
+(unless (package-installed-p 'go-mode)
+  (package-install 'go-mode))
+
+(unless (package-installed-p 'company-go)
+  (package-install 'company-go))
+
+(unless (package-installed-p 'flymake-go)
+  (package-install 'flymake-go))
+
 ;; SQL
 (unless (package-installed-p 'sql-indent)
   (package-install 'sql-indent))
