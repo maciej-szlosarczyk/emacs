@@ -15,7 +15,7 @@
   (alchemist-mode 1)
   (company-mode 1)
   (set (make-local-variable 'company-backends)
-       '((company-alchemist company-yasnippet company-dabbrev company-files))))
+       '((alchemist-company company-yasnippet company-dabbrev company-files))))
 
 ;;========== Hooks =================================
 (add-hook 'elixir-mode-hook 'editor-config-elixir)

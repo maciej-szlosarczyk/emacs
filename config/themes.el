@@ -19,6 +19,8 @@
 (load-theme 'base16-mexico-light t t)
 (load-theme 'base16-unikitty-light t t)
 (load-theme 'base16-summerfruit-light t t)
+(load-theme 'base16-material-darker t t)
+(load-theme 'atom-one-dark t t)
 
 (defun base16-harmonic-custom ()
   "Additional configuration for Base 16 theme."
@@ -38,11 +40,17 @@
   (set-face-attribute 'linum nil :font "Hasklig 15"
                       :slant 'normal))
 
+(defun base16-material-darker-custom ()
+  "Additional configuration for Base16 theme."
+  (set-face-attribute 'mode-line nil :font "Hasklig 15")
+  (set-face-attribute 'linum nil :font "Hasklig 15"
+                      :slant 'normal))
+
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-not-harmonic)
-      (base16-harmonic-custom))
+      (enable-theme 'base16-material-darker)
+      (base16-material-darker-custom))
   (progn
     (color-theme-approximate-on)
     (enable-theme 'flatui)))
