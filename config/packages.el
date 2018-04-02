@@ -105,6 +105,9 @@
 (unless (package-installed-p 'yasnippet)
   (package-install 'yasnippet))
 
+(unless (package-installed-p 'yasnippet-snippets)
+  (package-install 'yasnippet-snippets))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Themes
 (unless (package-installed-p 'color-theme-approximate)

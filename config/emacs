@@ -8,21 +8,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#ecf0f1" "#e74c3c" "#2ecc71" "#f1c40f" "#2492db" "#9b59b6" "#1abc9c" "#2c3e50"])
- '(ansi-term-color-vector
-   [unspecified "#0b1c2c" "#bf8b56" "#56bf8b" "#8bbf56" "#9b78bc" "#bf568b" "#9b78bc" "#cbd6e2"] t)
  '(background-color "#202020")
  '(background-mode dark)
  '(column-enforce-column 99)
  '(cursor-color "#cccccc")
- '(fci-rule-color "#f1c40f")
  '(foreground-color "#cccccc")
  '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
  '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
  '(package-selected-packages
    (quote
-    (flymake-cursor flymake-ruby company-racer yaml-mode window-purpose web-mode ujelly-theme toml-mode smart-mode-line scala-mode rvm ruby-end rspec-mode robe rainbow-mode rainbow-delimiters racer pyenv-mode pos-tip noctilux-theme neotree monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl dash-at-point company-jedi column-enforce-mode color-theme-approximate base16-theme atom-one-dark-theme alchemist aggressive-indent ag)))
+    (yasnippet-snippets flymake-go go-flymake flycheck-go company-go go-mode expand-region sql-indent json-mode terraform-mode flycheck-rust company-ghc company-ghci scion hlinum etags-select nvm tide yaml-mode window-purpose web-mode ujelly-theme toml-mode smart-mode-line scala-mode rvm ruby-end rspec-mode robe rainbow-mode rainbow-delimiters racer pyenv-mode noctilux-theme monokai-theme markdown-mode less-css-mode json-reformat jade-mode indent-guide helm-themes helm-projectile helm-ag haskell-mode haml-mode groovy-mode flymake-ruby flymake-cursor flycheck flatui-theme exec-path-from-shell evil-nerd-commenter evil-magit evil-leader elpy dumb-jump dockerfile-mode diff-hl dash-at-point company-tern company-racer company-jedi column-enforce-mode color-theme-approximate base16-theme atom-one-dark-theme alchemist aggressive-indent ag)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sml/active-background-color "#34495e")
  '(sml/active-foreground-color "#ecf0f1")
