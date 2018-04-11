@@ -34,6 +34,12 @@
   (rspec-mode t)
   (eval-after-load 'rspec-mode '(rspec-install-snippets)))
 
+;;========== Minitest config ======================
+(defun minitest-ruby-mode-config ()
+  "Use minitest-mode."
+  (minitest-mode t)
+  (eval-after-load 'minitest-mode '(minitest-install-snippets)))
+
 ;;========== Robe config ==========================
 (defun robe-ruby-mode-config ()
   "Use robe."
@@ -55,6 +61,7 @@
 (add-hook 'ruby-mode-hook 'editor-ruby-mode-config)
 (add-hook 'ruby-mode-hook 'robe-ruby-mode-config)
 (add-hook 'ruby-mode-hook 'rspec-ruby-mode-config)
+(add-hook 'ruby-mode-hook 'minitest-ruby-mode-config)
 
 ;; Use longer lines for HAML
 (add-hook 'haml-mode-hook 'set-width-120)

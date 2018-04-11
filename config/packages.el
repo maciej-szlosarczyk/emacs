@@ -169,6 +169,9 @@
 (unless (package-installed-p 'rspec-mode)
   (package-install 'rspec-mode))
 
+(unless (package-installed-p 'minitest)
+  (package-install 'minitest))
+
 (unless (package-installed-p 'flymake-ruby)
   (package-install 'flymake-ruby))
 
@@ -191,6 +194,10 @@
 ;; Jenkinsfile
 (unless (package-installed-p 'groovy-mode)
   (package-install 'groovy-mode))
+
+;; Apache
+(unless (package-installed-p 'apache-mode)
+  (package-install 'apache-mode))
 
 ;; Haskell
 (unless (package-installed-p 'haskell-mode)
