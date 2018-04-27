@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Overall behaviour ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 ;;; remove menu bar and icons
 (menu-bar-mode -1)
@@ -25,6 +25,9 @@
 ; Enable line numbers and show cursors position
 (global-linum-mode t)
 (column-number-mode 1)
+
+;; Enable TODO highlights
+(hl-todo-mode 1)
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)

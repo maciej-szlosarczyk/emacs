@@ -21,6 +21,7 @@
 (load-theme 'base16-summerfruit-light t t)
 (load-theme 'base16-material-darker t t)
 (load-theme 'atom-one-dark t t)
+(load-theme 'base16-atelier-forest-light t t)
 
 (defun base16-harmonic-custom ()
   "Additional configuration for Base 16 theme."
@@ -49,8 +50,8 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-material-darker)
-      (base16-material-darker-custom))
+      (enable-theme 'base16-atelier-forest-light)
+      (base16-summerfruit-light-custom))
   (progn
     (color-theme-approximate-on)
     (enable-theme 'flatui)))

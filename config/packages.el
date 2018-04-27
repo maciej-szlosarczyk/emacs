@@ -93,6 +93,9 @@
 (unless (package-installed-p 'flycheck)
   (package-install 'flycheck))
 
+(unless (package-installed-p 'hl-todo)
+  (package-install 'hl-todo))
+
 (unless (package-installed-p 'flymake)
   (package-install 'flymake))
 
@@ -259,4 +262,8 @@
 
 (unless (package-installed-p 'nvm)
   (package-install 'nvm))
+
+(unless (package-installed-p 'vue-mode)
+  (package-install 'vue-mode))
+
 ;;; packages.el ends here
