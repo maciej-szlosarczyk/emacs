@@ -49,6 +49,7 @@
 (evil-leader/set-key "pa" 'helm-projectile-ag)
 (evil-leader/set-key "pc" 'projectile-invalidate-cache)
 (evil-leader/set-key "b"  'helm-buffers-list)
+(evil-leader/set-key "/"  'helm-swoop)
 
 (evil-leader/set-key "j;" 'dumb-jump-go); Jump to declaration
 (evil-leader/set-key "jh" 'dumb-jump-back); Jump back from declaration

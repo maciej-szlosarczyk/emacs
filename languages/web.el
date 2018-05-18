@@ -27,5 +27,8 @@
 (add-hook 'html-mode-hook 'editor-config-web)
 (add-hook 'html-mode-hook 'completion-config-web)
 
+(add-hook 'web-mode-hook 'editor-config-web)
+(add-hook 'web-mode-hook 'completion-config-web)
+
 (provide 'web)
 ;;; web.el ends here

@@ -50,8 +50,8 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-atelier-forest-light)
-      (base16-summerfruit-light-custom))
+      (enable-theme 'base16-not-harmonic)
+      (base16-harmonic-custom))
   (progn
     (color-theme-approximate-on)
     (enable-theme 'flatui)))

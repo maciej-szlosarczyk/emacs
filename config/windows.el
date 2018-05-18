@@ -14,6 +14,8 @@
 (add-to-list 'purpose-user-regexp-purposes
              '("_test\\.rb\\(<.*>\\)?$" . test)) ;; Minitest
 (add-to-list 'purpose-user-regexp-purposes
+             '("_preview\\.rb\\(<.*>\\)?$" . test)) ;; Mailer Previews
+(add-to-list 'purpose-user-regexp-purposes
              '("_test\\.exs\\(<.*>\\)?$" . test)) ;; ExUnit
 (add-to-list 'purpose-user-regexp-purposes
              '("test_.*\\.py\\(<.*>\\)?$" . test)) ;; Pytest

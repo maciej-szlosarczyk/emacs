@@ -24,10 +24,6 @@
 (unless (package-installed-p 'evil-nerd-commenter)
   (package-install 'evil-nerd-commenter))
 
-;; Ctags
-(unless (package-installed-p 'etags-select)
-  (package-install 'etags-select))
-
 ;; Rainbow delimiters
 (unless (package-installed-p 'rainbow-delimiters)
   (package-install 'rainbow-delimiters))
@@ -71,6 +67,8 @@
 (unless (package-installed-p 'helm-ag)
   (package-install 'helm-ag))
 
+(unless (package-installed-p 'helm-swoop)
+  (package-install 'helm-swoop))
 
 (unless (package-installed-p 'dumb-jump)
   (package-install 'dumb-jump))
@@ -197,6 +195,10 @@
 ;; Jenkinsfile
 (unless (package-installed-p 'groovy-mode)
   (package-install 'groovy-mode))
+
+;; Ansible
+(unless (package-installed-p 'ansible)
+  (package-install 'ansible))
 
 ;; Apache
 (unless (package-installed-p 'apache-mode)
