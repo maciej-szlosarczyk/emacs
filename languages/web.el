@@ -6,12 +6,17 @@
 ;;========== Editor config =========================
 (defun editor-config-web ()
   "Editor configuration for Web."
-  (set-indent 2)
   (set-width-120)
 
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq css-indent-offset 2))
+  (if (string-match-p "internetee/" (buffer-file-name))
+      ((set-indent 4)
+       (setq web-mode-markup-indent-offset 4)
+       (setq web-mode-code-indent-offset 4)
+       (setq css-indent-offset 4))
+    ((set-indent 2)
+     (setq web-mode-markup-indent-offset 2)
+     (setq web-mode-code-indent-offset 2)
+     (setq css-indent-offset 2))))
 
 ;;========== Code completion =======================
 (defun completion-config-web ()
@@ -24,8 +29,8 @@
                         company-files))))
 
 ;;========== Hooks =================================
-(add-hook 'html-mode-hook 'editor-config-web)
-(add-hook 'html-mode-hook 'completion-config-web)
+;; Use web-mode for erb
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (add-hook 'web-mode-hook 'editor-config-web)
 (add-hook 'web-mode-hook 'completion-config-web)

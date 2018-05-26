@@ -115,6 +115,13 @@
    (column-enforce-mode -1)
    (column-enforce-mode 1))
 
+(defun set-width-100 ()
+   "Set line length to 100 columns."
+   (interactive)
+   (setq column-enforce-column 100)
+   (column-enforce-mode -1)
+   (column-enforce-mode 1))
+
 (defun set-width-80 ()
    "Set line length to 80 columns."
    (interactive)

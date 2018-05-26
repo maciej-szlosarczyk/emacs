@@ -12,7 +12,10 @@
   "Setup editor for Ruby."
 
   ;; Indentation and line length
-  (set-width-80)
+  (if (string-match-p "internetee/" (buffer-file-name))
+      (set-width-100)
+    (set-width-80))
+
   (set-indent 2)
   (setq ruby-deep-indent-paren nil)
 
@@ -23,10 +26,7 @@
   (setq ruby-deep-indent-paren nil)
 
   ;; Do not insert encoding comments
-  (setq ruby-insert-encoding-magic-comment nil)
-
-  ;; Use web-mode for erb
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)))
+  (setq ruby-insert-encoding-magic-comment nil))
 
 ;;========== Rspec config =========================
 (defun rspec-ruby-mode-config ()
