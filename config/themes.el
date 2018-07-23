@@ -16,6 +16,7 @@
 (load-theme 'flatui t t)
 (load "~/.emacs.d/config/base16-not-harmonic-theme.el")
 (load-theme 'base16-not-harmonic t t)
+(load-theme 'base16-solarized-light t t)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'base16-unikitty-light t t)
 (load-theme 'base16-summerfruit-light t t)
@@ -50,8 +51,8 @@
 (require 'helm-themes)
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-not-harmonic)
-      (base16-harmonic-custom))
+      (enable-theme 'base16-mexico-light)
+      (base16-summerfruit-light-custom))
   (progn
     (color-theme-approximate-on)
     (enable-theme 'flatui)))

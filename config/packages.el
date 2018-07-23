@@ -176,6 +176,12 @@
 (unless (package-installed-p 'flymake-ruby)
   (package-install 'flymake-ruby))
 
+(unless (package-installed-p 'ruby-hash-syntax)
+  (package-install 'ruby-hash-syntax))
+
+(unless (package-installed-p 'ruby-refactor)
+  (package-install 'ruby-refactor))
+
 ; Web mode for editing erb
 (unless (package-installed-p 'web-mode)
   (package-install 'web-mode))
@@ -199,6 +205,10 @@
 ;; Ansible
 (unless (package-installed-p 'ansible)
   (package-install 'ansible))
+
+;; Emacs refactor mode
+(unless (package-installed-p 'emr)
+  (package-install 'emr))
 
 ;; Apache
 (unless (package-installed-p 'apache-mode)

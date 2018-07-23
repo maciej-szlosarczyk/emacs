@@ -201,6 +201,7 @@
       (projectile-regenerate-tags))))
 
 (setq projectile-enable-caching t)
+(setq projectile-file-exists-local-cache-expire (* 3 60))
 
 ;; Always create a new tag table list and reload without asking
 (setq tags-revert-without-query t)
