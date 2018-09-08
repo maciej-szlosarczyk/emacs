@@ -25,6 +25,7 @@
 
                      magit ;; Git interface for Emacs
 		                 diff-hl ;; Highlight diff (also useful for git)
+                     evil-magit ;; Evil mode for magit
 
                      column-enforce-mode ;; Enforce column length of X
 
@@ -97,7 +98,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
+    (evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -5,3 +5,5 @@
   ;; TODO: Connect these two into one key
   "gb" 'magit-blame
   "gq" 'magit-blame-quit)
+
+(require 'evil-magit)
