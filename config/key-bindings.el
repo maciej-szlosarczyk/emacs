@@ -34,10 +34,17 @@
   "gl" 'windmove-right
   "gh" 'windmove-left)
 
+;; Magit
 (evil-leader/set-key
   "gs"  'magit-status
-  "gL"  'magit-log
-  "gco" 'magit-checkout)
+  "gco" 'magit-checkout
+  "gb" 'magit-blame
+  "gq" 'magit-blame-quit)
+
+;; width keys
+(evil-leader/set-key
+  "100" 'set-width-100
+  "80" 'set-width-80)
 
 (evil-leader/set-key "al" 'align-regexp)
 (evil-leader/set-key "ir" 'indent-region)
@@ -63,12 +70,4 @@
 (define-key evil-insert-state-map "\C-a" 'company-complete)
 (define-key evil-insert-state-map "\C-q" 'company-yasnippet)
 
-
-;;; The things below are experimental, need to be fixed
-(define-key evil-insert-state-map "\M-." 'find-tag)
-(define-key evil-insert-state-map "\M-*" 'pop-tag-mark)
-
-;;; VIM browse mode things
-(define-key evil-motion-state-map "\M-." 'find-tag)
-(define-key evil-motion-state-map "\M-*" 'pop-tag-mark)
 ;;; key-bindings.el ends here

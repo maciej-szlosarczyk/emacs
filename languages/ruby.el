@@ -12,18 +12,21 @@
   "Setup editor for Ruby."
 
   ;; Indentation and line length
-  (if (string-match-p "internetee/" (buffer-file-name))
+  (if (string-match-p "internetee" (buffer-file-name))
       (set-width-100)
     (set-width-80))
 
+  ;; Set default indentation
   (set-indent 2)
-  (setq ruby-deep-indent-paren nil)
 
   ;; Do not align 'begin' and 'while' ;;
   (setq ruby-align-to-stmt-keywords '(if begin case elseif rescue))
 
   ;; Do not indent inside the parenthasis
-  (setq ruby-deep-indent-paren nil)
+  ;; (setq ruby-deep-indent-paren nil)
+
+  ;; Automatically insert second pair of <%
+  (define-key web-mode-map "<%" 'electric-pair)
 
   ;; Do not insert encoding comments
   (setq ruby-insert-encoding-magic-comment nil))
@@ -64,7 +67,7 @@
 (add-hook 'ruby-mode-hook 'minitest-ruby-mode-config)
 
 ;; Use longer lines for HAML
-(add-hook 'haml-mode-hook 'set-width-120)
+(add-hook 'haml-mode-hook 'set-width-100)
 
 (provide 'ruby)
 ;;; ruby.el ends here

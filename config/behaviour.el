@@ -192,24 +192,8 @@
 (require 'projectile)
 (projectile-mode)
 
-(defun projectile-regenerate-tags-if-exist ()
-  "Only regenerate tags if a tag file is present in the folder."
-  (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (when (or (file-exists-p (expand-file-name "TAGS"))
-              (file-exists-p (expand-file-name projectile-tags-file-name)))
-      (projectile-regenerate-tags))))
-
 (setq projectile-enable-caching t)
 (setq projectile-file-exists-local-cache-expire (* 3 60))
-
-;; Always create a new tag table list and reload without asking
-(setq tags-revert-without-query t)
-(setq tags-add-tables nil)
-
-;; Run the tags if project was changed
-(add-hook 'projectile-after-switch-project-hook
-          'projectile-regenerate-tags-if-exist)
 
 ;; Show projectile lists by most recently active
 (setq projectile-sort-order (quote recently-active))

@@ -37,9 +37,6 @@
   (package-install 'rainbow-mode))
 
 ;; Indentation and line length
-(unless (package-installed-p 'indent-guide)
-  (package-install 'indent-guide))
-
 (unless (package-installed-p 'column-enforce-mode)
   (package-install 'column-enforce-mode))
 

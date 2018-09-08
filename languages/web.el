@@ -8,15 +8,18 @@
   "Editor configuration for Web."
   (set-width-120)
 
-  (if (string-match-p "internetee/" (buffer-file-name))
-      ((set-indent 4)
-       (setq web-mode-markup-indent-offset 4)
-       (setq web-mode-code-indent-offset 4)
-       (setq css-indent-offset 4))
-    ((set-indent 2)
-     (setq web-mode-markup-indent-offset 2)
-     (setq web-mode-code-indent-offset 2)
-     (setq css-indent-offset 2))))
+  (if (string-match-p "internetee" (buffer-file-name))
+      ((lambda
+         ((set-indent 4)
+          (setq web-mode-markup-indent-offset 4)
+          (setq web-mode-code-indent-offset 4)
+          (setq css-indent-offset 4)))
+       ((set-indent 2)
+        (setq web-mode-markup-indent-offset 2)
+        (setq web-mode-code-indent-offset 2)
+        (setq css-indent-offset 2)))
+
+    (define-key web-mode-map "<%" 'electric-pair)))
 
 ;;========== Code completion =======================
 (defun completion-config-web ()
@@ -26,7 +29,7 @@
   (flymake-mode)
   (set (make-local-variable 'company-backends)
        '((company-capf company-dabbrev-code company-yasnippet
-                        company-files))))
+                       company-files))))
 
 ;;========== Hooks =================================
 ;; Use web-mode for erb
