@@ -94,6 +94,7 @@
 (load "~/.emacs.d/20elisp.el")
 (load "~/.emacs.d/20ruby.el")
 (load "~/.emacs.d/20web.el")
+(load "~/.emacs.d/20elixir.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -102,7 +103,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
+    (solarized-theme company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
