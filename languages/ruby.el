@@ -28,6 +28,9 @@
   ;; Automatically insert second pair of <%
   (define-key web-mode-map "<%" 'electric-pair)
 
+  ;; Use enhanced ruby mode
+  (enh-ruby-mode 1)
+
   ;; Do not insert encoding comments
   (setq ruby-insert-encoding-magic-comment nil))
 
