@@ -36,7 +36,7 @@
 (add-to-list 'purpose-user-mode-purposes '(diff-mode . code))
 
 ;; Programming files
-(add-to-list 'purpose-user-mode-purposes '(ruby-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(enh-ruby-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(elixir-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(rust-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(haskell-mode . code))

@@ -24,6 +24,7 @@
                                                company-yasnippet
                                                )
                                  company-elisp ; Emacs Lisp
+                                 (company-clang company-cmake) ;; C
                                  company-robe ;; Ruby
                                  alchemist-company ;; Elixir
                                  (company-dabbrev-code company-dabbrev company-abbrev) ;; abbrev
