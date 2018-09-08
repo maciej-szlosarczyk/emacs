@@ -59,6 +59,9 @@
                      rvm ;; Support rvm usage
                      ruby-end ;; Insert end for methods automatically
 
+                     ;; Elixir
+                     alchemist
+
                      ;; Web
                      web-mode
 
@@ -84,6 +87,7 @@
 (load "~/.emacs.d/06company-yasnippet.el")
 (load "~/.emacs.d/07projectile.el")
 (load "~/.emacs.d/08purpose.el")
+(load "~/.emacs.d/09ispell.el")
 (load "~/.emacs.d/10themes.el")
 
 ;; Actual supported languages
@@ -98,7 +102,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
+    (company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

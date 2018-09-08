@@ -60,7 +60,8 @@
 (add-to-list 'purpose-user-mode-purposes '(dired-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(magit-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(help-mode . tools))
-(add-to-list 'purpose-user-mode-purposes '(helm-mode . tools))
+(add-to-list 'purpose-user-mode-purposes '(ivy-mode . tools))
+(add-to-list 'purpose-user-mode-purposes '(counsel-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(etags-select-mode . tools))
 (add-to-list 'purpose-user-mode-purposes '(reb-mode . tools)) ;; Regexp builder
