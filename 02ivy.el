@@ -1,7 +1,6 @@
-(setq-default ivy-use-virtual-buffers t)
-(setq-default ivy-count-format "(%d of %d) ")
-
-(counsel-mode 1)
+(setq-default ivy-use-virtual-buffers t
+              ivy-count-format "(%d of %d) "
+              ivy-display-style 'fancy)
 
 (global-set-key (kbd "C-c a") 'counsel-ag)
 (global-set-key (kbd "C-c b") 'ivy-switch-buffer)
