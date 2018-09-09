@@ -39,6 +39,7 @@
                      company ;; Code completion framework
                      yasnippet ;; Code snippets framework
                      yasnippet-snippets ;; Actual snippets for various languages
+                     flycheck ;; Compilation framework
 
                      ;; Project management
                      projectile
@@ -57,6 +58,11 @@
 
                      ;; Elixir
                      alchemist
+
+                     ;; Rust
+                     racer
+                     rust-mode
+                     flycheck-rust
 
                      ;; Web
                      web-mode
@@ -95,6 +101,7 @@
 (load "~/.emacs.d/20web.el")
 (load "~/.emacs.d/20elixir.el")
 (load "~/.emacs.d/20sh.el")
+(load "~/.emacs.d/20rust.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -103,7 +110,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell))))
+    (enh-ruby-mode counsel-projectile counsel ivy flycheck-rust flycheck racer rust-mode hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode rvm dash-at-point robe base16-theme exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

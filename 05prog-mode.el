@@ -38,6 +38,9 @@
 ;; When possible, show code documentation
 (global-eldoc-mode 1)
 
+;; Use flycheck globally to check syntax and compile languages
+(global-flycheck-mode 1)
+
 ;; Function for definiting indentation
 (defun set-indent (step)
   "Set indentation to X STEPs."

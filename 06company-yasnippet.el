@@ -30,6 +30,7 @@
                                  (company-clang company-cmake) ;; C
                                  company-robe ;; Ruby
                                  alchemist-company ;; Elixir
+                                 company-racer ;; Rust
                                  (company-dabbrev-code company-dabbrev company-abbrev) ;; abbrev
                                  company-files ; files & directory
                                  company-ispell ; Ispell
