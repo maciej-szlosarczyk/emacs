@@ -6,14 +6,14 @@
 (evil-leader/set-leader "<SPC>")
 
 (evil-leader/set-key
-  "w"  'delete-window
-  ","  'previous-buffer
-  "."  'next-buffer
-  "k"  'kill-buffer-and-window
-  "rb" 'revert-buffer) ; Reload current file from disk
+  "w"  'delete-window ;; C-x 0
+  ","  'previous-buffer ;; C-x left
+  "."  'next-buffer ;; C-x right
+  "k"  'kill-buffer-and-window ;; C-x 4 0
+  "rb" 'revert-buffer) ;; S-u Reload current file from disk
 
-(evil-leader/set-key "hs" 'split-window-below)
-(evil-leader/set-key "vs" 'split-window-right)
+(evil-leader/set-key "hs" 'split-window-below) ;; C-x 2
+(evil-leader/set-key "vs" 'split-window-right) ;; C-x 3
 
 (evil-leader/set-key
   "gk" 'windmove-up

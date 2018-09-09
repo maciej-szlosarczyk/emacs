@@ -18,7 +18,6 @@
 
                      evil ;; Behave like VIM
 		                 evil-leader ;; Allow to set leader key (usually space)
-                     evil-nerd-commenter ;; Add comments to files
 
                      rainbow-delimiters ;; Colorize matching parens
 		                 rainbow-mode ;; Make color symbols like #FFF colorfull
@@ -66,10 +65,13 @@
                      web-mode
 
                      ;; Infrastructure files
-                     yaml-mode
                      dockerfile-mode
                      terraform-mode
                      ansible
+
+                     ;; Text files
+                     yaml-mode
+                     markdown-mode
                      )
       )
 
@@ -103,7 +105,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (solarized-theme company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode evil-nerd-commenter ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
+    (markdown-mode solarized-theme company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

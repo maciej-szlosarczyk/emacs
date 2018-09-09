@@ -6,4 +6,4 @@
   "gb" 'magit-blame
   "gq" 'magit-blame-quit)
 
-(require 'evil-magit)
+;; (require 'evil-magit)

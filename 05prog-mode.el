@@ -30,10 +30,11 @@
 (delete-selection-mode 1)
 
 ;; Key bindings
-(evil-leader/set-key "cl" 'evilnc-comment-or-uncomment-lines) ;; Comment lines
-(evil-leader/set-key "al" 'align-regexp)                      ;; Align code to some regexp
-(evil-leader/set-key "ir" 'indent-region)                     ;; Indent selected region
-(evil-leader/set-key "d" 'dash-at-point)                      ;; Jump to dash definition
+(evil-leader/set-key "cl" 'comment-line)  ;; Comment lines C-x C-;
+(evil-leader/set-key "al" 'align-regexp)  ;; Align code to some regexp NONE
+(evil-leader/set-key "ir" 'indent-region) ;; Indent selected region C-M-\
+(evil-leader/set-key "d" 'dash-at-point)  ;; Jump to dash definition NONE
+(define-key prog-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
 
 ;; When possible, show code documentation
 (global-eldoc-mode 1)

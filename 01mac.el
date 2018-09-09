@@ -9,6 +9,10 @@
 (global-set-key (kbd "s-<up>") 'scroll-down) ; WTF is this reverse, I dunno
 (global-set-key (kbd "s-<down>") 'scroll-up)
 
+;;; Helpful key bindings
+(global-set-key (kbd "<f1> b") 'describe-bindings) ;; List all key bindings
+                                                   ;; there are.
+
 ;;; Window display
 (menu-bar-mode -1)
 (tool-bar-mode -1)
