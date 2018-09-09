@@ -94,6 +94,7 @@
 (load "~/.emacs.d/20ruby.el")
 (load "~/.emacs.d/20web.el")
 (load "~/.emacs.d/20elixir.el")
+(load "~/.emacs.d/20sh.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
