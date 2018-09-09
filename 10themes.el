@@ -13,16 +13,10 @@
 
 (defun base16-mexico-light-custom ()
   "Additional configuration for Base16 theme."
-  (set-face-attribute 'mode-line nil :font "Hasklig 15")
-  (set-face-attribute 'linum nil :font "Hasklig 15"
-                      :slant 'normal))
+  (set-face-attribute 'mode-line nil :font "Hasklig 15"))
 
 (defun base16-harmonic-custom ()
   "Additional configuration for Base 16 theme."
-  (set-face-attribute 'linum nil :font "Hasklig 15"
-                      :slant 'normal
-                      :background "#2c3a47")
-
   (set-face-attribute 'font-lock-comment-delimiter-face nil
                       :foreground "#aabcce")
   (set-face-attribute 'mode-line nil :font "Hasklig 15")

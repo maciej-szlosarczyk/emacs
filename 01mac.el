@@ -53,7 +53,7 @@
   version-control t)
 
 ; Enable line numbers and show cursors position
-(global-linum-mode t)
+(global-display-line-numbers-mode t)
 (column-number-mode 1)
 
 ;; Turn off sounds
