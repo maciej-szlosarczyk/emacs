@@ -79,7 +79,8 @@
 
 ;; Additional files
 (load "~/.emacs.d/01mac.el")
-(load "~/.emacs.d/03ivy.el")
+(load "~/.emacs.d/02ivy.el")
+(load "~/.emacs.d/03hydra.el")
 (load "~/.emacs.d/04magit.el")
 (load "~/.emacs.d/05prog-mode.el")
 (load "~/.emacs.d/06company-yasnippet.el")

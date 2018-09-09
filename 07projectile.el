@@ -10,8 +10,3 @@
               )
 
 (projectile-mode t)
-
-(global-set-key (kbd "C-c p s") 'counsel-projectile-switch-project)
-(global-set-key (kbd "C-c p t") 'counsel-projectile-find-file)
-(global-set-key (kbd "C-c p a") 'counsel-projectile-ag)
-(global-set-key (kbd "C-c p c") 'projectile-invalidate-cache)
