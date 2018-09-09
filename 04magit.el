@@ -1,9 +1,7 @@
-;; Magit
-(evil-leader/set-key
-  "gs"  'magit-status
-  "gco" 'magit-checkout
-  ;; TODO: Connect these two into one key
-  "gb" 'magit-blame
-  "gq" 'magit-blame-quit)
+; Magit
+(require 'magit)
 
-;; (require 'evil-magit)
+(global-set-key (kbd "<f5> c") 'magit-checkout)
+(global-set-key (kbd "<f5> b") 'magit-blame)
+(define-key magit-blame-mode-map (kbd "<f5> b") 'magit-blame-quit)
+(global-set-key (kbd "<f5> g") 'magit-status)

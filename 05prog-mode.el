@@ -30,11 +30,10 @@
 (delete-selection-mode 1)
 
 ;; Key bindings
-(evil-leader/set-key "cl" 'comment-line)  ;; Comment lines C-x C-;
-(evil-leader/set-key "al" 'align-regexp)  ;; Align code to some regexp NONE
-(evil-leader/set-key "ir" 'indent-region) ;; Indent selected region C-M-\
-(evil-leader/set-key "d" 'dash-at-point)  ;; Jump to dash definition NONE
 (define-key prog-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
+(define-key prog-mode-map (kbd "C-c c") 'comment-line)
+(define-key prog-mode-map (kbd "C-c r") 'align-regexp) ;; Because C-c a is used by ag already.
+(define-key prog-mode-map (kbd "C-c i") 'indent-region)
 
 ;; When possible, show code documentation
 (global-eldoc-mode 1)

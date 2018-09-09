@@ -16,25 +16,22 @@
 (setq package-list '(
                      exec-path-from-shell ;; Allow to execute path from shell
 
-                     evil ;; Behave like VIM
-		                 evil-leader ;; Allow to set leader key (usually space)
-
                      rainbow-delimiters ;; Colorize matching parens
 		                 rainbow-mode ;; Make color symbols like #FFF colorfull
 
-                     magit ;; Git interface for Emacs
+				             magit ;; Git interface for Emacs
 		                 diff-hl ;; Highlight diff (also useful for git)
-                     evil-magit ;; Evil mode for magit
 
                      column-enforce-mode ;; Enforce column length of X
 
                      window-purpose ;; Make sure that windows are of grouped by
-                                    ;; purpose.
+                     ;; purpose.
 
               	     ;;; Helm replacements
 		                 ivy
 		                 counsel
 		                 swiper
+                     hydra ;; Create nice text menus without memorizing too much
 
                      ;;; Code
                      dash-at-point
@@ -82,7 +79,6 @@
 
 ;; Additional files
 (load "~/.emacs.d/01mac.el")
-(load "~/.emacs.d/02evil.el")
 (load "~/.emacs.d/03ivy.el")
 (load "~/.emacs.d/04magit.el")
 (load "~/.emacs.d/05prog-mode.el")
@@ -105,7 +101,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode solarized-theme company-ansible alchemist evil-magit window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell evil))))
+    (hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode flymake-ruby rvm dash-at-point robe base16-theme exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,4 +1,6 @@
 ;; Start rvm before starting robe
+(require 'enh-ruby-mode)
+
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
@@ -28,7 +30,7 @@
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 
 ;; Ruby specific key bindings
-(evil-leader/set-key-for-mode 'enh-ruby-mode "j" 'robe-jump)
+(define-key enh-ruby-mode-map (kbd "C-c j") 'robe-jump)
 
 ;;; ERB specific things
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))

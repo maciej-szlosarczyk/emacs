@@ -13,6 +13,28 @@
 (global-set-key (kbd "<f1> b") 'describe-bindings) ;; List all key bindings
                                                    ;; there are.
 
+(global-set-key (kbd "C-c \\") 'split-window-right) ;; Split window to the right
+(global-set-key (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
+
+
+;; Move between windows key bindings
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+
+;; Switch to previous and next buffer
+(global-set-key (kbd "C-c w <left>") 'previous-buffer)
+(global-set-key (kbd "C-c w <right>") 'next-buffer)
+
+;; Kill current buffer and window
+(global-set-key (kbd "C-c q") 'kill-buffer-and-window)
+
+;; Create new terminal
+(global-set-key (kbd "<f6>") (lambda ()
+                               (interactive)
+                                (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
+
 ;;; Window display
 (menu-bar-mode -1)
 (tool-bar-mode -1)

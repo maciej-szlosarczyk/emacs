@@ -7,11 +7,11 @@
               projectile-globally-ignored-directories
               (append '("node_modules" ".svn" "_build" "tmp" "log") projectile-globally-ignored-directories)
               ;; Add certain folders to ignored
-                            )
+              )
 
 (projectile-mode t)
 
-(evil-leader/set-key "ps" 'counsel-projectile-switch-project)
-(evil-leader/set-key "pt"  'counsel-projectile-find-file)
-(evil-leader/set-key "pa" 'counsel-projectile-ag)
-(evil-leader/set-key "pc" 'projectile-invalidate-cache)
+(global-set-key (kbd "C-c p s") 'counsel-projectile-switch-project)
+(global-set-key (kbd "C-c p t") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-c p a") 'counsel-projectile-ag)
+(global-set-key (kbd "C-c p c") 'projectile-invalidate-cache)

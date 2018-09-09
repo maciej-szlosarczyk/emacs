@@ -20,6 +20,9 @@
               ;; company-async-timeout 2
               )
 
+(global-company-mode 1)
+(yas-global-mode 1)
+
 (setq-default company-backends '((company-capf company-keywords
                                                company-yasnippet
                                                )
@@ -31,6 +34,3 @@
                                  company-files ; files & directory
                                  company-ispell ; Ispell
                                  ))
-
-(global-company-mode 1)
-(yas-global-mode 1)

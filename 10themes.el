@@ -7,6 +7,7 @@
 (sml/setup)
 (sml/apply-theme 'respectful)
 
+(load "~/.emacs.d/10themes-base16-not-harmonic.el")
 (load-theme 'base16-mexico-light t t)
 (load-theme 'flatui t t)
 
@@ -16,10 +17,22 @@
   (set-face-attribute 'linum nil :font "Hasklig 15"
                       :slant 'normal))
 
+(defun base16-harmonic-custom ()
+  "Additional configuration for Base 16 theme."
+  (set-face-attribute 'linum nil :font "Hasklig 15"
+                      :slant 'normal
+                      :background "#2c3a47")
+
+  (set-face-attribute 'font-lock-comment-delimiter-face nil
+                      :foreground "#aabcce")
+  (set-face-attribute 'mode-line nil :font "Hasklig 15")
+  (set-face-attribute 'fringe nil :background "#2c3a47"
+                      :slant 'normal))
+
 (if (display-graphic-p)
     (progn
-      (enable-theme 'base16-mexico-light)
-      (base16-mexico-light-custom))
+      (enable-theme 'base16-not-harmonic)
+      (base16-harmonic-custom))
   (progn
     (enable-theme 'flatui)))
 
