@@ -3,13 +3,11 @@
 
 (setq-default sml/no-confirm-load-theme t)
 (setq-default display-time-format "%H:%M") ;; time format to display on mode line
-
 (sml/setup)
-(sml/apply-theme 'respectful)
 
 (load "~/.emacs.d/10themes-base16-not-harmonic.el")
 (load-theme 'base16-mexico-light t t)
-(load-theme 'flatui t t)
+(load-theme 'manoj-dark t t)
 
 (defun base16-mexico-light-custom ()
   "Additional configuration for Base16 theme."
@@ -25,10 +23,11 @@
 
 (if (display-graphic-p)
     (progn
+      (sml/apply-theme 'respectful)
       (enable-theme 'base16-not-harmonic)
       (base16-harmonic-custom))
   (progn
-    (enable-theme 'flatui)))
+    (enable-theme 'manoj-dark)))
 
 ;; Set font face
 (set-face-attribute 'default nil :font "Hasklig 15")
@@ -39,5 +38,5 @@
 
 ;; Set fringe colors to default, so it does not bother you.
 (set-face-attribute 'fringe nil
-                      :foreground (face-foreground 'default)
-:background (face-background 'default))
+                    :foreground (face-foreground 'default)
+                    :background (face-background 'default))

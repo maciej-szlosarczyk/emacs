@@ -9,6 +9,7 @@
 (add-to-list 'purpose-user-mode-purposes '(fundamental-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(prog-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(diff-mode . code))
+(add-to-list 'purpose-user-mode-purposes '(yaml-mode . code))
 (add-to-list 'purpose-user-mode-purposes '(magit-diff-mode . code))
 (add-to-list 'purpose-user-regexp-purposes
              '("COMMIT_EDITMSG\\(<.*>\\)?$" . code))
