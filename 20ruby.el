@@ -7,7 +7,6 @@
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-(add-hook 'enh-ruby-mode-hook 'flymake-mode)
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
@@ -22,10 +21,7 @@
     (column-enforce-n 80))
 
   ;; Do not insert magic encoding comment at the begining of each file
-  (setq ruby-insert-encoding-magic-comment nil)
-
-  ;; Start flymake
-  (flymake-ruby-load))
+  (setq ruby-insert-encoding-magic-comment nil))
 
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 
@@ -38,4 +34,3 @@
       '(("erb"  . (("<%" "%>")
                    ("beg" "end")))
         ))
-(add-hook 'web-mode-hook 'flymake-mode)

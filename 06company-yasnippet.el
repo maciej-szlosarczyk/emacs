@@ -23,15 +23,15 @@
 (global-company-mode 1)
 (yas-global-mode 1)
 
-(setq-default company-backends '((company-capf company-keywords
-                                               company-yasnippet
-                                               )
+(setq-default company-backends '(company-capf ;; Backend for default complete-at-point function
+                                 company-keywords ;; Keyword list for all languages
+                                 company-yasnippet ;; Snippets for all programming languages
                                  company-elisp ; Emacs Lisp
-                                 (company-clang company-cmake) ;; C
+                                 company-clang company-cmake ;; C
                                  company-robe ;; Ruby
                                  alchemist-company ;; Elixir
                                  company-racer ;; Rust
-                                 (company-dabbrev-code company-dabbrev company-abbrev) ;; abbrev
+                                 company-dabbrev-code company-dabbrev company-abbrev ;; abbrev
                                  company-files ; files & directory
                                  company-ispell ; Ispell
                                  ))
