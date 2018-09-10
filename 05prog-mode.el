@@ -32,8 +32,12 @@
 ;; Key bindings
 (define-key prog-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
 (define-key prog-mode-map (kbd "C-c c") 'comment-line)
-(define-key prog-mode-map (kbd "C-c r") 'align-regexp) ;; Because C-c a is used by ag already.
+(define-key prog-mode-map (kbd "C-c r") 'align-regexp) ;; Because C-c a is used
+                                                       ;; by ag already.
 (define-key prog-mode-map (kbd "C-c i") 'indent-region)
+(define-key prog-mode-map (kbd "C-c v") 'vr/replace) ;; Visually replace all
+                                                     ;; occurences of a specific
+                                                     ;; regex
 
 ;; When possible, show code documentation
 (global-eldoc-mode 1)

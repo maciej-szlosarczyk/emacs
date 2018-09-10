@@ -40,6 +40,8 @@
                      yasnippet ;; Code snippets framework
                      yasnippet-snippets ;; Actual snippets for various languages
                      flycheck ;; Compilation framework
+                     visual-regexp ;; Regexp replacement with preview in
+                                   ;; current buffer.
 
                      ;; Project management
                      projectile
@@ -110,7 +112,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (enh-ruby-mode counsel-projectile counsel ivy flycheck-rust flycheck racer rust-mode hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode rvm dash-at-point robe base16-theme exec-path-from-shell))))
+    (visual-regexp enh-ruby-mode counsel-projectile counsel ivy flycheck-rust flycheck racer rust-mode hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode rvm dash-at-point robe base16-theme exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
