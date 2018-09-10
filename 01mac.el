@@ -35,7 +35,7 @@
                                (interactive)
                                 (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
 
-;;; Window display
+;;; Get rid of bad parts of the windows
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)

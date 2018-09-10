@@ -30,7 +30,7 @@
     (enable-theme 'manoj-dark)))
 
 ;; Set font face
-(set-face-attribute 'default nil :font "Hasklig 15")
+(set-font-size 16)
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground
