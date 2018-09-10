@@ -31,7 +31,7 @@
 (global-set-key (kbd "C-c q") 'kill-buffer-and-window)
 
 ;; Create new terminal
-(global-set-key (kbd "<f6>") (lambda ()
+(global-set-key (kbd "<f12>") (lambda ()
                                (interactive)
                                 (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
 
