@@ -26,21 +26,27 @@ _t_: Find file                  _g_: ag in current project
   "
   Programming actions
 
-^Windows^                      ^Code Manipulation^
+    ^Windows^                    ^Code Manipulation^    ^Code Completion^
 ^^^^^^^^-----------------------------------------------------------------------
-_k_:   kill buffer and window  _c_: comment line
-_sh_: split horizontally      _r_: regex replace
+ _k_: kill buffer and window  _c_: comment line      _y_: yasnippet
+_sh_: split horizontally      _r_: regex replace     _m_: company
 _sv_: split vertically        _i_: indent region
-^^                             _a_: align regexp
+^^                            _a_: align regexp
+^^                            _e_: eval region
 "
   ("q" nil "cancel" :color pink)
 
-  ("k"   kill-buffer-and-window)
+  ("k"  kill-buffer-and-window)
   ("sh" split-window-below)
   ("sv" split-window-right)
-  ("c"   comment-line)
-  ("r"   vr/replace)
-  ("i"   indent-region)
-  ("a"   align-regexp))
+
+  ("c"  comment-line)
+  ("r"  vr/replace)
+  ("i"  indent-region)
+  ("a"  align-regexp)
+  ("e"  eval-region)
+
+  ("y"  company-yasnippet)
+  ("m"  company-complete))
 
 (define-key prog-mode-map (kbd "C-c c") 'hydra-programming-actions/body)

@@ -16,7 +16,6 @@
 (global-set-key (kbd "C-c \\") 'split-window-right) ;; Split window to the right
 (global-set-key (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
 
-
 ;; Move between windows key bindings
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
