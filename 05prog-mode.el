@@ -29,8 +29,11 @@
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)
 
-;; Key bindings
+;; Dash
 (define-key prog-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
+(add-to-list
+ 'dash-at-point-mode-alist
+ '(enh-ruby-mode . "ruby,rubygems,rails")) ;; Configure lookup for Ruby mode
 
 ;; When possible, show code documentation
 (global-eldoc-mode 1)
