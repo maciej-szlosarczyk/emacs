@@ -3,7 +3,7 @@
 
 ;; Company configuration
 (setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
-              company-idle-delay 0.3
+              company-idle-delay 0.1
               company-echo-delay 0
               ;; company-show-numbers t
               company-tooltip-align-annotations t ; align annotations to the right tooltip border.
@@ -29,9 +29,14 @@
                                  company-elisp ; Emacs Lisp
                                  company-clang company-cmake ;; C
                                  company-robe ;; Ruby
+                                 company-ansible ;; Ansible
                                  alchemist-company ;; Elixir
                                  company-racer ;; Rust
-                                 company-dabbrev-code company-dabbrev company-abbrev ;; abbrev
+                                 company-web-html ;; HTML
+                                 (company-dabbrev-code company-dabbrev company-abbrev) ;; abbrev
                                  company-files ; files & directory
-                                 company-ispell ; Ispell
                                  ))
+
+;;; Yasnippet configuration
+(define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
+(define-key prog-mode-map (kbd "<f13>") 'company-yasnippet)
