@@ -1,4 +1,4 @@
-;;; init.el -- Summary
+;;; Init.el -- Summary
 ;;; Commentary:
 ;;; Code:
 ;; list the repositories containing them

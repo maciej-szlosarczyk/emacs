@@ -1,4 +1,5 @@
-; Magit
+;;; Magit
+
 (require 'magit)
 
 (global-set-key (kbd "<f5> c") 'magit-checkout)
