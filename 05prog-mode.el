@@ -6,6 +6,7 @@
 ;;; Show trailing whitespace and remove whitespace on save
 (require 'whitespace)
 (add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'text-mode-hook 'whitespace-mode)
 (setq whitespace-style '(face trailing empty))
 
 ;;; Cleanup whitespace on save
@@ -22,9 +23,11 @@
 
 ;;; Rainbow parenthesis
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 
 ;;; Show hex colors as colors
 (add-hook 'prog-mode-hook 'rainbow-mode)
+(add-hook 'text-mode-hook 'rainbow-mode)
 
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)

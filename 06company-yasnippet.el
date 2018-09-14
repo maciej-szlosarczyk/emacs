@@ -40,3 +40,6 @@
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key prog-mode-map (kbd "<f13>") 'company-yasnippet)
+
+(define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
+(define-key text-mode-map (kbd "<f13>") 'company-yasnippet)
