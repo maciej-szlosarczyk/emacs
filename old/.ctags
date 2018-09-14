@@ -1,4 +1,0 @@
--R
---exclude=*.js
---exclude=*.py
---exclude=*.elc
