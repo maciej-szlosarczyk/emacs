@@ -49,4 +49,4 @@ _sv_: split vertically        _i_: indent region
   ("y"  company-yasnippet)
   ("m"  company-complete))
 
-(define-key prog-mode-map (kbd "C-c c") 'hydra-programming-actions/body)
+(global-set-key (kbd "C-c c") 'hydra-programming-actions/body)
