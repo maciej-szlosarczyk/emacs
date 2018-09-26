@@ -29,6 +29,7 @@
                                  company-elisp ; Emacs Lisp
                                  company-clang company-cmake ;; C
                                  company-robe ;; Ruby
+                                 company-tern ;; Javascript
                                  company-ansible ;; Ansible
                                  alchemist-company ;; Elixir
                                  company-racer ;; Rust

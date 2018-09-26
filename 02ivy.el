@@ -1,7 +1,7 @@
 (setq-default ivy-use-virtual-buffers t ;; Display recent files in ivy-switch-buffer
               ivy-count-format "(%d of %d) " ;; Current candidate count style
               ivy-display-style 'fancy ;; Formatting style
-              ivy-re-builders-alist '((t . ivy--regex-fuzzy))) ;; Use fuzzy matching
+              )
 
 (global-set-key (kbd "C-c a") 'counsel-ag)
 (global-set-key (kbd "C-c b") 'ivy-switch-buffer)

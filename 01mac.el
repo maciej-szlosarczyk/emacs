@@ -1,3 +1,10 @@
+;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
+(setq gc-cons-threshold 50000000)
+
+
+;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
+(setq tramp-default-method "ssh")
+
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
 
@@ -33,11 +40,6 @@
 (global-set-key (kbd "<f12>") (lambda ()
                                (interactive)
                                 (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
-
-;;; Get rid of bad parts of the windows
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
 
 ;#====================== Backup config #==============================
 (setq backup-directory-alist
@@ -93,3 +95,13 @@
 
 ;; Disable meta on right alt (useful for Polish characters)
 (setq ns-right-alternate-modifier nil)
+
+;;; Get rid of bad parts of the windows
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)

@@ -14,6 +14,7 @@
 
 ;; list the packages you want
 (setq package-list '(
+                     keyfreq ;; Record how often emacs commands are executed
                      exec-path-from-shell ;; Allow to execute path from shell
 
                      rainbow-delimiters ;; Colorize matching parens
@@ -66,6 +67,9 @@
                      ;; Web
                      web-mode
                      company-web
+                     js2-mode
+                     tern
+                     company-tern
 
                      ;; Infrastructure files
                      dockerfile-mode
@@ -110,7 +114,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-web visual-regexp enh-ruby-mode counsel-projectile counsel ivy flycheck-rust flycheck racer rust-mode hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode rvm dash-at-point robe base16-theme exec-path-from-shell))))
+    (indium js2-mode keyfreq company-web visual-regexp enh-ruby-mode counsel-projectile counsel ivy flycheck-rust flycheck racer rust-mode hydra markdown-mode solarized-theme company-ansible alchemist window-purpose column-enforce-mode yaml-mode ansible dockerfile-mode ruby-end web-mode rvm dash-at-point robe base16-theme exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
