@@ -24,12 +24,12 @@
 (yas-global-mode 1)
 
 (setq-default company-backends '(company-capf ;; Backend for default complete-at-point function
+                                 company-tern ;; Javascript
                                  company-keywords ;; Keyword list for all languages
                                  company-yasnippet ;; Snippets for all programming languages
                                  company-elisp ; Emacs Lisp
                                  company-clang company-cmake ;; C
                                  company-robe ;; Ruby
-                                 company-tern ;; Javascript
                                  company-ansible ;; Ansible
                                  alchemist-company ;; Elixir
                                  company-racer ;; Rust
