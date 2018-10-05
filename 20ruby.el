@@ -4,6 +4,10 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
+;; Ruby specific key bindings
+(define-key enh-ruby-mode-map (kbd "C-c j") 'robe-jump)
+(define-key enh-ruby-mode-map (kbd "C-c \\") 'nil)
+
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
@@ -24,9 +28,6 @@
   (setq ruby-insert-encoding-magic-comment nil))
 
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
-
-;; Ruby specific key bindings
-(define-key enh-ruby-mode-map (kbd "C-c j") 'robe-jump)
 
 ;;; ERB specific things
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
