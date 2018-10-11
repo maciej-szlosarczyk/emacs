@@ -30,8 +30,8 @@
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 
 ;; Switch to previous and next buffer
-(global-set-key (kbd "C-c w <left>") 'previous-buffer)
-(global-set-key (kbd "C-c w <right>") 'next-buffer)
+(global-set-key (kbd "C-c s <left>") 'previous-buffer)
+(global-set-key (kbd "C-c s <right>") 'next-buffer)
 
 ;; Kill current buffer and window
 (global-set-key (kbd "C-c q") 'kill-buffer-and-window)

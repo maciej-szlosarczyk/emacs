@@ -57,6 +57,8 @@ _k_: kill buffer and window   _<left>_: Move left
 _h_: split horizontally      _<right>_: Move right
 _v_: split vertically           _<up>_: Move up
 ^^                            _<down>_: Move down
+^^                                 _p_: Previous buffer
+^^                                 _n_: Next buffer
 "
   ("q" nil "cancel" :color pink)
 
@@ -67,6 +69,8 @@ _v_: split vertically           _<up>_: Move up
   ("<left>"  windmove-left)
   ("<right>" windmove-right)
   ("<up>"    windmove-up)
-  ("<down>"  windmove-down))
+  ("<down>"  windmove-down)
+  ("p"       previous-buffer)
+  ("n"       next-buffer))
 
 (global-set-key (kbd "C-c w") 'hydra-window-actions/body)
