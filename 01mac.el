@@ -1,7 +1,6 @@
 ;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
 (setq gc-cons-threshold 50000000)
 
-
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
 (setq tramp-default-method "ssh")
 
