@@ -7,13 +7,42 @@
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
 
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'hyper)
+
+(defun mac-switch-meta nil
+  "Switch meta between Option and Command."
+  (interactive)
+  (if (eq mac-option-modifier nil)
+      (progn
+	(setq mac-option-modifier 'meta)
+	(setq mac-command-modifier 'hyper)
+	)
+    (progn
+      (setq mac-option-modifier nil)
+      (setq mac-command-modifier 'meta)
+      )
+    )
+  )
+
 ;;;;;;;;; Mac binding (fix) ;;;;;;;;;;;;;;;;;;
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
-(global-set-key (kbd "s-<right>") 'end-of-line)
-(global-set-key (kbd "s-<left>") 'beginning-of-line)
-(global-set-key (kbd "s-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-(global-set-key (kbd "s-<down>") 'scroll-up)
+(global-set-key (kbd "H-<right>") 'end-of-line)
+(global-set-key (kbd "H-<left>") 'beginning-of-line)
+(global-set-key (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+(global-set-key (kbd "H-<down>") 'scroll-up)
+
+(global-set-key [(hyper a)] 'mark-whole-buffer)
+(global-set-key [(hyper v)] 'yank)
+(global-set-key [(hyper x)] 'kill-region)
+(global-set-key [(hyper c)] 'kill-ring-save)
+(global-set-key [(hyper s)] 'save-buffer)
+(global-set-key [(hyper l)] 'goto-line)
+(global-set-key [(hyper w)]
+                (lambda () (interactive) (delete-window)))
+(global-set-key [(hyper z)] 'undo)
+(global-set-key [(hyper q)] 'kill-emacs)
 
 ;;; Helpful key bindings
 (global-set-key (kbd "<f1> b") 'describe-bindings) ;; List all key bindings
@@ -89,11 +118,10 @@
      nil 'fullscreen
      (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
-(toggle-fullscreen)
-
+(global-set-key (kbd "C-H-f") 'toggle-fullscreen)
 
 ;; Disable meta on right alt (useful for Polish characters)
-(setq ns-right-alternate-modifier nil)
+(setq mac-right-option-modifier nil)
 
 ;;; Get rid of bad parts of the windows
 (menu-bar-mode -1)
