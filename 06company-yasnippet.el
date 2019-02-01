@@ -29,6 +29,7 @@
                                  company-yasnippet ;; Snippets for all programming languages
                                  company-elisp ; Emacs Lisp
                                  company-clang company-cmake ;; C
+                                 company-lsp ;; Language server protocol
                                  company-robe ;; Ruby
                                  company-ansible ;; Ansible
                                  alchemist-company ;; Elixir
@@ -37,6 +38,11 @@
                                  (company-dabbrev-code company-dabbrev company-abbrev) ;; abbrev
                                  company-files ; files & directory
                                  ))
+
+
+(setq-default company-lsp-cache-candidates 1 ;; Cache LSP results
+              company-lsp-async 1 ;; Fetch LSP results asynchronously
+ )
 
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)

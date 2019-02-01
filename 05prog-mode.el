@@ -28,6 +28,7 @@
 ;;; Show hex colors as colors
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'text-mode-hook 'rainbow-mode)
+(require 'lsp-mode)
 
 ;;; When pasting/writing over a selection, replace it.
 (delete-selection-mode 1)
