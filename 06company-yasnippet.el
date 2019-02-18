@@ -25,8 +25,10 @@
 
 (setq-default company-backends '(company-capf ;; Backend for default complete-at-point function
                                  company-tern ;; Javascript
-                                 company-keywords ;; Keyword list for all languages
-                                 company-yasnippet ;; Snippets for all programming languages
+                                 (company-keywords ;; Keyword list for all languages
+                                  company-yasnippet ;; Snippets for all programming languages
+                                  company-etags ;; Ctags
+                                  )
                                  company-elisp ; Emacs Lisp
                                  company-clang company-cmake ;; C
                                  company-lsp ;; Language server protocol

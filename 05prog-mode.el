@@ -42,6 +42,9 @@
 ;; When possible, show code documentation
 (global-eldoc-mode 1)
 
+;; Revert tags automatically
+(setq tags-revert-without-query 1)
+
 ;; Use flycheck globally to check syntax and compile languages
 (global-flycheck-mode 1)
 
