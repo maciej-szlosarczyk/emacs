@@ -124,7 +124,6 @@
 (setq mac-right-option-modifier nil)
 
 ;;; Get rid of bad parts of the windows
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
