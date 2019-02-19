@@ -81,6 +81,9 @@
   kept-old-versions 2
   version-control t)
 
+; Do not create .#foo.file lock files
+(setq create-lockfiles nil)
+
 ; Enable line numbers and show cursors position
 (global-display-line-numbers-mode t)
 (column-number-mode 1)
