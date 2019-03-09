@@ -10,10 +10,14 @@
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
+(add-hook 'enh-ruby-mode-hook 'rspec-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
+
+(eval-after-load 'rspec-mode
+ '(rspec-install-snippets))
 
 (defun activate-ruby-mode ()
   "All things for ruby mode."
