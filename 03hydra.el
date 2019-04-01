@@ -5,8 +5,8 @@
    ^Ivy^                           ^Projectile^                  ^Magit^
 ^^^^^^^^------------------------------------------------------------------------
 _a_: ag                         _s_: Switch project           _m_: Git status
-_b_: Switch buffer              _f_: Find file in project
-_t_: Find file                  _g_: ag in current project
+_b_: Switch buffer              _f_: Find file in project     _C_: Git checkout
+_t_: Find file                  _g_: ag in current project    _M_: Git blame
 ^^                              _c_: Invalidate cache
 ^^                              _n_: New project
 "
@@ -19,8 +19,10 @@ _t_: Find file                  _g_: ag in current project
   ("f" counsel-projectile-find-file)
   ("g" counsel-projectile-ag)
   ("c" projectile-invalidate-cache)
+  ("n" projectile-add-known-project)
   ("m" magit-status)
-  ("n" projectile-add-known-project))
+  ("C" magit-checkout)
+  ("M" magit-blame))
 
 (global-set-key (kbd "C-c p") 'hydra-file-switcher-menu/body)
 
