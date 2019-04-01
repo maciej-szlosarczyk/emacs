@@ -4,8 +4,24 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
+;; Refresh tags in Ruby projects
+(defun ruby-refresh-etags ()
+  "Recreate ctags for ruby"
+  (interactive)
+
+  (message "Refreshing Ruby ctags.")
+
+  (shell-command
+    (format "ctags -e -R --languages=ruby --exclude=.git --exclude=log -f %sTAGS %s. $(bundle list --paths)"
+            (projectile-project-root) (projectile-project-root)))
+
+  (visit-tags-table (format "%sTAGS" (projectile-project-root)))
+
+  (message "Refresh finished."))
+
 ;; Ruby specific key bindings
 (define-key enh-ruby-mode-map (kbd "C-c j") 'robe-jump)
+(define-key enh-ruby-mode-map (kbd "C-c E") 'ruby-refresh-etags)
 (define-key enh-ruby-mode-map (kbd "C-c \\") 'nil)
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
@@ -17,7 +33,7 @@
   '(push 'company-robe company-backends))
 
 (eval-after-load 'rspec-mode
- '(rspec-install-snippets))
+  '(rspec-install-snippets))
 
 (defun activate-ruby-mode ()
   "All things for ruby mode."
