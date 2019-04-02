@@ -8,7 +8,7 @@
 (require 'base16-theme)
 
 (defvar base16-not-harmonic-colors
-  '(:base00 "#0b1c2c"
+  '(:base00 "#102941"
     :base01 "#223b54"
     :base02 "#2c3a47"
     :base03 "#627e99"
