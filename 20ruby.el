@@ -1,36 +1,24 @@
-;; Start rvm before starting robe
+;; Require Enhanced Ruby Mode
 (require 'enh-ruby-mode)
-
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
 
 ;; Refresh tags in Ruby projects
 (defun ruby-refresh-etags ()
-  "Recreate ctags for ruby"
+  "Recreate ctags for Ruby."
   (interactive)
 
-  (message "Refreshing Ruby ctags.")
-
-  (shell-command
-    (format "ctags -e -R --languages=ruby --exclude=.git --exclude=log -f %sTAGS %s. $(bundle list --paths)"
-            (projectile-project-root) (projectile-project-root)))
-
-  (visit-tags-table (format "%sTAGS" (projectile-project-root)))
-
-  (message "Refresh finished."))
+  (message "Starting ctags process")
+  (start-process-shell-command "ctags" "*ctags*"
+   (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
+           (projectile-project-root) (projectile-project-root)))
+  (set-process-sentinel (get-process "ctags") 'ctags-process-callback))
 
 ;; Ruby specific key bindings
-(define-key enh-ruby-mode-map (kbd "C-c j") 'robe-jump)
 (define-key enh-ruby-mode-map (kbd "C-c E") 'ruby-refresh-etags)
 (define-key enh-ruby-mode-map (kbd "C-c \\") 'nil)
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'rspec-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
