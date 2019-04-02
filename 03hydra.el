@@ -9,6 +9,7 @@ _b_: Switch buffer              _f_: Find file in project     _C_: Git checkout
 _t_: Find file                  _g_: ag in current project    _M_: Git blame
 ^^                              _c_: Invalidate cache
 ^^                              _n_: New project
+^^                              _i_: ielm console
 "
   ("q" nil "cancel" :color pink)
 
@@ -20,6 +21,7 @@ _t_: Find file                  _g_: ag in current project    _M_: Git blame
   ("g" counsel-projectile-ag)
   ("c" projectile-invalidate-cache)
   ("n" projectile-add-known-project)
+  ("i" ielm)
   ("m" magit-status)
   ("C" magit-checkout)
   ("M" magit-blame))
