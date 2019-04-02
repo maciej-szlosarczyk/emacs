@@ -5,7 +5,7 @@
 (setq-default display-time-format "%H:%M") ;; time format to display on mode line
 (sml/setup)
 
-(load "~/.emacs.d/10themes-base16-not-harmonic.el")
+(load "~/.emacs.d/10themes-base16-not-harmonic.el" t)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'manoj-dark t t)
 (load-theme 'base16-one-light t t)
@@ -14,18 +14,10 @@
   "Additional configuration for Base16 theme."
   (set-face-attribute 'mode-line nil :font "Hasklig 15"))
 
-(defun base16-harmonic-custom ()
-  "Additional configuration for Base 16 theme."
-  (set-face-attribute 'font-lock-comment-delimiter-face nil
-                      :foreground "#aabcce")
-  (set-face-attribute 'mode-line nil :font "Hasklig 15")
-  (set-face-attribute 'fringe nil :background "#2c3a47"
-                      :slant 'normal))
-
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-one-light))
+      (enable-theme 'base16-not-harmonic))
   (progn
     (enable-theme 'manoj-dark)))
 

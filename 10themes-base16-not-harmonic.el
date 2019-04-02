@@ -32,6 +32,27 @@
 ;; Add all the faces to the theme
 (base16-theme-define 'base16-not-harmonic base16-not-harmonic-colors)
 
+;; Customise things
+(custom-theme-set-faces
+ 'base16-not-harmonic
+ '(cursor ((t (:background "#568bbf"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "#aabcce"))))
+ '(mode-line ((t (:font "Hasklig 16"))))
+ '(fringe ((t (:background "#2c3a47" :slant normal))))
+
+ '(diff-refine-added ((t (:background "#56bf8b" :foreground "#2c3a47"))))
+ '(diff-refine-removed ((t (:background "#bf5656" :foreground "#2c3a47"))))
+ '(diff-refine-changed ((t (:background "#bfbf56" :foreground "#2c3a47"))))
+
+ '(magit-diff-added ((t (:background "#56bf8b" :foreground "#2c3a47"))))
+ '(magit-diff-added-highlight ((t (:background "#8bbf56" :foreground "#2c3a47"))))
+
+ '(magit-diff-our ((t (:background "#bf5656" :foreground "#2c3a47"))))
+ '(magit-diff-our-highlight ((t (:background "#bf568b" :foreground "#2c3a47"))))
+
+ '(magit-diff-removed ((t (:background "#bf5656" :foreground "#2c3a47"))))
+ '(magit-diff-removed-highlight ((t (:background "#bf568b" :foreground "#2c3a47")))))
+
 ;; Mark the theme as provided
 (provide-theme 'base16-not-harmonic)
 
