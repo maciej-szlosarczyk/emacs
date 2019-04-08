@@ -8,8 +8,8 @@
 
   (message "Starting ctags process")
   (start-process-shell-command "ctags" "*ctags*"
-   (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
-           (projectile-project-root) (projectile-project-root)))
+                               (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
+                                       (projectile-project-root) (projectile-project-root)))
   (set-process-sentinel (get-process "ctags") 'ctags-process-callback))
 
 ;; Ruby specific key bindings
@@ -33,7 +33,15 @@
     (column-enforce-n 80))
 
   ;; Do not insert magic encoding comment at the begining of each file
-  (setq ruby-insert-encoding-magic-comment nil))
+  (setq ruby-insert-encoding-magic-comment nil)
+
+  ;; Company list override
+  (add-to-list (make-local-variable 'company-backends) '(company-etags company-yasnippet))
+
+  ;; Set specific ctags command
+  (setq-local ctags-refresh-command
+              (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
+                      (projectile-project-root) (projectile-project-root))))
 
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 

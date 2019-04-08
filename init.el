@@ -106,6 +106,7 @@
 (load "~/.emacs.d/06company-yasnippet.el")
 (load "~/.emacs.d/07projectile.el")
 (load "~/.emacs.d/08purpose.el")
+(load "~/.emacs.d/08ctags.el")
 (load "~/.emacs.d/09ispell.el")
 (load "~/.emacs.d/10themes.el")
 
@@ -114,6 +115,7 @@
 (load "~/.emacs.d/20ruby.el")
 (load "~/.emacs.d/20web.el")
 (load "~/.emacs.d/20elixir.el")
+(load "~/.emacs.d/20erlang.el")
 (load "~/.emacs.d/20sh.el")
 (load "~/.emacs.d/20rust.el")
 
