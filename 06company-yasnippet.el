@@ -41,7 +41,7 @@
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key prog-mode-map (kbd "<f13>") 'company-indent-or-complete-common)
-(define-key prog-mode-map (kbd "TAB") 'company-yasnippet)
+(define-key prog-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
 (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key text-mode-map (kbd "<f13>") 'company-indent-or-complete-common)
