@@ -32,13 +32,10 @@
    (format
     "ctags -e -R --languages=erlang -f %sTAGS %s. %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
-    erlang-asdf-root erlang-asdf-root)
-
-   (add-to-list (make-local-variable 'company-backends)
-                '(company-etags company-yasnippet))
-   )
+    erlang-asdf-root erlang-asdf-root))
 
   ;; Company list override
-  (add-to-list (make-local-variable 'company-backends) 'company-etags))
+  (add-to-list (make-local-variable 'company-backends)
+               '(company-etags company-yasnippet)))
 
 (add-hook 'erlang-mode-hook 'activate-erlang-mode)
