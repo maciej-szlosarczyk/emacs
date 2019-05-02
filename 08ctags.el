@@ -16,7 +16,7 @@
 
 (setq ctags-refresh-command
       (format "ctags -e -R -f %sTAGS %s."
-              (projectile-project-root) (projectile-project-root)))
+              default-directory default-directory))
 
 (defun refresh-ctags ()
   "Refresh ctags according to currently set command."
