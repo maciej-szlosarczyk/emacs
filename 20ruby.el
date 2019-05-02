@@ -1,19 +1,6 @@
 ;; Require Enhanced Ruby Mode
 (require 'enh-ruby-mode)
 
-;; Refresh tags in Ruby projects
-(defun ruby-refresh-etags ()
-  "Recreate ctags for Ruby."
-  (interactive)
-
-  (message "Starting ctags process")
-  (start-process-shell-command "ctags" "*ctags*"
-                               (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
-                                       (projectile-project-root) (projectile-project-root)))
-  (set-process-sentinel (get-process "ctags") 'ctags-process-callback))
-
-;; Ruby specific key bindings
-(define-key enh-ruby-mode-map (kbd "C-c E") 'ruby-refresh-etags)
 (define-key enh-ruby-mode-map (kbd "C-c \\") 'nil)
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
