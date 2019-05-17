@@ -19,6 +19,9 @@
       (column-enforce-n 100)
     (column-enforce-n 80))
 
+  ;; Disable reek syntax checking permanently
+  (add-to-list (make-local-variable 'flycheck-disabled-checkers) 'ruby-reek)
+
   ;; Do not insert magic encoding comment at the begining of each file
   (setq ruby-insert-encoding-magic-comment nil)
 
