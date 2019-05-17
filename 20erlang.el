@@ -1,8 +1,8 @@
 ;; Add erlang installation to load path
-(setq erlang-asdf-root "/Users/maciej/.asdf/installs/erlang/21.2.6/")
+(setq erlang-asdf-root "/Users/maciej/.asdf/installs/erlang/21.3.8/")
 
 (setq load-path
-      (cons (format "%slib/tools-3.0.2/emacs" erlang-asdf-root)
+      (cons (format "%slib/tools-3.1/emacs" erlang-asdf-root)
             load-path))
 
 (require 'erlang-start)
