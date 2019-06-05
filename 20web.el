@@ -6,7 +6,7 @@
 (add-hook 'js2-mode-hook 'tern-mode)
 
 (defun activate-js2-mode ()
-  ;; Company list override
+  "Company list override."
   (add-to-list (make-local-variable 'company-backends)
                '(company-tern company-yasnippet)))
 

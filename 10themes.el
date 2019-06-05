@@ -9,6 +9,9 @@
 (load-theme 'base16-mexico-light t t)
 (load-theme 'manoj-dark t t)
 (load-theme 'base16-one-light t t)
+(load-theme 'base16-zenburn t t)
+(load-theme 'base16-mocha t t)
+(load-theme 'planet t t)
 
 (defun base16-mexico-light-custom ()
   "Additional configuration for Base16 theme."
@@ -17,7 +20,7 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-not-harmonic))
+      (enable-theme 'base16-zenburn))
   (progn
     (enable-theme 'manoj-dark)))
 
