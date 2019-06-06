@@ -39,6 +39,7 @@ _r_: regex replace     _m_: company
 _i_: indent region
 _a_: align regexp
 _e_: eval region
+_s_: swiper
 "
   ("q" nil "cancel" :color pink)
 
@@ -47,6 +48,7 @@ _e_: eval region
   ("i"  indent-region)
   ("a"  align-regexp)
   ("e"  eval-region)
+  ("s"  swiper)
 
   ("y"  company-yasnippet)
   ("m"  company-complete))
