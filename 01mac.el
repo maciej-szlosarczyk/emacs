@@ -57,9 +57,20 @@
 (global-set-key (kbd "C-c <up>") 'windmove-up)
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 
+;; The same, but without using arrow keys
+(global-set-key (kbd "C-c [") 'windmove-left)
+(global-set-key (kbd "C-c ]") 'windmove-right)
+(global-set-key (kbd "C-c {") 'windmove-up)
+(global-set-key (kbd "C-c }") 'windmove-down)
+
+
 ;; Switch to previous and next buffer
 (global-set-key (kbd "C-c s <left>") 'previous-buffer)
 (global-set-key (kbd "C-c s <right>") 'next-buffer)
+
+(global-set-key (kbd "C-c s [") 'previous-buffer)
+(global-set-key (kbd "C-c s ]") 'next-buffer)
+
 
 ;; Kill current buffer and window
 (global-set-key (kbd "C-c q") 'kill-buffer-and-window)

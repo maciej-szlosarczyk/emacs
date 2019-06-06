@@ -34,8 +34,8 @@
 (delete-selection-mode 1)
 
 ;; Dash
-(define-key prog-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
-(define-key text-mode-map (kbd "C-d") 'dash-at-point) ;; Jump to dash definition
+(define-key prog-mode-map (kbd "C-s C-d") 'dash-at-point) ;; Jump to dash definition
+(define-key text-mode-map (kbd "C-s C-d") 'dash-at-point) ;; Jump to dash definition
 (add-to-list
  'dash-at-point-mode-alist
  '(enh-ruby-mode . "ruby,rubygems,rails")) ;; Configure lookup for Ruby mode
