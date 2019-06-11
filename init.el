@@ -40,6 +40,8 @@
                      flycheck ;; Compilation framework
                      visual-regexp ;; Regexp replacement with preview in
                      ;; current buffer.
+
+                     ;; Language server protocol
                      lsp-mode
                      company-lsp
                      lsp-ui
@@ -77,8 +79,6 @@
                      web-mode
                      company-web
                      js2-mode
-                     tern
-                     company-tern
 
                      ;; Clojure
                      clojure-mode

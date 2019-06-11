@@ -10,3 +10,4 @@ eshell/history
 tramp
 url/*
 transient/*
+.lsp-session-*

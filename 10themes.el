@@ -20,7 +20,7 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-zenburn))
+      (enable-theme 'base16-mocha))
   (progn
     (enable-theme 'manoj-dark)))
 

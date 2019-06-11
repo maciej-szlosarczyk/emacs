@@ -2,13 +2,13 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
-;; Tern is used for completion
-(add-hook 'js2-mode-hook 'tern-mode)
+;; Language Server Protocol is used for completion
+(add-hook 'js2-mode-hook 'lsp)
 
 (defun activate-js2-mode ()
   "Company list override."
   (add-to-list (make-local-variable 'company-backends)
-               '(company-tern company-yasnippet)))
+               '(company-yasnippet company-lsp)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
 
