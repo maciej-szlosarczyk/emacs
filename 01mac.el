@@ -105,6 +105,9 @@
 ;; Enable y/n answers to questions
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Only warn if a file is bigger than 50 MB when trying to open it
+(setq large-file-warning-threshold 50000000)
+
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
