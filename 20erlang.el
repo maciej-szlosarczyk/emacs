@@ -1,8 +1,8 @@
 ;; Add erlang installation to load path
-(setq erlang-asdf-root "/Users/maciej/.asdf/installs/erlang/21.3.8/")
+(setq erlang-asdf-root "/Users/maciej/.asdf/installs/erlang/22.0.4/")
 
 (setq load-path
-      (cons (format "%slib/tools-3.1/emacs" erlang-asdf-root)
+      (cons (format "%slib/tools-3.2/emacs" erlang-asdf-root)
             load-path))
 
 (require 'erlang-start)
@@ -20,11 +20,10 @@
   :error-patterns
   ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
    (error line-start (file-name) ":" line ": " (message) line-end))
-  :modes (erlang-mode))
+  :modes (my-erlang-mode))
 
 (defun activate-erlang-mode ()
-  "All things for Erlang."
-  (flycheck-select-checker 'erlang-otp)
+  "All things for all Erlang, including header files."
 
   ;; Set specific ctags command
   (setq-local
@@ -39,3 +38,10 @@
                '(company-etags company-yasnippet)))
 
 (add-hook 'erlang-mode-hook 'activate-erlang-mode)
+
+(define-derived-mode my-erlang-mode erlang-mode "My Erlang mode"
+  "A mode for Erlang things"
+
+  (activate-erlang-mode)
+  ;; Enable flycheck
+  (flycheck-select-checker 'erlang-otp))
