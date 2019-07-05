@@ -11,10 +11,4 @@
                '(company-yasnippet company-lsp)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
-
-(defun activate-web-mode ()
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-web-html company-yasnippet)))
-
-(add-hook 'web-mode-hook 'activate-web-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))

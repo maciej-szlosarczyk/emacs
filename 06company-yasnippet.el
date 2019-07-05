@@ -37,6 +37,11 @@
  company-lsp-async 1 ;; Fetch LSP results asynchronously
  )
 
+;; Use standard emacs next and previous bindings for navigating company
+;; suggestions
+(define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+(define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key prog-mode-map (kbd "<f13>") 'company-indent-or-complete-common)
