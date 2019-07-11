@@ -7,7 +7,7 @@
                '(company-etags company-yasnippet))
 
   (setq-local
-   ctags-refresh-command
+   ctags/refresh-command
    (format
     "ctags -e -R --languages=C -f %sTAGS %s."
     (projectile-project-root) (projectile-project-root)

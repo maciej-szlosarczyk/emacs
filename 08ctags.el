@@ -1,9 +1,14 @@
 ;; Do not mix ctags between folders
+(provide 'my-ctags-config)
+
 (setq tags-add-tables nil)
+(setq ctags/refresh-command
+      (format "ctags -e -R -f %sTAGS %s."
+              default-directory default-directory))
 
 ;; Sentinel function for capturing ctags
-(defun ctags-process-callback (process event)
-  "Show status of asynchronous ctags-process after it finishes."
+(defun ctags/process-callback (process event)
+  "Show status of asynchronous ctags/process after it finishes."
   (cond
    ((string-equal event "finished\n")
     (message "Creating tag files...completed")
@@ -14,17 +19,31 @@
     (pop-to-buffer (get-buffer "*ctags*"))
     )))
 
-(setq ctags-refresh-command
-      (format "ctags -e -R -f %sTAGS %s."
-              default-directory default-directory))
-
-(defun refresh-ctags ()
+(cl-defun ctags/refresh-ctags (&key silent)
   "Refresh ctags according to currently set command."
   (interactive)
 
-  (message "Starting ctags process")
-  (start-process-shell-command "ctags" "*ctags*" ctags-refresh-command)
-  (set-process-sentinel (get-process "ctags") 'ctags-process-callback))
+  ;; Print message if not silent
+  (when (not silent) (message "Starting ctags process..."))
+
+  ;; Return if a version of the process is already running
+  (when (not (get-process "ctags"))
+    (start-process-shell-command "ctags" "*ctags*" ctags/refresh-command)
+    (set-process-sentinel (get-process "ctags") 'ctags/process-callback)))
 
 ;; Ctags bindings
-(define-key prog-mode-map (kbd "C-c E") 'refresh-ctags)
+(define-key prog-mode-map (kbd "C-c E") 'ctags/refresh-ctags)
+
+;; Automatically update tags on save, but be silent about it.
+(setq ctags/major-modes-to-update-on-save '())
+(defun ctags/update-tags-on-save ()
+  "Update tags if current major mode is part of the list."
+  (interactive)
+  (when (member major-mode ctags/major-modes-to-update-on-save)
+    (ctags/refresh-ctags :silent t)))
+
+(defun ctags/update-this-mode-on-save (mode)
+  "Update MODE on save."
+  (add-to-list (make-local-variable 'ctags/major-modes-to-update-on-save) mode))
+
+(add-hook 'after-save-hook 'ctags/update-tags-on-save)

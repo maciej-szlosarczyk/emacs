@@ -27,7 +27,7 @@
 
   ;; Set specific ctags command
   (setq-local
-   ctags-refresh-command
+   ctags/refresh-command
    (format
     "ctags -e -R --languages=erlang -f %sTAGS %s. %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
@@ -44,4 +44,7 @@
 
   (activate-erlang-mode)
   ;; Enable flycheck
-  (flycheck-select-checker 'erlang-otp))
+  (flycheck-select-checker 'erlang-otp)
+
+    ;; Automatically update tags on save
+  (ctags/update-this-mode-on-save 'erlang-mode))
