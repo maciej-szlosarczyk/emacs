@@ -29,9 +29,6 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-etags company-yasnippet))
 
-  ;; Automatically update tags on save
-  (ctags/update-this-mode-on-save 'enh-ruby-mode)
-
   ;; Set specific ctags command
   (setq-local ctags/refresh-command
               (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
