@@ -104,6 +104,7 @@
 
 ;; Additional files
 (load "~/.emacs.d/01mac.el")
+(load "~/.emacs.d/02macros.el")
 (load "~/.emacs.d/02ivy.el")
 (load "~/.emacs.d/03hydra.el")
 (load "~/.emacs.d/04magit.el")

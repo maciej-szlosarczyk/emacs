@@ -1,15 +1,36 @@
-;; Add erlang installation to load path
-(setq erlang-asdf-root "$HOME/.asdf/installs/erlang/21.3.8/")
+(cl-defun erlang/emacs-path (erlang-version)
+  (car (split-string
+        (shell-command-to-string
+         (format "find $HOME/.asdf/installs/erlang/%s/ -name erlang.el"
+                 erlang-version)) "erlang.el")))
 
-(setq load-path
-      (cons (format "%slib/tools-3.1/emacs" erlang-asdf-root)
-            load-path))
+(cl-defun erlang/erlang-path (erlang-version)
+  (format "$HOME/.asdf/installs/erlang/%s/" erlang-version))
 
-(require 'erlang-start)
+(defun erlang/erlang-plist (erlang-version)
+  "Create property list for ERLANG-VERSION."
+  (list :version erlang-version
+        :erlang-path (erlang/erlang-path erlang-version)
+        :emacs-path (erlang/emacs-path erlang-version)))
 
-(setq erlang-root-dir erlang-asdf-root)
-(setq exec-path (cons (format "%sbin" erlang-asdf-root) exec-path))
-(setq erlang-man-root-dir (format "%sman" erlang-asdf-root))
+(cl-defun erlang/installed-erlangs ()
+  (split-string
+   (shell-command-to-string
+    (format "asdf list erlang"))))
+
+(cl-defun erlang/available-versions--plist ()
+  (mapcar 'erlang/erlang-plist (erlang/installed-erlangs)))
+
+(setq erlang/available-versions (erlang/available-versions--plist))
+
+(cl-defun erlang/currently-in-use ()
+  (car (split-string (shell-command-to-string "asdf current erlang"))))
+
+(cl-defun erlang/current-version--plistp (erlang-plist)
+  (equal (plist-get erlang-plist :version) (erlang/currently-in-use)))
+
+(cl-defun erlang/current-plist ()
+  (seq-find 'erlang/current-version--plistp erlang/available-versions))
 
 ;; Flycheck checker for Erlang
 (flycheck-define-checker erlang-otp
@@ -22,26 +43,46 @@
    (error line-start (file-name) ":" line ": " (message) line-end))
   :modes (my-erlang-mode))
 
-(defun activate-erlang-mode ()
+(defun erlang/activate-erlang-mode ()
   "All things for all Erlang, including header files."
+  (when (featurep 'erlang-start) (unload-feature 'erlang-start))
+
+  (setq erlang/current-erlang (erlang/current-plist))
+
+  (add-to-list (make-local-variable 'load-path)
+               (plist-get erlang/current-erlang :emacs-path))
+
+  (add-to-list (make-local-variable 'exec-path)
+               (format "%slib/tools-3.1/emacs"
+                       (plist-get erlang/current-erlang :erlang-path)))
+
+  (setq-local erlang-man-root-dir
+              (format "%sman"
+                      (plist-get erlang/current-erlang :erlang-path)))
+
+  (require 'erlang-start)
 
   ;; Set specific ctags command
   (setq-local
-   ctags-refresh-command
+   ctags/refresh-command
    (format
     "ctags -e -R --languages=erlang -f %sTAGS %s. %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
-    erlang-asdf-root erlang-asdf-root))
+    (plist-get erlang/current-erlang :erlang-path)
+    (plist-get erlang/current-erlang :erlang-path)))
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-etags company-yasnippet)))
 
-(add-hook 'erlang-mode-hook 'activate-erlang-mode)
+(add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 
 (define-derived-mode my-erlang-mode erlang-mode "My Erlang mode"
   "A mode for Erlang things"
 
   (activate-erlang-mode)
   ;; Enable flycheck
-  (flycheck-select-checker 'erlang-otp))
+  (flycheck-select-checker 'erlang-otp)
+
+  ;; Automatically update tags on save
+  (ctags/update-this-mode-on-save 'erlang-mode))
