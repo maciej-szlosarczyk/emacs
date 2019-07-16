@@ -6,7 +6,7 @@
   (setq-default display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
-(load "$HOME/.emacs.d/themes/themes-base16-not-harmonic.el" t)
+(load "$HOME/.emacs.d/themes/themes-base16-not-harmonic.el" 'f 't)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'manoj-dark t t)
 (load-theme 'base16-one-light t t)
@@ -23,7 +23,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme 'base16-mocha))
   (progn
-    (enable-theme 'manoj-dark)))
+    (enable-theme 'planet)))
 
 ;; Set font face
 (set-font-size 16)

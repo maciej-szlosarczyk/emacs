@@ -27,8 +27,8 @@
   :requires company
   :defer t)
 
-(global-company-mode 1)
-(yas-global-mode 1)
+(global-company-mode t)
+(yas-global-mode t)
 
 (setq-default
  company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.

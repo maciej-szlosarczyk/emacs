@@ -15,9 +15,6 @@
 ;; list the packages you want
 (setq package-list '(
                      use-package
-                     window-purpose ;; Make sure that windows are of grouped by
-                     ;; purpose.
-
                      visual-regexp ;; Regexp replacement with preview in
                      ;; current buffer.
 
@@ -53,32 +50,31 @@
 (require 'use-package)
 
 ;; Additional files
-(load "$HOME/.emacs.d/01mac.el")
-(load "$HOME/.emacs.d/02macros.el")
-(load "$HOME/.emacs.d/02ivy.el")
-(load "$HOME/.emacs.d/03hydra.el")
-(load "$HOME/.emacs.d/04magit.el")
-(load "$HOME/.emacs.d/05prog-mode.el")
-(load "$HOME/.emacs.d/06company-yasnippet.el")
-(load "$HOME/.emacs.d/06flycheck.el")
-(load "$HOME/.emacs.d/07projectile.el")
-(load "$HOME/.emacs.d/08purpose.el")
-(load "$HOME/.emacs.d/08ctags.el")
-(load "$HOME/.emacs.d/09ispell.el")
+(load "$HOME/.emacs.d/01mac.el" 'f 't)
+(load "$HOME/.emacs.d/02macros.el" 'f 't)
+(load "$HOME/.emacs.d/02ivy.el" 'f 't)
+(load "$HOME/.emacs.d/03hydra.el" 'f 't)
+(load "$HOME/.emacs.d/04magit.el" 'f 't)
+(load "$HOME/.emacs.d/05prog-mode.el" 'f 't)
+(load "$HOME/.emacs.d/06company-yasnippet.el" 'f 't)
+(load "$HOME/.emacs.d/06flycheck.el" 'f 't)
+(load "$HOME/.emacs.d/07projectile.el" 'f 't)
+(load "$HOME/.emacs.d/08ctags.el" 'f 't)
+(load "$HOME/.emacs.d/09ispell.el" 'f 't)
 
 ;; Themes
-(load "$HOME/.emacs.d/themes/themes.el")
+(load "$HOME/.emacs.d/themes/themes.el" 'f 't)
 
 ;; Actual supported languages
-(load "$HOME/.emacs.d/languages/elisp.el")
-(load "$HOME/.emacs.d/languages/ruby.el")
-(load "$HOME/.emacs.d/languages/web.el")
-(load "$HOME/.emacs.d/languages/elixir.el")
-(load "$HOME/.emacs.d/languages/erlang.el")
-(load "$HOME/.emacs.d/languages/sh.el")
-(load "$HOME/.emacs.d/languages/rust.el")
-(load "$HOME/.emacs.d/languages/clang.el")
-(load "$HOME/.emacs.d/languages/clojure.el")
+(load "$HOME/.emacs.d/languages/elisp.el" 'f 't)
+(load "$HOME/.emacs.d/languages/ruby.el" 'f 't)
+(load "$HOME/.emacs.d/languages/web.el" 'f 't)
+(load "$HOME/.emacs.d/languages/elixir.el" 'f 't)
+(load "$HOME/.emacs.d/languages/erlang.el" 'f 't)
+(load "$HOME/.emacs.d/languages/sh.el" 'f 't)
+(load "$HOME/.emacs.d/languages/rust.el" 'f 't)
+(load "$HOME/.emacs.d/languages/clang.el" 'f 't)
+(load "$HOME/.emacs.d/languages/clojure.el" 'f 't)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

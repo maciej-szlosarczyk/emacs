@@ -34,7 +34,7 @@
   :hook (((prog-mode text-mode) . rainbow-delimiters-mode))
   :init
              ;;; Match parenthasis (left-right)
-  (electric-pair-mode 1))
+  (electric-pair-mode t))
 
 ;;; Show hex (#aaa) colors as colors
 (use-package rainbow-mode

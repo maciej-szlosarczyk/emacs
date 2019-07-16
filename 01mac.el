@@ -97,7 +97,7 @@
 
 ; Enable line numbers and show cursors position
 (global-display-line-numbers-mode t)
-(column-number-mode 1)
+(column-number-mode t)
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)

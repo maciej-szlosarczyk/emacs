@@ -1,6 +1,7 @@
 (use-package alchemist
   :requires (ruby-end-mode)
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (defun activate-elixir-mode ()
   "All things Elixir."
@@ -14,9 +15,3 @@
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (add-hook 'alchemist-mode-hook 'activate-elixir-mode)
 (add-hook 'elixir-mode-hook 'ruby-end-mode)
-
-;; Eex Web mode
-(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
-(setq web-mode-extra-auto-pairs
-      '(("eex"  . (("<%" "%>")))
-        ))
