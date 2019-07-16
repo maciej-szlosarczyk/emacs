@@ -1,12 +1,30 @@
 ;; Company completion framework configuration
+(use-package yasnippet
+  :ensure t
+  :defer t)
+
+(use-package yasnippet-snippets
+  :ensure t
+  :defer t)
+
+(use-package lsp-mode
+  :ensure t
+  :defer t)
+
+(use-package lsp-ui)
+
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
   :requires (yasnippet
              yasnippet-snippets
              lsp-mode
-             company-lsp
              lsp-ui)
   :ensure t
+  :defer t)
+
+(use-package company-lsp
+  :ensure t
+  :requires company
   :defer t)
 
 (global-company-mode 1)

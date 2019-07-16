@@ -1,6 +1,7 @@
 ;;; Magit
 (use-package magit
   :ensure t
+  :defer t
   :bind ("<f5> c" . magit-checkout)
         ("<f5> b" . magit-blame)
         ("<f5> g" . magit-status)

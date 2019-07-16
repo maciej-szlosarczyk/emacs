@@ -9,6 +9,18 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
+;;; ERB editing
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+
+;; Eex Web mode
+(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+
+
+(setq web-mode-extra-auto-pairs
+      '(("eex"  . (("<%" "%>")))
+        ("erb"  . (("<%" "%>")
+                   ("beg" "end")))))
+
 ;; Language Server Protocol is used for completion
 (add-hook 'js2-mode-hook 'lsp)
 

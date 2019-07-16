@@ -35,10 +35,3 @@
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
-
-;;; ERB specific things
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(setq web-mode-extra-auto-pairs
-      '(("erb"  . (("<%" "%>")
-                   ("beg" "end")))
-        ))

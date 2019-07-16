@@ -1,5 +1,7 @@
 (use-package cider
   :requires clojure-mode
+  :commands cider-jack-in
+  :defer t
   :ensure t)
 
 (add-hook 'clojure-mode-hook 'cider-mode)
