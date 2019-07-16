@@ -1,7 +1,8 @@
-(require 'hydra)
-
-(defhydra hydra-file-switcher-menu (:color teal :hint nil)
-  "
+(use-package hydra
+  :ensure t
+  :config
+  (defhydra hydra-file-switcher-menu (:color teal :hint nil)
+    "
    ^Ivy^                           ^Projectile^                  ^Magit^
 ^^^^^^^^------------------------------------------------------------------------
 _a_: ag                         _s_: Switch project           _m_: Git status
@@ -11,25 +12,23 @@ _t_: Find file                  _g_: ag in current project    _M_: Git blame
 ^^                              _n_: New project
 ^^                              _i_: ielm console
 "
-  ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color pink)
 
-  ("a" counsel-ag)
-  ("b" ivy-switch-buffer)
-  ("t" counsel-find-file)
-  ("s" counsel-projectile-switch-project)
-  ("f" counsel-projectile-find-file)
-  ("g" counsel-projectile-ag)
-  ("c" projectile-invalidate-cache)
-  ("n" projectile-add-known-project)
-  ("i" ielm)
-  ("m" magit-status)
-  ("C" magit-checkout)
-  ("M" magit-blame))
+    ("a" counsel-ag)
+    ("b" ivy-switch-buffer)
+    ("t" counsel-find-file)
+    ("s" counsel-projectile-switch-project)
+    ("f" counsel-projectile-find-file)
+    ("g" counsel-projectile-ag)
+    ("c" projectile-invalidate-cache)
+    ("n" projectile-add-known-project)
+    ("i" ielm)
+    ("m" magit-status)
+    ("C" magit-checkout)
+    ("M" magit-blame))
 
-(global-set-key (kbd "C-c p") 'hydra-file-switcher-menu/body)
-
-(defhydra hydra-programming-actions (:color teal :hint nil)
-  "
+  (defhydra hydra-programming-actions (:color teal :hint nil)
+    "
   Programming actions
 
    ^Code Manipulation^    ^Code Completion^
@@ -41,22 +40,20 @@ _a_: align regexp
 _e_: eval region
 _s_: swiper
 "
-  ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color pink)
 
-  ("c"  comment-line)
-  ("r"  vr/replace)
-  ("i"  indent-region)
-  ("a"  align-regexp)
-  ("e"  eval-region)
-  ("s"  swiper)
+    ("c"  comment-line)
+    ("r"  vr/replace)
+    ("i"  indent-region)
+    ("a"  align-regexp)
+    ("e"  eval-region)
+    ("s"  swiper)
 
-  ("y"  company-yasnippet)
-  ("m"  company-complete))
+    ("y"  company-yasnippet)
+    ("m"  company-complete))
 
-(global-set-key (kbd "C-c c") 'hydra-programming-actions/body)
-
-(defhydra hydra-window-actions (:color teal :hint nil)
-  "
+  (defhydra hydra-window-actions (:color teal :hint nil)
+    "
   Window actions
 
    ^Windows^                          ^Move around^
@@ -68,17 +65,19 @@ _v_: split vertically           _<up>_: Move up
 ^^                                 _p_: Previous buffer
 ^^                                 _n_: Next buffer
 "
-  ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color pink)
 
-  ("k"       kill-buffer-and-window)
-  ("h"       split-window-below)
-  ("v"       split-window-right)
+    ("k"       kill-buffer-and-window)
+    ("h"       split-window-below)
+    ("v"       split-window-right)
 
-  ("<left>"  windmove-left)
-  ("<right>" windmove-right)
-  ("<up>"    windmove-up)
-  ("<down>"  windmove-down)
-  ("p"       previous-buffer)
-  ("n"       next-buffer))
+    ("<left>"  windmove-left)
+    ("<right>" windmove-right)
+    ("<up>"    windmove-up)
+    ("<down>"  windmove-down)
+    ("p"       previous-buffer)
+    ("n"       next-buffer))
 
-(global-set-key (kbd "C-c w") 'hydra-window-actions/body)
+  :bind ("C-c p" . hydra-file-switcher-menu/body)
+        ("C-c c" . hydra-programming-actions/body)
+        ("C-c w" . hydra-window-actions/body))

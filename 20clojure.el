@@ -1,3 +1,7 @@
+(use-package cider
+  :requires clojure-mode
+  :ensure t)
+
 (add-hook 'clojure-mode-hook 'cider-mode)
 
 (defun activate-clojure-mode ()

@@ -14,52 +14,17 @@
 
 ;; list the packages you want
 (setq package-list '(
-                     keyfreq ;; Record how often emacs commands are executed
-                     exec-path-from-shell ;; Allow to execute path from shell
-
-                     rainbow-delimiters ;; Colorize matching parens
-		                 rainbow-mode ;; Make color symbols like #FFF colorfull
-
-				             magit ;; Git interface for Emacs
-                     column-enforce-mode ;; Enforce column length of X
                      window-purpose ;; Make sure that windows are of grouped by
                      ;; purpose.
 
-              	     ;;; Helm replacements
-		                 ivy
-		                 counsel
-		                 swiper
-                     hydra ;; Create nice text menus without memorizing too much
-
-                     ;;; Code
-                     dash-at-point
-
-                     company ;; Code completion framework
-                     yasnippet ;; Code snippets framework
-                     yasnippet-snippets ;; Actual snippets for various languages
-                     flycheck ;; Compilation framework
                      visual-regexp ;; Regexp replacement with preview in
                      ;; current buffer.
-
-                     ;; Language server protocol
-                     lsp-mode
-                     company-lsp
-                     lsp-ui
-
-                     ;; Project management
-                     projectile
-                     counsel-projectile
 
                      ;; Themes
                      smart-mode-line
                      base16-theme
                      flatui-theme
                      planet-theme
-
-                     ;; Ruby
-                     enh-ruby-mode ;; Enhanced Ruby mode
-                     ruby-end ;; Insert end for methods automatically
-                     rspec-mode ;; RSpec yasnippets
 
                      ;; Elixir
                      alchemist
@@ -101,6 +66,8 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+(require 'use-package)
 
 ;; Additional files
 (load "~/.emacs.d/01mac.el")

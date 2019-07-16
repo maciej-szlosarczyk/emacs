@@ -1,3 +1,7 @@
+(use-package racer
+  :ensure t
+  :requires (racer flycheck-rust))
+
 (defun activate-rust-mode ()
   "All things for Rust mode"
   (interactive)

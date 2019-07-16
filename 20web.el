@@ -1,3 +1,10 @@
+(use-package web-mode
+  :ensure t)
+
+(use-package js2-mode
+  :requires (web-mode company-web lsp)
+  :ensure t)
+
 ;; Use js2-mode for javascript editing
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
