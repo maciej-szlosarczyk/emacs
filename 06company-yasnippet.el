@@ -1,7 +1,35 @@
 ;; Company completion framework configuration
-(require 'company); Add completion
+(use-package yasnippet
+  :ensure t
+  :defer t)
 
-;; Company configuration
+(use-package yasnippet-snippets
+  :ensure t
+  :defer t)
+
+(use-package lsp-mode
+  :ensure t
+  :defer t)
+
+(use-package lsp-ui)
+
+(use-package company
+  :commands (company-indent-or-complete-common company-yasnippet)
+  :requires (yasnippet
+             yasnippet-snippets
+             lsp-mode
+             lsp-ui)
+  :ensure t
+  :defer t)
+
+(use-package company-lsp
+  :ensure t
+  :requires company
+  :defer t)
+
+(global-company-mode t)
+(yas-global-mode t)
+
 (setq-default
  company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
  company-idle-delay 0.1
@@ -20,17 +48,14 @@
  ;; company-async-timeout 2
  )
 
-(global-company-mode 1)
-(yas-global-mode 1)
-
 ;; Absolute defaults for company mode
-(setq-default company-backends
-              '((company-files          ; files & directory
-                 company-keywords       ; keywords
-                 company-capf
-                 )
-                (company-dabbrev company-abbrev)
-                ))
+(setq company-backends
+      '((company-files          ; files & directory
+         company-keywords       ; keywords
+         company-capf
+         )
+        (company-dabbrev company-abbrev)
+        ))
 
 (setq-default
  company-lsp-cache-candidates 1 ;; Cache LSP results

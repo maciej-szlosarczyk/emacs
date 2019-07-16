@@ -1,14 +1,12 @@
 ;; Require Enhanced Ruby Mode
-(require 'enh-ruby-mode)
 
-(define-key enh-ruby-mode-map (kbd "C-c \\") 'nil)
+(use-package rspec-mode :ensure t :defer t)
+(use-package ruby-end :ensure t :defer t)
 
-(add-hook 'ruby-mode-hook 'enh-ruby-mode)
-(add-hook 'enh-ruby-mode-hook 'rspec-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
+(use-package enh-ruby-mode
+  :requires (rspec-mode ruby-end)
+  :ensure t
+  :defer t)
 
 (defun activate-ruby-mode ()
   "All things for ruby mode."
@@ -34,11 +32,9 @@
               (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
                       (projectile-project-root) (projectile-project-root))))
 
+(add-hook 'ruby-mode-hook 'enh-ruby-mode)
+(add-hook 'enh-ruby-mode-hook 'rspec-mode)
+(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
-
-;;; ERB specific things
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(setq web-mode-extra-auto-pairs
-      '(("erb"  . (("<%" "%>")
-                   ("beg" "end")))
-        ))

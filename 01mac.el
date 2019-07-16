@@ -97,7 +97,7 @@
 
 ; Enable line numbers and show cursors position
 (global-display-line-numbers-mode t)
-(column-number-mode 1)
+(column-number-mode t)
 
 ;; Turn off sounds
 (setq ring-bell-function 'ignore)
@@ -111,12 +111,12 @@
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; Add pgp binary
-(add-to-list 'exec-path "/usr/local/bin")
-
-; Use Shells variables
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; Allow to execute path from shell
+(use-package exec-path-from-shell
+             :if (memq window-system '(mac ns))
+             :ensure t
+             :config (add-to-list 'exec-path "/usr/local/bin")
+                     (exec-path-from-shell-initialize))
 
 
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -145,6 +145,9 @@
 (scroll-bar-mode -1)
 
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+(use-package keyfreq
+  :defer t
+  :ensure t)
+
+(keyfreq-mode t)
+(keyfreq-autosave-mode t)
