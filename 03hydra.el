@@ -1,5 +1,6 @@
 (use-package hydra
   :ensure t
+  :defer t
   :config
   (defhydra hydra-file-switcher-menu (:color teal :hint nil)
     "
