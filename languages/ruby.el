@@ -1,7 +1,10 @@
 ;; Require Enhanced Ruby Mode
 
+(use-package rspec-mode :ensure t :defer t)
+(use-package ruby-end :ensure t :defer t)
+
 (use-package enh-ruby-mode
-  :requires (rspec-mode ruby-end-mode)
+  :requires (rspec-mode ruby-end)
   :ensure t
   :defer t)
 
