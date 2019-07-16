@@ -1,10 +1,12 @@
+(use-package clojure-mode
+	:defer t
+	:ensure t)
+
 (use-package cider
   :requires clojure-mode
   :commands cider-jack-in
   :defer t
   :ensure t)
-
-(add-hook 'clojure-mode-hook 'cider-mode)
 
 (defun activate-clojure-mode ()
   "Goodies for clojure files."
@@ -13,3 +15,4 @@
   )
 
 (add-hook 'clojure-mode-hook 'activate-clojure-mode)
+(add-hook 'clojure-mode-hook 'cider-mode)
