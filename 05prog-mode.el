@@ -19,12 +19,11 @@
   :defer t
   :hook (((prog-mode text-mode) . whitespace-mode)
          (before-save . whitespace-cleanup))
-  :init (setq whitespace-style #'(face trailing empty))
-                    ;;; Insert newline on save
-  (setq require-final-newline t)
-                    ;;; Tabs are spaces and are general at 2. Guide indent
-                    ;;; with lines
-  (setq-default indent-tabs-mode nil))
+  :config
+  (setq whitespace-style #'(face trailing empty newline)
+        ;;; Insert newline on save
+				require-final-newline t
+				indent-tabs-mode nil))
 
 ;; Use colorful, matching parens
 (use-package rainbow-delimiters
