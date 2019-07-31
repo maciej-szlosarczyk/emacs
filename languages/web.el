@@ -1,33 +1,30 @@
 (use-package web-mode
   :ensure t)
 
-(use-package js2-mode
-  :requires (web-mode company-web lsp)
-  :ensure t)
-
-;; Use js2-mode for javascript editing
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
-
-;;; ERB editing
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
 
+;; Vue
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
+;; React Typescript
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
 (setq web-mode-extra-auto-pairs
       '(("eex"  . (("<%" "%>")))
         ("erb"  . (("<%" "%>")
                    ("beg" "end")))))
 
-;; Language Server Protocol is used for completion
-(add-hook 'js2-mode-hook 'lsp)
+(defun activate-web-mode ()
+	"Web mode overrides."
+	;; Indent web mode scripts by 2
+	(setq web-mode-script-padding 2)
+	(setq web-mode-code-indent-offset 2)
 
-(defun activate-js2-mode ()
-  "Company list override."
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-lsp)))
+               '(company-yasnippet company-lsp))
 
-(add-hook 'js2-mode-hook 'activate-js2-mode)
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+	(when (string-match-p "vue" (buffer-file-name))
+		(lsp)))
+
+(add-hook 'web-mode-hook 'activate-web-mode)

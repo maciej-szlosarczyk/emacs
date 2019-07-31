@@ -26,6 +26,13 @@
     (enable-theme 'planet)))
 
 ;; Set font face
+;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun set-font-size (size)
+  "Set font SIZE to X px."
+  (interactive "NNew font size: ")
+  (set-face-attribute 'default nil :font (format "Hasklig %d" size))
+  (set-face-attribute 'mode-line nil :font (format "Hasklig %d" size)))
+
 (set-font-size 16)
 
 ;; Remove ugly black line
