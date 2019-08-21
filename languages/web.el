@@ -4,6 +4,9 @@
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
 
+;; ERB mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+
 ;; Vue
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 

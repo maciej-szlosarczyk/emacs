@@ -6,6 +6,8 @@
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-elisp company-yasnippet))
+
+	(paredit-mode 1)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'activate-emacs-lisp-mode)

@@ -108,6 +108,9 @@
 ;; Only warn if a file is bigger than 50 MB when trying to open it
 (setq large-file-warning-threshold 50000000)
 
+;; Numbers are arbitrary, but work on a large screen. Default is 160
+(setq split-width-threshold 180)
+
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 

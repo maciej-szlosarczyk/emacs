@@ -23,7 +23,8 @@
       (sml/apply-theme 'respectful)
       (enable-theme 'base16-mocha))
   (progn
-    (enable-theme 'planet)))
+    (enable-theme 'base16-mexico-light)
+		(setq base16-theme-256-color-source "base16-shell")))
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
