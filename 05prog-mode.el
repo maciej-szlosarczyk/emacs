@@ -17,13 +17,14 @@
   :commands whitespace-mode
   :ensure t
   :defer t
-  :hook (((prog-mode text-mode) . whitespace-mode)
+  :hook (((prog-mode text-mode conf-mode) . whitespace-mode)
          (before-save . whitespace-cleanup))
   :config
   (setq whitespace-style #'(face trailing empty newline)
         ;;; Insert newline on save
-				require-final-newline t
-				indent-tabs-mode nil))
+        require-final-newline 't))
+
+(setq-default indent-tabs-mode nil)
 
 ;; Use colorful, matching parens
 (use-package rainbow-delimiters

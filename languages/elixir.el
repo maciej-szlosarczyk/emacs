@@ -6,7 +6,7 @@
 (defun activate-elixir-mode ()
   "All things Elixir."
   (set-indent 2)
-  (column-enforce-n 80)
+  (column-enforce-n 98)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

@@ -21,7 +21,7 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-mocha))
+      (enable-theme 'base16-mexico-light))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))
