@@ -13,6 +13,9 @@
 ;; React Typescript
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
+;; Plain React
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
 (setq web-mode-extra-auto-pairs
       '(("eex"  . (("<%" "%>")))
         ("erb"  . (("<%" "%>")
@@ -24,10 +27,13 @@
 	(setq web-mode-script-padding 2)
 	(setq web-mode-code-indent-offset 2)
 
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-lsp))
+  (flycheck-add-next-checker 'javascript-standard 'javascript-tide 'append)
+  (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
-	(when (string-match-p "vue" (buffer-file-name))
-		(lsp)))
+  (add-to-list (make-local-variable 'company-backends)
+               '(company-yasnippet company-tide))
+
+	(when (string-match-p "jsx" (buffer-file-name))
+		(tide-setup)))
 
 (add-hook 'web-mode-hook 'activate-web-mode)

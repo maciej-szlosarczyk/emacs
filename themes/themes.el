@@ -6,11 +6,16 @@
   (setq-default display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
+;; Disable cursor blinking
+(blink-cursor-mode 0)
+
 (load "$HOME/.emacs.d/themes/themes-base16-not-harmonic.el" 'f 't)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'manoj-dark t t)
 (load-theme 'base16-one-light t t)
 (load-theme 'base16-zenburn t t)
+(load-theme 'base16-atelier-forest-light t t)
+(load-theme 'base16-material-palenight t t)
 (load-theme 'base16-mocha t t)
 (load-theme 'planet t t)
 
@@ -21,7 +26,7 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-mexico-light))
+      (enable-theme 'base16-mocha))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))
