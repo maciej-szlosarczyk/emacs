@@ -33,8 +33,9 @@
   :defer t
   :hook (((prog-mode text-mode) . rainbow-delimiters-mode))
   :init
-             ;;; Match parenthasis (left-right)
-  (electric-pair-mode t))
+  ;;; Match parenthasis (left-right)
+  (electric-pair-mode t)
+  (show-paren-mode t))
 
 ;;; Show hex (#aaa) colors as colors
 (use-package rainbow-mode
@@ -69,3 +70,6 @@
   :ensure t
   :defer t
   :config (global-column-enforce-mode t))
+
+(provide '05prog-mode)
+;;; 05prog-mode ends here

@@ -66,14 +66,27 @@
   (setq-local
    ctags/refresh-command
    (format
-    "ctags -e -R --languages=erlang -f %sTAGS %s. %slib/stdlib-* %slib/kernel-*"
+    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
+    (projectile-project-root) (projectile-project-root)
+    (projectile-project-root)
     (plist-get erlang/current-erlang :erlang-path)
     (plist-get erlang/current-erlang :erlang-path)))
 
+  ;; Add include path so that Erlang does not complain about
+  ;; missing header files.
+  (setq-local flycheck-erlang-include-path
+              (list (format "%sdeps" (projectile-project-root))
+                    (format "%sinclude" (projectile-project-root))
+                    (format "%sapps" (projectile-project-root))))
+
+  ;; (setq-local flycheck-erlang-library-path
+  ;;             (list (format "%sdeps" (projectile-project-root))
+  ;;                   (format "%sapps" (projectile-project-root))))
+
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-etags company-yasnippet)))
+               '(company-yasnippet company-etags company-dabbrev)))
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 

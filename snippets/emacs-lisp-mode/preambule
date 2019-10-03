@@ -1,0 +1,8 @@
+;;;-------------------------------------------------------------------
+;;; author: Maciej Szlosarczyk (${1: maciej@sosek.net})
+;;; copyright (C) (${2:`(format-time-string "%Y")`}) Maciej Szlosarczyk
+;;; @doc
+;;;
+;;; @end
+;;; Created: ${3:`(format-time-string "%d %b %Y")`}
+;;;-------------------------------------------------------------------

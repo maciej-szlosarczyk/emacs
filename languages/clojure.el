@@ -17,16 +17,17 @@
 	:defer t
 	:ensure t)
 
+(setq-local indent-tabs-mode nil)
+
 (defun activate-my-clojure-mode ()
   "Goodies for clojure files."
   (set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
-	(clj-refactor-mode 1)
-	(cider-mode 1)
-
+  (clj-refactor-mode 1)
+  (cider-mode 1)
+  (paredit-mode 1)
 	;; Do not show separate error window when in REPL
-	(setq cider-show-error-buffer 'except-in-repl)
-	(paredit-mode 1))
+  (setq cider-show-error-buffer 'except-in-repl))
 
 (add-hook 'clojure-mode-hook 'activate-my-clojure-mode)
 

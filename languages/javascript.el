@@ -25,7 +25,10 @@
   (setq js2-mode-show-strict-warnings nil)
   (tide-hl-identifier-mode +1)
 
-  (flycheck-add-next-checker 'javascript-standard 'javascript-tide 'append)
+    (if (string-match-p "rebelroam" (buffer-file-name))
+      (flycheck-add-next-checker 'javascript-standard 'javascript-tide 'append))
+
+
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
   ;; "Company list override."
