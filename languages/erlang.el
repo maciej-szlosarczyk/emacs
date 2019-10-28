@@ -66,10 +66,10 @@
   (setq-local
    ctags/refresh-command
    (format
-    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %slib/stdlib-* %slib/kernel-*"
+    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
     (projectile-project-root) (projectile-project-root)
-    (projectile-project-root)
+    (projectile-project-root) (projectile-project-root)
     (plist-get erlang/current-erlang :erlang-path)
     (plist-get erlang/current-erlang :erlang-path)))
 

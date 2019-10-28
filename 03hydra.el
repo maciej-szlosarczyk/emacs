@@ -16,7 +16,7 @@ _t_: Find file                  _g_: ag in current project    _M_: Git blame
     ("q" nil "cancel" :color pink)
 
     ("a" counsel-ag)
-    ("b" ivy-switch-buffer)
+    ("b" ibuffer)
     ("t" counsel-find-file)
     ("s" counsel-projectile-switch-project)
     ("f" counsel-projectile-find-file)

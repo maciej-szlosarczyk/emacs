@@ -75,6 +75,16 @@
 ;; Kill current buffer and window
 (global-set-key (kbd "C-c q") 'kill-buffer-and-window)
 
+;; ibuffer
+(global-set-key (kbd "C-c b") 'ibuffer)
+
+;; Revert without asking
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+
+(global-set-key (kbd "C-c r") 'revert-buffer-no-confirm)
+
 ;; Create new terminal
 (global-set-key (kbd "<f12>") (lambda ()
                                (interactive)
