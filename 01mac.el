@@ -63,11 +63,11 @@
 (global-set-key (kbd "C-c {") 'windmove-up)
 (global-set-key (kbd "C-c }") 'windmove-down)
 
-
 ;; Switch to previous and next buffer
 (global-set-key (kbd "C-c s <left>") 'previous-buffer)
 (global-set-key (kbd "C-c s <right>") 'next-buffer)
 
+;; The same, but without arrow keys.
 (global-set-key (kbd "C-c s [") 'previous-buffer)
 (global-set-key (kbd "C-c s ]") 'next-buffer)
 
@@ -77,6 +77,16 @@
 
 ;; ibuffer
 (global-set-key (kbd "C-c b") 'ibuffer)
+
+;; Move buffers around with buffer keys
+(use-package buffer-move
+  :ensure t
+  :defer t
+  :bind ("C-c m [" . buf-move-left)
+        ("C-c m ]" . buf-move-right)
+        ("C-c m {" . buf-move-up)
+        ("C-c m }" . buf-move-down))
+
 
 ;; Revert without asking
 (defun revert-buffer-no-confirm ()
