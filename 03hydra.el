@@ -9,15 +9,16 @@
 _a_: ag                         _s_: Switch project           _m_: Git status
 _b_: Switch buffer              _f_: Find file in project     _C_: Git checkout
 _t_: Find file                  _g_: ag in current project    _M_: Git blame
-^^                              _c_: Invalidate cache
+_d_: Deft                       _c_: Invalidate cache
 ^^                              _n_: New project
 ^^                              _i_: ielm console
 "
-    ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color blue)
 
     ("a" counsel-ag)
     ("b" ibuffer)
     ("t" counsel-find-file)
+    ("d" deft)
     ("s" counsel-projectile-switch-project)
     ("f" counsel-projectile-find-file)
     ("g" counsel-projectile-ag)
@@ -41,7 +42,7 @@ _a_: align regexp
 _e_: eval region
 _s_: swiper
 "
-    ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color blue)
 
     ("c"  comment-line)
     ("r"  vr/replace)
@@ -66,7 +67,7 @@ _v_: split vertically           _<up>_: Move up
 ^^                                 _p_: Previous buffer
 ^^                                 _n_: Next buffer
 "
-    ("q" nil "cancel" :color pink)
+    ("q" nil "cancel" :color blue)
 
     ("k"       kill-buffer-and-window)
     ("h"       split-window-below)

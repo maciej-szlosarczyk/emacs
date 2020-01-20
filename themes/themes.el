@@ -10,6 +10,7 @@
 (blink-cursor-mode 0)
 
 (load "$HOME/.emacs.d/themes/themes-base16-not-harmonic.el" 'f 't)
+(load "$HOME/.emacs.d/themes/themes-base16-zenburn-modified.el" 'f 't)
 (load-theme 'base16-mexico-light t t)
 (load-theme 'base16-ia-dark t t)
 (load-theme 'manoj-dark t t)
@@ -27,7 +28,7 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-one-light))
+      (enable-theme 'base16-material-palenight))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))
