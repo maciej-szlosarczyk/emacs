@@ -86,7 +86,7 @@
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-etags company-dabbrev)))
+               '(company-yasnippet company-etags)))
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 

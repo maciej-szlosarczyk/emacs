@@ -6,7 +6,8 @@
   :requires clojure-mode
   :commands cider-jack-in
   :defer t
-  :ensure t)
+  :ensure t
+  :config (setq cider-annotate-completion-function t))
 
 (use-package clj-refactor
 	:requires (cider clojure-mode)
@@ -35,3 +36,4 @@
 	(setq-local cider-show-error-buffer 'except-in-repl))
 
 (add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
+(add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)

@@ -23,7 +23,7 @@
 
 (defun base16-mexico-light-custom ()
   "Additional configuration for Base16 theme."
-  (set-face-attribute 'mode-line nil :font "Hasklig 15"))
+  (set-face-attribute 'mode-line nil :font "IBM Plex Mono 15"))
 
 (if (display-graphic-p)
     (progn
@@ -38,8 +38,8 @@
 (defun set-font-size (size)
   "Set font SIZE to X px."
   (interactive "NNew font size: ")
-  (set-face-attribute 'default nil :font (format "Hasklig %d" size))
-  (set-face-attribute 'mode-line nil :font (format "Hasklig %d" size)))
+  (set-face-attribute 'default nil :font (format "IBM Plex Mono %d" size))
+  (set-face-attribute 'mode-line nil :font (format "IBM Plex Mono %d" size)))
 
 (set-font-size 16)
 
