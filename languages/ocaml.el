@@ -2,12 +2,8 @@
 (provide 'opam-user-setup)
 
 (use-package tuareg
-  :defer t
-  :ensure t)
-
-(use-package reason-mode
-  :defer t
-  :ensure t)
+ :defer t
+ :ensure t)
 
 ;; Base configuration for OPAM
 

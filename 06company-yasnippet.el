@@ -7,24 +7,11 @@
   :ensure t
   :defer t)
 
-(use-package lsp-mode
-  :ensure t
-  :defer t)
-
-(use-package lsp-ui)
-
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
   :requires (yasnippet
-             yasnippet-snippets
-             lsp-mode
-             lsp-ui)
+             yasnippet-snippets)
   :ensure t
-  :defer t)
-
-(use-package company-lsp
-  :ensure t
-  :requires company
   :defer t)
 
 (global-company-mode t)
@@ -58,11 +45,6 @@
          )
         (company-dabbrev company-abbrev)
         ))
-
-(setq-default
- company-lsp-cache-candidates 1 ;; Cache LSP results
- company-lsp-async 1 ;; Fetch LSP results asynchronously
- )
 
 ;; Use standard emacs next and previous bindings for navigating company
 ;; suggestions

@@ -13,3 +13,4 @@ transient/*
 .lsp-session-*
 eshell/*
 .yas-compiled-snippets.el
+ac-comphist.dat

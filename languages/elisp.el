@@ -6,7 +6,7 @@
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-elisp company-yasnippet))
+               '(company-yasnippet company-elisp))
 
   (paredit-mode 1))
 

@@ -1,5 +1,5 @@
 (use-package js2-mode
-  :requires (web-mode company-web lsp)
+  :requires (web-mode company-web)
   :ensure t)
 
 (use-package tide

@@ -28,20 +28,22 @@
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
-      (enable-theme 'base16-material-palenight))
+      (enable-theme (nth
+                     (random 2)
+                     '(base16-zenburn-modified base16-material-palenight))))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun set-font-size (size)
-  "Set font SIZE to X px."
-  (interactive "NNew font size: ")
-  (set-face-attribute 'default nil :font (format "IBM Plex Mono %d" size))
-  (set-face-attribute 'mode-line nil :font (format "IBM Plex Mono %d" size)))
+(defun set-font (name size)
+  "Set font to NAME and its SIZE to X pixels."
+  (interactive "sNew font: \nnEnter size for font %s: ")
+  (set-face-attribute 'default nil :font (format "%s %d" name size))
+  (set-face-attribute 'mode-line nil :font (format "%s %d" name size)))
 
-(set-font-size 16)
+(set-font "IBM Plex Mono" 16)
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground
