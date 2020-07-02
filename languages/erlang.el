@@ -66,7 +66,7 @@
   (setq-local
    ctags/refresh-command
    (format
-    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
+    "uctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
     (projectile-project-root) (projectile-project-root)
     (projectile-project-root) (projectile-project-root)

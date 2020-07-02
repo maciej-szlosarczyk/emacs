@@ -15,13 +15,13 @@ _d_: Deft                       _c_: Invalidate cache
 "
     ("q" nil "cancel" :color blue)
 
-    ("a" counsel-ag)
+    ("a" counsel-rg)
     ("b" ibuffer)
     ("t" counsel-find-file)
     ("d" deft)
     ("s" counsel-projectile-switch-project)
     ("f" counsel-projectile-find-file)
-    ("g" counsel-projectile-ag)
+    ("g" counsel-projectile-rg)
     ("c" projectile-invalidate-cache)
     ("n" projectile-add-known-project)
     ("i" ielm)

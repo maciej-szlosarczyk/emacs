@@ -26,7 +26,9 @@
   (column-enforce-n 80)
   (clj-refactor-mode 1)
   (cider-mode 1)
-  (paredit-mode 1)
+
+  ;; Do not enable paredit for clojure
+  ;; (paredit-mode 1)
 	;; Do not show separate error window when in REPL
   (setq cider-show-error-buffer 'except-in-repl))
 

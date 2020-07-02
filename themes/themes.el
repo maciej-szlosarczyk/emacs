@@ -30,7 +30,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-zenburn-modified base16-material-palenight))))
+                     '(base16-zenburn-modified base16-atelier-forest-light))))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))

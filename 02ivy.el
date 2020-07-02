@@ -9,7 +9,7 @@
                 ivy-count-format "(%d of %d) " ;; Current candidate count style
                 ivy-display-style 'fancy)) ;; Formatting style
 
-(global-set-key (kbd "C-c a") 'counsel-ag)
+(global-set-key (kbd "C-c a") 'counsel-rg)
 (global-set-key (kbd "C-c t") 'counsel-find-file)
 (global-set-key (kbd "C-c C-s") 'swiper) ;; Find things by regexp
 (global-set-key (kbd "M-x") 'counsel-M-x) ;; M-x on steroids

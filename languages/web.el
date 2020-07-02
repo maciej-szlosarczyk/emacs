@@ -3,6 +3,7 @@
 
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
 
 ;; ERB mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -18,6 +19,7 @@
 
 (setq web-mode-extra-auto-pairs
       '(("eex"  . (("<%" "%>")))
+        ("leex"  . (("<%" "%>")))
         ("erb"  . (("<%" "%>")
                    ("beg" "end")))))
 
