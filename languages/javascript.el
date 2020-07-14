@@ -10,6 +10,7 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :config (setq-default lsp-file-watch-threshold 10000)
   :hook (typescript-mode . lsp))
 
 ;; Use js2-mode for javascript editing
