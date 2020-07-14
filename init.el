@@ -77,7 +77,7 @@
 (load "$HOME/.emacs.d/languages/clang.el" 'f 't)
 (load "$HOME/.emacs.d/languages/clojure.el" 'f 't)
 (load "$HOME/.emacs.d/languages/kotlin.el" 'f 't)
-(load "$HOME/.emacs.d/languages/reason.el" 'f 't)
+(load "$HOME/.emacs.d/languages/ocaml.el" 'f 't)
 (load "$HOME/.emacs.d/languages/markdown.el" 'f 't)
 ;; (load "$HOME/.emacs.d/languages/haskell.el" 'f 't)
 
