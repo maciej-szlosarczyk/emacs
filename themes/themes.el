@@ -17,6 +17,7 @@
 (load-theme 'base16-one-light t t)
 (load-theme 'base16-zenburn t t)
 (load-theme 'base16-atelier-forest-light t t)
+(load-theme 'base16-harmonic-light t t)
 (load-theme 'base16-material-palenight t t)
 (load-theme 'base16-mocha t t)
 (load-theme 'planet t t)
@@ -30,7 +31,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-zenburn-modified base16-atelier-forest-light))))
+                     '(base16-zenburn-modified base16-harmonic-light))))
   (progn
     (enable-theme 'base16-mexico-light)
 		(setq base16-theme-256-color-source "base16-shell")))
