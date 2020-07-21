@@ -1,3 +1,5 @@
+(use-package counsel-projectile :ensure t :defer t)
+
 (use-package projectile
   :ensure t
   :requires (counsel counsel-projectile)
