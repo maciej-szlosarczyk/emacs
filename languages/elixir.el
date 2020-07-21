@@ -1,17 +1,17 @@
-(use-package alchemist
-  :requires (ruby-end-mode)
+(use-package elixir-mode
+  :requires (lsp-mode lsp-ui)
   :ensure t
-  :defer t)
+  :config)
 
 (defun activate-elixir-mode ()
   "All things Elixir."
   (set-indent 2)
   (column-enforce-n 98)
+  (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
+  (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(alchemist-company company-yasnippet)))
+               '(company-capf company-yasnippet)))
 
-(add-hook 'elixir-mode-hook 'alchemist-mode)
-(add-hook 'alchemist-mode-hook 'activate-elixir-mode)
-(add-hook 'elixir-mode-hook 'ruby-end-mode)
+(add-hook 'elixir-mode-hook 'activate-elixir-mode)

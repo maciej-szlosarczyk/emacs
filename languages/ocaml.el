@@ -2,8 +2,7 @@
  :defer t
  :ensure t
  :config
- (add-hook 'tuareg-mode-hook 'merlin-mode)
- )
+ (add-hook 'tuareg-mode-hook 'merlin-mode))
 
 (use-package merlin
   :defer t

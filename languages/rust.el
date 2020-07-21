@@ -1,7 +1,3 @@
-(use-package racer
-  :ensure t
-  :requires (racer flycheck-rust))
-
 (defun activate-rust-mode ()
   "All things for Rust mode"
   (interactive)
@@ -14,5 +10,4 @@
   )
 
 (add-hook 'rust-mode-hook 'activate-rust-mode)
-(add-hook 'rust-mode-hook 'racer-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)

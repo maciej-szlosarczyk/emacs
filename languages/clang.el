@@ -1,7 +1,7 @@
 (defun activate-clang-mode ()
   "Goodies for editing c files"
-  (set-indent 4)
-  (column-enforce-n 80)
+  (set-indent 8)
+  (column-enforce-n 100)
 
   (add-to-list (make-local-variable 'company-backends)
                '(company-etags company-yasnippet))
@@ -13,4 +13,4 @@
     (projectile-project-root) (projectile-project-root)
   )))
 
-(add-hook 'c-mode-hook 'activate-clang-mode)
+(add-hook 'c-mode 'activate-clang-mode)

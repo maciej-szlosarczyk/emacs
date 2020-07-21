@@ -8,9 +8,6 @@
 ;; ERB mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
-;; Vue
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-
 ;; React Typescript
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
@@ -28,14 +25,13 @@
 	;; Indent web mode scripts by 2
 	(setq web-mode-script-padding 2)
 	(setq web-mode-code-indent-offset 2)
-
-  (flycheck-add-next-checker 'javascript-standard 'javascript-tide 'append)
+  (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-tide))
+               '(company-yasnippet capf))
 
 	(when (string-match-p "jsx" (buffer-file-name))
-		(tide-setup)))
+		(lsp)))
 
 (add-hook 'web-mode-hook 'activate-web-mode)
