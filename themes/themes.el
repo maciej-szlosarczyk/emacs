@@ -31,9 +31,9 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-zenburn-modified base16-harmonic-light))))
+                     '(base16-atelier-forest-light base16-harmonic-light))))
   (progn
-    (enable-theme 'base16-mexico-light)
+    (enable-theme 'base16-harmonic-light)
 		(setq base16-theme-256-color-source "base16-shell")))
 
 ;; Set font face
