@@ -61,6 +61,8 @@
                       (plist-get erlang/current-erlang :erlang-path)))
 
   (require 'erlang-start)
+  (set-indent 2)
+  (column-enforce-n 80)
 
   ;; Set specific ctags command
   (setq-local
@@ -77,12 +79,14 @@
   ;; missing header files.
   (setq-local flycheck-erlang-include-path
               (list (format "%sdeps" (projectile-project-root))
+                    (format "%s_build/default/lib" (projectile-project-root))
                     (format "%sinclude" (projectile-project-root))
                     (format "%sapps" (projectile-project-root))))
 
-  ;; (setq-local flycheck-erlang-library-path
-  ;;             (list (format "%sdeps" (projectile-project-root))
-  ;;                   (format "%sapps" (projectile-project-root))))
+  (setq-local flycheck-erlang-library-path
+              (list (format "%sdeps" (projectile-project-root))
+                    (format "%s_build/default/lib" (projectile-project-root))
+                    (format "%sapps" (projectile-project-root))))
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
