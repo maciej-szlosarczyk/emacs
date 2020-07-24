@@ -1,3 +1,7 @@
+;;; themes -- summary
+;;; Commentary:
+;;; Code:
+
 ;; Use smart-mode-line
 (use-package smart-mode-line
   :ensure t
@@ -33,8 +37,8 @@
                      (random 2)
                      '(base16-atelier-forest-light base16-harmonic-light))))
   (progn
-    (enable-theme 'base16-harmonic-light)
-		(setq base16-theme-256-color-source "base16-shell")))
+    (setq base16-theme-256-color-source "base16-shell")
+    (enable-theme 'base16-atelier-forest-light)))
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54,3 +58,6 @@
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
+
+(provide 'themes)
+;;; themes.el ends here

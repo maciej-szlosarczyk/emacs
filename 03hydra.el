@@ -35,7 +35,7 @@ _d_: Deft                       _c_: Invalidate cache
     ("C" magit-checkout)
     ("M" magit-blame))
 
-  (defhydra hydra-programming-actions (:color teal :hint nil)
+  (defhydra hydra-programming-menu (:color teal :hint nil)
     "
   Programming actions
 
@@ -60,7 +60,7 @@ _s_: swiper
     ("y"  company-yasnippet)
     ("m"  company-complete))
 
-  (defhydra hydra-window-actions (:color teal :hint nil)
+  (defhydra hydra-window-menu (:color teal :hint nil)
     "
   Window actions
 
@@ -86,7 +86,7 @@ _v_: split vertically           _<up>_: Move up
     ("p"       previous-buffer)
     ("n"       next-buffer))
 
-  (defhydra hydra-language-context-actions (:color teal :hint nil)
+  (defhydra hydra-language-context-menu (:color teal :hint nil)
     "
   Context actions
 
@@ -99,9 +99,9 @@ _r_: reload buffer
     ("r" revert-buffer-no-confirm))
 
   :bind ("C-c p" . hydra-file-switcher-menu/body)
-        ("C-c c" . hydra-programming-actions/body)
-        ("C-c w" . hydra-window-actions/body)
-        ("C-c l" . hydra-language-context-actions/body))
+        ("C-c c" . hydra-programming-menu/body)
+        ("C-c w" . hydra-window-menu/body)
+        ("C-c l" . hydra-language-context-menu/body))
 
 (provide '03hydra)
 ;;; 03hydra.el ends here
