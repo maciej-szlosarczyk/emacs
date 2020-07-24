@@ -1,3 +1,9 @@
+;;; erlang -- summary
+;;; Commentary:
+;;; Code:
+
+(require '08ctags)
+
 (cl-defun erlang/emacs-path (erlang-version)
   (car (split-string
         (shell-command-to-string
@@ -103,3 +109,6 @@
 
   ;; Automatically update tags on save
   (ctags/update-this-mode-on-save 'erlang-mode))
+
+(provide 'erlang)
+;;; erlang.el ends here

@@ -1,3 +1,7 @@
+;;; markdown -- summary
+;;; Commentary:
+;;; Code:
+
 (use-package markdown-mode
   :ensure t
   :defer t
@@ -16,3 +20,6 @@
   (define-key markdown-mode-map (kbd "C-c C-v") 'markdown-preview))
 
 (add-hook 'markdown-mode-hook 'activate-markdown-mode)
+
+(provide 'markdown)
+;;; markdown.el ends here

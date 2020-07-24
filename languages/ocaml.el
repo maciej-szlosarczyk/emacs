@@ -1,3 +1,7 @@
+;;; ocaml -- summary
+;;; Commentary:
+;;; Code:
+
 (use-package tuareg
  :defer t
  :ensure t
@@ -29,3 +33,6 @@
           (lambda ()
             (add-hook 'before-save-hook #'refmt-before-save)))
 (add-hook 'reason-mode-hook 'merlin-mode)
+
+(provide 'ocaml)
+;;; ocaml.el ends here

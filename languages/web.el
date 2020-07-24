@@ -1,4 +1,9 @@
+;;; web -- summary
+;;; Commentary:
+;;; Code:
+
 (use-package web-mode
+  :requires (lsp-mode flycheck)
   :ensure t)
 
 ;; Eex Web mode
@@ -35,3 +40,6 @@
 		(lsp)))
 
 (add-hook 'web-mode-hook 'activate-web-mode)
+
+(provide 'web)
+;;; web.el ends here

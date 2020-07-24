@@ -1,3 +1,7 @@
+;;; rust -- summary
+;;; Commentary:
+;;; Code:
+
 (defun activate-rust-mode ()
   "All things for Rust mode"
   (interactive)
@@ -11,3 +15,6 @@
 
 (add-hook 'rust-mode-hook 'activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)
+
+(provide 'rust)
+;;; rust.el ends here

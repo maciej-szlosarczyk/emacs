@@ -1,5 +1,9 @@
+;;; clang.el --- summary
+;;; Commentary:
+;;; Code:
+
 (defun activate-clang-mode ()
-  "Goodies for editing c files"
+  "Goodies for editing c files."
   (set-indent 8)
   (column-enforce-n 100)
 
@@ -14,3 +18,6 @@
   )))
 
 (add-hook 'c-mode 'activate-clang-mode)
+
+(provide 'clang)
+;;; clang.el ends here

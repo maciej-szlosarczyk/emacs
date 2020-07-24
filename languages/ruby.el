@@ -1,4 +1,6 @@
-;; Require Enhanced Ruby Mode
+;;; ruby -- summary
+;;; Commentary:
+;;; Code:
 
 (use-package rspec-mode :ensure t :defer t)
 (use-package ruby-end :ensure t :defer t)
@@ -38,3 +40,6 @@
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
+
+(provide 'ruby)
+;;; ruby.el ends here

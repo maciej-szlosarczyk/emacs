@@ -1,3 +1,7 @@
+;;; elixir -- summary
+;;; Commentary:
+;;; Code:
+
 (use-package elixir-mode
   :requires (lsp-mode lsp-ui)
   :ensure t
@@ -15,3 +19,6 @@
                '(company-capf company-yasnippet)))
 
 (add-hook 'elixir-mode-hook 'activate-elixir-mode)
+
+(provide 'elixir)
+;;; elixir.el ends here

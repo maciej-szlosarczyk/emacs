@@ -1,3 +1,7 @@
+;;; javascript -- summary
+;;; Commentary:
+;;; Code:
+
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)
   :ensure t)
@@ -31,3 +35,6 @@
                '(company-yasnippet company-capf)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
+
+(provide 'javascript)
+;;; javascript.el ends here

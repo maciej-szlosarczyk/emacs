@@ -1,3 +1,9 @@
+;;; clojure -- summary
+;;; Commentary:
+;;; Code:
+
+(require '05prog-mode)
+
 (use-package clojure-mode
 	:defer t
 	:ensure t)
@@ -39,3 +45,6 @@
 
 (add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+(provide 'clojure)
+;;; clojure.el ends here
