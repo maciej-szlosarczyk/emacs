@@ -1,9 +1,15 @@
+;;; 03hydra -- summary
+;;; Commentary:
+;;; Global hydra definitions.
+;;; Code:
 (use-package hydra
   :ensure t
   :defer t
   :config
   (defhydra hydra-file-switcher-menu (:color teal :hint nil)
     "
+  General Actions
+
    ^Ivy^                           ^Projectile^                  ^Magit^
 ^^^^^^^^------------------------------------------------------------------------
 _a_: ag                         _s_: Switch project           _m_: Git status
@@ -80,6 +86,22 @@ _v_: split vertically           _<up>_: Move up
     ("p"       previous-buffer)
     ("n"       next-buffer))
 
+  (defhydra hydra-language-context-actions (:color teal :hint nil)
+    "
+  Context actions
+
+   ^Context^                          ^Actions^
+^^^^^^^^-----------------------------------------------------------------------
+_r_: reload buffer
+"
+    ("q" nil "cancel" :color blue)
+
+    ("r" revert-buffer-no-confirm))
+
   :bind ("C-c p" . hydra-file-switcher-menu/body)
         ("C-c c" . hydra-programming-actions/body)
-        ("C-c w" . hydra-window-actions/body))
+        ("C-c w" . hydra-window-actions/body)
+        ("C-c l" . hydra-language-context-actions/body))
+
+(provide '03hydra)
+;;; 03hydra.el ends here

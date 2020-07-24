@@ -1,3 +1,8 @@
+;;; 02ivy -- summary
+;;; Commentary:
+;;; Counsel, Swiper and Ivy.
+;;; Code:
+
 (use-package counsel :ensure t :defer t)
 (use-package swiper :ensure t :defer t)
 
@@ -19,3 +24,6 @@
 (global-set-key (kbd "<f1> l") 'counsel-find-library)
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+
+(provide '02ivy)
+;;; 02ivy.el ends here

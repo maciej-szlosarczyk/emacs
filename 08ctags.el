@@ -1,14 +1,21 @@
+;;; 08ctags -- summary
+;;; Commentary:
+;;; Old and rudimental completion framework.
+;;; Code:
+(require 'projectile)
+
 ;; Do not mix ctags between folders
 (provide 'my-ctags-config)
 
 (setq tags-add-tables nil)
-(setq ctags/refresh-command
+
+(defvar ctags/refresh-command
       (format "uctags -e -R -f %sTAGS %s."
               default-directory default-directory))
 
 ;; Sentinel function for capturing ctags
 (defun ctags/process-callback (process event)
-  "Show status of asynchronous ctags/process after it finishes."
+  "Show status of asynchronous ctags PROCESS after it send finished EVENT."
   (cond
    ((string-equal event "finished\n")
     (message "Creating tag files...completed")
@@ -35,7 +42,7 @@
 (define-key prog-mode-map (kbd "C-c E") 'ctags/refresh-ctags)
 
 ;; Automatically update tags on save, but be silent about it.
-(setq ctags/major-modes-to-update-on-save '())
+(defvar ctags/major-modes-to-update-on-save '())
 (defun ctags/update-tags-on-save ()
   "Update tags if current major mode is part of the list."
   (interactive)
@@ -47,3 +54,5 @@
   (add-to-list (make-local-variable 'ctags/major-modes-to-update-on-save) mode))
 
 (add-hook 'after-save-hook 'ctags/update-tags-on-save)
+(provide '08ctags)
+;;; 08ctags.el ends here

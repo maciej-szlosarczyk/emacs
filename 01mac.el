@@ -1,7 +1,13 @@
+;;; 01mac -- summary
+;;; Commentary:
+;;; Make Emacs play nicer with MacOS.
+;;; Code:
+
 ;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
 (setq gc-cons-threshold 50000000)
 
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
+(require 'tramp)
 (setq tramp-default-method "ssh")
 
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
@@ -75,7 +81,7 @@
 ;; Kill current buffer and window
 (global-set-key (kbd "C-c q") 'kill-buffer-and-window)
 
-;; ibuffer
+;; List buffers
 (global-set-key (kbd "C-c b") 'ibuffer)
 
 ;; Move buffers around with buffer keys
@@ -174,3 +180,6 @@
 
 (keyfreq-mode t)
 (keyfreq-autosave-mode t)
+
+(provide '01mac)
+;;; 01mac.el ends here

@@ -1,4 +1,8 @@
-;; Notational velocity things
+;;; 10deft.el -- summary
+;;; Commentary:
+;;; Notational velocity, backed by OneDrive.
+;;; Code:
+
 (use-package deft
   :ensure t
   :defer t
@@ -8,3 +12,6 @@
            deft-auto-save-interval 30.0))
 
 (global-set-key (kbd "C-c d d") 'deft)
+
+(provide '10deft)
+;;; 10deft.el ends here

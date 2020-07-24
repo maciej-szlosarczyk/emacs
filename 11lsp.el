@@ -1,3 +1,8 @@
+;;; 11lsp -- summary
+;;; Commentary:
+;;; Global Language Server Protocol Config
+;;; Code:
+
 (use-package lsp-mode
   :ensure t
   :defer t
@@ -18,3 +23,6 @@
       lsp-ui-header t
       lsp-ui-doc-include-signature t
       lsp-log-io nil)
+
+(provide '11lsp)
+;;; 11lsp.el ends here

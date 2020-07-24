@@ -1,4 +1,8 @@
-;; Company completion framework configuration
+;;; 06company-yasnippet -- summary
+;;; Commentary:
+;;; Company completion framework configuration
+;;; Code:
+
 (use-package yasnippet
   :ensure t
   :defer t)
@@ -66,3 +70,6 @@
 (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
+
+(provide '06company-yasnippet)
+;;; 06company-yasnippet.el ends here

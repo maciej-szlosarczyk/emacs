@@ -1,4 +1,6 @@
-;;; Programmers mode
+;;; 05prog-mode -- summary
+;;; Commentary:
+;;; Code:
 
 ;;; Wrap long lines
 (toggle-truncate-lines t)
@@ -10,6 +12,7 @@
 (global-eldoc-mode t)
 
 ;; Revert tag tables without asking
+(require 'etags)
 (setq tags-revert-without-query t)
 
 ;;; Show trailing whitespace and remove whitespace on save

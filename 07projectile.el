@@ -1,3 +1,8 @@
+;;; 07projectile -- summary
+;;; Commentary:
+;;; Project management based on git repos
+;;; Code:
+
 (use-package counsel-projectile :ensure t :defer t)
 
 (use-package projectile
@@ -14,3 +19,6 @@
                 ))
 
 (projectile-mode t)
+
+(provide '07projectile)
+;;; 07projectile.el ends here
