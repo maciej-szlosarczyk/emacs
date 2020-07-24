@@ -1,4 +1,4 @@
-;;; 06flycheck -- summary
+;;; 05flycheck -- summary
 ;;; Commentary:
 ;;; Code:
 
@@ -9,5 +9,5 @@
   :defer t
   :config (global-flycheck-mode t))
 
-(provide '06flycheck)
-;;; 06flycheck.el ends here
+(provide '05flycheck)
+;;; 05flycheck.el ends here

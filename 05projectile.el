@@ -20,5 +20,5 @@
 
 (projectile-mode t)
 
-(provide '07projectile)
-;;; 07projectile.el ends here
+(provide '05projectile)
+;;; 05projectile.el ends here

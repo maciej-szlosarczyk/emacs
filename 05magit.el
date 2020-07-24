@@ -1,4 +1,4 @@
-;;; 04magit -- summary
+;;; 05magit -- summary
 ;;; Commentary:
 ;;; Code:
 
@@ -11,5 +11,5 @@
         (:map magit-blame-mode-map
               ("<f5> b" . 'magit-blame-quit)))
 
-(provide '04magit)
-;;; 04magit.el ends here
+(provide '05magit)
+;;; 05magit.el ends here

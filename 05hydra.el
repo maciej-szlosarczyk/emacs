@@ -1,4 +1,4 @@
-;;; 03hydra -- summary
+;;; 05hydra -- summary
 ;;; Commentary:
 ;;; Global hydra definitions.
 ;;; Code:
@@ -103,5 +103,5 @@ _r_: reload buffer
         ("C-c w" . hydra-window-menu/body)
         ("C-c l" . hydra-language-context-menu/body))
 
-(provide '03hydra)
-;;; 03hydra.el ends here
+(provide '05hydra)
+;;; 05hydra.el ends here
