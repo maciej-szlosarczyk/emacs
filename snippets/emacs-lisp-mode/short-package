@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: short-package
+# --
+;;; ${1:name}.el --- summary
+
+;; Author: Maciej Szlosarczyk
+;; Maintainer: Maciej Szlosarczyk
+;; Version: ${2:0.1-snapshot}
+
+;;; Commentary:
+
+;; $1 does a thing.
+
+;;; Code:
+
+(message "Hello World!")
+
+(provide '$1)
+;;; $1.el ends here
