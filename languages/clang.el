@@ -1,6 +1,10 @@
-;;; clang.el --- summary
+;;; languages/clang.el --- summary
 ;;; Commentary:
 ;;; Code:
+
+(require '05projectile "$HOME/.emacs.d/05projectile.el")
+(require '05ctags "$HOME/.emacs.d/05ctags.el")
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
 
 (defun activate-clang-mode ()
   "Goodies for editing c files."
@@ -19,5 +23,5 @@
 
 (add-hook 'c-mode 'activate-clang-mode)
 
-(provide 'clang)
+(provide 'languages/clang)
 ;;; clang.el ends here

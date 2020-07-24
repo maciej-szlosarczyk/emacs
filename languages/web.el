@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(require '05lsp "$HOME/.emacs.d/05lsp.el")
+(require '05flycheck "$HOME/.emacs.d/05flycheck.el")
+
 (use-package web-mode
   :requires (lsp-mode flycheck)
   :ensure t)
@@ -41,5 +44,5 @@
 
 (add-hook 'web-mode-hook 'activate-web-mode)
 
-(provide 'web)
+(provide 'languages/web)
 ;;; web.el ends here

@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require '05projectile "$HOME/.emacs.d/05projectile.el")
+(require '05ctags "$HOME/.emacs.d/05ctags.el")
+
 (use-package rspec-mode :ensure t :defer t)
 (use-package ruby-end :ensure t :defer t)
 
@@ -41,5 +45,5 @@
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 
-(provide 'ruby)
+(provide 'languages/ruby)
 ;;; ruby.el ends here

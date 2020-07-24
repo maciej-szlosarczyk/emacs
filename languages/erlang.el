@@ -1,8 +1,9 @@
-;;; erlang -- summary
+;;; languages/erlang -- summary
 ;;; Commentary:
 ;;; Code:
 
-(require '08ctags)
+(require '05ctags "$HOME/.emacs.d/05ctags.el")
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
 
 (cl-defun erlang/emacs-path (erlang-version)
   (car (split-string
@@ -27,7 +28,7 @@
 (cl-defun erlang/available-versions--plist ()
   (mapcar 'erlang/erlang-plist (erlang/installed-erlangs)))
 
-(setq erlang/available-versions (erlang/available-versions--plist))
+(defvar erlang/available-versions (erlang/available-versions--plist))
 
 (cl-defun erlang/currently-in-use ()
   (car (split-string (shell-command-to-string "asdf current erlang"))))
@@ -53,7 +54,7 @@
   "All things for all Erlang, including header files."
   (when (featurep 'erlang-start) (unload-feature 'erlang-start))
 
-  (setq erlang/current-erlang (erlang/current-plist))
+  (defvar erlang/current-erlang (erlang/current-plist))
 
   (add-to-list (make-local-variable 'load-path)
                (plist-get erlang/current-erlang :emacs-path))
@@ -110,5 +111,5 @@
   ;; Automatically update tags on save
   (ctags/update-this-mode-on-save 'erlang-mode))
 
-(provide 'erlang)
+(provide 'languages/erlang)
 ;;; erlang.el ends here

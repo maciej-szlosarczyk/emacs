@@ -1,8 +1,9 @@
-;;; clojure -- summary
+;;; languages/clojure -- summary
 ;;; Commentary:
 ;;; Code:
 
-(require '05prog-mode)
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require '05hydra "$HOME/.emacs.d/05hydra.el")
 
 (use-package clojure-mode
 	:defer t
@@ -20,11 +21,22 @@
 	:defer t
 	:ensure t)
 
-(use-package paredit
-	:defer t
-	:ensure t)
+;; Hydra
+(defhydra my-clojure/context-hydra (:color teal :hint nil)
+  "
+  Clojure actions
 
-(setq-local indent-tabs-mode nil)
+   ^Cider^                          ^Actions^
+^^^^^^^^-----------------------------------------------------------------------
+_j_: Jack in
+_f_: Format buffer
+_l_: Load buffer
+"
+  ("q" nil "cancel" :color blue)
+
+  ("j" cider-jack-in)
+  ("f" cider-format-buffer)
+  ("l" cider-load-buffer))
 
 (defun activate-my-clojure-mode ()
   "Goodies for clojure files."
@@ -32,6 +44,9 @@
   (column-enforce-n 80)
   (clj-refactor-mode 1)
   (cider-mode 1)
+  (setq-local indent-tabs-mode nil)
+
+  (define-key clojure-mode-map (kbd "C-c l") 'my-clojure/context-hydra/body)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)
@@ -46,5 +61,5 @@
 (add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
-(provide 'clojure)
+(provide 'languages/clojure)
 ;;; clojure.el ends here

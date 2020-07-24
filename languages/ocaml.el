@@ -34,5 +34,5 @@
             (add-hook 'before-save-hook #'refmt-before-save)))
 (add-hook 'reason-mode-hook 'merlin-mode)
 
-(provide 'ocaml)
+(provide 'languages/ocaml)
 ;;; ocaml.el ends here

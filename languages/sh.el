@@ -6,5 +6,5 @@
 (add-to-list 'auto-mode-alist '("\\zshrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
 
-(provide 'sh)
+(provide 'languages/sh)
 ;;; sh.el ends here

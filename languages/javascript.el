@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require '05flycheck "$HOME/.emacs.d/05flycheck.el")
+(require '05lsp "$HOME/.emacs.d/05lsp.el")
+
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)
   :ensure t)
@@ -36,5 +40,5 @@
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
 
-(provide 'javascript)
+(provide 'languages/javascript)
 ;;; javascript.el ends here

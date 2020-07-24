@@ -1,6 +1,8 @@
-;;; elisp -- summary
+;;; languages/elisp -- summary
 ;;; Commentary:
 ;;; Code:
+
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
 
 (defun activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
@@ -14,5 +16,5 @@
 
 (add-hook 'emacs-lisp-mode-hook 'activate-emacs-lisp-mode)
 
-(provide 'elisp)
+(provide 'languages/elisp)
 ;;; elisp.el ends here

@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+
 (use-package markdown-mode
   :ensure t
   :defer t
@@ -21,5 +23,5 @@
 
 (add-hook 'markdown-mode-hook 'activate-markdown-mode)
 
-(provide 'markdown)
+(provide 'languages/markdown)
 ;;; markdown.el ends here
