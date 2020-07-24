@@ -13,7 +13,7 @@
   (package-refresh-contents))
 
 ;; list the packages you want
-(setq package-list '(
+(defvar package-list '(
                      use-package
                      visual-regexp ;; Regexp replacement with preview in
                      ;; current buffer.
@@ -23,10 +23,6 @@
                      base16-theme
                      flatui-theme
                      planet-theme
-
-                     ;; Web
-                     web-mode
-                     js2-mode
 
                      ;; Infrastructure files
                      dockerfile-mode
@@ -49,19 +45,19 @@
 (require 'use-package)
 
 ;; Additional files
-(load "$HOME/.emacs.d/01mac.el" 'f 't)
-(load "$HOME/.emacs.d/05macros.el" 'f 't)
-(load "$HOME/.emacs.d/05ivy.el" 'f 't)
-(load "$HOME/.emacs.d/05hydra.el" 'f 't)
-(load "$HOME/.emacs.d/05magit.el" 'f 't)
-(load "$HOME/.emacs.d/05prog-mode.el" 'f 't)
-(load "$HOME/.emacs.d/05company-yasnippet.el" 'f 't)
-(load "$HOME/.emacs.d/05flycheck.el" 'f 't)
-(load "$HOME/.emacs.d/05projectile.el" 'f 't)
-(load "$HOME/.emacs.d/05ctags.el" 'f 't)
-(load "$HOME/.emacs.d/05ispell.el" 'f 't)
-(load "$HOME/.emacs.d/05deft.el" 'f 't)
-(load "$HOME/.emacs.d/05lsp.el" 'f 't)
+(require '01mac "$HOME/.emacs.d/01mac.el")
+(require '05macros "$HOME/.emacs.d/05macros.el")
+(require '05ivy "$HOME/.emacs.d/05ivy.el")
+(require '05hydra "$HOME/.emacs.d/05hydra.el")
+(require '05magit "$HOME/.emacs.d/05magit.el")
+(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require '05company-yasnippet "$HOME/.emacs.d/05company-yasnippet.el")
+(require '05flycheck "$HOME/.emacs.d/05flycheck.el")
+(require '05projectile "$HOME/.emacs.d/05projectile.el")
+(require '05ctags "$HOME/.emacs.d/05ctags.el")
+(require '05ispell "$HOME/.emacs.d/05ispell.el")
+(require '05deft "$HOME/.emacs.d/05deft.el")
+(require '05lsp "$HOME/.emacs.d/05lsp.el")
 
 ;; Themes
 (load "$HOME/.emacs.d/themes/themes.el" 'f 't)
@@ -101,3 +97,6 @@
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
  '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "IBM Plex Mono"))))
  '(markdown-code-face ((t (:inherit fixed-pitch :family "IBM Plex Mono")))))
+
+(provide 'init)
+;;; init.el ends here

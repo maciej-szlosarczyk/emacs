@@ -6,6 +6,27 @@
 ;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
 (setq gc-cons-threshold 50000000)
 
+;;;;;;;; Other optimizations ;;;;;;;;;;;;;;;;;
+
+;; Update emacs less often
+(setq idle-update-delay 1.0)
+
+;; Disable bidirectional text rendering for a modest performance boost. I've set
+;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
+;; is an undefined state and suggest this to be just as good:
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+
+;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
+;; in non-focused windows.
+(setq-default cursor-in-non-selected-windows nil)
+(setq highlight-nonselected-windows nil)
+
+;; More performant rapid scrolling over unfontified regions. May cause brief
+;; spells of inaccurate syntax highlighting right after scrolling, which should
+;; quickly self-correct.
+(setq fast-but-imprecise-scrolling t)
+
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
 (require 'tramp)
 (setq tramp-default-method "ssh")
@@ -169,9 +190,14 @@
 ;; Disable meta on right alt (useful for Polish characters)
 (setq mac-right-option-modifier nil)
 
+;; Draw underline lower
+(setq x-underline-at-descent-line t)
+
 ;;; Get rid of bad parts of the windows
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(setq indicate-buffer-boundaries nil
+      indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
 (use-package keyfreq

@@ -37,7 +37,7 @@
                      (random 2)
                      '(base16-atelier-forest-light base16-harmonic-light))))
   (progn
-    (setq base16-theme-256-color-source "base16-shell")
+    (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'base16-atelier-forest-light)))
 
 ;; Set font face
