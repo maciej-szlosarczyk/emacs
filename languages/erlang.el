@@ -5,6 +5,10 @@
 (require '05ctags "$HOME/.emacs.d/05ctags.el")
 (require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
 
+(use-package erlang
+  :defer t
+  :ensure t)
+
 (cl-defun erlang/emacs-path (erlang-version)
   (car (split-string
         (shell-command-to-string
@@ -97,19 +101,12 @@
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-etags)))
+               '(company-yasnippet company-capf))
+
+  ;; Start LSP server
+  (lsp-deferred))
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
-
-(define-derived-mode my-erlang-mode erlang-mode "My Erlang mode"
-  "A mode for Erlang things"
-
-  (activate-erlang-mode)
-  ;; Enable flycheck
-  (flycheck-select-checker 'erlang-otp)
-
-  ;; Automatically update tags on save
-  (ctags/update-this-mode-on-save 'erlang-mode))
 
 (provide 'languages/erlang)
 ;;; erlang.el ends here

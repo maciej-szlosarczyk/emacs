@@ -7,6 +7,7 @@
 (setq gc-cons-threshold 50000000)
 
 ;;;;;;;; Other optimizations ;;;;;;;;;;;;;;;;;
+;; Stolen from Doom Emacs.
 
 ;; Update emacs less often
 (setq idle-update-delay 1.0)
@@ -161,20 +162,15 @@
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; Disable warning related to PATH on startup
+(defvar exec-path-from-shell-check-startup-files nil)
+
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
              :if (memq window-system '(mac ns))
              :ensure t
-             :config (add-to-list 'exec-path "/usr/local/bin")
+             :config (add-to-list 'exec-path "/opt/local/bin")
                      (exec-path-from-shell-initialize))
-
-
-;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun set-font-size (size)
-  "Set font SIZE to X px."
-  (interactive "NNew font size: ")
-  (set-face-attribute 'default nil :font (format "Hasklig %d" size))
-  (set-face-attribute 'mode-line nil :font (format "Hasklig %d" size)))
 
 ;;;;;;;;;;;;;;;;;;;;;; Window configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Always start in fullscreen

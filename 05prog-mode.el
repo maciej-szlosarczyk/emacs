@@ -74,5 +74,10 @@
   :defer t
   :config (global-column-enforce-mode t))
 
+;; Vim-like regex replace with preview in buffer.
+(use-package visual-regexp
+  :ensure t
+  :defer t)
+
 (provide '05prog-mode)
 ;;; 05prog-mode ends here

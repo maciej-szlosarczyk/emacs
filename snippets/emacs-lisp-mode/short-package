@@ -1,6 +1,3 @@
-# -*- mode: snippet -*-
-# name: short-package
-# --
 ;;; ${1:name}.el --- summary
 
 ;; Author: Maciej Szlosarczyk

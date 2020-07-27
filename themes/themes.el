@@ -10,6 +10,10 @@
   (setq-default display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
+(use-package base16-theme :ensure t)
+(use-package flatui-theme :ensure t :defer t)
+(use-package planet-theme :ensure t :defer t)
+
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
 
@@ -59,5 +63,5 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(provide 'themes)
+(provide '10themes)
 ;;; themes.el ends here

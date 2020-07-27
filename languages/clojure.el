@@ -28,7 +28,7 @@
 
    ^Cider^                          ^Actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_j_: Jack in
+_j_: Jack in                     _t_: Run loaded test(s)
 _f_: Format buffer
 _l_: Load buffer
 "
@@ -36,7 +36,8 @@ _l_: Load buffer
 
   ("j" cider-jack-in)
   ("f" cider-format-buffer)
-  ("l" cider-load-buffer))
+  ("l" cider-load-buffer)
+  ("t" cider-test-run-loaded-tests))
 
 (defun activate-my-clojure-mode ()
   "Goodies for clojure files."
@@ -56,6 +57,7 @@ _l_: Load buffer
 (add-hook 'clojure-mode-hook 'activate-my-clojure-mode)
 
 (defun my-clj-repl-config ()
+  "Do not show stacktrace when in REPL."
 	(setq-local cider-show-error-buffer 'except-in-repl))
 
 (add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
