@@ -7,7 +7,8 @@
 
 (use-package erlang
   :defer t
-  :ensure t)
+  :ensure t
+  :requires (lsp-mode lsp-ui))
 
 (cl-defun erlang/emacs-path (erlang-version)
   (car (split-string
@@ -101,10 +102,10 @@
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-capf))
+               '(company-capf company-yasnippet))
 
   ;; Start LSP server
-  (lsp-deferred))
+  (lsp))
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 

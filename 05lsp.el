@@ -6,8 +6,12 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :requires (company)
   :config (setq-default lsp-file-watch-threshold 10000
                         lsp-restart 'auto-restart
+                        lsp-prefer-capf nil
+                        lsp-server-trace t
+                        read-process-output-max (* 1024 1024)
                         lsp-enable-file-watchers nil)
   :hook ((typescript-mode . lsp-deferred)
          (elixir-mode . lsp)
