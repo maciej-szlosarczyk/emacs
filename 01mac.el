@@ -203,5 +203,12 @@
 (keyfreq-mode t)
 (keyfreq-autosave-mode t)
 
+;;;;;;;;;;;;;;;;; Show hints about key combinations
+(use-package which-key
+  :defer t
+  :ensure t)
+
+(which-key-mode t)
+
 (provide '01mac)
 ;;; 01mac.el ends here
