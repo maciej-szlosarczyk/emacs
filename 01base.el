@@ -1,13 +1,20 @@
-;;; 01mac -- summary
+;;; 01base.el --- summary
+
+;; Author: Maciej Szlosarczyk
+;; Maintainer: Maciej Szlosarczyk
+;; Version: 0.1-snapshot
+
 ;;; Commentary:
-;;; Make Emacs play nicer with MacOS.
+
+;; 01base defines basic packages and environment.
+
 ;;; Code:
 
 ;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
 (setq gc-cons-threshold 50000000)
 
 ;;;;;;;; Other optimizations ;;;;;;;;;;;;;;;;;
-;; Stolen from Doom Emacs.
+;;;;;;;; Stolen from Doom Emacs. ;;;;;;;;;;;;;
 
 ;; Update emacs less often
 (setq idle-update-delay 1.0)
@@ -34,48 +41,12 @@
 
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
-
-(setq mac-option-modifier 'meta)
-(setq mac-command-modifier 'hyper)
-
-(defun mac-switch-meta nil
-  "Switch meta between Option and Command."
-  (interactive)
-  (if (eq mac-option-modifier nil)
-      (progn
-	(setq mac-option-modifier 'meta)
-	(setq mac-command-modifier 'hyper)
-	)
-    (progn
-      (setq mac-option-modifier nil)
-      (setq mac-command-modifier 'meta)
-      )
-    )
-  )
-
-;;;;;;;;; Mac binding (fix) ;;;;;;;;;;;;;;;;;;
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
-(global-set-key (kbd "H-<right>") 'end-of-line)
-(global-set-key (kbd "H-<left>") 'beginning-of-line)
-(global-set-key (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-(global-set-key (kbd "H-<down>") 'scroll-up)
-
-(global-set-key [(hyper a)] 'mark-whole-buffer)
-(global-set-key [(hyper v)] 'yank)
-(global-set-key [(hyper x)] 'kill-region)
-(global-set-key [(hyper c)] 'kill-ring-save)
-(global-set-key [(hyper s)] 'save-buffer)
-(global-set-key [(hyper l)] 'goto-line)
-(global-set-key [(hyper w)]
-                (lambda () (interactive) (delete-window)))
-(global-set-key [(hyper z)] 'undo)
-(global-set-key [(hyper q)] 'kill-emacs)
 
 ;;; Helpful key bindings
 (global-set-key (kbd "<f1> b") 'describe-bindings) ;; List all key bindings
                                                    ;; there are.
-
 (global-set-key (kbd "C-c \\") 'split-window-right) ;; Split window to the right
 (global-set-key (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
 
@@ -170,21 +141,7 @@
              :if (memq window-system '(mac ns))
              :ensure t
              :config (add-to-list 'exec-path "/opt/local/bin")
-                     (exec-path-from-shell-initialize))
-
-;;;;;;;;;;;;;;;;;;;;;; Window configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Always start in fullscreen
-(defun toggle-fullscreen ()
-  "Toggle full screen."
-  (interactive)
-  (set-frame-parameter
-     nil 'fullscreen
-     (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
-
-(global-set-key (kbd "C-H-f") 'toggle-fullscreen)
-
-;; Disable meta on right alt (useful for Polish characters)
-(setq mac-right-option-modifier nil)
+             (exec-path-from-shell-initialize))
 
 ;; Draw underline lower
 (setq x-underline-at-descent-line t)
@@ -210,5 +167,5 @@
 
 (which-key-mode t)
 
-(provide '01mac)
-;;; 01mac.el ends here
+(provide '01base)
+;;; 01base.el ends here

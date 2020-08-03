@@ -18,7 +18,8 @@
 (require 'use-package)
 
 ;; General configuration files.
-(require '01mac "$HOME/.emacs.d/01mac.el")
+(require '01base "$HOME/.emacs.d/01base.el")
+(require '01sys-specific "$HOME/.emacs.d/01sys-specific.el")
 (require '05macros "$HOME/.emacs.d/05macros.el")
 (require '05ivy "$HOME/.emacs.d/05ivy.el")
 (require '05hydra "$HOME/.emacs.d/05hydra.el")
