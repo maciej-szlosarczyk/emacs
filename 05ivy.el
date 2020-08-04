@@ -12,6 +12,7 @@
   :defer t
   :config (setq ivy-use-virtual-buffers t ;; Display recent files in ivy-switch-buffer
                 ivy-count-format "(%d of %d) " ;; Current candidate count style
+                ivy-wrap t ;; Wrap around completions
                 ivy-display-style 'fancy)) ;; Formatting style
 
 (global-set-key (kbd "C-c a") 'counsel-rg)
