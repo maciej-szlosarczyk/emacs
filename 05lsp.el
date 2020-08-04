@@ -9,7 +9,7 @@
   :requires (company)
   :config (setq-default lsp-file-watch-threshold 10000
                         lsp-restart 'auto-restart
-                        lsp-prefer-capf nil
+                        lsp-prefer-capf t
                         lsp-server-trace t
                         read-process-output-max (* 1024 1024)
                         lsp-enable-file-watchers nil)
