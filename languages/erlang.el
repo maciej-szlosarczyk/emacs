@@ -80,7 +80,7 @@
   (setq-local
    ctags/refresh-command
    (format
-    "uctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
+    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
     (projectile-project-root) (projectile-project-root)
     (projectile-project-root) (projectile-project-root)
     (projectile-project-root) (projectile-project-root)

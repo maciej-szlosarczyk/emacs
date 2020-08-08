@@ -45,6 +45,7 @@
 (require 'languages/erlang "$HOME/.emacs.d/languages/erlang.el")
 (require 'languages/sh "$HOME/.emacs.d/languages/sh.el")
 (require 'languages/rust "$HOME/.emacs.d/languages/rust.el")
+(require 'languages/haskell "$HOME/.emacs.d/languages/haskell.el")
 (require 'languages/clang "$HOME/.emacs.d/languages/clang.el")
 (require 'languages/clojure "$HOME/.emacs.d/languages/clojure.el")
 (require 'languages/ocaml "$HOME/.emacs.d/languages/ocaml.el")
@@ -58,7 +59,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode dash-at-point rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))))
+    (dante haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode dash-at-point rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package)))
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
 
 ;; Improve font settings in Markdown code
 (custom-set-faces

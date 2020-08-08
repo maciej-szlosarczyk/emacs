@@ -35,7 +35,7 @@
 
   ;; Set specific ctags command
   (setq-local ctags/refresh-command
-              (format "uctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
+              (format "ctags -e -R --languages=ruby -f %sTAGS %s. $(bundle list --paths)"
                       (projectile-project-root) (projectile-project-root))))
 
 (add-hook 'ruby-mode-hook 'enh-ruby-mode)

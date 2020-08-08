@@ -10,7 +10,7 @@
 (setq tags-add-tables nil)
 
 (defvar ctags/refresh-command
-      (format "uctags -e -R -f %sTAGS %s."
+      (format "ctags -e -R -f %sTAGS %s."
               default-directory default-directory))
 
 ;; Sentinel function for capturing ctags

@@ -27,7 +27,7 @@
   (setq-local
    ctags/refresh-command
    (format
-    "uctags -e -R --languages=C -f %sTAGS %s/*"
+    "ctags -e -R --languages=C -f %sTAGS %s/*"
     (projectile-project-root) (projectile-project-root))))
 
 (add-hook 'c-mode-hook 'activate-clang-mode)

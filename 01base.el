@@ -140,7 +140,7 @@
 (use-package exec-path-from-shell
              :if (memq window-system '(mac ns))
              :ensure t
-             :config (add-to-list 'exec-path "/opt/local/bin")
+             :config (add-to-list 'exec-path "/usr/local/bin")
              (exec-path-from-shell-initialize))
 
 ;; Draw underline lower
