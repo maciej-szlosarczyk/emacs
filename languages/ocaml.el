@@ -21,6 +21,19 @@
   :defer t
   :ensure t)
 
+
+(defhydra my-ocaml/context-hydra (:color teal :hint nil)
+  "
+  OCaml actions
+
+   ^OCaml^                          ^Actions^
+^^^^^^^^-----------------------------------------------------------------------
+_f_: Format buffer
+"
+  ("q" nil "cancel" :color blue)
+
+  ("f" ocamlformat))
+
 (defun load-ocaml-site-packages ()
   "Generate ocaml config."
   (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
@@ -33,7 +46,8 @@
       (autoload 'dune "dune" nil t nil)
 
       ;; Use opam switch to lookup ocamlmerlin binary
-      (setq merlin-command 'opam))))
+      (setq merlin-command 'opam)))
+  (define-key tuareg-mode-map (kbd "C-c l") 'my-ocaml/context-hydra/body))
 
 ;; OCaml setup
 (add-hook 'tuareg-mode-hook 'merlin-mode)
