@@ -8,14 +8,13 @@
   :defer t
   :requires (company)
   :config (setq-default lsp-file-watch-threshold 10000
-                        lsp-restart 'auto-restart
+                        lsp-restart 'interactive
                         lsp-prefer-capf t
                         lsp-server-trace t
                         read-process-output-max (* 1024 1024)
                         lsp-enable-file-watchers nil)
   :hook ((typescript-mode . lsp-deferred)
          (elixir-mode . lsp)
-         (rust-mode . lsp)
          (js2-mode . lsp-deferred)))
 
 (use-package lsp-ui
