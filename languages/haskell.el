@@ -6,7 +6,7 @@
 
 ;;; Commentary:
 
-;; haskell does a thing.
+;;; Provides configuration for haskell files
 
 ;;; Code:
 
@@ -27,12 +27,12 @@
   "Run this in haskell-mode."
   (set-indent 2)
   (column-enforce-n 80)
+  (dante-mode)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(dante-company company-yasnippet)))
 
-(add-hook 'haskell-mode-hook 'dante-mode)
 (add-hook 'haskell-mode-hook 'activate-haskell-mode)
 
 (provide 'languages/haskell)
