@@ -53,6 +53,9 @@ _f_: Format buffer
 (add-hook 'tuareg-mode-hook 'merlin-mode)
 (add-hook 'tuareg-mode-hook 'load-ocaml-site-packages)
 
+;; Use tuareg-opam with lock files
+(add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
+
 ;; Reason setup
 (add-hook 'reason-mode-hook
           (lambda ()
