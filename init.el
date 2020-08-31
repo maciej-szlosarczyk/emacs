@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 ;; list the repositories containing them
+
+;; Set GC at 300 MB for startup
+(setq gc-cons-threshold 300000000)
+
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
@@ -13,7 +17,7 @@
 
 ;; install use-package, the workhorse of configuration
 (unless (package-installed-p 'use-package)
-    (package-install 'use-package))
+  (package-install 'use-package))
 
 (require 'use-package)
 
@@ -72,6 +76,9 @@
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
  '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "IBM Plex Mono"))))
  '(markdown-code-face ((t (:inherit fixed-pitch :family "IBM Plex Mono")))))
+
+;; Restore GC to normal, but still high
+(setq gc-cons-threshold 100000000)
 
 (provide 'init)
 ;;; init.el ends here

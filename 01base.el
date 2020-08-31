@@ -10,9 +10,6 @@
 
 ;;; Code:
 
-;;;;;;;;; GC configuration ;;;;;;;;;;;;;;;;;;;
-(setq gc-cons-threshold 50000000)
-
 ;;;;;;;; Other optimizations ;;;;;;;;;;;;;;;;;
 ;;;;;;;; Stolen from Doom Emacs. ;;;;;;;;;;;;;
 
