@@ -28,6 +28,10 @@ _f_: Format buffer
   (column-enforce-n 98)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
+
+  ;; If needed, switch the one below to false to disable documentation pop-ups
+  ;; (setq-local lsp-ui-doc-enable t)
+
   (define-key elixir-mode-map (kbd "C-c l") 'my-elixir/context-hydra/body)
 
   ;; Company list override
