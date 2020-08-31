@@ -29,10 +29,12 @@
    ^OCaml^                          ^Actions^
 ^^^^^^^^-----------------------------------------------------------------------
 _f_: Format buffer
+_o_: Update opam env
 "
   ("q" nil "cancel" :color blue)
 
-  ("f" ocamlformat))
+  ("f" ocamlformat)
+  ("o" tuareg-opam-update-env))
 
 (defun load-ocaml-site-packages ()
   "Generate ocaml config."
