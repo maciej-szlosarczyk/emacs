@@ -17,30 +17,16 @@
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
 
-(load "$HOME/.emacs.d/themes/themes-base16-not-harmonic.el" 'f 't)
-(load "$HOME/.emacs.d/themes/themes-base16-zenburn-modified.el" 'f 't)
-(load-theme 'base16-mexico-light t t)
-(load-theme 'base16-ia-dark t t)
-(load-theme 'manoj-dark t t)
-(load-theme 'base16-one-light t t)
-(load-theme 'base16-zenburn t t)
+(load "$HOME/.emacs.d/themes/base16-summerfruit-light-modified-theme" 'f 't)
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
-(load-theme 'base16-material-palenight t t)
-(load-theme 'base16-mocha t t)
-(load-theme 'base16-papercolor-light t t)
-(load-theme 'planet t t)
-
-(defun base16-mexico-light-custom ()
-  "Additional configuration for Base16 theme."
-  (set-face-attribute 'mode-line nil :font "IBM Plex Mono 15"))
 
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-mexico-light base16-harmonic-light))))
+                     '(base16-summerfruit-light-modified base16-harmonic-light))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'base16-atelier-forest-light)))
