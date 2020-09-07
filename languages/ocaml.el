@@ -58,10 +58,29 @@ _o_: Update opam env
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
+(defhydra my-reason/context-hydra (:color teal :hint nil)
+  "
+  Reason actions
+
+   ^Reason^                          ^Actions^
+^^^^^^^^-----------------------------------------------------------------------
+_f_: Format buffer
+_o_: Update opam env
+"
+  ("q" nil "cancel" :color blue)
+
+  ("f" refmt)
+  ("o" tuareg-opam-update-env))
+
+(defun my-reason-mode ()
+  "Generate reason config."
+  (define-key reason-mode-map (kbd "C-c l") 'my-reason/context-hydra/body))
+
 ;; Reason setup
 (add-hook 'reason-mode-hook
           (lambda ()
             (add-hook 'before-save-hook #'refmt-before-save)))
+(add-hook 'reason-mode-hook 'my-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
 (provide 'languages/ocaml)

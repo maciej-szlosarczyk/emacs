@@ -39,7 +39,9 @@
   (set-face-attribute 'default nil :font (format "%s %d" name size))
   (set-face-attribute 'mode-line nil :font (format "%s %d" name size)))
 
-(set-font "IBM Plex Mono" 16)
+;; Set font
+;; (set-font "IBM Plex Mono" 16)
+(set-font "Hack" 16)
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground

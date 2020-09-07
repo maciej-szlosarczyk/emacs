@@ -47,6 +47,7 @@
 (require 'languages/javascript "$HOME/.emacs.d/languages/javascript.el")
 (require 'languages/elixir "$HOME/.emacs.d/languages/elixir.el")
 (require 'languages/erlang "$HOME/.emacs.d/languages/erlang.el")
+(require 'languages/fsharp "$HOME/.emacs.d/languages/fsharp.el")
 (require 'languages/sh "$HOME/.emacs.d/languages/sh.el")
 (require 'languages/rust "$HOME/.emacs.d/languages/rust.el")
 (require 'languages/haskell "$HOME/.emacs.d/languages/haskell.el")
@@ -62,7 +63,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(dante dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
+   '(fsharp-mode dante dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
  '(safe-local-variable-values
    '((haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4))))
@@ -74,8 +75,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "IBM Plex Mono"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "IBM Plex Mono")))))
+ '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "Hack"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "Hack")))))
 
 ;; Restore GC to normal, but still high
 (setq gc-cons-threshold 100000000)
