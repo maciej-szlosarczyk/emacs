@@ -8,7 +8,7 @@
   :defer t
   :requires (company)
   :config (setq-default lsp-file-watch-threshold 10000
-                        lsp-restart 'interactive
+                        lsp-restart 'auto-restart
                         lsp-prefer-capf t
                         lsp-completion-provider :capf
                         lsp-server-trace nil

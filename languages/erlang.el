@@ -73,7 +73,7 @@
                       (plist-get erlang/current-erlang :erlang-path)))
 
   (require 'erlang-start)
-  (set-indent 2)
+  (set-indent 4)
   (column-enforce-n 80)
 
   ;; Set specific ctags command

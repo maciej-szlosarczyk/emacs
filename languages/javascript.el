@@ -15,7 +15,7 @@
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
 ;; Use js2-mode for typescript editing
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . js2-mode))
 
 (defun activate-js2-mode ()
 	"JS2 mode overrides."

@@ -40,6 +40,8 @@
                '(company-yasnippet capf))
 
 	(when (string-match-p "jsx" (buffer-file-name))
+		(lsp))
+	(when (string-match-p "tsx" (buffer-file-name))
 		(lsp)))
 
 (add-hook 'web-mode-hook 'activate-web-mode)
