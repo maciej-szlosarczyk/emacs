@@ -1,4 +1,4 @@
-;;; 05company-yasnippet -- summary
+;;; pkg/company-yasnippet -- summary
 ;;; Commentary:
 ;;; Company completion framework configuration
 ;;; Code:
@@ -71,5 +71,5 @@
 (define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
-(provide '05company-yasnippet)
-;;; 05company-yasnippet.el ends here
+(provide 'pkg/company-yasnippet)
+;;; company-yasnippet.el ends here

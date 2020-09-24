@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05lsp "$HOME/.emacs.d/05lsp.el")
-(require '05flycheck "$HOME/.emacs.d/05flycheck.el")
+(require 'pkg/lsp "$HOME/.emacs.d/pkg/lsp.el")
+(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package web-mode
   :requires (lsp-mode flycheck)

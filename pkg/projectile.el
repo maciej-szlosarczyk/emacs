@@ -1,4 +1,4 @@
-;;; 07projectile -- summary
+;;; pkg/projectile -- summary
 ;;; Commentary:
 ;;; Project management based on git repos
 ;;; Code:
@@ -20,5 +20,5 @@
 
 (projectile-mode t)
 
-(provide '05projectile)
-;;; 05projectile.el ends here
+(provide 'pkg/projectile)
+;;; projectile.el ends here

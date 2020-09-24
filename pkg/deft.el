@@ -1,4 +1,4 @@
-;;; 05deft.el -- summary
+;;; pkg/deft.el -- summary
 ;;; Commentary:
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:
@@ -13,5 +13,5 @@
 
 (global-set-key (kbd "C-c d d") 'deft)
 
-(provide '05deft)
-;;; 05deft.el ends here
+(provide 'pkg/deft)
+;;; deft.el ends here

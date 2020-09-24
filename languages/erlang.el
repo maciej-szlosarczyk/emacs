@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05ctags "$HOME/.emacs.d/05ctags.el")
-(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require 'pkg/ctags "$HOME/.emacs.d/pkg/ctags.el")
+(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package erlang
   :defer t

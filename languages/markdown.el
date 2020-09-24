@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
+(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package markdown-mode
   :ensure t

@@ -1,4 +1,4 @@
-;;; 05lsp -- summary
+;;; pkg/lsp -- summary
 ;;; Commentary:
 ;;; Global Language Server Protocol Config
 ;;; Code:
@@ -28,5 +28,5 @@
       lsp-ui-doc-include-signature t
       lsp-log-io nil)
 
-(provide '05lsp)
-;;; 05lsp.el ends here
+(provide 'pkg/lsp)
+;;; lsp.el ends here

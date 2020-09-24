@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
-(require '05hydra "$HOME/.emacs.d/05hydra.el")
+(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'pkg/hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package clojure-mode
 	:defer t

@@ -1,4 +1,4 @@
-;;; 05prog-mode -- summary
+;;; pkg/prog-mode -- summary
 ;;; Commentary:
 ;;; Code:
 
@@ -79,5 +79,5 @@
   :ensure t
   :defer t)
 
-(provide '05prog-mode)
-;;; 05prog-mode ends here
+(provide 'pkg/prog-mode)
+;;; prog-mode ends here

@@ -1,4 +1,4 @@
-;;; 05ispell -- summary
+;;; pkg/ispell -- summary
 ;;; Commentary:
 ;;; Highlight misspelled words
 ;;; Code:
@@ -10,5 +10,5 @@
                 '("--run-together" "--run-together-limit=5" "--run-together-min=2"))
           :hook ((prog-mode text-mode) . flyspell-mode))
 
-(provide '05ispell)
-;;; 05ispell.el ends here
+(provide 'pkg/ispell)
+;;; ispell.el ends here

@@ -1,4 +1,4 @@
-;;; 05ivy -- summary
+;;; pkg/ivy -- summary
 ;;; Commentary:
 ;;; Counsel, Swiper and Ivy.
 ;;; Code:
@@ -26,5 +26,5 @@
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
-(provide '05ivy)
-;;; 05ivy.el ends here
+(provide 'pkg/ivy)
+;;; ivy.el ends here

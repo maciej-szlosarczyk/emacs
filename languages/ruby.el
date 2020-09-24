@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
-(require '05projectile "$HOME/.emacs.d/05projectile.el")
-(require '05ctags "$HOME/.emacs.d/05ctags.el")
+(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'pkg/projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require 'pkg/ctags "$HOME/.emacs.d/pkg/ctags.el")
 
 (use-package rspec-mode :ensure t :defer t)
 (use-package ruby-end :ensure t :defer t)

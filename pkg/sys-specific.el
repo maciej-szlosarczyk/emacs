@@ -1,4 +1,4 @@
-;;; 01sys-specific -- summary
+;;; sys-specific -- summary
 ;;; Commentary:
 ;;; Make Emacs play nicer with specific operating systems
 ;;; Code:
@@ -62,5 +62,5 @@
       (global-set-key (kbd "A-z") 'undo)
       (global-set-key (kbd "A-q") 'kill-emacs)))
 
-(provide '01sys-specific)
-;;; 01sys-specific.el ends here
+(provide 'pkg/sys-specific)
+;;; sys-specific.el ends here

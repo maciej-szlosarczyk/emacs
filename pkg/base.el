@@ -1,4 +1,4 @@
-;;; 01base.el --- summary
+;;; pkg/base.el --- summary
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -6,7 +6,7 @@
 
 ;;; Commentary:
 
-;; 01base defines basic packages and environment.
+;; pkg/base defines basic packages and environment.
 
 ;;; Code:
 
@@ -164,5 +164,5 @@
 
 (which-key-mode t)
 
-(provide '01base)
-;;; 01base.el ends here
+(provide 'pkg/base)
+;;; base.el ends here

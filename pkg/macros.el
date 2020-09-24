@@ -1,4 +1,4 @@
-;;; 05macros -- summary
+;;; macros -- summary
 ;;; Commentary:
 ;;; Code:
 
@@ -9,5 +9,5 @@
       (setq result (append (list (car form) result)
                            (cdr form))))))
 
-(provide '05macros)
-;;; 05macros ends here
+(provide 'pkg/macros)
+;;; macros ends here

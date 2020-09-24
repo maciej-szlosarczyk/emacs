@@ -1,4 +1,4 @@
-;;; 05ctags -- summary
+;;; pkg/ctags -- summary
 ;;; Commentary:
 ;;; Old and rudimental completion framework.
 ;;; Code:
@@ -54,5 +54,5 @@
   (add-to-list (make-local-variable 'ctags/major-modes-to-update-on-save) mode))
 
 (add-hook 'after-save-hook 'ctags/update-tags-on-save)
-(provide '05ctags)
-;;; 05ctags.el ends here
+(provide 'pkg/ctags)
+;;; ctags.el ends here

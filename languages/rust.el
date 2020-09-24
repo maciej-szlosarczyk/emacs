@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '05prog-mode "$HOME/.emacs.d/05prog-mode.el")
-(require '05flycheck "$HOME/.emacs.d/05flycheck.el")
+(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package rust-mode
   :ensure t
