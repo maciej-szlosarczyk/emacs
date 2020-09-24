@@ -36,7 +36,7 @@
 
   ;; "Company list override."
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-capf)))
+               '(company-capf company-yasnippet)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
 
