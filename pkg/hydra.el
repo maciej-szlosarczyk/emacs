@@ -12,12 +12,12 @@
 
    ^Ivy^                           ^Projectile^                  ^Magit^
 ^^^^^^^^------------------------------------------------------------------------
-_a_: ag                         _s_: Switch project           _m_: Git status
-_b_: Switch buffer              _f_: Find file in project     _C_: Git checkout
-_t_: Find file                  _g_: ag in current project    _M_: Git blame
+_a_: Grep in buffer             _s_: Switch project           _m_: Git status
+_b_: Buffer list                _f_: Find file in project     _C_: Git checkout
+_t_: Find file                  _g_: Grep in current project  _M_: Git blame
 _d_: Deft                       _c_: Invalidate cache
 ^^                              _n_: New project
-^^                              _i_: ielm console
+^^                              _i_: IELM console
 "
     ("q" nil "cancel" :color blue)
 
@@ -41,12 +41,12 @@ _d_: Deft                       _c_: Invalidate cache
 
    ^Code Manipulation^    ^Code Completion^
 ^^^^^^^^-----------------------------------------------------------------------
-_c_: comment line      _y_: yasnippet
-_r_: regex replace     _m_: company
-_i_: indent region
-_a_: align regexp
-_e_: eval region
-_s_: swiper
+_c_: Comment line      _y_: Yasnippet
+_r_: Regex replace     _m_: Company
+_i_: Indent region
+_a_: Align regexp
+_e_: Eval region
+_s_: Swiper
 "
     ("q" nil "cancel" :color blue)
 
@@ -66,9 +66,9 @@ _s_: swiper
 
    ^Windows^                          ^Move around^
 ^^^^^^^^-----------------------------------------------------------------------
-_k_: kill buffer and window   _<left>_: Move left
-_h_: split horizontally      _<right>_: Move right
-_v_: split vertically           _<up>_: Move up
+_k_: Kill buffer and window   _<left>_: Move left
+_h_: Split horizontally      _<right>_: Move right
+_v_: Split vertically           _<up>_: Move up
 ^^                            _<down>_: Move down
 ^^                                 _p_: Previous buffer
 ^^                                 _n_: Next buffer
@@ -92,10 +92,12 @@ _v_: split vertically           _<up>_: Move up
 
    ^Context^                          ^Actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_r_: reload buffer
+_r_: Reload buffer
+_i_: Indent buffer
 "
     ("q" nil "cancel" :color blue)
 
+    ("i" indent-region)
     ("r" revert-buffer-no-confirm))
 
   :bind ("C-c p" . hydra-file-switcher-menu/body)
