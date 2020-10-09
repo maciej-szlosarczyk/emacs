@@ -20,17 +20,18 @@
 
 (defhydra my-fsharp/context-hydra (:color teal :hint nil)
   "
-  Fsharp actions
-
-   ^Fsharp^                          ^Actions^
+   ^Fsharp actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_f_: Format buffer
-_i_: imenu
+_r_: Reload buffer                 _f_: Format buffer
+_i_: Indent buffer                 _m_: iMenu
 "
   ("q" nil "cancel" :color blue)
 
+  ("r" revert-buffer-no-confirm)
+  ("i" indent-region)
+
   ("f" lsp-format-buffer)
-  ("i" lsp-ui-imenu))
+  ("m" lsp-ui-imenu))
 
 (defun activate-fsharp-mode ()
   "Activate F# goodies."

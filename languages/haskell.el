@@ -27,17 +27,18 @@
 
 (defhydra my-haskell/context-hydra (:color teal :hint nil)
   "
-  Haskell actions
-
-   ^Haskell^                          ^Actions^
+   ^Haskell actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_f_: Format buffer
-_i_: imenu
+_r_: Reload buffer                 _f_: Format buffer
+_i_: Indent buffer                 _m_: iMenu
 "
   ("q" nil "cancel" :color blue)
 
+  ("r" revert-buffer-no-confirm)
+  ("i" indent-region)
+
   ("f" lsp-format-buffer)
-  ("i" lsp-ui-imenu))
+  ("m" lsp-ui-imenu))
 
 (defun activate-haskell-mode ()
   "Run this in haskell-mode."

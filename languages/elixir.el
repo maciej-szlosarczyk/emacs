@@ -12,17 +12,18 @@
 
 (defhydra my-elixir/context-hydra (:color teal :hint nil)
   "
-  Elixir actions
-
-   ^Elixir^                          ^Actions^
+   ^Elixir actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_f_: Format buffer
-_i_: imenu
+_r_: Reload buffer                 _f_: Format buffer
+_i_: Indent buffer                 _i_: iMenu
 "
   ("q" nil "cancel" :color blue)
 
+  ("r" revert-buffer-no-confirm)
+  ("i" indent-region)
+
   ("f" elixir-format)
-  ("i" lsp-ui-imenu))
+  ("m" lsp-ui-imenu))
 
 (defun activate-elixir-mode ()
   "All things Elixir."

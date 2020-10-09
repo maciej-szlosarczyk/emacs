@@ -92,13 +92,16 @@ _v_: Split vertically           _<up>_: Move up
 
    ^Context^                          ^Actions^
 ^^^^^^^^-----------------------------------------------------------------------
-_r_: Reload buffer
-_i_: Indent buffer
+_r_: Reload buffer                 _f_: Format buffer
+_i_: Indent buffer                 _m_: iMenu
 "
     ("q" nil "cancel" :color blue)
 
+    ("r" revert-buffer-no-confirm)
     ("i" indent-region)
-    ("r" revert-buffer-no-confirm))
+
+    ("f" lsp-format-buffer)
+    ("m" lsp-ui-imenu))
 
   :bind ("C-c p" . hydra-file-switcher-menu/body)
         ("C-c c" . hydra-programming-menu/body)
