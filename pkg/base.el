@@ -42,8 +42,6 @@
 (define-key global-map [end] 'end-of-line)
 
 ;;; Helpful key bindings
-(global-set-key (kbd "<f1> b") 'describe-bindings) ;; List all key bindings
-                                                   ;; there are.
 (global-set-key (kbd "C-c \\") 'split-window-right) ;; Split window to the right
 (global-set-key (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
 
