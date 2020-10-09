@@ -18,11 +18,30 @@
   :ensure t
   :defer t)
 
+(defhydra my-fsharp/context-hydra (:color teal :hint nil)
+  "
+  Fsharp actions
+
+   ^Fsharp^                          ^Actions^
+^^^^^^^^-----------------------------------------------------------------------
+_f_: Format buffer
+_i_: imenu
+"
+  ("q" nil "cancel" :color blue)
+
+  ("f" lsp-format-buffer)
+  ("i" lsp-ui-imenu))
+
 (defun activate-fsharp-mode ()
   "Activate F# goodies."
   (set-indent 4)
   (column-enforce-n 100)
-  (lsp-deferred))
+  (lsp-deferred)
+  (define-key fsharp-mode-map (kbd "C-c l") 'my-fsharp/context-hydra/body)
+
+  ;; Company list override
+  (add-to-list (make-local-variable 'company-backends)
+               '(company-capf company-yasnippet)))
 
 (add-hook 'fsharp-mode-hook 'activate-fsharp-mode)
 

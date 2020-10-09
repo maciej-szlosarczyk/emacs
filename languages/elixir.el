@@ -17,10 +17,12 @@
    ^Elixir^                          ^Actions^
 ^^^^^^^^-----------------------------------------------------------------------
 _f_: Format buffer
+_i_: imenu
 "
   ("q" nil "cancel" :color blue)
 
-  ("f" elixir-format))
+  ("f" elixir-format)
+  ("i" lsp-ui-imenu))
 
 (defun activate-elixir-mode ()
   "All things Elixir."
