@@ -26,7 +26,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-summerfruit-light-modified base16-harmonic-light))))
+                     '(base16-atelier-forest-light base16-harmonic-light))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'base16-atelier-forest-light)))
@@ -52,5 +52,5 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(provide '10themes)
+(provide 'themes/themes)
 ;;; themes.el ends here
