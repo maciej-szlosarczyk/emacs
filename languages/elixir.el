@@ -15,7 +15,7 @@
    ^Elixir actions^
 ^^^^^^^^-----------------------------------------------------------------------
 _r_: Reload buffer                 _f_: Format buffer
-_i_: Indent buffer                 _i_: iMenu
+_i_: Indent buffer                 _m_: iMenu
 "
   ("q" nil "cancel" :color blue)
 

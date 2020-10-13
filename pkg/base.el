@@ -94,7 +94,7 @@
                                (interactive)
                                 (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
 
-;#====================== Backup config #==============================
+;; #====================== Backup config #==============================
 (setq backup-directory-alist
       `((".*" . "~/.emacs_backups/auto-save-list")))
 (setq auto-save-file-name-transforms
