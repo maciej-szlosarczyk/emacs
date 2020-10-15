@@ -37,7 +37,7 @@
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet capf))
+               '(company-capf company-yasnippet))
 
 	(when (string-match-p "jsx" (buffer-file-name))
 		(lsp))
