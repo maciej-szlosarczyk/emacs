@@ -155,6 +155,18 @@
 (keyfreq-mode t)
 (keyfreq-autosave-mode t)
 
+;;;;;;;;;;;;;;;;; Use more advanced undo options
+(use-package undo-tree
+  :defer t
+  :ensure t
+  :config (setq-default
+           ;; Show diff
+           undo-tree-visualizer-diff t
+           ;; Show timestamps
+           undo-tree-visualizer-timestamps t))
+
+(global-undo-tree-mode t)
+
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key
   :defer t

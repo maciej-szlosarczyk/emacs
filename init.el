@@ -64,7 +64,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(helpful lsp-haskell dashboard fsharp-mode dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
+   '(undo-tree helpful lsp-haskell dashboard fsharp-mode dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
  '(safe-local-variable-values
    '((haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4))))

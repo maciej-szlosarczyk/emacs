@@ -43,7 +43,7 @@ _d_: Deft                       _c_: Invalidate cache
 ^^^^^^^^-----------------------------------------------------------------------
 _c_: Comment line      _y_: Yasnippet
 _r_: Regex replace     _m_: Company
-_i_: Indent region
+_i_: Indent region     _u_: Undo tree
 _a_: Align regexp
 _e_: Eval region
 _s_: Swiper
@@ -57,6 +57,7 @@ _s_: Swiper
     ("e"  eval-region)
     ("s"  swiper)
 
+    ("u"  undo-tree-visualize)
     ("y"  company-yasnippet)
     ("m"  company-complete))
 

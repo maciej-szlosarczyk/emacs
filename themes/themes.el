@@ -46,8 +46,11 @@
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
   (interactive)
+  ;; If display is set to emulate FullHD resultion or less, make the font
+  ;; smaller.
   (if (>= 1080 (x-display-pixel-height))
       (set-font "Hack" 13)
+    ;; Else, set to default size.
     (set-font "Hack" 16)))
 
 ;; Do it automatically on startup
