@@ -69,7 +69,7 @@ _s_: Swiper
 _k_: Kill buffer and window   _<left>_: Move left
 _h_: Split horizontally      _<right>_: Move right
 _v_: Split vertically           _<up>_: Move up
-^^                            _<down>_: Move down
+_f_: Set font size to screen  _<down>_: Move down
 ^^                                 _p_: Previous buffer
 ^^                                 _n_: Next buffer
 "
@@ -78,6 +78,7 @@ _v_: Split vertically           _<up>_: Move up
     ("k"       kill-buffer-and-window)
     ("h"       split-window-below)
     ("v"       split-window-right)
+    ("f"       set-font-to-screen)
 
     ("<left>"  windmove-left)
     ("<right>" windmove-right)

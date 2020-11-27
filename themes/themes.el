@@ -17,16 +17,20 @@
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
 
-(load "$HOME/.emacs.d/themes/base16-summerfruit-light-modified-theme" 'f 't)
+;; Light themes
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
+
+;; Dark themes
+(load-theme 'base16-solarflare t t)
+(load-theme 'base16-snazzy t t)
 
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-atelier-forest-light base16-harmonic-light))))
+                     '(base16-snazzy base16-solarflare))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'base16-atelier-forest-light)))
@@ -39,9 +43,15 @@
   (set-face-attribute 'default nil :font (format "%s %d" name size))
   (set-face-attribute 'mode-line nil :font (format "%s %d" name size)))
 
-;; Set font
-;; (set-font "IBM Plex Mono" 16)
-(set-font "Hack" 16)
+(defun set-font-to-screen ()
+  "Automatically set font size to suit the monitor."
+  (interactive)
+  (if (>= 1080 (x-display-pixel-height))
+      (set-font "Hack" 13)
+    (set-font "Hack" 16)))
+
+;; Do it automatically on startup
+(set-font-to-screen)
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground
