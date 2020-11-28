@@ -29,5 +29,11 @@
       lsp-ui-doc-include-signature t
       lsp-log-io nil)
 
+;; Lsp debugger mode
+(use-package dap-mode
+  :ensure t
+  :defer t
+  :requires (lsp-mode lsp-ui))
+
 (provide 'pkg/lsp)
 ;;; lsp.el ends here
