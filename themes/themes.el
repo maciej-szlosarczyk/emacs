@@ -48,10 +48,10 @@
   (interactive)
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
-  (if (>= 1080 (x-display-pixel-height))
-      (set-font "Hack" 13)
-    ;; Else, set to default size.
-    (set-font "Hack" 16)))
+  (cond ((>= 1050 (x-display-pixel-height)) (set-font "Hack" 14))
+        ((>= 1080 (x-display-pixel-height)) (set-font "Hack" 13))
+        ((>= 1440 (x-display-pixel-height)) (set-font "Hack" 16))
+        (t (set-font "Hack" 16))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)
