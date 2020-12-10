@@ -20,6 +20,7 @@
 ;; Light themes
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
+(load-theme 'base16-gruvbox-dark-hard t t)
 
 ;; Dark themes
 (load-theme 'base16-solarflare t t)
@@ -29,8 +30,8 @@
     (progn
       (sml/apply-theme 'respectful)
       (enable-theme (nth
-                     (random 2)
-                     '(base16-snazzy base16-solarflare))))
+                     (random 3)
+                     '(base16-snazzy base16-gruvbox-dark-hard base16-solarflare))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'base16-atelier-forest-light)))

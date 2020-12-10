@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sshot
+# key: sshot
+# --
+Hound.Helpers.Screenshot.take_screenshot()

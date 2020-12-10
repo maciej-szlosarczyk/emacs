@@ -25,6 +25,7 @@
 
 (setq lsp-ui-doc-enable t
       lsp-ui-header t
+      lsp-ui-delay 0.5 ;; Wait half a second to display documentation
       lsp-ui-doc-position 'at-point
       lsp-ui-doc-include-signature t
       lsp-log-io nil)

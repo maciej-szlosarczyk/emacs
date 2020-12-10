@@ -160,6 +160,10 @@
   :defer t
   :ensure t)
 
+;;;;;;;;;;;;;;;;; Speed up long line display by disabling bidirectional text
+(setq-default bidi-paragraph-direction 'left-to-right
+              bidi-inhibit-bpa t)
+
 (which-key-mode t)
 
 (provide 'pkg/base)
