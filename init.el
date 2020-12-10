@@ -38,6 +38,7 @@
 (require 'pkg/lsp "$HOME/.emacs.d/pkg/lsp.el")
 (require 'pkg/dashboard "$HOME/.emacs.d/pkg/dashboard.el")
 (require 'pkg/undo-tree "$HOME/.emacs.d/pkg/undo-tree.el")
+(require 'pkg/avy "$HOME/.emacs.d/pkg/avy.el")
 
 ;; Themes
 (require 'themes/themes "$HOME/.emacs.d/themes/themes.el")

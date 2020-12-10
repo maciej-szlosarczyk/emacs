@@ -16,15 +16,21 @@ _a_: Grep in buffer             _s_: Switch project           _m_: Git status
 _b_: Buffer list                _f_: Find file in project     _C_: Git checkout
 _t_: Find file                  _g_: Grep in current project  _M_: Git blame
 _d_: Deft                       _c_: Invalidate cache
-^^                              _n_: New project
-^^                              _i_: IELM console
+_w_: Avy goto word              _n_: New project
+_l_: Avy goto line              _i_: IELM console
+_:_: Avy goto char
 "
+
     ("q" nil "cancel" :color blue)
 
     ("a" counsel-rg)
     ("b" ibuffer)
     ("t" counsel-find-file)
     ("d" deft)
+    ("w" avy-goto-word-0)
+    ("l" avy-goto-line)
+    (":" avy-goto-char)
+
     ("s" counsel-projectile-switch-project)
     ("f" counsel-projectile-find-file)
     ("g" counsel-projectile-rg)
