@@ -10,6 +10,10 @@
   :requires (web-mode company-web lsp-mode lsp-ui)
   :ensure t)
 
+(use-package vue-mode
+  :ensure t
+  :defer t)
+
 ;; Use js2-mode for javascript editing
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
@@ -39,6 +43,7 @@
                '(company-capf company-yasnippet)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
+(add-hook 'vue-mode-hook 'lsp)
 
 (provide 'languages/javascript)
 ;;; javascript.el ends here
