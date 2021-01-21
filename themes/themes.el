@@ -10,9 +10,10 @@
   (setq-default display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
-(use-package base16-theme :ensure t)
+(use-package base16-theme :ensure t :defer t)
 (use-package flatui-theme :ensure t :defer t)
 (use-package planet-theme :ensure t :defer t)
+(use-package apropospriate-theme :ensure t :defer t)
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -20,21 +21,22 @@
 ;; Light themes
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
-(load-theme 'base16-gruvbox-dark-hard t t)
+(load-theme 'apropospriate-light t t)
 
 ;; Dark themes
 (load-theme 'base16-solarflare t t)
 (load-theme 'base16-snazzy t t)
+(load-theme 'base16-gruvbox-dark-hard t t)
 
 (if (display-graphic-p)
     (progn
       (sml/apply-theme 'respectful)
       (enable-theme (nth
-                     (random 3)
-                     '(base16-snazzy base16-gruvbox-dark-hard base16-solarflare))))
+                     (random 2)
+                     '(apropospriate-light base16-harmonic-light))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
-    (enable-theme 'base16-atelier-forest-light)))
+    (enable-theme 'apropospriate-light)))
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -49,7 +51,8 @@
   (interactive)
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
-  (cond ((>= 1050 (x-display-pixel-height)) (set-font "Hack" 14))
+  (cond ((eq (x-display-list) nil)) ()
+        ((>= 1050 (x-display-pixel-height)) (set-font "Hack" 14))
         ((>= 1080 (x-display-pixel-height)) (set-font "Hack" 13))
         ((>= 1440 (x-display-pixel-height)) (set-font "Hack" 16))
         (t (set-font "Hack" 16))))

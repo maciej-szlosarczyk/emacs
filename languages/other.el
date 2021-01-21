@@ -15,6 +15,7 @@
 (use-package terraform-mode :ensure t :defer t)
 (use-package ansible :ensure t :defer t)
 (use-package nginx-mode :ensure t :defer t)
+(use-package jenkinsfile-mode :ensure t :defer t)
 
 ;; Text files
 (use-package yaml-mode :ensure t :defer t)

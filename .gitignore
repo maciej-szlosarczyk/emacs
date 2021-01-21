@@ -1,5 +1,6 @@
 auto-save-list
 projectile*
+projects
 !pkg/projectile.el
 backups
 elpa
