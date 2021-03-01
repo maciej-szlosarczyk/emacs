@@ -16,6 +16,7 @@
                         lsp-enable-file-watchers nil)
   :hook ((typescript-mode . lsp-deferred)
          (elixir-mode . lsp)
+         (purescript-mode . lsp-deferred)
          (js2-mode . lsp-deferred)))
 
 (use-package lsp-ui

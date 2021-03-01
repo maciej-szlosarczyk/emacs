@@ -26,6 +26,7 @@
 (require 'pkg/sys-specific "$HOME/.emacs.d/pkg/sys-specific.el")
 (require 'pkg/macros "$HOME/.emacs.d/pkg/macros.el")
 (require 'pkg/ivy "$HOME/.emacs.d/pkg/ivy.el")
+(require 'pkg/persp "$HOME/.emacs.d/pkg/persp.el")
 (require 'pkg/hydra "$HOME/.emacs.d/pkg/hydra.el")
 (require 'pkg/magit "$HOME/.emacs.d/pkg/magit.el")
 (require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
@@ -57,6 +58,7 @@
 (require 'languages/clang "$HOME/.emacs.d/languages/clang.el")
 (require 'languages/clojure "$HOME/.emacs.d/languages/clojure.el")
 (require 'languages/ocaml "$HOME/.emacs.d/languages/ocaml.el")
+(require 'languages/purescript "$HOME/.emacs.d/languages/purescript.el")
 (require 'languages/php "$HOME/.emacs.d/languages/php.el")
 (require 'languages/markdown "$HOME/.emacs.d/languages/markdown.el")
 (require 'languages/other "$HOME/.emacs.d/languages/other.el")
@@ -67,9 +69,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(apropospriate-theme jenkinsfile-mode vue-mode dap-mode undo-tree helpful lsp-haskell dashboard fsharp-mode dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
+   '(perspective apropospriate-theme jenkinsfile-mode vue-mode dap-mode undo-tree helpful lsp-haskell dashboard fsharp-mode dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
  '(safe-local-variable-values
-   '((haskell-process-use-ghci . t)
+   '((column-enforce-column . 10000)
+     (haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4))))
 
 ;; Improve font settings in Markdown code

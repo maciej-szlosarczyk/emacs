@@ -10,14 +10,14 @@
     "
   General Actions
 
-   ^Ivy^                           ^Projectile^                  ^Magit^
-^^^^^^^^------------------------------------------------------------------------
-_a_: Grep in buffer             _s_: Switch project           _m_: Git status
-_b_: Buffer list                _f_: Find file in project     _C_: Git checkout
-_t_: Find file                  _g_: Grep in current project  _M_: Git blame
-_d_: Deft                       _c_: Invalidate cache
-_w_: Avy goto word              _n_: New project
-_l_: Avy goto line              _i_: IELM console
+   ^Ivy^              ^Perspectives^             ^Projectile^                  ^Magit^
+^^^^^^^^-------------------------------------------------------------------------------------
+_a_: Grep in buffer   _S_: Switch perspective  _s_: Switch project           _m_: Git status
+_b_: Buffer list      _B_: Switch buffer       _f_: Find file in project     _C_: Git checkout
+_t_: Find file        _K_: Kill perspective    _g_: Grep in current project  _M_: Git blame
+_d_: Deft                                      _c_: Invalidate cache
+_w_: Avy goto word                             _n_: New project
+_l_: Avy goto line                             _i_: IELM console
 _:_: Avy goto char
 "
 
@@ -31,12 +31,17 @@ _:_: Avy goto char
     ("l" avy-goto-line)
     (":" avy-goto-char)
 
+    ("S" persp-switch)
+    ("B" persp-ibuffer)
+    ("K" persp-kill)
+
     ("s" counsel-projectile-switch-project)
     ("f" counsel-projectile-find-file)
     ("g" counsel-projectile-rg)
     ("c" projectile-invalidate-cache)
     ("n" projectile-add-known-project)
     ("i" ielm)
+
     ("m" magit-status)
     ("C" magit-checkout)
     ("M" magit-blame))

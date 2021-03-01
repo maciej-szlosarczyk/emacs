@@ -31,8 +31,9 @@
 (defun activate-web-mode ()
 	"Web mode overrides."
 	;; Indent web mode scripts by 2
-	(setq web-mode-script-padding 2)
-	(setq web-mode-code-indent-offset 2)
+	(setq-local web-mode-script-padding 2)
+	(setq-local web-mode-code-indent-offset 2)
+	(setq-local web-mode-markup-indent-offset 2)
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 

@@ -22,6 +22,7 @@
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
 (load-theme 'apropospriate-light t t)
+(load-theme 'base16-tomorrow t t)
 
 ;; Dark themes
 (load-theme 'base16-solarflare t t)
@@ -33,7 +34,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(apropospriate-light base16-harmonic-light))))
+                     '(base16-tomorrow base16-harmonic-light))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'apropospriate-light)))
@@ -52,10 +53,11 @@
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
   (cond ((eq (x-display-list) nil)) ()
-        ((>= 1050 (x-display-pixel-height)) (set-font "Hack" 14))
-        ((>= 1080 (x-display-pixel-height)) (set-font "Hack" 13))
-        ((>= 1440 (x-display-pixel-height)) (set-font "Hack" 16))
-        (t (set-font "Hack" 16))))
+        ((>= 1050 (x-display-pixel-height)) (set-font "IBM Plex Mono" 14))
+        ((>= 1080 (x-display-pixel-height)) (set-font "IBM Plex Mono" 13))
+        ((>= 1120 (x-display-pixel-height)) (set-font "IBM Plex Mono" 14))
+        ((>= 1440 (x-display-pixel-height)) (set-font "IBM Plex Mono" 16))
+        (t (set-font "IBM Plex Mono" 16))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)

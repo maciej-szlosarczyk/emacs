@@ -25,6 +25,9 @@
   (set-indent 4)
   (column-enforce-n 99)
 
+  ;; Run LSP
+  (lsp-deferred)
+
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
