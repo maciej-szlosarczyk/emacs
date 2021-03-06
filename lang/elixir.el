@@ -8,7 +8,7 @@
 
 (use-package elixir-mode
   :requires (lsp-mode lsp-ui)
-  :ensure t)
+  :straight t)
 
 (defhydra my-elixir/context-hydra (:color teal :hint nil)
   "

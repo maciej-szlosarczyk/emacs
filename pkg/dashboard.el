@@ -11,7 +11,7 @@
 ;;; Code:
 
 (use-package dashboard
-  :ensure t
+  :straight t
   :config
   (dashboard-setup-startup-hook))
 

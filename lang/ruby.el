@@ -6,12 +6,12 @@
 (require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 (require 'icejam-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 
-(use-package rspec-mode :ensure t :defer t)
-(use-package ruby-end :ensure t :defer t)
+(use-package rspec-mode :straight t :defer t)
+(use-package ruby-end :straight t :defer t)
 
 (use-package enh-ruby-mode
   :requires (rspec-mode ruby-end)
-  :ensure t
+  :straight t
   :defer t)
 
 (defun activate-ruby-mode ()

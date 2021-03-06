@@ -7,7 +7,7 @@
 
 (use-package erlang
   :defer t
-  :ensure t
+  :straight t
   :requires (lsp-mode lsp-ui))
 
 (cl-defun erlang/emacs-path (erlang-version)

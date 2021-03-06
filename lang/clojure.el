@@ -7,19 +7,19 @@
 
 (use-package clojure-mode
 	:defer t
-	:ensure t)
+	:straight t)
 
 (use-package cider
   :requires clojure-mode
   :commands cider-jack-in
   :defer t
-  :ensure t
+  :straight t
   :config (setq cider-annotate-completion-function t))
 
 (use-package clj-refactor
 	:requires (cider clojure-mode)
 	:defer t
-	:ensure t)
+	:straight t)
 
 ;; Hydra
 (defhydra my-clojure/context-hydra (:color teal :hint nil)

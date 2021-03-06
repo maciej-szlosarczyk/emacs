@@ -3,10 +3,10 @@
 ;;; Project management based on git repos
 ;;; Code:
 
-(use-package counsel-projectile :ensure t :defer t)
+(use-package counsel-projectile :straight t :defer t)
 
 (use-package projectile
-  :ensure t
+  :straight t
   :requires (counsel counsel-projectile)
   :config
   (setq-default projectile-completion-system 'ivy                  ;; Use ivy as completion system

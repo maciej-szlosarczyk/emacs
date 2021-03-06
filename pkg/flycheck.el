@@ -5,7 +5,7 @@
 ;; Use flycheck globally to check syntax and compile languages
 (use-package flycheck
   :commands flycheck-define-checker
-  :ensure t
+  :straight t
   :defer t
   :config (global-flycheck-mode t)
   (unbind-key "C-c ! C-c" flycheck-mode-map)

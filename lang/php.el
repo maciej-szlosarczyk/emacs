@@ -16,7 +16,7 @@
 
 (use-package php-mode
   :requires (lsp-mode lsp-ui)
-  :ensure t)
+  :straight t)
 
 (defhydra my-php/context-hydra (:color teal :hint nil)
   "

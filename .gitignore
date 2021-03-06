@@ -19,3 +19,5 @@ eshell/*
 ac-comphist.dat
 /.cache
 .dap-breakpoints
+!straight/versions/default.el
+/straight

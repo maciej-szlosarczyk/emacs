@@ -15,7 +15,7 @@
 
 (use-package fsharp-mode
   :requires (lsp-mode lsp-ui)
-  :ensure t
+  :straight t
   :defer t)
 
 (defhydra my-fsharp/context-hydra (:color teal :hint nil)

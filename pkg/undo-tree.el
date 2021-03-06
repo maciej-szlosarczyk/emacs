@@ -13,7 +13,7 @@
 ;;;;;;;;;;;;;;;;; Use more advanced undo options
 (use-package undo-tree
   :defer t
-  :ensure t
+  :straight t
   :config (setq-default
            ;; Show diff
            undo-tree-visualizer-diff t

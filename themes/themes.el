@@ -4,16 +4,16 @@
 
 ;; Use smart-mode-line
 (use-package smart-mode-line
-  :ensure t
+  :straight t
   :config
   (setq-default sml/no-confirm-load-theme t)
   (setq-default display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
-(use-package base16-theme :ensure t :defer t)
-(use-package flatui-theme :ensure t :defer t)
-(use-package planet-theme :ensure t :defer t)
-(use-package apropospriate-theme :ensure t :defer t)
+(use-package base16-theme :straight t :defer t)
+(use-package flatui-theme :straight t :defer t)
+(use-package planet-theme :straight t :defer t)
+(use-package apropospriate-theme :straight t :defer t)
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)

@@ -5,7 +5,7 @@
 (require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package markdown-mode
-  :ensure t
+  :straight t
   :defer t
   :init (setq-default markdown-command "pandoc"))
 

@@ -41,7 +41,7 @@
 
 ;; Move buffers around with buffer keys
 (use-package buffer-move
-  :ensure t
+  :straight t
   :defer t
   :bind ("C-c m [" . buf-move-left)
         ("C-c m ]" . buf-move-right)
@@ -88,7 +88,7 @@
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
              :if (memq window-system '(mac ns))
-             :ensure t
+             :straight t
              :config (add-to-list 'exec-path "/usr/local/bin")
              (exec-path-from-shell-initialize))
 
@@ -104,7 +104,7 @@
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
 (use-package keyfreq
   :defer t
-  :ensure t)
+  :straight t)
 
 (keyfreq-mode t)
 (keyfreq-autosave-mode t)
@@ -112,7 +112,7 @@
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key
   :defer t
-  :ensure t)
+  :straight t)
 
 ;;;;;;;;;;;;;;;;; Speed up long line display by disabling bidirectional text
 (setq-default bidi-paragraph-direction 'left-to-right

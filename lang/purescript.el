@@ -11,7 +11,7 @@
 ;;; Code:
 (use-package purescript-mode
   :requires (lsp-mode lsp-ui)
-  :ensure t)
+  :straight t)
 
 (defun activate-purescript-mode ()
   "All things Purescript."

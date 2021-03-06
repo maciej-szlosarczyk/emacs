@@ -10,6 +10,7 @@
 
 ;;; Code:
 (use-package perspective
+  :straight t
   :config (persp-mode)
   (unbind-key "C-x x" persp-mode-map)
   (unbind-key "C-x x C-l" persp-mode-map)

@@ -11,7 +11,7 @@
 ;;; Code:
 
 (use-package avy
-  :ensure t
+  :straight t
   :defer t)
 
 (provide 'icejam-pkg-avy)

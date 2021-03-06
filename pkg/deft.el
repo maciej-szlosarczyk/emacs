@@ -6,7 +6,7 @@
 (require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 
 (use-package deft
-  :ensure t
+  :straight t
   :defer t
   :config (setq
            deft-directory (substitute-in-file-name "$HOME/OneDrive/deft")

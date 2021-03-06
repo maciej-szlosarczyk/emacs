@@ -18,7 +18,7 @@
 ;;; Show trailing whitespace and remove whitespace on save
 (use-package whitespace
   :commands whitespace-mode
-  :ensure t
+  :straight t
   :defer t
   :hook (((prog-mode text-mode conf-mode) . whitespace-mode)
          (before-save . whitespace-cleanup))
@@ -32,7 +32,7 @@
 ;; Use colorful, matching parens
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
-  :ensure t
+  :straight t
   :defer t
   :hook (((prog-mode text-mode) . rainbow-delimiters-mode))
   :init
@@ -43,13 +43,13 @@
 ;;; Show hex (#aaa) colors as colors
 (use-package rainbow-mode
   :commands rainbow-mode
-  :ensure t
+  :straight t
   :hook ((prog-mode text-mode) . rainbow-mode))
 
 ;; Dash integration
 (use-package dash-at-point
   :commands dash-at-point
-  :ensure t
+  :straight t
   :defer t
   :bind (:map prog-mode-map ("C-s C-d" . dash-at-point)
               :map text-mode-map ("C-s C-d" . dash-at-point))
@@ -70,13 +70,13 @@
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
 (use-package column-enforce-mode
-  :ensure t
+  :straight t
   :defer t
   :config (global-column-enforce-mode t))
 
 ;; Vim-like regex replace with preview in buffer.
 (use-package visual-regexp
-  :ensure t
+  :straight t
   :defer t)
 
 (provide 'icejam-pkg-prog-mode)

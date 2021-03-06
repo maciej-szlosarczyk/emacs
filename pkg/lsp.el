@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package lsp-mode
-  :ensure t
+  :straight t
   :defer t
   :requires (company)
   :config
@@ -54,7 +54,7 @@
   :hook ((typescript-mode . lsp-deferred)))
 
 (use-package lsp-ui
-  :ensure t
+  :straight t
   :requires (lsp-mode)
   :defer t)
 
@@ -67,7 +67,7 @@
 
 ;; Lsp debugger mode
 (use-package dap-mode
-  :ensure t
+  :straight t
   :defer t
   :requires (lsp-mode lsp-ui))
 

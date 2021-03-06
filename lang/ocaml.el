@@ -4,22 +4,22 @@
 
 (use-package tuareg
   :defer t
-  :ensure t
+  :straight t
   :config
   (add-hook 'tuareg-mode-hook 'merlin-mode))
 
 (use-package merlin
   :defer t
-  :ensure t)
+  :straight t)
 
 (use-package reason-mode
   :defer t
-  :ensure t
+  :straight t
   :config (setq refmt-command 'opam))
 
 (use-package dune
   :defer t
-  :ensure t)
+  :straight t)
 
 
 (defhydra my-ocaml/context-hydra (:color teal :hint nil)

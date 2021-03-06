@@ -6,16 +6,16 @@
 (require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package rust-mode
-  :ensure t
+  :straight t
   :defer t)
 
 (use-package flycheck-rust
-  :ensure t
+  :straight t
   :defer t
   :requires (rust-mode))
 
 (use-package racer
-  :ensure t
+  :straight t
   :defer t
   :requires (rust-mode))
 

@@ -5,13 +5,13 @@
 
 (require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 
-(use-package counsel :ensure t :defer t)
-(use-package swiper :ensure t :defer t)
-(use-package helpful :ensure t :defer t)
+(use-package counsel :straight t :defer t)
+(use-package swiper :straight t :defer t)
+(use-package helpful :straight t :defer t)
 
 (use-package ivy
   :requires (counsel swiper helpful)
-  :ensure t
+  :straight t
   :defer t
   :config (setq ivy-use-virtual-buffers t ;; Display recent files in ivy-switch-buffer
                 ivy-count-format "(%d of %d) " ;; Current candidate count style

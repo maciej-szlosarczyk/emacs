@@ -15,11 +15,11 @@
 (require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package haskell-mode
-  :ensure t
+  :straight t
   :defer t)
 
 (use-package lsp-haskell
-  :ensure t
+  :straight t
   :defer t
   :requires (lsp-mode lsp-ui haskell-mode)
   :config

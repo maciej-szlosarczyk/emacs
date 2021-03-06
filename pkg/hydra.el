@@ -3,7 +3,7 @@
 ;;; Global hydra definitions.
 ;;; Code:
 (use-package hydra
-  :ensure t
+  :straight t
   :defer t
   :config
   (defhydra hydra-file-switcher-menu (:color teal :hint nil)

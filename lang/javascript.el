@@ -8,10 +8,10 @@
 
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)
-  :ensure t)
+  :straight t)
 
 (use-package vue-mode
-  :ensure t
+  :straight t
   :defer t)
 
 ;; Use js2-mode for javascript editing

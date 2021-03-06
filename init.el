@@ -6,20 +6,24 @@
 ;; Set GC at 300 MB for startup
 (setq gc-cons-threshold 300000000)
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
 
-;; activate all the packages (in particular autoloads)
-(package-initialize)
+;;; Use straight.el for package management
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-;; fetch the list of packages available
-(unless package-archive-contents (package-refresh-contents))
+(setq package-enable-at-startup nil)
 
-;; install use-package, the workhorse of configuration
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
+(straight-use-package 'use-package)
 
 ;; General configuration files.
 (require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
