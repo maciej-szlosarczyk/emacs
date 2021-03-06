@@ -22,5 +22,5 @@
 
 (global-undo-tree-mode t)
 
-(provide 'pkg/undo-tree)
+(provide 'icejam-pkg-undo-tree)
 ;;; undo-tree.el ends here

@@ -9,5 +9,5 @@
       (setq result (append (list (car form) result)
                            (cdr form))))))
 
-(provide 'pkg/macros)
+(provide 'icejam-pkg-macros)
 ;;; macros ends here

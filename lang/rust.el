@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package rust-mode
   :ensure t
@@ -36,5 +36,5 @@
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'racer-mode)
 
-(provide 'languages/rust)
+(provide 'icejam-lang-rust)
 ;;; rust.el ends here

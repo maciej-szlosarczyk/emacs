@@ -10,8 +10,8 @@
 
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package fsharp-mode
   :requires (lsp-mode lsp-ui)
@@ -46,5 +46,5 @@ _i_: Indent buffer                 _m_: iMenu
 
 (add-hook 'fsharp-mode-hook 'activate-fsharp-mode)
 
-(provide 'languages/fsharp)
+(provide 'icejam-lang-fsharp)
 ;;; fsharp.el ends here

@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/ctags "$HOME/.emacs.d/pkg/ctags.el")
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package erlang
   :defer t
@@ -109,5 +109,5 @@
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 
-(provide 'languages/erlang)
+(provide 'icejam-lang-erlang)
 ;;; erlang.el ends here

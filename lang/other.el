@@ -25,5 +25,5 @@
   :hook ((gitignore-mode . whitespace-mode)
          (before-save . whitespace-cleanup)))
 
-(provide 'languages/other)
+(provide 'icejam-lang-other)
 ;;; other.el ends here

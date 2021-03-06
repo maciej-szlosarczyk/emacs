@@ -3,6 +3,8 @@
 ;;; Counsel, Swiper and Ivy.
 ;;; Code:
 
+(require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+
 (use-package counsel :ensure t :defer t)
 (use-package swiper :ensure t :defer t)
 (use-package helpful :ensure t :defer t)
@@ -21,18 +23,17 @@
 (setq counsel-describe-function-function #'helpful-callable)
 (setq counsel-describe-variable-function #'helpful-variable)
 
-(global-set-key (kbd "C-c a") 'counsel-rg)
-(global-set-key (kbd "C-c t") 'counsel-find-file)
-(global-set-key (kbd "C-c C-s") 'swiper) ;; Find things by regexp
-(global-set-key (kbd "M-x") 'counsel-M-x) ;; M-x on steroids
+(define-key icejam-keys-mode-map (kbd "C-c a") 'counsel-rg)
+(define-key icejam-keys-mode-map (kbd "C-c t") 'counsel-find-file)
+(define-key icejam-keys-mode-map (kbd "C-c C-s") 'swiper) ;; Find things by regexp
+(define-key icejam-keys-mode-map (kbd "M-x") 'counsel-M-x) ;; M-x on steroids
 
  ;; List all key bindings there are.
-;; (global-set-key (kbd "<f1> b") 'describe-bindings)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(define-key icejam-keys-mode-map (kbd "<f1> f") 'counsel-describe-function)
+(define-key icejam-keys-mode-map (kbd "<f1> v") 'counsel-describe-variable)
+(define-key icejam-keys-mode-map (kbd "<f1> l") 'counsel-find-library)
+(define-key icejam-keys-mode-map (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(define-key icejam-keys-mode-map (kbd "<f2> u") 'counsel-unicode-char)
 
-(provide 'pkg/ivy)
+(provide 'icejam-pkg-ivy)
 ;;; ivy.el ends here

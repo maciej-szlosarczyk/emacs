@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (defun activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
@@ -16,5 +16,5 @@
 
 (add-hook 'emacs-lisp-mode-hook 'activate-emacs-lisp-mode)
 
-(provide 'languages/elisp)
+(provide 'icejam-lang-elisp)
 ;;; elisp.el ends here

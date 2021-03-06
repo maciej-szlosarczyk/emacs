@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require 'pkg/lsp "$HOME/.emacs.d/pkg/lsp.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
 
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)
@@ -26,7 +26,7 @@
 	(set-indent 2)
 
   (when (not (string-match-p ".json" (buffer-file-name)))
-    (lsp))
+    (lsp-deferred))
 
 	(column-enforce-n 80)
 	(setq-local js2-basic-offset 2)
@@ -45,5 +45,5 @@
 (add-hook 'js2-mode-hook 'activate-js2-mode)
 (add-hook 'vue-mode-hook 'lsp)
 
-(provide 'languages/javascript)
+(provide 'icejam-lang-javascript)
 ;;; javascript.el ends here

@@ -20,5 +20,5 @@
 
 (projectile-mode t)
 
-(provide 'pkg/projectile)
+(provide 'icejam-pkg-projectile)
 ;;; projectile.el ends here

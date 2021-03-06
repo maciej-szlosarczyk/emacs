@@ -3,6 +3,8 @@
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:
 
+(require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+
 (use-package deft
   :ensure t
   :defer t
@@ -11,7 +13,7 @@
            deft-default-extension "md"
            deft-auto-save-interval 30.0))
 
-(global-set-key (kbd "C-c d d") 'deft)
+(define-key icejam-keys-mode-map (kbd "C-c d d") 'deft)
 
-(provide 'pkg/deft)
+(provide 'icejam-pkg-deft)
 ;;; deft.el ends here

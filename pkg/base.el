@@ -38,39 +38,6 @@
 
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
-(define-key global-map [home] 'beginning-of-line)
-(define-key global-map [end] 'end-of-line)
-
-;;; Helpful key bindings
-(global-set-key (kbd "C-c \\") 'split-window-right) ;; Split window to the right
-(global-set-key (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
-
-;; Move between windows key bindings
-(global-set-key (kbd "C-c <left>") 'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>") 'windmove-up)
-(global-set-key (kbd "C-c <down>") 'windmove-down)
-
-;; The same, but without using arrow keys
-(global-set-key (kbd "C-c [") 'windmove-left)
-(global-set-key (kbd "C-c ]") 'windmove-right)
-(global-set-key (kbd "C-c {") 'windmove-up)
-(global-set-key (kbd "C-c }") 'windmove-down)
-
-;; Switch to previous and next buffer
-(global-set-key (kbd "C-c s <left>") 'previous-buffer)
-(global-set-key (kbd "C-c s <right>") 'next-buffer)
-
-;; The same, but without arrow keys.
-(global-set-key (kbd "C-c s [") 'previous-buffer)
-(global-set-key (kbd "C-c s ]") 'next-buffer)
-
-
-;; Kill current buffer and window
-(global-set-key (kbd "C-c q") 'kill-buffer-and-window)
-
-;; List buffers
-(global-set-key (kbd "C-c b") 'ibuffer)
 
 ;; Move buffers around with buffer keys
 (use-package buffer-move
@@ -80,19 +47,6 @@
         ("C-c m ]" . buf-move-right)
         ("C-c m {" . buf-move-up)
         ("C-c m }" . buf-move-down))
-
-
-;; Revert without asking
-(defun revert-buffer-no-confirm ()
-  "Revert buffer without confirmation."
-  (interactive) (revert-buffer t t))
-
-(global-set-key (kbd "C-c r") 'revert-buffer-no-confirm)
-
-;; Create new terminal
-(global-set-key (kbd "<f12>") (lambda ()
-                               (interactive)
-                                (ansi-term "/bin/zsh" "ANSI-Term : Zsh")))
 
 ;; #====================== Backup config #==============================
 (setq backup-directory-alist
@@ -166,5 +120,5 @@
 
 (which-key-mode t)
 
-(provide 'pkg/base)
+(provide 'icejam-pkg-base)
 ;;; base.el ends here

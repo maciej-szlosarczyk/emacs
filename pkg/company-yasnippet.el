@@ -9,7 +9,11 @@
 
 (use-package yasnippet-snippets
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (unbind-key "C-c & C-n" yas-minor-mode-map)
+  (unbind-key "C-c & C-s" yas-minor-mode-map)
+  (unbind-key "C-c & C-v" yas-minor-mode-map))
 
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
@@ -71,5 +75,5 @@
 (define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
-(provide 'pkg/company-yasnippet)
+(provide 'icejam-pkg-company-yasnippet)
 ;;; company-yasnippet.el ends here

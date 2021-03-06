@@ -10,29 +10,29 @@
     "
   General Actions
 
-   ^Ivy^              ^Perspectives^             ^Projectile^                  ^Magit^
+   ^Ivy^              ^Perspectives^              ^Projectile^                  ^Magit^
 ^^^^^^^^-------------------------------------------------------------------------------------
-_a_: Grep in buffer   _S_: Switch perspective  _s_: Switch project           _m_: Git status
-_b_: Buffer list      _B_: Switch buffer       _f_: Find file in project     _C_: Git checkout
-_t_: Find file        _K_: Kill perspective    _g_: Grep in current project  _M_: Git blame
-_d_: Deft                                      _c_: Invalidate cache
-_w_: Avy goto word                             _n_: New project
-_l_: Avy goto line                             _i_: IELM console
+_a_: Grep in buffer   _p_: Switch perspective     _s_: Switch project           _m_: Git status
+_B_: Buffer list      _b_: buffers in perspective _f_: Find file in project     _C_: Git checkout
+_t_: Find file        _K_: Kill perspective       _g_: Grep in current project  _M_: Git blame
+_d_: Deft                                       _c_: Invalidate cache
+_w_: Avy goto word                              _n_: New project
+_l_: Avy goto line                              _i_: IELM console
 _:_: Avy goto char
 "
 
     ("q" nil "cancel" :color blue)
 
     ("a" counsel-rg)
-    ("b" ibuffer)
+    ("B" ibuffer)
     ("t" counsel-find-file)
     ("d" deft)
     ("w" avy-goto-word-0)
     ("l" avy-goto-line)
     (":" avy-goto-char)
 
-    ("S" persp-switch)
-    ("B" persp-ibuffer)
+    ("p" persp-switch)
+    ("b" persp-ibuffer)
     ("K" persp-kill)
 
     ("s" counsel-projectile-switch-project)
@@ -55,7 +55,7 @@ _:_: Avy goto char
 _c_: Comment line      _y_: Yasnippet
 _r_: Regex replace     _m_: Company
 _i_: Indent region     _u_: Undo tree
-_a_: Align regexp
+_a_: Align to regex
 _e_: Eval region
 _s_: Swiper
 "
@@ -121,5 +121,5 @@ _i_: Indent buffer                 _m_: iMenu
         ("C-c w" . hydra-window-menu/body)
         ("C-c l" . hydra-language-context-menu/body))
 
-(provide 'pkg/hydra)
+(provide 'icejam-pkg-hydra)
 ;;; hydra.el ends here

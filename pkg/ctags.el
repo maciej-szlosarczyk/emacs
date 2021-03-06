@@ -54,5 +54,5 @@
   (add-to-list (make-local-variable 'ctags/major-modes-to-update-on-save) mode))
 
 (add-hook 'after-save-hook 'ctags/update-tags-on-save)
-(provide 'pkg/ctags)
+(provide 'icejam-pkg-ctags)
 ;;; ctags.el ends here

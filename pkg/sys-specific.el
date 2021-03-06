@@ -6,6 +6,8 @@
 (defconst IS-MAC (eq system-type 'darwin))
 (defconst IS-BSD (eq system-type 'berkeley-unix))
 
+(require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-MAC
     (progn
@@ -24,21 +26,24 @@
             (setq mac-command-modifier 'meta))))
 
       ;;;;;;;;; Mac binding (fix) ;;;;;;;;;;;;;;;;;;
-      (global-set-key (kbd "H-<right>") 'end-of-line)
-      (global-set-key (kbd "H-<left>") 'beginning-of-line)
-      (global-set-key (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (global-set-key (kbd "H-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "H-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "H-<down>") 'scroll-up)
 
-      (global-set-key [(hyper a)] 'mark-whole-buffer)
-      (global-set-key [(hyper v)] 'yank)
-      (global-set-key [(hyper x)] 'kill-region)
-      (global-set-key [(hyper c)] 'kill-ring-save)
-      (global-set-key [(hyper s)] 'save-buffer)
-      (global-set-key [(hyper l)] 'goto-line)
-      (global-set-key [(hyper w)]
-                      (lambda () (interactive) (delete-window)))
-      (global-set-key [(hyper z)] 'undo)
-      (global-set-key [(hyper q)] 'kill-emacs)
+      (defun delete-window-mac ()
+        "Kill a window on mac"
+        (interactive) (delete-window))
+
+      (define-key icejam-keys-mode-map [(hyper a)] 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map [(hyper v)] 'yank)
+      (define-key icejam-keys-mode-map [(hyper x)] 'kill-region)
+      (define-key icejam-keys-mode-map [(hyper c)] 'kill-ring-save)
+      (define-key icejam-keys-mode-map [(hyper s)] 'save-buffer)
+      (define-key icejam-keys-mode-map [(hyper l)] 'goto-line)
+      (define-key icejam-keys-mode-map [(hyper w)] 'delete-window-mac)
+      (define-key icejam-keys-mode-map [(hyper z)] 'undo)
+      (define-key icejam-keys-mode-map [(hyper q)] 'kill-emacs)
 
       ;; Disable meta on right alt (useful for Polish characters)
       (setq mac-right-option-modifier nil)))
@@ -46,21 +51,21 @@
 ;;;;;;;;; BSD-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-BSD
     (progn
-      (global-set-key (kbd "A-<right>") 'end-of-line)
-      (global-set-key (kbd "A-<left>") 'beginning-of-line)
-      (global-set-key (kbd "A-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (global-set-key (kbd "A-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "A-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "A-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "A-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "A-<down>") 'scroll-up)
 
-      (global-set-key (kbd "A-a") 'mark-whole-buffer)
-      (global-set-key (kbd "A-v") 'yank)
-      (global-set-key (kbd "A-x") 'kill-region)
-      (global-set-key (kbd "A-c") 'kill-ring-save)
-      (global-set-key (kbd "A-s") 'save-buffer)
-      (global-set-key (kbd "A-l") 'goto-line)
-      (global-set-key (kbd "A-w")
+      (define-key icejam-keys-mode-map (kbd "A-a") 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map (kbd "A-v") 'yank)
+      (define-key icejam-keys-mode-map (kbd "A-x") 'kill-region)
+      (define-key icejam-keys-mode-map (kbd "A-c") 'kill-ring-save)
+      (define-key icejam-keys-mode-map (kbd "A-s") 'save-buffer)
+      (define-key icejam-keys-mode-map (kbd "A-l") 'goto-line)
+      (define-key icejam-keys-mode-map (kbd "A-w")
                       (lambda () (interactive) (delete-window)))
-      (global-set-key (kbd "A-z") 'undo)
-      (global-set-key (kbd "A-q") 'kill-emacs)))
+      (define-key icejam-keys-mode-map (kbd "A-z") 'undo)
+      (define-key icejam-keys-mode-map (kbd "A-q") 'kill-emacs)))
 
-(provide 'pkg/sys-specific)
+(provide 'icejam-pkg-sys-specific)
 ;;; sys-specific.el ends here

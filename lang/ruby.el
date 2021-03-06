@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/projectile "$HOME/.emacs.d/pkg/projectile.el")
-(require 'pkg/ctags "$HOME/.emacs.d/pkg/ctags.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require 'icejam-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 
 (use-package rspec-mode :ensure t :defer t)
 (use-package ruby-end :ensure t :defer t)
@@ -17,11 +17,6 @@
 (defun activate-ruby-mode ()
   "All things for ruby mode."
   (set-indent 2)
-
-  ;; Set column enforcement at 80 for normal projects, and at 100 for work
-  (if (string-match-p "internetee" (buffer-file-name))
-      (column-enforce-n 100)
-    (column-enforce-n 80))
 
   ;; Disable reek syntax checking permanently
   (add-to-list (make-local-variable 'flycheck-disabled-checkers) 'ruby-reek)
@@ -45,5 +40,5 @@
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 
-(provide 'languages/ruby)
+(provide 'icejam-lang-ruby)
 ;;; ruby.el ends here

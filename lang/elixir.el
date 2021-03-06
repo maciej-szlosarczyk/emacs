@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require 'pkg/hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package elixir-mode
   :requires (lsp-mode lsp-ui)
@@ -29,6 +29,7 @@ _i_: Indent buffer                 _m_: iMenu
   "All things Elixir."
   (set-indent 2)
   (column-enforce-n 98)
+  (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
 
@@ -43,5 +44,5 @@ _i_: Indent buffer                 _m_: iMenu
 
 (add-hook 'elixir-mode-hook 'activate-elixir-mode)
 
-(provide 'languages/elixir)
+(provide 'icejam-lang-elixir)
 ;;; elixir.el ends here

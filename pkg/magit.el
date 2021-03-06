@@ -11,5 +11,5 @@
         (:map magit-blame-mode-map
               ("<f5> b" . 'magit-blame-quit)))
 
-(provide 'pkg/magit)
+(provide 'icejam-pkg-magit)
 ;;; magit.el ends here

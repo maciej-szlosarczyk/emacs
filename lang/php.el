@@ -10,9 +10,9 @@
 
 ;;; Code:
 
-(require 'pkg/prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'pkg/flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require 'pkg/hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package php-mode
   :requires (lsp-mode lsp-ui)
@@ -45,5 +45,5 @@ _i_: Indent buffer                 _m_: iMenu
 
 (add-hook 'php-mode-hook 'activate-php-mode)
 
-(provide 'languages/php)
+(provide 'icejam-lang-php)
 ;;; php.el ends here

@@ -79,5 +79,5 @@
   :ensure t
   :defer t)
 
-(provide 'pkg/prog-mode)
+(provide 'icejam-pkg-prog-mode)
 ;;; prog-mode ends here
