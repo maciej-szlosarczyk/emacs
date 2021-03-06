@@ -5,8 +5,13 @@
 
 (defconst IS-MAC (eq system-type 'darwin))
 (defconst IS-BSD (eq system-type 'berkeley-unix))
+(defconst IS-GNU (eq system-type 'gnu/linux))
 
 (require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+
+(defun icejam-delete-window ()
+  "Kill a window."
+  (interactive) (delete-window))
 
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-MAC
@@ -31,22 +36,33 @@
       (define-key icejam-keys-mode-map (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
       (define-key icejam-keys-mode-map (kbd "H-<down>") 'scroll-up)
 
-      (defun delete-window-mac ()
-        "Kill a window on mac"
-        (interactive) (delete-window))
-
       (define-key icejam-keys-mode-map [(hyper a)] 'mark-whole-buffer)
       (define-key icejam-keys-mode-map [(hyper v)] 'yank)
       (define-key icejam-keys-mode-map [(hyper x)] 'kill-region)
       (define-key icejam-keys-mode-map [(hyper c)] 'kill-ring-save)
       (define-key icejam-keys-mode-map [(hyper s)] 'save-buffer)
       (define-key icejam-keys-mode-map [(hyper l)] 'goto-line)
-      (define-key icejam-keys-mode-map [(hyper w)] 'delete-window-mac)
+      (define-key icejam-keys-mode-map [(hyper w)] 'icejam-delete-window)
       (define-key icejam-keys-mode-map [(hyper z)] 'undo)
       (define-key icejam-keys-mode-map [(hyper q)] 'kill-emacs)
 
       ;; Disable meta on right alt (useful for Polish characters)
       (setq mac-right-option-modifier nil)))
+
+;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
+(if IS-GNU
+      ;;;;;;;;; Linux Ego bindings (fix) ;;;;;;;;;;;;;;;;;;
+      (define-key icejam-keys-mode-map (kbd "C-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "C-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "C-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "C-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "C-a") 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map (kbd "C-v") 'yank)
+      (define-key icejam-keys-mode-map (kbd "C-x") 'kill-region)
+      (define-key icejam-keys-mode-map (kbd "C-c") 'kill-ring-save)
+      (define-key icejam-keys-mode-map (kbd "C-s") 'save-buffer)
+      (define-key icejam-keys-mode-map (kbd "C-l") 'goto-line)
+      (define-key icejam-keys-mode-map (kbd "C-z") 'undo))
 
 ;;;;;;;;; BSD-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-BSD
@@ -62,8 +78,7 @@
       (define-key icejam-keys-mode-map (kbd "A-c") 'kill-ring-save)
       (define-key icejam-keys-mode-map (kbd "A-s") 'save-buffer)
       (define-key icejam-keys-mode-map (kbd "A-l") 'goto-line)
-      (define-key icejam-keys-mode-map (kbd "A-w")
-                      (lambda () (interactive) (delete-window)))
+      (define-key icejam-keys-mode-map (kbd "A-w" 'icejam-delete-window)
       (define-key icejam-keys-mode-map (kbd "A-z") 'undo)
       (define-key icejam-keys-mode-map (kbd "A-q") 'kill-emacs)))
 

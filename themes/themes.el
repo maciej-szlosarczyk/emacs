@@ -57,6 +57,7 @@
         ((>= 1080 (x-display-pixel-height)) (set-font "IBM Plex Mono" 13))
         ((>= 1120 (x-display-pixel-height)) (set-font "IBM Plex Mono" 14))
         ((>= 1440 (x-display-pixel-height)) (set-font "IBM Plex Mono" 16))
+        ((>= 2160 (x-display-pixel-height)) (set-font "IBM Plex Mono" 20))
         (t (set-font "IBM Plex Mono" 16))))
 
 ;; Do it automatically on startup
