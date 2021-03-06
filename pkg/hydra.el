@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Global hydra definitions.
 ;;; Code:
+
+(require 'icejam-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
+
 (use-package hydra
   :straight t
   :defer t

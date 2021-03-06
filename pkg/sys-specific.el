@@ -51,18 +51,12 @@
 
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-GNU
-      ;;;;;;;;; Linux Ego bindings (fix) ;;;;;;;;;;;;;;;;;;
+    (progn
+      ;;;;;;;;; Linux Ergo bindings (fix) ;;;;;;;;;;;;;;;;;;
       (define-key icejam-keys-mode-map (kbd "C-<right>") 'end-of-line)
       (define-key icejam-keys-mode-map (kbd "C-<left>") 'beginning-of-line)
       (define-key icejam-keys-mode-map (kbd "C-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (define-key icejam-keys-mode-map (kbd "C-<down>") 'scroll-up)
-      (define-key icejam-keys-mode-map (kbd "C-a") 'mark-whole-buffer)
-      (define-key icejam-keys-mode-map (kbd "C-v") 'yank)
-      (define-key icejam-keys-mode-map (kbd "C-x") 'kill-region)
-      (define-key icejam-keys-mode-map (kbd "C-c") 'kill-ring-save)
-      (define-key icejam-keys-mode-map (kbd "C-s") 'save-buffer)
-      (define-key icejam-keys-mode-map (kbd "C-l") 'goto-line)
-      (define-key icejam-keys-mode-map (kbd "C-z") 'undo))
+      (define-key icejam-keys-mode-map (kbd "C-<down>") 'scroll-up)))
 
 ;;;;;;;;; BSD-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-BSD
@@ -80,7 +74,7 @@
       (define-key icejam-keys-mode-map (kbd "A-l") 'goto-line)
       (define-key icejam-keys-mode-map (kbd "A-w" 'icejam-delete-window)
       (define-key icejam-keys-mode-map (kbd "A-z") 'undo)
-      (define-key icejam-keys-mode-map (kbd "A-q") 'kill-emacs)))
+      (define-key icejam-keys-mode-map (kbd "A-q") 'kill-emacs))))
 
 (provide 'icejam-pkg-sys-specific)
 ;;; sys-specific.el ends here

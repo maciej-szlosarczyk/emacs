@@ -49,12 +49,6 @@
 ;; List buffers
 (define-key icejam-keys-mode-map (kbd "C-c b") 'ibuffer)
 
-;; Create new terminal
-(defun start-zsh-term ()
-  "Start ZSH terminal session."
-  (ansi-term "/bin/zsh" "Zsh"))
-(define-key icejam-keys-mode-map (kbd "<f12>") 'start-zsh-term)
-
 ;; Revert without asking
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."

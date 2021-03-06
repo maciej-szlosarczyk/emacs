@@ -27,6 +27,7 @@
  ("emacs-elixir" . "9de08c17d54e190d220aa03cca58bd41497f44b6")
  ("emacs-fsharp-mode" . "78898a1535878394d83643c383f4320e7b5fcefd")
  ("emacs-hcl-mode" . "e12b1df2ca28d2b06c471cd709c038a2dc0bcdbd")
+ ("emacs-libvterm" . "a86a1a9a92620a26edf5275f43ce0bf40f3b792f")
  ("emacs-planet-theme" . "b0a310ff36565fe22224c407cf59569986698a32")
  ("emacs-racer" . "f17f9d73c74ac86001a19d08735e6b966d6c5609")
  ("emacs-which-key" . "c0608e812a8d1bc7aefeacdfaeb56a7272eabf44")

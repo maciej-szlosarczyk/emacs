@@ -45,6 +45,7 @@
 (require 'icejam-pkg-dashboard "$HOME/.emacs.d/pkg/dashboard.el")
 (require 'icejam-pkg-undo-tree "$HOME/.emacs.d/pkg/undo-tree.el")
 (require 'icejam-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
+(require 'icejam-pkg-term "$HOME/.emacs.d/pkg/term.el")
 
 ;; Themes
 (require 'icejam-themes "$HOME/.emacs.d/themes/themes.el")
