@@ -17,6 +17,7 @@
  ("dash-at-point" . "4d795a23a8428c421d5107f1b005c9d8e0d1816c")
  ("dash.el" . "334a0b31cab6b42e4465ffdfc6f07c00cd227562")
  ("deft" . "c4af44827f4257e7619e63abfd22094a29a9ab52")
+ ("diminish.el" . "6ec6ebc391371418efc6c98d70b013f34af5a2ee")
  ("dockerfile-mode" . "07dde72b0e356d772fb65b969bd6decfa166e4d7")
  ("dune" . "8fb4a512d03482de0c6977b1975c06f71c94e093")
  ("edit-indirect" . "bdc8f542fe8430ba55f9a24a7910639d4c434422")

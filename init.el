@@ -6,7 +6,6 @@
 ;; Set GC at 300 MB for startup
 (setq gc-cons-threshold 300000000)
 
-
 ;;; Use straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -68,6 +67,9 @@
 (require 'icejam-lang-php "$HOME/.emacs.d/lang/php.el")
 (require 'icejam-lang-markdown "$HOME/.emacs.d/lang/markdown.el")
 (require 'icejam-lang-other "$HOME/.emacs.d/lang/other.el")
+
+;; Diminish modeline litter
+(require 'icejam-pkg-diminish "$HOME/.emacs.d/pkg/diminish.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
