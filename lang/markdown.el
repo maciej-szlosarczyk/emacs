@@ -12,7 +12,7 @@
 (defun activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."
   (set-indent 2)
-  (column-enforce-n 80)
+  (column-enforce-n 10000)
 
   ;; Markdown mode reuses my bindings, remove them.
   (define-key markdown-mode-map (kbd "C-c <left>") nil)
