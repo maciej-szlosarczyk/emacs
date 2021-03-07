@@ -29,5 +29,5 @@
   (unbind-key "C-x x <right>" persp-mode-map)
   (unbind-key "C-x x C-x x" persp-mode-map))
 
-(provide 'icejam-pkg-persp)
+(provide '+custom-pkg-persp)
 ;;; persp.el ends here

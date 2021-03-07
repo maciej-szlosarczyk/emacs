@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package tuareg
   :defer t
@@ -95,5 +95,5 @@ _o_: Update opam env
 (add-hook 'reason-mode-hook 'my-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
-(provide 'icejam-lang-ocaml)
+(provide '+custom-lang-ocaml)
 ;;; ocaml.el ends here

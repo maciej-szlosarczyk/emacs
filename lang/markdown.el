@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package markdown-mode
   :straight t
@@ -23,5 +23,5 @@
 
 (add-hook 'markdown-mode-hook 'activate-markdown-mode)
 
-(provide 'icejam-lang-markdown)
+(provide '+custom-lang-markdown)
 ;;; markdown.el ends here

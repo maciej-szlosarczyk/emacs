@@ -14,5 +14,5 @@
   :straight `(gleam-mode :type git :host github :repo "gleam-lang/gleam-mode")
   :mode "\\.gleam\\'")
 
-(provide 'icejam-lang-gleam)
+(provide '+custom-lang-gleam)
 ;;; gleam.el ends here

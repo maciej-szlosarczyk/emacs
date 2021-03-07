@@ -71,5 +71,5 @@
   :defer t
   :requires (lsp-mode lsp-ui))
 
-(provide 'icejam-pkg-lsp)
+(provide '+custom-pkg-lsp)
 ;;; lsp.el ends here

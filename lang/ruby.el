@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
-(require 'icejam-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
+(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 
 (use-package rspec-mode :straight t :defer t)
 (use-package ruby-end :straight t :defer t)
@@ -40,5 +40,5 @@
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 
-(provide 'icejam-lang-ruby)
+(provide '+custom-lang-ruby)
 ;;; ruby.el ends here

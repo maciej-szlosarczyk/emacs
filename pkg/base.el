@@ -120,5 +120,5 @@
 
 (which-key-mode t)
 
-(provide 'icejam-pkg-base)
+(provide '+custom-pkg-base)
 ;;; base.el ends here

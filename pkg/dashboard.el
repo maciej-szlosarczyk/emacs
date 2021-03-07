@@ -23,5 +23,5 @@
                         ;; (registers . 5)
                         (projects . 5)))
 
-(provide 'icejam-pkg-dashboard)
+(provide '+custom-pkg-dashboard)
 ;;; dashboard.el ends here

@@ -9,7 +9,7 @@
 ;; Proper terminal in Emacs
 
 ;;; Code:
-(require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 
 (use-package vterm :straight t :defer t)
 
@@ -19,7 +19,7 @@
   (interactive)
   (vterm))
 
-(define-key icejam-keys-mode-map (kbd "<f12>") 'start-term)
+(define-key +custom-keys-mode-map (kbd "<f12>") 'start-term)
 
-(provide 'icejam-pkg-term)
+(provide '+custom-pkg-term)
 ;;; term.el ends here

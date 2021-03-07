@@ -14,5 +14,5 @@
   :straight t
   :defer t)
 
-(provide 'icejam-pkg-avy)
+(provide '+custom-pkg-avy)
 ;;; avy.el ends here

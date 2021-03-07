@@ -3,7 +3,7 @@
 ;;; Global hydra definitions.
 ;;; Code:
 
-(require 'icejam-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
+(require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
 
 (defun mark-and-indent-whole-buffer ()
   "Mark and indent whole buffer."
@@ -151,5 +151,5 @@ Other:  _m_: iMenu
         ("C-c m" . +hydra-bufmove/body)
         ("C-c l" . +hydra-language-context-menu/body))
 
-(provide 'icejam-pkg-hydra)
+(provide '+custom-pkg-hydra)
 ;;; hydra.el ends here

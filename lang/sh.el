@@ -6,5 +6,5 @@
 (add-to-list 'auto-mode-alist '("\\zshrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
 
-(provide 'icejam-lang-sh)
+(provide '+custom-lang-sh)
 ;;; sh.el ends here

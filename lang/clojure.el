@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package clojure-mode
 	:defer t
@@ -62,5 +62,5 @@ Cider:  _j_: Jack in _t_: Test
 (add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
-(provide 'icejam-lang-clojure)
+(provide '+custom-lang-clojure)
 ;;; clojure.el ends here

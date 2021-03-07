@@ -72,5 +72,5 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(provide 'icejam-themes)
+(provide '+custom-themes)
 ;;; themes.el ends here

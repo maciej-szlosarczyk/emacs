@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
-(require 'icejam-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
-(require 'icejam-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
+(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (defun activate-clang-mode ()
   "Goodies for editing c files."
@@ -32,5 +32,5 @@
 
 (add-hook 'c-mode-hook 'activate-clang-mode)
 
-(provide 'icejam-lang-clang)
+(provide '+custom-lang-clang)
 ;;; clang.el ends here

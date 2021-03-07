@@ -17,5 +17,5 @@
                                 (unbind-key "C-c $" flyspell-mode-map)
                                 (unbind-key "C-M-i" flyspell-mode-map)))
 
-(provide 'icejam-pkg-ispell)
+(provide '+custom-pkg-ispell)
 ;;; ispell.el ends here

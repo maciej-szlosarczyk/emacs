@@ -75,5 +75,5 @@
 (define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
-(provide 'icejam-pkg-company-yasnippet)
+(provide '+custom-pkg-company-yasnippet)
 ;;; company-yasnippet.el ends here

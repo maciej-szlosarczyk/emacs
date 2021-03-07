@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Old and rudimental completion framework.
 ;;; Code:
-(require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 
 (setq tags-add-tables nil)
 
@@ -52,5 +52,5 @@
 
 (add-hook 'after-save-hook 'ctags/update-tags-on-save)
 
-(provide 'icejam-pkg-ctags)
+(provide '+custom-pkg-ctags)
 ;;; ctags.el ends here

@@ -3,8 +3,8 @@
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:
 
-(require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
-(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package deft
   :straight t
@@ -19,7 +19,7 @@
   ("d" deft "Deft")
   ("q" cancel "quit"))
 
-(define-key icejam-keys-mode-map (kbd "C-c d") '+hydra-deft-menu/body)
+(define-key +custom-keys-mode-map (kbd "C-c d") '+hydra-deft-menu/body)
 
-(provide 'icejam-pkg-deft)
+(provide '+custom-pkg-deft)
 ;;; deft.el ends here

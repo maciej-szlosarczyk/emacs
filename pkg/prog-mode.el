@@ -79,5 +79,5 @@
   :straight t
   :defer t)
 
-(provide 'icejam-pkg-prog-mode)
+(provide '+custom-pkg-prog-mode)
 ;;; prog-mode ends here

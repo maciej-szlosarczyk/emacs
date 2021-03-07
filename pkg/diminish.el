@@ -23,5 +23,5 @@
 (eval-after-load "whitespace" '(diminish 'whitespace-mode))
 (eval-after-load "auto-revert-mode" '(diminish 'auto-revert-mode))
 
-(provide 'icejam-pkg-diminish)
+(provide '+custom-pkg-diminish)
 ;;; diminish.el ends here

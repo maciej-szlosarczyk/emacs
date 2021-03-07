@@ -25,5 +25,5 @@
   (unbind-key "C-c ! v" flycheck-mode-map)
   (unbind-key "C-c ! x" flycheck-mode-map))
 
-(provide 'icejam-pkg-flycheck)
+(provide '+custom-pkg-flycheck)
 ;;; flycheck.el ends here

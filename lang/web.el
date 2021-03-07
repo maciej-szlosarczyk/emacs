@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
-(require 'icejam-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require '+custom-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
+(require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package web-mode
   :requires (lsp-mode flycheck)
@@ -47,5 +47,5 @@
 
 (add-hook 'web-mode-hook 'activate-web-mode)
 
-(provide 'icejam-lang-web)
+(provide '+custom-lang-web)
 ;;; web.el ends here
