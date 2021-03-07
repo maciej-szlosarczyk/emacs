@@ -56,6 +56,7 @@
 (require 'icejam-lang-javascript "$HOME/.emacs.d/lang/javascript.el")
 (require 'icejam-lang-elixir "$HOME/.emacs.d/lang/elixir.el")
 (require 'icejam-lang-erlang "$HOME/.emacs.d/lang/erlang.el")
+(require 'icejam-lang-gleam "$HOME/.emacs.d/lang/gleam.el")
 (require 'icejam-lang-fsharp "$HOME/.emacs.d/lang/fsharp.el")
 (require 'icejam-lang-sh "$HOME/.emacs.d/lang/sh.el")
 (require 'icejam-lang-rust "$HOME/.emacs.d/lang/rust.el")

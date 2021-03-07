@@ -4,6 +4,7 @@
 ;;; Code:
 
 (require 'icejam-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
 (use-package deft
   :straight t
@@ -13,7 +14,12 @@
            deft-default-extension "md"
            deft-auto-save-interval 30.0))
 
-(define-key icejam-keys-mode-map (kbd "C-c d d") 'deft)
+(defhydra +hydra-deft-menu (:color teal)
+  "Start Deft"
+  ("d" deft "Deft")
+  ("q" cancel "quit"))
+
+(define-key icejam-keys-mode-map (kbd "C-c d") '+hydra-deft-menu/body)
 
 (provide 'icejam-pkg-deft)
 ;;; deft.el ends here

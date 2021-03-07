@@ -41,6 +41,7 @@
  ("flycheck" . "01396a5eff9fa494285e0d3139838231c05e3948")
  ("flycheck-rust" . "a139cd53c5062697e9ed94ad80b803c37d999600")
  ("git-modes" . "14adca24eb6b0b4e311ad144c5d41972c6b044b2")
+ ("gleam-mode" . "60c0102e9a905027eb88600fef7d60bd3fbdaab1")
  ("gnu-elpa-mirror" . "be9f76827527f058e83818ab53c29393ccd99315")
  ("groovy-emacs-modes" . "26da902d1158c0312628d57578109be54eca2415")
  ("haskell-mode" . "20f72ccc17c8233dbb7c94ebf52a2a59e7d97730")
