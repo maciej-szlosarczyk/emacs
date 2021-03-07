@@ -5,23 +5,30 @@
 
 (require 'icejam-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
 
+(defun mark-and-indent-whole-buffer ()
+  "Mark and indent whole buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
 (use-package hydra
   :straight t
   :defer t
   :config
   (defhydra hydra-file-switcher-menu (:color teal :hint nil)
     "
-  General Actions
-
-   ^Ivy^              ^Perspectives^              ^Projectile^                  ^Magit^
-^^^^^^^^-------------------------------------------------------------------------------------
-_a_: Grep in buffer   _p_: Switch perspective     _s_: Switch project           _m_: Git status
-_B_: Buffer list      _b_: buffers in perspective _f_: Find file in project     _C_: Git checkout
-_t_: Find file        _K_: Kill perspective       _g_: Grep in current project  _M_: Git blame
-_d_: Deft                                       _c_: Invalidate cache
-_w_: Avy goto word                              _n_: New project
-_l_: Avy goto line                              _i_: IELM console
-_:_: Avy goto char
+^                                   General actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+^Ivy:               _a_: Grep in buffer     _B_: Buffer list            _t_: Find file
+^Avy:               _w_: Goto word          _l_: Goto line              _:_: Goto char
+^
+^Perspective:       _p_: Switch perspective _b_: Buffers in perspective _K_: Kill perspective
+^Projectile:        _s_: Switch project     _f_: Find file in project   _g_: Grep in project
+^                   _c_: Invalidate cache   _n_: New project
+^Magit:             _m_: Git status         _C_: Git checkout           _M_: Git blame
+^
+^LISP:              _i_: Console            _e_: Eval region
+^                   _d_: Deft
+^
 "
 
     ("q" nil "cancel" :color blue)
@@ -44,6 +51,7 @@ _:_: Avy goto char
     ("c" projectile-invalidate-cache)
     ("n" projectile-add-known-project)
     ("i" ielm)
+    ("e" eval-region)
 
     ("m" magit-status)
     ("C" magit-checkout)
@@ -51,16 +59,12 @@ _:_: Avy goto char
 
   (defhydra hydra-programming-menu (:color teal :hint nil)
     "
-  Programming actions
-
-   ^Code Manipulation^    ^Code Completion^
-^^^^^^^^-----------------------------------------------------------------------
-_c_: Comment line      _y_: Yasnippet
-_r_: Regex replace     _m_: Company
-_i_: Indent region     _u_: Undo tree
-_a_: Align to regex
-_e_: Eval region
-_s_: Swiper
+^                                   Code actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+Manipulate: _c_: Toggle comment _r_: Replace       _i_: Indent _a_: Align
+Complete:   _y_: Snippet        _m_: Any (Company)
+Find:       _s_: Swiper         _u_: Undo tree
+^
 "
     ("q" nil "cancel" :color blue)
 
@@ -68,7 +72,6 @@ _s_: Swiper
     ("r"  vr/replace)
     ("i"  indent-region)
     ("a"  align-regexp)
-    ("e"  eval-region)
     ("s"  swiper)
 
     ("u"  undo-tree-visualize)
@@ -77,51 +80,52 @@ _s_: Swiper
 
   (defhydra hydra-window-menu (:color teal :hint nil)
     "
-  Window actions
-
-   ^Windows^                          ^Move around^
-^^^^^^^^-----------------------------------------------------------------------
-_k_: Kill buffer and window   _<left>_: Move left
-_h_: Split horizontally      _<right>_: Move right
-_v_: Split vertically           _<up>_: Move up
-_f_: Set font size to screen  _<down>_: Move down
-^^                                 _p_: Previous buffer
-^^                                 _n_: Next buffer
+^                                   Buffer actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+Move:  _<left>_: Left         _<right>_: Right      _<up>_: Up       _<down>_: Down
+Split:      _h_: Horizontally       _v_: Vertically
+            _k_: Kill Buffer
+^
 "
     ("q" nil "cancel" :color blue)
 
     ("k"       kill-buffer-and-window)
     ("h"       split-window-below)
     ("v"       split-window-right)
-    ("f"       set-font-to-screen)
 
     ("<left>"  windmove-left)
     ("<right>" windmove-right)
     ("<up>"    windmove-up)
-    ("<down>"  windmove-down)
-    ("p"       previous-buffer)
-    ("n"       next-buffer))
+    ("<down>"  windmove-down))
 
   (defhydra hydra-language-context-menu (:color teal :hint nil)
     "
-  Context actions
-
-   ^Context^                          ^Actions^
-^^^^^^^^-----------------------------------------------------------------------
-_r_: Reload buffer                 _f_: Format buffer
-_i_: Indent buffer                 _m_: iMenu
+^                                   Language-specific actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+Buffer: _r_: Reload _f_: Format _i_: Indent
+Other:  _m_: iMenu
+^^
 "
     ("q" nil "cancel" :color blue)
 
     ("r" revert-buffer-no-confirm)
-    ("i" indent-region)
+    ("i" mark-and-indent-whole-buffer)
 
     ("f" lsp-format-buffer)
     ("m" lsp-ui-imenu))
 
+  (defhydra hydra-move-menu (:color teal)
+    "Buffer history"
+    ("<left>"  previous-buffer "Previous buffer")
+    ("<right>" next-buffer "Next buffer")
+    ("["       previous-buffer "Previous buffer")
+    ("]"       next-buffer "Next buffer")
+    ("q" cancel "quit"))
+
   :bind ("C-c p" . hydra-file-switcher-menu/body)
         ("C-c c" . hydra-programming-menu/body)
         ("C-c w" . hydra-window-menu/body)
+        ("C-c s" . hydra-move-menu/body)
         ("C-c l" . hydra-language-context-menu/body))
 
 (provide 'icejam-pkg-hydra)

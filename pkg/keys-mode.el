@@ -34,15 +34,6 @@
 (define-key icejam-keys-mode-map (kbd "C-c {") 'windmove-up)
 (define-key icejam-keys-mode-map (kbd "C-c }") 'windmove-down)
 
-;; Switch to previous and next buffer
-(define-key icejam-keys-mode-map (kbd "C-c s <left>") 'previous-buffer)
-(define-key icejam-keys-mode-map (kbd "C-c s <right>") 'next-buffer)
-
-;; The same, but without arrow keys.
-(define-key icejam-keys-mode-map (kbd "C-c s [") 'previous-buffer)
-(define-key icejam-keys-mode-map (kbd "C-c s ]") 'next-buffer)
-
-
 ;; Kill current buffer and window
 (define-key icejam-keys-mode-map (kbd "C-c q") 'kill-buffer-and-window)
 

@@ -12,16 +12,15 @@
 
 (defhydra my-elixir/context-hydra (:color teal :hint nil)
   "
-   ^Elixir actions^
-^^^^^^^^-----------------------------------------------------------------------
-_r_: Reload buffer                 _f_: Format buffer
-_i_: Indent buffer                 _m_: iMenu
+^                                   Elixir actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+Buffer: _r_: Reload _f_: Format _i_: Indent
+Other:  _m_: iMenu
+^^
 "
   ("q" nil "cancel" :color blue)
-
   ("r" revert-buffer-no-confirm)
-  ("i" indent-region)
-
+  ("i" mark-and-indent-whole-buffer)
   ("f" elixir-format)
   ("m" lsp-ui-imenu))
 

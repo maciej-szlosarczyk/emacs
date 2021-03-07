@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'icejam-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+
 (use-package tuareg
   :defer t
   :straight t
@@ -24,15 +26,16 @@
 
 (defhydra my-ocaml/context-hydra (:color teal :hint nil)
   "
-  OCaml actions
-
-   ^OCaml^                          ^Actions^
-^^^^^^^^-----------------------------------------------------------------------
-_f_: Format buffer
-_o_: Update opam env
+^                                   OCaml actions
+^^^^^^^^--------------------------------------------------------------------------------------------
+Buffer: _r_: Reload   _f_: Format _i_: Indent
+Other:  _o_: Opam env
+^^
 "
   ("q" nil "cancel" :color blue)
 
+  ("r" revert-buffer-no-confirm)
+  ("i" mark-and-indent-whole-buffer)
   ("f" ocamlformat)
   ("o" tuareg-opam-update-env))
 

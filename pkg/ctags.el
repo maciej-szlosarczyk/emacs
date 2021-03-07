@@ -2,10 +2,7 @@
 ;;; Commentary:
 ;;; Old and rudimental completion framework.
 ;;; Code:
-(require 'projectile)
-
-;; Do not mix ctags between folders
-(provide 'my-ctags-config)
+(require 'icejam-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 
 (setq tags-add-tables nil)
 
@@ -27,7 +24,7 @@
     )))
 
 (cl-defun ctags/refresh-ctags (&key silent)
-  "Refresh ctags according to currently set command."
+  "Refresh ctags according to currently set command.  With SILENT you can make it, uhh... silent."
   (interactive)
 
   ;; Print message if not silent
@@ -54,5 +51,6 @@
   (add-to-list (make-local-variable 'ctags/major-modes-to-update-on-save) mode))
 
 (add-hook 'after-save-hook 'ctags/update-tags-on-save)
+
 (provide 'icejam-pkg-ctags)
 ;;; ctags.el ends here
