@@ -118,7 +118,7 @@ Other:  _m_: iMenu
     "Buffer history"
     ("["       previous-buffer "Previous buffer")
     ("]"       next-buffer "Next buffer")
-    ("q" cancel "quit"))
+    ("q" nil "cancel" :color blue))
 
   (defhydra +hydra-bufmove (:color teal :hint nil)
     "
@@ -141,7 +141,7 @@ Other:  _m_: iMenu
     ("d"       (text-scale-decrease 1) "Smaller font in this buffer")
     ("r"       (text-scale-adjust 0) "Reset font in this buffer")
     ("R"       set-font-to-screen "Reload font to screen")
-    ("q" cancel "quit"))
+    ("q" nil "cancel" :color blue))
 
   :bind ("C-c p" . +hydra-file-switcher-menu/body)
         ("C-c c" . +hydra-programming-menu/body)
