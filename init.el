@@ -45,6 +45,7 @@
 (require '+custom-pkg-undo-tree "$HOME/.emacs.d/pkg/undo-tree.el")
 (require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
 (require '+custom-pkg-term "$HOME/.emacs.d/pkg/term.el")
+(require '+custom-pkg-speed-type "$HOME/.emacs.d/pkg/speed-type.el")
 
 ;; Themes
 (require '+custom-themes "$HOME/.emacs.d/themes/themes.el")
@@ -77,8 +78,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(perspective apropospriate-theme jenkinsfile-mode vue-mode dap-mode undo-tree helpful lsp-haskell dashboard fsharp-mode dash-at-point racer racer-mode flycheck-rust rust-mode haskell-mode dune which-key erlang gitignore-mode yaml-mode nginx-mode ansible terraform-mode dockerfile-mode reason-mode merlin tuareg clj-refactor cider clojure-mode elixir-mode js2-mode web-mode enh-ruby-mode ruby-end rspec-mode planet-theme flatui-theme base16-theme smart-mode-line lsp-ui lsp-mode deft counsel-projectile flycheck company yasnippet-snippets yasnippet visual-regexp column-enforce-mode rainbow-mode rainbow-delimiters magit hydra counsel keyfreq exec-path-from-shell buffer-move use-package))
  '(safe-local-variable-values
    '((column-enforce-column . 10000)
      (haskell-process-use-ghci . t)

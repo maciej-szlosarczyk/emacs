@@ -42,7 +42,7 @@
       (define-key +custom-keys-mode-map [(hyper c)] 'kill-ring-save)
       (define-key +custom-keys-mode-map [(hyper s)] 'save-buffer)
       (define-key +custom-keys-mode-map [(hyper l)] 'goto-line)
-      (define-key +custom-keys-mode-map [(hyper w)] '+delete-window)
+      (define-key +custom-keys-mode-map [(hyper w)] '+custom-function-delete-window)
       (define-key +custom-keys-mode-map [(hyper z)] 'undo)
       (define-key +custom-keys-mode-map [(hyper q)] 'kill-emacs)
 

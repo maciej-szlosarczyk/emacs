@@ -21,3 +21,4 @@ ac-comphist.dat
 .dap-breakpoints
 !straight/versions/default.el
 /straight
+/speed-type

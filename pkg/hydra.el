@@ -27,7 +27,7 @@
 ^Magit:             _m_: Git status         _C_: Git checkout           _M_: Git blame
 ^
 ^LISP:              _i_: Console            _e_: Eval region
-^                   _d_: Deft
+^Other:             _d_: Deft               _T_: Speed type
 ^
 "
 
@@ -51,6 +51,7 @@
     ("c" projectile-invalidate-cache)
     ("n" projectile-add-known-project)
     ("i" ielm)
+    ("T" speed-type-text)
     ("e" eval-region)
 
     ("m" magit-status)
