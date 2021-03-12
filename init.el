@@ -91,7 +91,8 @@
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
  '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "Hack"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "Hack")))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "Hack"))))
+ '(mmm-default-submode-face ((t nil))))
 
 ;; Restore GC to normal, but still high
 (setq gc-cons-threshold 100000000)
