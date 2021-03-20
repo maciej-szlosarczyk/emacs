@@ -52,6 +52,7 @@
 
 ;; Actual supported languages and file syntax.
 (require '+custom-lang-elisp "$HOME/.emacs.d/lang/elisp.el")
+(require '+custom-lang-common-lisp "$HOME/.emacs.d/lang/common-lisp.el")
 (require '+custom-lang-ruby "$HOME/.emacs.d/lang/ruby.el")
 (require '+custom-lang-web "$HOME/.emacs.d/lang/web.el")
 (require '+custom-lang-javascript "$HOME/.emacs.d/lang/javascript.el")
