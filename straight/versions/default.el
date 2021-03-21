@@ -89,6 +89,7 @@
  ("s.el" . "43ba8b563bee3426cead0e6d4ddc09398e1a349d")
  ("sesman" . "edee869c209c016e5f0c5cbb8abb9f3ccd2d1e05")
  ("slime" . "68c58c0194ff03cd147fcec99f0ee90ba9178875")
+ ("slime-company" . "f20ecc4104d4c35052696e7e760109fb02060e72")
  ("smart-mode-line" . "999be065b195f2eddb4e1b629f99038d832d44b7")
  ("speed-type" . "5ef695f7159aa1f20c7c9e55f0c39bcdacce8d21")
  ("spinner" . "e19f3cfc0646c0e23c10c22df219fcf427054621")

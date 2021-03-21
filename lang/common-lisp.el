@@ -9,10 +9,15 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-company-yasnippet "$HOME/.emacs.d/pkg/company-yasnippet.el")
 
 (use-package slime :straight t)
+(use-package slime-company :straight t
+  :requires (slime company))
 
-(slime-setup '(slime-fancy slime-quicklisp slime-asdf))
+
+(setq inferior-lisp-program "sbcl")
+(slime-setup '(slime-fancy slime-company slime-quicklisp slime-asdf))
 
 (provide '+custom-lang-common-lisp)
 ;;; common-lisp.el ends here
