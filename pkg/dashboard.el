@@ -15,6 +15,9 @@
   :config
   (dashboard-setup-startup-hook))
 
+(setq dashboard-footer-messages
+      '("Happy coding!" "I showed you my source code, pls respond"))
+
 (setq dashboard-startup-banner 'logo)
 
 (setq dashboard-items '((recents  . 5)
