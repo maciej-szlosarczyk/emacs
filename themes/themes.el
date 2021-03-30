@@ -45,7 +45,8 @@
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for font %s: ")
   (set-face-attribute 'default nil :font (format "%s %d" name size))
-  (set-face-attribute 'mode-line nil :font (format "%s %d" name size)))
+  ;; Set modeline font to be 1 pixel point smaller than the general font
+  (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1))))
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
