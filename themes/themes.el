@@ -46,7 +46,11 @@
   (interactive "sNew font: \nnEnter size for font %s: ")
   (set-face-attribute 'default nil :font (format "%s %d" name size))
   ;; Set modeline font to be 1 pixel point smaller than the general font
-  (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1))))
+  (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute 'mode-line-inactive nil :font
+                      (format "%s %d" name (- size 1))))
+
+(defconst +custom-font "JetBrains Mono")
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
@@ -54,12 +58,12 @@
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
   (cond ((eq (x-display-list) nil)) ()
-        ((>= 1050 (x-display-pixel-height)) (set-font "IBM Plex Mono" 14))
-        ((>= 1080 (x-display-pixel-height)) (set-font "IBM Plex Mono" 13))
-        ((>= 1120 (x-display-pixel-height)) (set-font "IBM Plex Mono" 14))
-        ((>= 1440 (x-display-pixel-height)) (set-font "IBM Plex Mono" 16))
-        ((>= 2160 (x-display-pixel-height)) (set-font "IBM Plex Mono" 20))
-        (t (set-font "IBM Plex Mono" 16))))
+        ((>= 1050 (x-display-pixel-height)) (set-font +custom-font 14))
+        ((>= 1080 (x-display-pixel-height)) (set-font +custom-font 13))
+        ((>= 1120 (x-display-pixel-height)) (set-font +custom-font 14))
+        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 16))
+        ((>= 2160 (x-display-pixel-height)) (set-font +custom-font 20))
+        (t (set-font +custom-font 16))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)

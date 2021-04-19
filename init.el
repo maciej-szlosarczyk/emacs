@@ -66,6 +66,7 @@
 (require '+custom-lang-clang "$HOME/.emacs.d/lang/clang.el")
 (require '+custom-lang-clojure "$HOME/.emacs.d/lang/clojure.el")
 (require '+custom-lang-ocaml "$HOME/.emacs.d/lang/ocaml.el")
+(require '+custom-lang-kotlin "$HOME/.emacs.d/lang/kotlin.el")
 (require '+custom-lang-purescript "$HOME/.emacs.d/lang/purescript.el")
 (require '+custom-lang-php "$HOME/.emacs.d/lang/php.el")
 (require '+custom-lang-markdown "$HOME/.emacs.d/lang/markdown.el")
