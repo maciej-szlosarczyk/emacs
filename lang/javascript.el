@@ -43,7 +43,13 @@
                '(company-capf company-yasnippet)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
-(add-hook 'vue-mode-hook 'lsp)
+
+(defun activate-vue-mode ()
+  "VueJS overrides."
+  (lsp-deferred)
+  (setq-local lsp-ui-show-code-actions f))
+
+(add-hook 'vue-mode-hook 'activate-vue-mode)
 
 (provide '+custom-lang-javascript)
 ;;; javascript.el ends here

@@ -1,43 +1,14 @@
-;;; themes -- summary
+;;; fonts.el --- summary
+
+;; Author: Maciej Szlosarczyk
+;; Maintainer: Maciej Szlosarczyk
+;; Version: 0.1-snapshot
+
 ;;; Commentary:
+
+;; Set font stuff
+
 ;;; Code:
-
-;; Use smart-mode-line
-(use-package smart-mode-line
-  :straight t
-  :config
-  (setq-default sml/no-confirm-load-theme t)
-  (setq-default display-time-format "%H:%M") ;; time format to display on mode line
-  (sml/setup))
-
-(use-package base16-theme :straight t :defer t)
-(use-package flatui-theme :straight t :defer t)
-(use-package planet-theme :straight t :defer t)
-(use-package apropospriate-theme :straight t :defer t)
-
-;; Disable cursor blinking
-(blink-cursor-mode 0)
-
-;; Light themes
-(load-theme 'base16-atelier-forest-light t t)
-(load-theme 'base16-harmonic-light t t)
-(load-theme 'apropospriate-light t t)
-(load-theme 'base16-tomorrow t t)
-
-;; Dark themes
-(load-theme 'base16-solarflare t t)
-(load-theme 'base16-snazzy t t)
-(load-theme 'base16-gruvbox-dark-hard t t)
-
-(if (display-graphic-p)
-    (progn
-      (sml/apply-theme 'respectful)
-      (enable-theme (nth
-                     (random 2)
-                     '(base16-tomorrow base16-harmonic-light))))
-  (progn
-    (defvar base16-theme-256-color-source "base16-shell")
-    (enable-theme 'apropospriate-light)))
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -77,5 +48,5 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(provide '+custom-themes)
-;;; themes.el ends here
+(provide '+custom-pkg-fonts)
+;;; fonts.el ends here

@@ -48,7 +48,8 @@
 (require '+custom-pkg-speed-type "$HOME/.emacs.d/pkg/speed-type.el")
 
 ;; Themes
-(require '+custom-themes "$HOME/.emacs.d/themes/themes.el")
+(require '+custom-pkg-themes "$HOME/.emacs.d/pkg/themes.el")
+(require '+custom-pkg-fonts "$HOME/.emacs.d/pkg/fonts.el")
 
 ;; Actual supported languages and file syntax.
 (require '+custom-lang-elisp "$HOME/.emacs.d/lang/elisp.el")
@@ -92,8 +93,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "Hack"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "Hack"))))
+ '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "JetBrains Mono"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "JetBrains Mono"))))
  '(mmm-default-submode-face ((t nil))))
 
 ;; Restore GC to normal, but still high
