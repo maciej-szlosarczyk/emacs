@@ -26,8 +26,9 @@
 (yas-global-mode t)
 
 (setq-default
- company-minimum-prefix-length 2   ;; minimum prefix character number for auto complete.
+ company-minimum-prefix-length 3   ;; minimum prefix character number for auto complete.
  company-idle-delay 0.1
+ company-require-match nil
  company-echo-delay 0 ;;;; company-show-numbers t
  company-tooltip-align-annotations t ;; align annotations to the right tooltip border.
  company-tooltip-flip-when-above t
@@ -41,6 +42,7 @@
  company-selection-wrap-around t ;; loop over candidates
  company-dabbrev-other-buffers t ;; Only offer dabbrev from the same major mode
  company-dabbrev-downcase nil ;; Preserve case of candidates
+ company-format-margin-function nil
  ;; company-async-wait 0.03
  ;; company-async-timeout 2
  )
