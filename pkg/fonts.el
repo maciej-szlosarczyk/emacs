@@ -14,7 +14,7 @@
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
-  (interactive "sNew font: \nnEnter size for font %s: ")
+  (interactive "sNew font: \nnEnter size for %s: ")
   (set-face-attribute 'default nil :font (format "%s %d" name size))
   ;; Set modeline font to be 1 pixel point smaller than the general font
   (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1)))
@@ -27,22 +27,31 @@
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
-  (interactive)
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
-  (cond ((eq (x-display-list) nil)) ()
+  (cond ((eq (x-display-list) nil))
+
         ;; built-in screen
         ((>= 1050 (x-display-pixel-height)) (set-font +custom-font 14))
-        ;; 4K screen
+
+        ;; 4K screen on a Mac
         ((>= 1080 (x-display-pixel-height)) (set-font +custom-font 14))
+
+        ;; Other screens
         ((>= 1120 (x-display-pixel-height)) (set-font +custom-font 14))
         ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 16))
+
         ;; 4K screen on Windows
         ((>= 2160 (x-display-pixel-height)) (set-font +custom-font 20))
         (t (set-font +custom-font 16))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)
+
+(defun set-font-size (size)
+  "Set font to a specified SIZE."
+  (interactive "nEnter size for font: ")
+  (set-font +custom-font size))
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground

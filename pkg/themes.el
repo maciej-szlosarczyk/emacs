@@ -22,7 +22,7 @@
 (load-theme 'base16-atelier-forest-light t t)
 (load-theme 'base16-harmonic-light t t)
 (load-theme 'apropospriate-light t t)
-(load-theme 'base16-tomorrow t t)
+(load-theme 'base16-humanoid-light t t)
 
 ;; Dark themes
 (load-theme 'base16-solarflare t t)
@@ -34,7 +34,7 @@
       (sml/apply-theme 'respectful)
       (enable-theme (nth
                      (random 2)
-                     '(base16-solarflare base16-snazzy))))
+                     '(base16-humanoid-light base16-harmonic-light))))
   (progn
     (defvar base16-theme-256-color-source "base16-shell")
     (enable-theme 'apropospriate-light)))
