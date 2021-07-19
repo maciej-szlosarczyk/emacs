@@ -29,6 +29,7 @@
   "Automatically set font size to suit the monitor."
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
+  (interactive)
   (cond ((eq (x-display-list) nil))
 
         ;; built-in screen
@@ -39,7 +40,7 @@
 
         ;; Other screens
         ((>= 1120 (x-display-pixel-height)) (set-font +custom-font 14))
-        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 16))
+        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 17))
 
         ;; 4K screen on Windows
         ((>= 2160 (x-display-pixel-height)) (set-font +custom-font 20))

@@ -49,6 +49,17 @@
       ;; Disable meta on right alt (useful for Polish characters)
       (setq mac-right-option-modifier nil)))
 
+(defun +custom-switch-right-left-alt ()
+  "Set keyboard to das keyboard."
+  (interactive)
+  (if (eq mac-right-option-modifier nil)
+      (progn
+        (setq mac-right-option-modifier 'meta)
+        (setq mac-option-modifier nil))
+    (progn
+        (setq mac-right-option-modifier 'meta)
+        (setq mac-option-modifier nil))))
+
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-GNU
     (progn
