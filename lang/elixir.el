@@ -30,6 +30,7 @@ Other:  _m_: iMenu
   (column-enforce-n 98)
   (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq-local lsp-eldoc-enable-hover nil)
   (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
 
   ;; If needed, switch the one below to false to disable documentation pop-ups

@@ -57,8 +57,8 @@
         (setq mac-right-option-modifier 'meta)
         (setq mac-option-modifier nil))
     (progn
-        (setq mac-right-option-modifier 'meta)
-        (setq mac-option-modifier nil))))
+      (setq mac-option-modifier 'meta)
+      (setq mac-right-option-modifier nil))))
 
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-GNU
