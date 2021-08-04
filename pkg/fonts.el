@@ -12,18 +12,41 @@
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun +custom-set-lsp-ui-font-hook ()
+  "Reset LSP IO font to specified +custom-font and +custom-font-size."
+  (setq lsp-ui-doc-frame-hook nil)
+  (add-hook 'lsp-ui-doc-frame-hook
+            (lambda (frame _w)
+              (set-face-attribute
+               'default frame :font
+               (format "%s %d" +custom-font (- +custom-font-size 2))))))
+
 (defun set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
+  (defvar +custom-font name)
+  (defvar +custom-font-size size)
+
   (set-face-attribute 'default nil :font (format "%s %d" name size))
-  ;; Set modeline font to be 1 pixel point smaller than the general font
+
+  ;; Set comletion and modeline font to be 1 pixel point smaller than
+  ;; the general font
+  ;; (set-face-attribute 'markdown-code-face nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute 'tooltip nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute 'company-tooltip nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute 'company-tooltip-annotation nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute 'company-tooltip-mouse nil :font (format "%s %d" name (- size 1)))
   (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'mode-line-inactive nil :font
-                      (format "%s %d" name (- size 1))))
+  (set-face-attribute 'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
+
+  ;; Call LSP-UI hook
+  (+custom-set-lsp-ui-font-hook))
 
 ;; (defconst +custom-font "Iosevka Term")
 ;; (defconst +custom-font "JetBrains Mono")
-(defconst +custom-font "IBM Plex Mono")
+(defvar +custom-font "IBM Plex Mono")
+(defvar +custom-font-size 14)
+
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."

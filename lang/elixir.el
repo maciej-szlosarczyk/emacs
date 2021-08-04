@@ -14,7 +14,7 @@
   "
 ^                                   Elixir actions
 ^^^^^^^^--------------------------------------------------------------------------------------------
-Buffer: _r_: Reload _f_: Format _i_: Indent
+Buffer: _r_: Reload _f_: Format _i_: Indent _e_: Show Errors
 Other:  _m_: iMenu
 ^^
 "
@@ -22,6 +22,7 @@ Other:  _m_: iMenu
   ("r" revert-buffer-no-confirm)
   ("i" mark-and-indent-whole-buffer)
   ("f" elixir-format)
+  ("e" flycheck-list-errors)
   ("m" lsp-ui-imenu))
 
 (defun activate-elixir-mode ()
