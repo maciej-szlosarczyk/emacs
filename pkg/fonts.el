@@ -24,12 +24,12 @@
 (defun set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
-  (defvar +custom-font name)
-  (defvar +custom-font-size size)
+  (setq +custom-font name)
+  (setq +custom-font-size size)
 
   (set-face-attribute 'default nil :font (format "%s %d" name size))
 
-  ;; Set comletion and modeline font to be 1 pixel point smaller than
+  ;; Set completion and modeline font to be 1 pixel point smaller than
   ;; the general font
   ;; (set-face-attribute 'markdown-code-face nil :font (format "%s %d" name (- size 1)))
   (set-face-attribute 'tooltip nil :font (format "%s %d" name (- size 1)))
@@ -42,11 +42,10 @@
   ;; Call LSP-UI hook
   (+custom-set-lsp-ui-font-hook))
 
-;; (defconst +custom-font "Iosevka Term")
-;; (defconst +custom-font "JetBrains Mono")
-(defvar +custom-font "IBM Plex Mono")
+;; (defvar +custom-font "Iosevka Term")
+(defvar +custom-font "JetBrains Mono")
+;; (defvar +custom-font "IBM Plex Mono")
 (defvar +custom-font-size 14)
-
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."

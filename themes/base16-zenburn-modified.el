@@ -11,17 +11,20 @@
 ;;; Code:
 
 ;; Modifications
+;; 02 made darker by 5%   #606060 => #5b5b5b
 ;; 03 made lighter by 10% #6f6f6f => #898989
+;; 04 made darker by 5%   #808080 => #7a7a7a
 ;; 0B made lighter by 10% #5f7f5f => #799979
 
-(require 'base16-theme)
+
+(use-package base16-theme :straight t :defer t)
 
 (defvar base16-zenburn-modified-colors
   '(:base00 "#383838"
     :base01 "#404040"
-    :base02 "#606060"
+    :base02 "#5b5b5b"
     :base03 "#898989"
-    :base04 "#808080"
+    :base04 "#7a7a7a"
     :base05 "#dcdccc"
     :base06 "#c0c0c0"
     :base07 "#ffffff"
@@ -45,5 +48,4 @@
 (provide-theme 'base16-zenburn-modified)
 
 (provide 'base16-zenburn-modified-theme)
-
 ;;; base16-zenburn-modified-theme.el ends here
