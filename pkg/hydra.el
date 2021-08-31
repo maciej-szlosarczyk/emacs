@@ -61,7 +61,7 @@
   (defhydra +hydra-programming-menu (:color teal :hint nil)
     "
 ^                                   Code actions
-^^^^^^^^--------------------------------------------------------------------------------------------
+^^^^^^^^------------------------------------------------------------------------
 Manipulate: _c_: Toggle comment _r_: Replace       _i_: Indent _a_: Align
 Complete:   _y_: Snippet        _m_: Any (Company)
 Find:       _s_: Swiper         _u_: Undo tree
@@ -82,8 +82,8 @@ Find:       _s_: Swiper         _u_: Undo tree
   (defhydra +hydra-window-menu (:color teal :hint nil)
     "
 ^                                   Buffer actions
-^^^^^^^^--------------------------------------------------------------------------------------------
-Move:  _<left>_: Left         _<right>_: Right      _<up>_: Up       _<down>_: Down
+^^^^^^^^------------------------------------------------------------------------
+Move:  _<left>_: Left         _<right>_: Right      _<up>_: Up  _<down>_: Down
 Split:      _h_: Horizontally       _v_: Vertically
             _k_: Kill Buffer
 ^
@@ -102,7 +102,7 @@ Split:      _h_: Horizontally       _v_: Vertically
   (defhydra +hydra-language-context-menu (:color teal :hint nil)
     "
 ^                                   Language-specific actions
-^^^^^^^^--------------------------------------------------------------------------------------------
+^^^^^^^^------------------------------------------------------------------------
 Buffer: _r_: Reload _f_: Format _i_: Indent
 Other:  _m_: iMenu
 ^^
@@ -123,15 +123,10 @@ Other:  _m_: iMenu
 
   (defhydra +hydra-bufmove (:color teal :hint nil)
     "
-^                                   Move current buffer
-^^^^^^^^--------------------------------------------------------------------------------------------
-^          _{_: Up
-^_[_: Left           _]_: Right
-^          _{_: Down
-^^
-^                                        Move to
-^^^^^^^^--------------------------------------------------------------------------------------------
-^_w_: Word _c_: Character _l_: Line
+^                                   Move in places
+^^^^^^^^------------------------------------------------------------------------
+^ Move this buffer: _{_: Up   _[_: Left      _]_: Right _{_: Down
+^ Jump to:          _w_: Word _c_: Character _l_: Line
 ^^
 "
     ("[" buf-move-left)
@@ -143,13 +138,19 @@ Other:  _m_: iMenu
     ("c" avy-goto-char)
     ("q" cancel "quit"))
 
-  (defhydra +hydra-font-menu (:color teal)
-    "Buffer history"
-    ("i"       (text-scale-increase 1) "Bigger font in this buffer")
-    ("d"       (text-scale-decrease 1) "Smaller font in this buffer")
-    ("r"       (text-scale-adjust 0) "Reset font in this buffer")
-    ("R"       set-font-to-screen "Reload font to screen")
-    ("s"       set-font-size "Set font size")
+  (defhydra +hydra-font-menu (:color teal :hint nil)
+    "
+^                                   Fonts
+^^^^^^^^------------------------------------------------------------------------
+^Everywhere:     _s_: Set size _R_: Reset to default
+^In this buffer: _i_: Bigger   _d_: Smaller _r_: Reset
+^^
+"
+    ("i" (text-scale-increase 1))
+    ("d" (text-scale-decrease 1))
+    ("r" (text-scale-adjust 0))
+    ("R" set-font-to-screen)
+    ("s" set-font-size)
     ("q" nil "cancel" :color blue))
 
   :bind ("C-c p" . +hydra-file-switcher-menu/body)
