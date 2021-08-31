@@ -129,11 +129,18 @@ Other:  _m_: iMenu
 ^_[_: Left           _]_: Right
 ^          _{_: Down
 ^^
+^                                        Move to
+^^^^^^^^--------------------------------------------------------------------------------------------
+^_w_: Word _c_: Character _l_: Line
+^^
 "
     ("[" buf-move-left)
     ("]" buf-move-right)
     ("{" buf-move-up)
     ("}" buf-move-down)
+    ("w" avy-goto-word-0)
+    ("l" avy-goto-line)
+    ("c" avy-goto-char)
     ("q" cancel "quit"))
 
   (defhydra +hydra-font-menu (:color teal)

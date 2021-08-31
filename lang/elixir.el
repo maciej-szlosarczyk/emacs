@@ -32,6 +32,7 @@ Other:  _m_: iMenu
   (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (setq-local lsp-eldoc-enable-hover nil)
+  (setq-local company-minimum-prefix-length 3)
   (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
 
   ;; If needed, switch the one below to false to disable documentation pop-ups

@@ -12,6 +12,15 @@
   :config (setq
            deft-directory (substitute-in-file-name "$HOME/OneDrive/deft")
            deft-default-extension "md"
+           deft-strip-summary-regexp (concat "\\("
+              "[\n\t]" ;; blank
+              "\\|^:[[:ascii:]]+:.*$" ;; org-mode properties string
+              "\\|^Title:.*$" ;; Title string
+              "\\|^title:.*$" ;; title string
+              "\\|^\\[\\[file:.*$" ;; org-mode inline-images
+              ;; org-mode properties
+              ;; "\\|:PROPERTIES:\n\\(.+\n\\)+:END:\n" ;;
+              "\\)")
            deft-auto-save-interval 30.0))
 
 (defhydra +hydra-deft-menu (:color teal)

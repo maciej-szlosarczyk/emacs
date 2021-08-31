@@ -82,7 +82,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((column-enforce-column . 10000)
+   '((cider-shadow-default-options . ":app")
+     (cider-preferred-build-tool . lein)
+     (cider-shadow-default-options . "app")
+     (cider-default-cljs-repl . shadow)
+     (cider-preferred-build tool . lein)
+     (cider-repl-display-help-banner)
+     (column-enforce-column . 10000)
      (haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4))))
 
@@ -93,7 +99,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- ;; '(font-lock-type-face ((t (:foreground "#ffcb6b" :family "JetBrains Mono"))))
  '(markdown-code-face ((t (:inherit fixed-pitch :family "IBM Plex Mono"))))
  '(mmm-default-submode-face ((t nil))))
 

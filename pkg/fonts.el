@@ -43,7 +43,8 @@
   (+custom-set-lsp-ui-font-hook))
 
 ;; (defvar +custom-font "Iosevka Term")
-(defvar +custom-font "JetBrains Mono")
+;; (defvar +custom-font "JetBrains Mono")
+(defvar +custom-font "JuliaMono")
 ;; (defvar +custom-font "IBM Plex Mono")
 (defvar +custom-font-size 14)
 
