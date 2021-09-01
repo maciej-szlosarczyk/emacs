@@ -6,8 +6,8 @@
 (use-package smart-mode-line
   :straight t
   :config
-  (setq-default sml/no-confirm-load-theme t)
-  (setq-default display-time-format "%H:%M") ;; time format to display on mode line
+  (setq-default sml/no-confirm-load-theme t
+                display-time-format "%H:%M") ;; time format to display on mode line
   (sml/setup))
 
 (use-package base16-theme :straight t :defer t)
@@ -28,7 +28,7 @@
 ;; Dark themes
 (load-theme 'base16-zenburn t)
 (load-theme 'base16-tomorrow-night-eighties t t)
-(load-theme 'base16-dracula t t)
+(load-theme 'base16-darcula t t)
 (load-theme 'base16-solarflare t t)
 (load-theme 'base16-snazzy t t)
 (load-theme 'base16-gruvbox-dark-hard t t)
