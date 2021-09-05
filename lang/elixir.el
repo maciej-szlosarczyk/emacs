@@ -12,11 +12,14 @@
 
 (defhydra my-elixir/context-hydra (:color teal :hint nil)
   "
-^                                   Elixir actions
-^^^^^^^^--------------------------------------------------------------------------------------------
-Buffer: _r_: Reload _f_: Format _i_: Indent _e_: Show Errors
-Other:  _m_: iMenu
-^^
+^
+^ LSP       ^^Buffer
+^────────────────────────────────────────────────────────────────────────────────
+^ _m_: iMenu _r_: Reload
+^^^          _f_: Format
+^^^          _i_: Indent
+^^^          _e_: Show Errors
+^
 "
   ("q" nil "cancel" :color blue)
   ("r" revert-buffer-no-confirm)

@@ -26,7 +26,7 @@
 (defhydra +hydra-deft-menu (:color teal)
   "Start Deft"
   ("d" deft "Deft")
-  ("q" cancel "quit"))
+  ("q" nil "quit"))
 
 (define-key +custom-keys-mode-map (kbd "C-c d") '+hydra-deft-menu/body)
 

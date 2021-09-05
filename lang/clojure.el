@@ -24,11 +24,14 @@
 ;; Hydra
 (defhydra my-clojure/context-hydra (:color teal :hint nil)
   "
-^                                   Clojure actions
-^^^^^^^^--------------------------------------------------------------------------------------------
-Buffer: _r_: Reload  _f_: Format _l_: Load
-Cider:  _j_: Jack in _t_: Test
-^^
+^
+^ Cider        ^^Buffer
+^────────────────────────────────────────────────────────────────────────────────
+^ _j_: Jack in   _r_: Reload
+^ _t_: Test      _f_: Format
+^ ^ ^            _l_: Load
+^ ^ ^            _e_: Show Errors
+^
 "
   ("q" nil "cancel" :color blue)
 
@@ -36,6 +39,7 @@ Cider:  _j_: Jack in _t_: Test
   ("j" cider-jack-in)
   ("f" cider-format-buffer)
   ("l" cider-load-buffer)
+  ("e" flycheck-list-errors)
   ("t" cider-test-run-loaded-tests))
 
 (defun activate-my-clojure-mode ()

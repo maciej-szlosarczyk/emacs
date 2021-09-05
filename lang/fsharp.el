@@ -20,16 +20,18 @@
 
 (defhydra my-fsharp/context-hydra (:color teal :hint nil)
   "
-   ^Fsharp actions^
-^^^^^^^^-----------------------------------------------------------------------
-_r_: Reload buffer                 _f_: Format buffer
-_i_: Indent buffer                 _m_: iMenu
+^
+^ FSharp actions^
+^────────────────────────────────────────────────────────────────────────────────
+^ _r_: Reload buffer                 _f_: Format buffer
+^ _i_: Indent buffer                 _m_: iMenu
+^ _e_: Show errors
 "
   ("q" nil "cancel" :color blue)
 
   ("r" revert-buffer-no-confirm)
   ("i" indent-region)
-
+  ("e" flycheck-list-errors)
   ("f" lsp-format-buffer)
   ("m" lsp-ui-imenu))
 

@@ -26,11 +26,12 @@
 
 (defhydra my-ocaml/context-hydra (:color teal :hint nil)
   "
-^                                   OCaml actions
-^^^^^^^^--------------------------------------------------------------------------------------------
-Buffer: _r_: Reload   _f_: Format _i_: Indent
-Other:  _o_: Opam env
-^^
+^
+^ OCaml actions
+^────────────────────────────────────────────────────────────────────────────────
+^ _r_: Reload                         _f_: Format
+^ _i_: Indent                         _o_: Opam env
+^
 "
   ("q" nil "cancel" :color blue)
 
@@ -72,16 +73,17 @@ Other:  _o_: Opam env
 
 (defhydra my-reason/context-hydra (:color teal :hint nil)
   "
-  Reason actions
-
-   ^Reason^                          ^Actions^
-^^^^^^^^-----------------------------------------------------------------------
-_f_: Format buffer
-_o_: Update opam env
+^
+^ Reason actions
+^────────────────────────────────────────────────────────────────────────────────
+^ _r_: Reload                         _f_: Format
+^ _o_: Opam env
+^
 "
   ("q" nil "cancel" :color blue)
 
   ("f" refmt)
+  ("r" revert-buffer-no-confirm)
   ("o" tuareg-opam-update-env))
 
 (defun my-reason-mode ()

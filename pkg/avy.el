@@ -9,10 +9,6 @@
 ;; Avy is a navigation manager.
 
 ;;; Code:
-
-(use-package avy
-  :straight t
-  :defer t)
-
+(use-package avy :straight t :defer t)
 (provide '+custom-pkg-avy)
 ;;; avy.el ends here

@@ -30,7 +30,6 @@
 (require '+custom-pkg-sys-specific "$HOME/.emacs.d/pkg/sys-specific.el")
 (require '+custom-pkg-macros "$HOME/.emacs.d/pkg/macros.el")
 (require '+custom-pkg-ivy "$HOME/.emacs.d/pkg/ivy.el")
-(require '+custom-pkg-persp "$HOME/.emacs.d/pkg/persp.el")
 (require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 (require '+custom-pkg-magit "$HOME/.emacs.d/pkg/magit.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
@@ -99,7 +98,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "IBM Plex Mono"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "JuliaMono"))))
  '(mmm-default-submode-face ((t nil))))
 
 ;; Restore GC to normal, but still high

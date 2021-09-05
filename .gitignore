@@ -19,6 +19,6 @@ eshell/*
 ac-comphist.dat
 /.cache
 .dap-breakpoints
-!straight/versions/default.el
 /straight
+!straight/versions/default.el
 /speed-type
