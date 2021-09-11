@@ -17,7 +17,7 @@
   (defhydra +hydra-project-menu (:color teal :hint nil)
     "
 ^
-^ Projectile              Ivy                  Magit
+^ Projectile              ^^Ivy                  ^^Magit
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _s_: Switch project       _a_: Grep in buffer    _m_: Git status
 ^ _f_: Find file in project _b_: Buffer list       _C_: Git checkout
@@ -25,7 +25,7 @@
 ^ _c_: Invalidate cache
 ^ _n_: New project
 
-^ LISP                    Other
+^ LISP                    ^^Other
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _i_: Console              _d_: Deft
 ^ _e_: Eval region          _T_: Speed type
@@ -56,7 +56,7 @@
   (defhydra +hydra-code-menu (:color teal :hint nil)
     "
 ^
-^ Manipulate          Complete          Find
+^ Manipulate          ^^Complete          ^^Find
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _c_: Toggle comment   _y_: Snippet        _s_: Swiper
 ^ _r_: Replace          _m_: Any (Company)  _u_: Undo tree
@@ -124,7 +124,7 @@
   (defhydra +hydra-move-menu (:color teal :hint nil)
     "
 ^
-^ Move this buffer    Jump to
+^ Move this buffer    ^^Jump to
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _{_: Up               _w_: Word
 ^ _[_: Left             _c_: Character
@@ -136,15 +136,15 @@
     ("]" buf-move-right)
     ("{" buf-move-up)
     ("}" buf-move-down)
-    ("w" avy-goto-word-0)
+    ("w" avy-goto-word-1)
     ("l" avy-goto-line)
-    ("c" avy-goto-char)
+    ("c" avy-goto-char-2)
     ("q" nil "quit"))
 
   (defhydra +hydra-font-menu (:color teal :hint nil)
     "
 ^
-^ Everywhere              In this buffer
+^ Everywhere            ^^In this buffer
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _s_: Set size           _i_: Bigger
 ^ _R_: Reset to default   _d_: Smaller
