@@ -115,10 +115,18 @@
     ("f" lsp-format-buffer)
     ("m" lsp-ui-imenu))
 
-  (defhydra +hydra-history-menu (:color teal)
-    "Buffer history"
-    ("["       previous-buffer "Previous buffer")
-    ("]"       next-buffer "Next buffer")
+  (defhydra +hydra-history-menu (:color teal :hint nil)
+    "
+^
+^ History
+^────────────────────────────────────────────────────────────────────────────────
+^ _[_: Previous
+^ _]_: Next
+^
+"
+    ("[" previous-buffer)
+    ("]" next-buffer)
+
     ("q" nil "cancel" :color blue))
 
   (defhydra +hydra-move-menu (:color teal :hint nil)

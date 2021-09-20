@@ -114,6 +114,9 @@
   :defer t
   :straight t)
 
+;;;;;;;;;;;;;;;;; Use C-n to create a new line
+(setq next-line-add-newlines t)
+
 ;;;;;;;;;;;;;;;;; Speed up long line display by disabling bidirectional text
 (setq-default bidi-paragraph-direction 'left-to-right
               bidi-inhibit-bpa t)

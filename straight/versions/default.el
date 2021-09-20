@@ -29,7 +29,6 @@
  ("emacs-fsharp-mode" . "c90d762c0692cc43032291d37b8ca3201c3d49bd")
  ("emacs-gradle-mode" . "e4d665d5784ecda7ddfba015f07c69be3cfc45f2")
  ("emacs-hcl-mode" . "e12b1df2ca28d2b06c471cd709c038a2dc0bcdbd")
- ("emacs-libvterm" . "2681120b770573044832ba8c22ccbac192e1a294")
  ("emacs-racer" . "1e63e98626737ea9b662d4a9b1ffd6842b1c648c")
  ("emacs-which-key" . "4790a14683a2f3e4f72ade197c78e4c0af1cdd4b")
  ("emacsmirror-mirror" . "fc970dcdc47b809ed393c5e40baaf49a38f889a1")

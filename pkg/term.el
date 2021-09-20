@@ -11,13 +11,11 @@
 ;;; Code:
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 
-(use-package vterm :straight t :defer t)
-
 ;; Create new terminal
 (defun start-term ()
-  "Start ZSH terminal session."
+  "Start Eshell terminal session."
   (interactive)
-  (vterm))
+  (eshell))
 
 (define-key +custom-keys-mode-map (kbd "<f12>") 'start-term)
 
