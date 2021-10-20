@@ -64,6 +64,7 @@
         ;; Other screens
         ((>= 1120 (x-display-pixel-height)) (set-font +custom-font 14))
         ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 17))
+        ((>= 1920 (x-display-pixel-height)) (set-font +custom-font 14))
 
         ;; 4K screen on Windows
         ((>= 2160 (x-display-pixel-height)) (set-font +custom-font 20))
