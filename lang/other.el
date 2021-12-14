@@ -19,7 +19,7 @@
 
 ;; Text files
 (use-package yaml-mode :straight t :defer t)
-(use-package gitignore-mode
+(use-package git-modes
   :straight t
   :defer t
   :hook ((gitignore-mode . whitespace-mode)
