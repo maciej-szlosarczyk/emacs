@@ -47,7 +47,8 @@
       (define-key +custom-keys-mode-map [(hyper q)] 'kill-emacs)
 
       ;; Disable meta on right alt (useful for Polish characters)
-      (setq mac-right-option-modifier nil)))
+      ;; (setq mac-right-option-modifier nil)
+      ))
 
 (defun +custom-switch-right-left-alt ()
   "Set keyboard to das keyboard."
