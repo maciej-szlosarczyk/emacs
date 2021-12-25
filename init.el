@@ -28,7 +28,6 @@
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 (require '+custom-pkg-base "$HOME/.emacs.d/pkg/base.el")
 (require '+custom-pkg-sys-specific "$HOME/.emacs.d/pkg/sys-specific.el")
-(require '+custom-pkg-macros "$HOME/.emacs.d/pkg/macros.el")
 (require '+custom-pkg-ivy "$HOME/.emacs.d/pkg/ivy.el")
 (require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 (require '+custom-pkg-magit "$HOME/.emacs.d/pkg/magit.el")
@@ -43,7 +42,6 @@
 (require '+custom-pkg-dashboard "$HOME/.emacs.d/pkg/dashboard.el")
 (require '+custom-pkg-undo-tree "$HOME/.emacs.d/pkg/undo-tree.el")
 (require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
-(require '+custom-pkg-term "$HOME/.emacs.d/pkg/term.el")
 (require '+custom-pkg-speed-type "$HOME/.emacs.d/pkg/speed-type.el")
 
 ;; Themes
