@@ -1,4 +1,4 @@
-;;; gleam.el --- summary
+;;; gleam.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

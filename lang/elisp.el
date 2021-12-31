@@ -1,4 +1,4 @@
-;;; languages/elisp -- summary
+;;; languages/elisp -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; golang.el --- summary
+;;; golang.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -20,7 +20,7 @@
 
 (defun activate-golang-mode ()
   (set-indent 8)
-  (column-enforce-n 80)
+  (column-enforce-n 100)
   (lsp))
 
 (add-hook 'go-mode-hook 'activate-golang-mode)

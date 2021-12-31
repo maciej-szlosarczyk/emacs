@@ -1,4 +1,4 @@
-;;; web -- summary
+;;; web -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

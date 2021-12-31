@@ -1,4 +1,4 @@
-;;; sys-specific -- summary
+;;; sys-specific -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Make Emacs play nicer with specific operating systems
 ;;; Code:

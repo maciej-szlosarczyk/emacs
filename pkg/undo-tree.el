@@ -1,4 +1,4 @@
-;;; undo-tree.el --- summary
+;;; undo-tree.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

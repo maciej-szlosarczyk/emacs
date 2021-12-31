@@ -1,4 +1,4 @@
-;;; Init.el -- Summary
+;;; Init.el -- Summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 ;; list the repositories containing them

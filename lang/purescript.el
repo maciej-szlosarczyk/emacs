@@ -1,4 +1,4 @@
-;;; purescript.el --- summary
+;;; purescript.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

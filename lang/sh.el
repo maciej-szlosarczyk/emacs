@@ -1,4 +1,4 @@
-;;; sh -- summary
+;;; sh -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

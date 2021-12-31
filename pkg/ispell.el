@@ -1,4 +1,4 @@
-;;; pkg/ispell -- summary
+;;; pkg/ispell -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Highlight misspelled words
 ;;; Code:

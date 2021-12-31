@@ -1,4 +1,4 @@
-;;; ruby -- summary
+;;; ruby -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

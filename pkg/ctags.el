@@ -1,4 +1,4 @@
-;;; pkg/ctags -- summary
+;;; pkg/ctags -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Old and rudimental completion framework.
 ;;; Code:

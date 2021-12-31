@@ -1,4 +1,4 @@
-;;; languages/clojure -- summary
+;;; languages/clojure -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

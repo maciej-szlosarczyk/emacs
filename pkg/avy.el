@@ -1,4 +1,4 @@
-;;; avy.el --- summary
+;;; avy.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

@@ -1,4 +1,4 @@
-;;; fonts.el --- summary
+;;; fonts.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -43,8 +43,9 @@
   (+custom-set-lsp-ui-font-hook))
 
 ;; (defvar +custom-font "Iosevka Term")
-;; (defvar +custom-font "JetBrains Mono")
-(defvar +custom-font "JuliaMono")
+(defvar +custom-font "JetBrains Mono")
+;; (defvar +custom-font "JuliaMono")
+;; (defvar +custom-font "Victor Mono")
 ;; (defvar +custom-font "IBM Plex Mono")
 (defvar +custom-font-size 14)
 

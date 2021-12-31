@@ -1,4 +1,4 @@
-;;; pkg/lsp -- summary
+;;; pkg/lsp -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Global Language Server Protocol Config
 ;;; Code:

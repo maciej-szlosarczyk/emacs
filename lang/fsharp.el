@@ -1,4 +1,4 @@
-;;; fsharp.el --- summary
+;;; fsharp.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

@@ -1,4 +1,4 @@
-;;; kotlin.el --- summary
+;;; kotlin.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

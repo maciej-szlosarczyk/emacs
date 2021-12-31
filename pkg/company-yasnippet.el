@@ -1,4 +1,4 @@
-;;; pkg/company-yasnippet -- summary
+;;; pkg/company-yasnippet -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Company completion framework configuration
 ;;; Code:

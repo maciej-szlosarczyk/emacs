@@ -1,4 +1,4 @@
-;;; languages/elixir -- summary
+;;; languages/elixir -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

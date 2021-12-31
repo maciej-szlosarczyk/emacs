@@ -1,4 +1,4 @@
-;;; pkg/hydra -- summary
+;;; pkg/hydra -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Global hydra definitions.
 ;;; Code:

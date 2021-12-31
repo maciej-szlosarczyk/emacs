@@ -1,4 +1,4 @@
-;;; pkg/flycheck -- summary
+;;; pkg/flycheck -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; other.el --- summary
+;;; other.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

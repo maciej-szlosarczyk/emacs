@@ -1,4 +1,4 @@
-;;; pkg/deft.el -- summary
+;;; pkg/deft.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:

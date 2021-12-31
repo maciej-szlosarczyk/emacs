@@ -1,4 +1,4 @@
-;;; speed-type.el --- summary
+;;; speed-type.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

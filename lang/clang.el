@@ -1,4 +1,4 @@
-;;; languages/clang.el --- summary
+;;; languages/clang.el --- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

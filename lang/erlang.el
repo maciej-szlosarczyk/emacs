@@ -1,4 +1,4 @@
-;;; languages/erlang -- summary
+;;; languages/erlang -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

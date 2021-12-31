@@ -1,4 +1,4 @@
-;;; markdown -- summary
+;;; markdown -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

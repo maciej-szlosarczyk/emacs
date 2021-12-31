@@ -1,4 +1,4 @@
-;;; pkg/magit -- summary
+;;; pkg/magit -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

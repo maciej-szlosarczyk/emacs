@@ -1,4 +1,4 @@
-;;; themes -- summary
+;;; Themes -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -38,7 +38,7 @@
          "$HOME/.emacs.d/themes/base16-zenburn-modified.el")
 
 (sml/apply-theme 'respectful)
-(enable-theme 'base16-zenburn-modified)
+(enable-theme 'base16-solarflare)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here

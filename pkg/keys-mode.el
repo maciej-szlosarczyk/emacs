@@ -1,4 +1,4 @@
-;;; keys-mode.el --- summary
+;;; keys-mode.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

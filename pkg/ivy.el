@@ -1,4 +1,4 @@
-;;; pkg/ivy -- summary
+;;; pkg/ivy -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Counsel, Swiper and Ivy.
 ;;; Code:

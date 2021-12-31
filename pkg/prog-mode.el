@@ -1,4 +1,4 @@
-;;; pkg/prog-mode -- summary
+;;; pkg/prog-mode -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

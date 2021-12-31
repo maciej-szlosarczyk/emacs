@@ -1,4 +1,4 @@
-;;; common-lisp.el --- summary
+;;; common-lisp.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

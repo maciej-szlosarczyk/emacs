@@ -1,4 +1,4 @@
-;;; rust -- summary
+;;; rust -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; ocaml -- summary
+;;; ocaml -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

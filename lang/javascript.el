@@ -1,4 +1,4 @@
-;;; javascript -- summary
+;;; javascript -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
