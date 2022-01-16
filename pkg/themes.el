@@ -37,8 +37,11 @@
 (require 'base16-zenburn-modified-theme
          "$HOME/.emacs.d/themes/base16-zenburn-modified.el")
 
+(require 'base16-harmonic-light-modified-theme
+         "$HOME/.emacs.d/themes/base16-harmonic-light-modified.el")
+
 (sml/apply-theme 'respectful)
-(enable-theme 'base16-solarflare)
+(enable-theme 'base16-zenburn-modified)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here
