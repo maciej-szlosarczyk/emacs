@@ -80,7 +80,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((lsp-lens-enable)
+   '((lsp-lens-mode)
+     (lsp-lens-enable)
      (cider-shadow-default-options . ":app")
      (cider-preferred-build-tool . lein)
      (cider-shadow-default-options . "app")

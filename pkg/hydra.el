@@ -60,7 +60,7 @@
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _c_: Toggle comment   _y_: Snippet        _s_: Swiper
 ^ _r_: Replace          _m_: Any (Company)  _u_: Undo tree
-^ _i_: Indent
+^ _i_: Indent^^                             _d_: Dash
 ^ _a_: Align
 ^
 "
@@ -71,6 +71,7 @@
     ("i"  indent-region)
     ("a"  align-regexp)
     ("s"  swiper)
+    ("d"  dash-at-point)
 
     ("u"  undo-tree-visualize)
     ("y"  company-yasnippet)

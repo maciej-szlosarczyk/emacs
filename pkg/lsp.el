@@ -13,6 +13,8 @@
                 lsp-prefer-capf t
                 lsp-completion-provider :capf
                 lsp-server-trace nil
+                lsp-lens-enable nil
+                lsp-lens-mode nil
                 read-process-output-max (* 1024 1024 2)
                 lsp-enable-file-watchers nil)
   (unbind-key "s-l =" lsp-mode-map)

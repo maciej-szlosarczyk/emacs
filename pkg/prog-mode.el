@@ -51,8 +51,6 @@
   :commands dash-at-point
   :straight t
   :defer t
-  :bind (:map prog-mode-map ("C-s C-d" . dash-at-point)
-              :map text-mode-map ("C-s C-d" . dash-at-point))
   :config
   (add-to-list 'dash-at-point-mode-alist
                ;; Configure lookup for Ruby mode
