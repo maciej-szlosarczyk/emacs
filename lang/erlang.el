@@ -10,6 +10,22 @@
   :straight t
   :requires (lsp-mode lsp-ui))
 
+(defhydra my-erlang/context-hydra (:color teal :hint nil)
+  "
+^
+^ LSP       ^^Buffer
+^────────────────────────────────────────────────────────────────────────────────
+^ _m_: iMenu _r_: Reload
+^^^          _i_: Indent
+^^^          _e_: Show Errors
+^
+"
+  ("q" nil "cancel" :color blue)
+  ("r" revert-buffer-no-confirm)
+  ("i" mark-and-indent-whole-buffer)
+  ("e" flycheck-list-errors)
+  ("m" lsp-ui-imenu))
+
 (cl-defun erlang/emacs-path (erlang-version)
   (car (split-string
         (shell-command-to-string
@@ -103,6 +119,8 @@
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet))
+
+  (define-key erlang-mode-map (kbd "C-c l") 'my-erlang/context-hydra/body)
 
   ;; Start LSP server
   (lsp))
