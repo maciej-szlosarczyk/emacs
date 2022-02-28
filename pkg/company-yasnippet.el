@@ -22,6 +22,12 @@
   :straight t
   :defer t)
 
+(use-package company-box
+  :straight t
+  :defer t
+  :after company
+  :hook (((company-mode) . company-box-mode)))
+
 (global-company-mode t)
 (yas-global-mode t)
 

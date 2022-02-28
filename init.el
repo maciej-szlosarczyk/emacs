@@ -99,7 +99,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "JuliaMono"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "Rec Mono Semicasual"))))
  '(mmm-default-submode-face ((t nil))))
 
 ;; Restore GC to normal, but still high

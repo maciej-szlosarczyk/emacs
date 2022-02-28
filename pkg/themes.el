@@ -41,7 +41,7 @@
          "$HOME/.emacs.d/themes/base16-harmonic-light-modified.el")
 
 (sml/apply-theme 'respectful)
-(enable-theme 'base16-zenburn-modified)
+(enable-theme 'base16-harmonic-light-modified)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here

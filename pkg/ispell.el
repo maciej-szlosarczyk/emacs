@@ -18,7 +18,7 @@
                                 (unbind-key "C-M-i" flyspell-mode-map)))
 
 (use-package flyspell-correct :straight t :after flyspell :defer t)
-(use-package flyspell-correct-ivy :after flyspell-correct)
+(use-package flyspell-correct-ivy :straight :after flyspell-correct :defer t)
 
 (provide '+custom-pkg-ispell)
 ;;; ispell.el ends here
