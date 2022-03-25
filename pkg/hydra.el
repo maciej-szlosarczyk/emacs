@@ -104,7 +104,7 @@
 ^ Buffer     Other
 ^────────────────────────────────────────────────────────────────────────────────
 ^ _r_: Reload  _m_: iMenu
-^ _f_: Format
+^ _f_: Format  _e_: Show Errors
 ^ _i_: Indent
 ^
 "
@@ -114,7 +114,8 @@
     ("i" mark-and-indent-whole-buffer)
 
     ("f" lsp-format-buffer)
-    ("m" lsp-ui-imenu))
+    ("m" lsp-ui-imenu)
+    ("e" flycheck-list-errors))
 
   (defhydra +hydra-history-menu (:color teal :hint nil)
     "

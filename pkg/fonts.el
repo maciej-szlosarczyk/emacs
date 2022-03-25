@@ -58,19 +58,19 @@
   (cond ((eq (x-display-list) nil))
 
         ;; built-in screen
-        ((>= 1050 (x-display-pixel-height)) (set-font +custom-font 14))
+        ((>= 1050 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
 
         ;; 4K screen on a Mac
-        ((>= 1080 (x-display-pixel-height)) (set-font +custom-font 14))
+        ((>= 1080 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
 
         ;; Other screens
-        ((>= 1120 (x-display-pixel-height)) (set-font +custom-font 14))
-        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font 17))
-        ((>= 1920 (x-display-pixel-height)) (set-font +custom-font 14))
+        ((>= 1120 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
+        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font (+ +custom-font-size 3)))
+        ((>= 1920 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
 
         ;; 4K screen on Windows
-        ((>= 2160 (x-display-pixel-height)) (set-font +custom-font 20))
-        (t (set-font +custom-font 16))))
+        ((>= 2160 (x-display-pixel-height)) (set-font +custom-font (+ +custom-font-size 6)))
+        (t (set-font +custom-font (+ +custom-font-size 2)))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)

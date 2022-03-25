@@ -8,6 +8,7 @@
 
 (use-package rspec-mode :straight t :defer t)
 (use-package ruby-end :straight t :defer t)
+(use-package rbs-mode :straight t :defer t)
 
 (use-package enh-ruby-mode
   :requires (rspec-mode ruby-end)
