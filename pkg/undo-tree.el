@@ -15,6 +15,8 @@
   :defer t
   :straight t
   :config (setq-default
+           ;; Save history to a specific folder
+           undo-tree-history-directory-alist '(("." . "~/.emacs_backups/undo-tree"))
            ;; Show diff
            undo-tree-visualizer-diff t
            ;; Show timestamps

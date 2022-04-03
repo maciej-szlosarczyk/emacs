@@ -68,6 +68,7 @@
 (require '+custom-lang-purescript "$HOME/.emacs.d/lang/purescript.el")
 (require '+custom-lang-php "$HOME/.emacs.d/lang/php.el")
 (require '+custom-lang-golang "$HOME/.emacs.d/lang/golang.el")
+(require '+custom-lang-ziglang "$HOME/.emacs.d/lang/ziglang.el")
 (require '+custom-lang-markdown "$HOME/.emacs.d/lang/markdown.el")
 (require '+custom-lang-other "$HOME/.emacs.d/lang/other.el")
 

@@ -80,6 +80,11 @@
   (interactive "nEnter size for font: ")
   (set-font +custom-font size))
 
+(defun set-font-size-for-this-frame (new-size)
+  "Set font NEW-SIZE for this frame only."
+  (interactive "nEnter new size for font in this frame: ")
+  (set-frame-font (format "%s %d" +custom-font new-size)))
+
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground
                     (face-attribute 'fringe :background))
