@@ -18,6 +18,7 @@ eshell/*
 .yas-compiled-snippets.el
 ac-comphist.dat
 /.cache
+/eln-cache
 .dap-breakpoints
 /straight
 !straight/versions/default.el
