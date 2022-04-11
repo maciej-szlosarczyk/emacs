@@ -114,6 +114,12 @@
   :defer t
   :straight t)
 
+(use-package god-mode
+  :defer t
+  :straight t
+  :after which-key
+  )
+
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setq next-line-add-newlines t)
 
@@ -122,6 +128,27 @@
               bidi-inhibit-bpa t)
 
 (which-key-mode t)
+(which-key-enable-god-mode-support)
+
+(defun +custom-switch-god-mode ()
+  "Switch god mode on and off."
+  (interactive)
+  (if (bound-and-true-p god-local-mode-paused)
+      (god-local-mode-resume)
+    (god-local-mode-pause)))
+
+(god-mode)
+(define-key +custom-keys-mode-map (kbd "C-c C-c") '+custom-switch-god-mode)
+(define-key god-local-mode-map (kbd "i") '+custom-switch-god-mode)
+
+(defun +custom-update-cursor ()
+  "Update cursor based on god mode setup."
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'hbar)))
+
+(add-hook 'god-mode-enabled-hook '+custom-update-cursor)
+(add-hook 'god-mode-disabled-hook '+custom-update-cursor)
 
 (provide '+custom-pkg-base)
 ;;; base.el ends here

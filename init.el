@@ -81,7 +81,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((lsp-elixir-project-dir . "/Users/maciej/Development/mindvalley/connect/app")
+   '((cider-clojure-cli-aliases . "dev")
+     (lsp-elixir-project-dir . "/Users/maciej/Development/mindvalley/connect/app")
      (lsp-lens-mode)
      (lsp-lens-enable)
      (cider-shadow-default-options . ":app")

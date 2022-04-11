@@ -33,6 +33,8 @@
 (define-key +custom-keys-mode-map (kbd "C-c ]") 'windmove-right)
 (define-key +custom-keys-mode-map (kbd "C-c {") 'windmove-up)
 (define-key +custom-keys-mode-map (kbd "C-c }") 'windmove-down)
+;; (define-key +custom-keys-mode-map (kbd "C-c C-c") 'switch-god-mode)
+;; (god-local-mode-pause)
 
 ;; Kill current buffer and window
 (define-key +custom-keys-mode-map (kbd "C-c q") 'kill-buffer-and-window)
