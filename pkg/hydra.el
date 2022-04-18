@@ -188,16 +188,13 @@
     ("q" nil "cancel"))
 
   :bind ("C-c p" . +hydra-project-menu/body)
-        ("C-c C-p" . +hydra-project-menu/body)
         ("C-c h" . +hydra-of-hydras/body)
-        ("C-c C-h" . +hydra-of-hydras/body)
         ("C-c c" . +hydra-code-menu/body)
         ("C-c w" . +hydra-window-menu/body)
         ("C-c s" . +hydra-history-menu/body)
         ("C-c f" . +hydra-font-menu/body)
         ("C-c m" . +hydra-move-menu/body)
-        ("C-c l" . +hydra-language-context-menu/body)
-        ("C-c C-l" . +hydra-language-context-menu/body))
+        ("C-c l" . +hydra-language-context-menu/body))
 
 (provide '+custom-pkg-hydra)
 ;;; hydra.el ends here
