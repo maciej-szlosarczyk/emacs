@@ -101,6 +101,13 @@
 (setq indicate-buffer-boundaries nil
       indicate-empty-lines nil)
 
+;;;;;;;;;;;;;;;;; Treemacs
+(use-package treemacs :straight t :defer t)
+(use-package treemacs-all-the-icons :straight t)
+
+(treemacs-load-theme "all-the-icons")
+(treemacs-project-follow-mode t)
+
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
 (use-package keyfreq
   :defer t
