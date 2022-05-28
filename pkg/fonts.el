@@ -42,10 +42,10 @@
   ;; Call LSP-UI hook
   (+custom-set-lsp-ui-font-hook))
 
-;; (defvar +custom-font "Iosevka Fixed")
+(defvar +custom-font "Iosevka Fixed")
 ;; (defvar +custom-font "JetBrains Mono")
 ;; (defvar +custom-font "JuliaMono")
-(defvar +custom-font "Rec Mono Semicasual")
+;; (defvar +custom-font "Rec Mono Semicasual")
 ;; (defvar +custom-font "Victor Mono")
 ;; (defvar +custom-font "IBM Plex Mono")
 (defvar +custom-font-size 14)
