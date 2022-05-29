@@ -22,6 +22,7 @@
   (define-key markdown-mode-map (kbd "C-c C-v") 'markdown-preview))
 
 (add-hook 'markdown-mode-hook 'activate-markdown-mode)
+(add-hook 'markdown-mode-hook 'display-line-numbers-mode)
 
 (provide '+custom-lang-markdown)
 ;;; markdown.el ends here
