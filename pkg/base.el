@@ -65,6 +65,8 @@
 
 ;; Enable line numbers and show cursors position
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'text-mode-hook 'display-line-numbers-mode)
+(add-hook 'conf-mode-hook 'display-line-numbers-mode)
 ;; (global-display-line-numbers-mode t)
 (column-number-mode t)
 
