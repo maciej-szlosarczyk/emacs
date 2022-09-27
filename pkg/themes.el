@@ -12,6 +12,7 @@
 
 (use-package base16-theme :straight t :defer t)
 (use-package apropospriate-theme :straight t :defer t)
+(use-package modus-themes :straight t :defer t)
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -21,7 +22,7 @@
 
 ;; Light themes
 (load-theme 'base16-atelier-forest-light t t)
-(load-theme 'base16-harmonic-light t t)
+(load-theme 'base16-harmonic16-light t t)
 (load-theme 'apropospriate-light t t)
 (load-theme 'base16-humanoid-light t t)
 
@@ -32,6 +33,7 @@
 (load-theme 'base16-solarflare t t)
 (load-theme 'base16-snazzy t t)
 (load-theme 'base16-gruvbox-dark-hard t t)
+(load-theme 'modus-vivendi t t)
 
 ;; My own theme modifications:
 (require 'base16-zenburn-modified-theme

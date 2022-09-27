@@ -93,7 +93,8 @@
      (cider-repl-display-help-banner)
      (column-enforce-column . 10000)
      (haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4))))
+     (haskell-indent-spaces . 4)))
+ '(warning-suppress-types '((comp) (lsp-mode))))
 
 ;; Improve font settings in Markdown code
 (custom-set-faces
