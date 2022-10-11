@@ -56,6 +56,8 @@
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
  ("jenkinsfile-mode" . "fa5545be1329df3067dcfd81749bbd99df070d6b")
  ("js2-mode" . "841cfec9570ae06a67a131997e2aff32340e81d7")
+ ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
+ ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jump.el" . "55caa66a7cc6e0b1a76143fd40eff38416928941")
  ("keyfreq" . "dd88193cd7a91a92113121191573758ea2a3ceb1")
  ("kotlin-mode" . "99499e1500034b5fd5fdce9bfef367d90c61b5ce")

@@ -21,6 +21,7 @@
 
 ;; Text files
 (use-package yaml-mode :straight t :defer t)
+(use-package json-mode :straight t :defer t)
 (use-package git-modes
   :straight t
   :defer t
