@@ -95,7 +95,7 @@
              :config (add-to-list 'exec-path "/usr/local/bin")
              (exec-path-from-shell-initialize))
 
-(use-package shadowenv :straight t :config (shadowenv-global-mode))
+(use-package direnv :straight t :config (direnv-mode))
 
 ;; Draw underline lower
 (setq x-underline-at-descent-line t)
