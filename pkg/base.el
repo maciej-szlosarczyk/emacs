@@ -100,6 +100,7 @@
              (exec-path-from-shell-initialize))
 
 (use-package direnv :straight t :config (direnv-mode))
+;; (use-package shadowenv :straight t :config (shadowenv-global-mode))
 
 ;; Draw underline lower
 (setq x-underline-at-descent-line t)
