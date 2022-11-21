@@ -39,6 +39,10 @@
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
 
+;;;;;;;;; Easy copying of data ;;;;;;;;;;;;;;;
+(use-package easy-kill :straight t :defer t
+  :config (global-set-key [remap kill-ring-save] 'easy-kill))
+
 ;; Move buffers around with buffer keys
 (use-package buffer-move
   :straight t
