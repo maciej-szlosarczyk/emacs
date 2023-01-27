@@ -25,8 +25,6 @@
   ;; Do not insert magic encoding comment at the begining of each file
   (setq ruby-insert-encoding-magic-comment nil)
 
-  (lsp)
-
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
@@ -37,6 +35,7 @@
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
+(add-hook 'enh-ruby-mode-hook 'lsp-deferred)
 
 (provide '+custom-lang-ruby)
 ;;; ruby.el ends here
