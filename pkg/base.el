@@ -94,7 +94,7 @@
 
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
-             :if (memq window-system '(mac ns))
+             :if (memq window-system '(x mac ns))
              :straight t
              :config (add-to-list 'exec-path "/usr/local/bin")
              (exec-path-from-shell-initialize))

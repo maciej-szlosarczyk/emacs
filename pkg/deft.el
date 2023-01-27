@@ -10,7 +10,7 @@
   :straight t
   :defer t
   :config (setq
-           deft-directory (substitute-in-file-name "$HOME/OneDrive/deft")
+           deft-directory (substitute-in-file-name "$DEFT_PATH")
            deft-default-extension "md"
            deft-strip-summary-regexp (concat "\\("
               "[\n\t]" ;; blank
