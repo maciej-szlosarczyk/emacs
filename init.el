@@ -81,7 +81,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((lsp-enabled-clients sorbet-ls)
+   '((lsp-rust-analyzer-linked-projects .
+                                        ["./native/semmel/Cargo.toml"])
+     (lsp-enabled-clients sorbet-ls)
      (cider-clojure-cli-aliases . "dev")
      (lsp-elixir-project-dir . "/Users/maciej/Development/mindvalley/connect/app")
      (lsp-lens-mode)
@@ -104,7 +106,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "Iosevka Term"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :family "D2Coding Ligature"))))
  '(mmm-default-submode-face ((t nil)))
  '(treemacs-root-face ((t (:inherit font-lock-constant-face :underline t :height 1)))))
 
