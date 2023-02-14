@@ -1,7 +1,14 @@
-;;; Init.el -- Summary -*- lexical-binding: t; -*-
+;;; +custom-init.el --- summary
+
+;; Author: Maciej Szlosarczyk
+;; Maintainer: Maciej Szlosarczyk
+;; Version: 0.1-snapshot
+
 ;;; Commentary:
+
+;; custom-init does a thing.
+
 ;;; Code:
-;; list the repositories containing them
 
 ;; Set GC at 300 MB for startup
 (setq gc-cons-threshold 300000000)
@@ -75,43 +82,8 @@
 ;; Diminish modeline litter
 (require '+custom-pkg-diminish "$HOME/.emacs.d/pkg/diminish.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((lsp-rust-analyzer-linked-projects .
-                                        ["./native/semmel/Cargo.toml"])
-     (lsp-enabled-clients sorbet-ls)
-     (cider-clojure-cli-aliases . "dev")
-     (lsp-elixir-project-dir . "/Users/maciej/Development/mindvalley/connect/app")
-     (lsp-lens-mode)
-     (lsp-lens-enable)
-     (cider-shadow-default-options . ":app")
-     (cider-preferred-build-tool . lein)
-     (cider-shadow-default-options . "app")
-     (cider-default-cljs-repl . shadow)
-     (cider-preferred-build tool . lein)
-     (cider-repl-display-help-banner)
-     (column-enforce-column . 10000)
-     (haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)))
- '(warning-suppress-types '((comp) (lsp-mode))))
-
-;; Improve font settings in Markdown code
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(font-lock-constant-face ((((type graphic)) (:foreground "#dfaf8f")) (((min-colors 256)) (:foreground "brightred")) (t (:foreground "brightred"))))
- '(markdown-code-face ((t (:inherit fixed-pitch :family "D2Coding Ligature"))))
- '(mmm-default-submode-face ((t nil)))
- '(treemacs-root-face ((t (:inherit font-lock-constant-face :underline t :height 1)))))
-
 ;; Restore GC to normal, but still high
 (setq gc-cons-threshold 100000000)
 
-(provide 'init)
-;;; init.el ends here
+(provide '+custom-init)
+;;; custom-init.el ends here

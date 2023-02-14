@@ -24,3 +24,6 @@ ac-comphist.dat
 !straight/versions/default.el
 /speed-type
 /tutorial
+
+# Ignore actual init as it can contain private data
+init.el
