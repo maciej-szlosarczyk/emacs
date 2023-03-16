@@ -88,7 +88,7 @@
    ("]" "Next" previous-buffer)])
 
 (transient-define-prefix +my-transient-move-menu ()
-  "Language (Buffer) Commands"
+  "Move Commands"
   [""
    ["Move this buffer"
     ("{" "Up"    buf-move-left)
@@ -104,8 +104,8 @@
   "Font Commands"
   [""
    ["Everywhere"
-    ("R" "Set size"         set-font-to-screen)
-    ("s" "Reset to default" set-font-size)]
+    ("R" "Reset to default" set-font-to-screen)
+    ("s" "Set size" set-font-size)]
    ["In this buffer"
     ("i" "Bigger"           (lambda () (interactive) (text-scale-increase 1)))
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
