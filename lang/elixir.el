@@ -6,9 +6,9 @@
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 (require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
-(use-package elixir-mode
-  :requires (lsp-mode lsp-ui)
-  :straight t)
+(use-package elixir-mode :requires (lsp-mode lsp-ui) :straight t)
+
+(add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-mode))
 
 (defhydra my-elixir/context-hydra (:color teal :hint nil)
   "
