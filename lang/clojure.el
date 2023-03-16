@@ -21,18 +21,18 @@
 
 ;; Hydra
 (transient-define-prefix +my-transient-cider-context-menu ()
-    "Clojure Buffer Commands"
-    [""
-     ["Cider"
-      ("j" "Jack in"     cider-jack-in)
-      ("t" "Test"        cider-test-run-loaded-tests)]
-     ["Buffer"
-      ("r" "Reload"      revert-buffer-no-confirm)
-      ("f" "Format"      cider-format-buffer)
-      ("l" "Load"        cider-load-buffer)
-      ("e" "Show Errors" flycheck-list-errors)]]
-    [""
-     ("q" "Quit"        keyboard-quit)])
+  "Clojure Buffer Commands"
+  [""
+   ["Cider"
+    ("j" "Jack in"     cider-jack-in)
+    ("t" "Test"        cider-test-run-loaded-tests)]
+   ["Buffer"
+    ("r" "Reload"      revert-buffer-no-confirm)
+    ("f" "Format"      cider-format-buffer)
+    ("l" "Load"        cider-load-buffer)
+    ("e" "Show Errors" flycheck-list-errors)]]
+  [""
+   ("q"  "Quit"        keyboard-quit)])
 
 (defun activate-my-clojure-mode ()
   "Goodies for clojure files."

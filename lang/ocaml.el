@@ -27,13 +27,13 @@
   "Ocaml Actions"
   ["OCaml actions"
    [""
-    ("r" "Reload"      revert-buffer-no-confirm)
-    ("i" "Indent"      mark-and-indent-whole-buffer)]
+    ("r" "Reload"   revert-buffer-no-confirm)
+    ("i" "Indent"   mark-and-indent-whole-buffer)]
    [""
-    ("f" "Format"      ocamlformat)
-    ("e" "Opam Env"    tuareg-opam-update-env)]]
+    ("f" "Format"   ocamlformat)
+    ("e" "Opam Env" tuareg-opam-update-env)]]
   [""
-   ("q" "Quit"        keyboard-quit)])
+   ("q" "Quit"      keyboard-quit)])
 
 (defun load-ocaml-site-packages ()
   "Generate ocaml config."
@@ -70,13 +70,13 @@
   "ReasonML Actions"
   ["ReasonML actions"
    [""
-    ("r" "Reload"      revert-buffer-no-confirm)
-    ("i" "Indent"      mark-and-indent-whole-buffer)]
+    ("r" "Reload"   revert-buffer-no-confirm)
+    ("i" "Indent"   mark-and-indent-whole-buffer)]
    [""
-    ("f" "Format"      refmt)
-    ("e" "Opam Env"    tuareg-opam-update-env)]]
+    ("f" "Format"   refmt)
+    ("e" "Opam Env" tuareg-opam-update-env)]]
   [""
-   ("q" "Quit"        keyboard-quit)])
+   ("q" "Quit"      keyboard-quit)])
 
 
 (defun my-reason-mode ()
