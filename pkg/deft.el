@@ -23,12 +23,13 @@
               "\\)")
            deft-auto-save-interval 30.0))
 
-(defhydra +hydra-deft-menu (:color teal)
-  "Start Deft"
-  ("d" deft "Deft")
-  ("q" nil "quit"))
+(transient-define-prefix +my-transient-deft-menu ()
+ "Start Deft"
+ [""
+ ("d" "Deft" deft)
+ ("q" "quit" keyboard-quit)])
 
-(define-key +custom-keys-mode-map (kbd "C-c d") '+hydra-deft-menu/body)
+(define-key +custom-keys-mode-map (kbd "C-c d") '+my-transient-deft-menu)
 
 (provide '+custom-pkg-deft)
 ;;; deft.el ends here

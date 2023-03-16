@@ -18,31 +18,26 @@
   :requires (lsp-mode lsp-ui)
   :straight t)
 
-(defhydra my-php/context-hydra (:color teal :hint nil)
-  "
-^
-^ LSP       ^^Buffer
-^────────────────────────────────────────────────────────────────────────────────
-^ _m_: iMenu _r_: Reload
-^ ^ ^        _f_: Format
-^ ^ ^        _i_: Indent
-^ ^ ^        _e_: Show Errors
-^
-"
-  ("q" nil "cancel" :color blue)
+(transient-define-prefix +my-transient-php-context-menu ()
+  "PHP Buffer Commands"
+  [""
+   ["LSP"
+    ("m" "iMenu"       lsp-ui-imenu)]
+   ["Buffer"
+    ("r" "Reload"      revert-buffer-no-confirm)
+    ("f" "Format"      elixir-format)
+    ("i" "Indent"      mark-and-indent-whole-buffer)
+    ("e" "Show Errors" flycheck-list-errors)]]
+  [""
+   ("q" "Quit"        keyboard-quit)])
 
-  ("r" revert-buffer-no-confirm)
-  ("i" indent-region)
-  ("f" lsp-format-buffer)
-  ("e" flycheck-list-errors)
-  ("m" lsp-ui-imenu))
 
 (defun activate-php-mode ()
   "All things php."
   (set-indent 4)
   (column-enforce-n 80)
 
-  (define-key php-mode-map (kbd "C-c l") 'my-php/context-hydra/body)
+  (define-key php-mode-map (kbd "C-c l") '+my-transient-php-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

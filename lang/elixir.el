@@ -10,23 +10,18 @@
 
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-mode))
 
-(defhydra my-elixir/context-hydra (:color teal :hint nil)
-  "
-^
-^ LSP       ^^Buffer
-^────────────────────────────────────────────────────────────────────────────────
-^ _m_: iMenu _r_: Reload
-^^^          _f_: Format
-^^^          _i_: Indent
-^^^          _e_: Show Errors
-^
-"
-  ("q" nil "cancel" :color blue)
-  ("r" revert-buffer-no-confirm)
-  ("i" mark-and-indent-whole-buffer)
-  ("f" elixir-format)
-  ("e" flycheck-list-errors)
-  ("m" lsp-ui-imenu))
+(transient-define-prefix +my-transient-elixir-context-menu ()
+  "Elixir Buffer Commands"
+  [""
+   ["LSP"
+    ("m" "iMenu"       lsp-ui-imenu)]
+   ["Buffer"
+    ("r" "Reload"      revert-buffer-no-confirm)
+    ("f" "Format"      elixir-format)
+    ("i" "Indent"      mark-and-indent-whole-buffer)
+    ("e" "Show Errors" flycheck-list-errors)]]
+  [""
+   ("q" "Quit"        keyboard-quit)])
 
 (defun activate-elixir-mode ()
   "All things Elixir."
@@ -41,7 +36,7 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (define-key elixir-mode-map (kbd "C-c l") 'my-elixir/context-hydra/body)
+  (define-key elixir-mode-map (kbd "C-c l") '+my-transient-elixir-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

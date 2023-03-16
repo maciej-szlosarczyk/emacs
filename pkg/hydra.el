@@ -5,196 +5,119 @@
 
 (require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
 
+(use-package transient :straight t)
+
 (defun mark-and-indent-whole-buffer ()
   "Mark and indent whole buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(use-package hydra
-  :straight t
-  :defer t
-  :config
-  (defhydra +hydra-project-menu (:color teal :hint nil)
-    "
-^
-^ Projectile              ^^Ivy                  ^^Magit
-^────────────────────────────────────────────────────────────────────────────────
-^ _s_: Switch project       _a_: Grep in buffer    _m_: Git status
-^ _f_: Find file in project _b_: Buffer list       _C_: Git checkout
-^ _g_: Grep in project      _t_: Find file         _M_: Git blame
-^ _c_: Invalidate cache
-^ _n_: New project
+(transient-define-prefix +my-transient-project-menu ()
+  "Project Commands"
+  [""
+   ["Projectile"
+    ("s" "Switch project"       counsel-projectile-switch-project)
+    ("f" "Find file in project" counsel-projectile-find-file)
+    ("g" "Grep in project"      counsel-projectile-rg)
+    ("c" "invalidate cache"     projectile-invalidate-cache)
+    ("n" "New project"          projectile-add-known-project)]
+   ["Ivy"
+    ("a" "Grep in buffer"       counsel-rg)
+    ("b" "Buffer list"          ibuffer)
+    ("t" "Find file"            counsel-find-file)]
+   ["Magit"
+    ("m" "Git status"           magit-status)
+    ("C" "Git checkout"         magit-checkout)
+    ("M" "Git blame"            magit-blame)]]
+  [""
+   ["LISP"
+    ("i" "IELM"                 ielm)
+    ("e" "eval-region"          eval-region)]
+   ["Other"
+    ("d" "deft"                 deft)
+    ("T" "Speed Type"           speed-type-text)]])
 
-^ LISP                    ^^Other
-^────────────────────────────────────────────────────────────────────────────────
-^ _i_: Console              _d_: Deft
-^ _e_: Eval region          _T_: Speed type
-^
-"
+(transient-define-prefix +my-transient-code-menu ()
+  "Code Commands"
+  [""
+   ["Manipulate"
+    ("c" "Toggle Comment" comment-line)
+    ("r" "Replace"        vr/replace)
+    ("i" "Indent"         indent-region)
+    ("a" "Align"          align-regexp)]
+   ["Complete"
+    ("y" "Snippet"        company-yasnippet)
+    ("m" "Any (Company)"  company-complete)]
+   ["Find"
+    ("s" "Swiper"         swiper)
+    ("u" "Undo tree"      undo-tree-visualize)
+    ("d" "Dash"           dash-at-point)]])
 
-    ("q" nil "cancel" :color blue)
+(transient-define-prefix +my-transient-window-menu ()
+  "Windows Commands"
+  [""
+   ["Move"
+    ("<left>" " Left"   windmove-left)
+    ("<right>" "Right"  windmove-right)
+    ("<up>" "   Up"     windmove-up)
+    ("<down>" " Down"   windmove-down)]
+   ["Split"
+    ("h" "Horizontally" split-window-below)
+    ("v" "Vertically"   split-window-right)]
+   ["Kill"
+    ""
+    ""
+    ""
+    ("k" "Kill Buffer"  kill-buffer-and-window)]])
 
-    ("a" counsel-rg)
-    ("b" ibuffer)
-    ("t" counsel-find-file)
-    ("d" deft)
+(transient-define-prefix +my-transient-language-context-menu ()
+  "Language (Buffer) Commands"
+  [""
+   ["Buffer"
+    ("r" "Reload"      revert-buffer-no-confirm)
+    ("f" "Format"      lsp-format-buffer)
+    ("i" "Indent"      mark-and-indent-whole-buffer)]
+   ["Other"
+    ("m" "iMenu"       lsp-ui-imenu)
+    ("e" "Show Errors" flycheck-list-errors)]])
 
-    ("s" counsel-projectile-switch-project)
-    ("f" counsel-projectile-find-file)
-    ("g" counsel-projectile-rg)
-    ("c" projectile-invalidate-cache)
-    ("n" projectile-add-known-project)
+(transient-define-prefix +my-transient-history-menu ()
+  "Buffer History Commands"
+  ["History"
+   ("[" "Previous" previous-buffer)
+   ("]" "Next" previous-buffer)])
 
-    ("i" ielm)
-    ("T" speed-type-text)
-    ("e" eval-region)
+(transient-define-prefix +my-transient-move-menu ()
+  "Move Commands"
+  [""
+   ["Move this buffer"
+    ("{" "Up"    buf-move-left)
+    ("[" "Left"  buf-move-right)
+    ("}" "Right" buf-move-up)
+    ("]" "Down"  buf-move-down)]
+   ["Jump to"
+    ("w" "Word" avy-goto-word-1)
+    ("l" "Character" avy-goto-line)
+    ("c" "Line" avy-goto-char-2)]])
 
-    ("m" magit-status)
-    ("C" magit-checkout)
-    ("M" magit-blame))
+(transient-define-prefix +my-transient-font-menu ()
+  "Font Commands"
+  [""
+   ["Everywhere"
+    ("R" "Reset to default" set-font-to-screen)
+    ("s" "Set size" set-font-size)]
+   ["In this buffer"
+    ("i" "Bigger"           (lambda () (interactive) (text-scale-increase 1)))
+    ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
+    ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
-  (defhydra +hydra-code-menu (:color teal :hint nil)
-    "
-^
-^ Manipulate          ^^Complete          ^^Find
-^────────────────────────────────────────────────────────────────────────────────
-^ _c_: Toggle comment   _y_: Snippet        _s_: Swiper
-^ _r_: Replace          _m_: Any (Company)  _u_: Undo tree
-^ _i_: Indent^^                             _d_: Dash
-^ _a_: Align
-^
-"
-    ("q" nil "cancel" :color blue)
-
-    ("c"  comment-line)
-    ("r"  vr/replace)
-    ("i"  indent-region)
-    ("a"  align-regexp)
-    ("s"  swiper)
-    ("d"  dash-at-point)
-
-    ("u"  undo-tree-visualize)
-    ("y"  company-yasnippet)
-    ("m"  company-complete))
-
-  (defhydra +hydra-window-menu (:color teal :hint nil)
-    "
-^ Move           Split                                        Kill
-^────────────────────────────────────────────────────────────────────────────────
-^ _<left>_:  Left  _h_: Horizontally
-^ _<right>_: Right _v_: Vertically
-^ _<up>_:    Up
-^ _<down>_:  Down                                               _k_: Kill Buffer
-^
-"
-    ("q" nil "cancel" :color blue)
-
-    ("k"       kill-buffer-and-window)
-    ("h"       split-window-below)
-    ("v"       split-window-right)
-
-    ("<left>"  windmove-left)
-    ("<right>" windmove-right)
-    ("<up>"    windmove-up)
-    ("<down>"  windmove-down))
-
-  (defhydra +hydra-language-context-menu (:color teal :hint nil)
-    "
-^
-^ Buffer     Other
-^────────────────────────────────────────────────────────────────────────────────
-^ _r_: Reload  _m_: iMenu
-^ _f_: Format  _e_: Show Errors
-^ _i_: Indent
-^
-"
-    ("q" nil "cancel" :color blue)
-
-    ("r" revert-buffer-no-confirm)
-    ("i" mark-and-indent-whole-buffer)
-
-    ("f" lsp-format-buffer)
-    ("m" lsp-ui-imenu)
-    ("e" flycheck-list-errors))
-
-  (defhydra +hydra-history-menu (:color teal :hint nil)
-    "
-^
-^ History
-^────────────────────────────────────────────────────────────────────────────────
-^ _[_: Previous
-^ _]_: Next
-^
-"
-    ("[" previous-buffer)
-    ("]" next-buffer)
-
-    ("q" nil "cancel" :color blue))
-
-  (defhydra +hydra-move-menu (:color teal :hint nil)
-    "
-^
-^ Move this buffer    ^^Jump to
-^────────────────────────────────────────────────────────────────────────────────
-^ _{_: Up               _w_: Word
-^ _[_: Left             _c_: Character
-^ _]_: Right            _l_: Line
-^ _{_: Down
-^
-"
-    ("[" buf-move-left)
-    ("]" buf-move-right)
-    ("{" buf-move-up)
-    ("}" buf-move-down)
-    ("w" avy-goto-word-1)
-    ("l" avy-goto-line)
-    ("c" avy-goto-char-2)
-    ("q" nil "quit"))
-
-  (defhydra +hydra-font-menu (:color teal :hint nil)
-    "
-^
-^ Everywhere            ^^In this buffer
-^────────────────────────────────────────────────────────────────────────────────
-^ _s_: Set size           _i_: Bigger
-^ _R_: Reset to default   _d_: Smaller
-^^^                       _r_: Reset
-^
-"
-    ("i" (text-scale-increase 1))
-    ("d" (text-scale-decrease 1))
-    ("r" (text-scale-adjust 0))
-    ("R" set-font-to-screen)
-    ("s" set-font-size)
-    ("q" nil "cancel" :color blue))
-
-  (defhydra +hydra-of-hydras (:color teal :hint nil)
-    "
-^
-^ Hydras
-^────────────────────────────────────────────────────────────────────────────────
-^ _p_: Projects^^^  _h_: History
-^ _c_: Code^^^      _m_: Move
-^ _l_: Language^^^  _f_: Fonts
-^
-"
-    ("p" +hydra-project-menu/body)
-    ("c" +hydra-code-menu/body)
-    ("w" +hydra-window-menu/body)
-    ("h" +hydra-history-menu/body)
-    ("f" +hydra-font-menu/body)
-    ("m" +hydra-move-menu/body)
-    ("l" +hydra-language-context-menu/body)
-    ("q" nil "cancel"))
-
-  :bind ("C-c p" . +hydra-project-menu/body)
-        ("C-c h" . +hydra-of-hydras/body)
-        ("C-c c" . +hydra-code-menu/body)
-        ("C-c w" . +hydra-window-menu/body)
-        ("C-c s" . +hydra-history-menu/body)
-        ("C-c f" . +hydra-font-menu/body)
-        ("C-c m" . +hydra-move-menu/body)
-        ("C-c l" . +hydra-language-context-menu/body))
+(define-key global-map (kbd "C-c p") '+my-transient-project-menu)
+(define-key global-map (kbd "C-c c") '+my-transient-code-menu)
+(define-key global-map (kbd "C-c w") '+my-transient-window-menu)
+(define-key global-map (kbd "C-c s") '+my-transient-history-menu)
+(define-key global-map (kbd "C-c f") '+my-transient-font-menu)
+(define-key global-map (kbd "C-c m") '+my-transient-move-menu)
+(define-key global-map (kbd "C-c l") '+my-transient-language-context-menu)
 
 (provide '+custom-pkg-hydra)
 ;;; hydra.el ends here

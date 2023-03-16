@@ -23,22 +23,17 @@
   :defer t
   :straight t)
 
-
-(defhydra my-ocaml/context-hydra (:color teal :hint nil)
-  "
-^
-^ OCaml actions
-^────────────────────────────────────────────────────────────────────────────────
-^ _r_: Reload                         _f_: Format
-^ _i_: Indent                         _o_: Opam env
-^
-"
-  ("q" nil "cancel" :color blue)
-
-  ("r" revert-buffer-no-confirm)
-  ("i" mark-and-indent-whole-buffer)
-  ("f" ocamlformat)
-  ("o" tuareg-opam-update-env))
+(transient-define-prefix +my-transient-ocaml-context-menu ()
+  "Ocaml Actions"
+  ["OCaml actions"
+   [""
+    ("r" "Reload"   revert-buffer-no-confirm)
+    ("i" "Indent"   mark-and-indent-whole-buffer)]
+   [""
+    ("f" "Format"   ocamlformat)
+    ("e" "Opam Env" tuareg-opam-update-env)]]
+  [""
+   ("q" "Quit"      keyboard-quit)])
 
 (defun load-ocaml-site-packages ()
   "Generate ocaml config."
@@ -53,7 +48,7 @@
 
       ;; Use opam switch to lookup ocamlmerlin binary
       (setq merlin-command 'opam)))
-  (define-key tuareg-mode-map (kbd "C-c l") 'my-ocaml/context-hydra/body))
+  (define-key tuareg-mode-map (kbd "C-c l") '+my-transient-ocaml-context-menu))
 
 ;; OCaml setup
 (add-hook 'tuareg-mode-hook 'merlin-mode)
@@ -71,24 +66,23 @@
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
-(defhydra my-reason/context-hydra (:color teal :hint nil)
-  "
-^
-^ Reason actions
-^────────────────────────────────────────────────────────────────────────────────
-^ _r_: Reload                         _f_: Format
-^ _o_: Opam env
-^
-"
-  ("q" nil "cancel" :color blue)
+(transient-define-prefix +my-transient-reasonml-context-menu ()
+  "ReasonML Actions"
+  ["ReasonML actions"
+   [""
+    ("r" "Reload"   revert-buffer-no-confirm)
+    ("i" "Indent"   mark-and-indent-whole-buffer)]
+   [""
+    ("f" "Format"   refmt)
+    ("e" "Opam Env" tuareg-opam-update-env)]]
+  [""
+   ("q" "Quit"      keyboard-quit)])
 
-  ("f" refmt)
-  ("r" revert-buffer-no-confirm)
-  ("o" tuareg-opam-update-env))
 
 (defun my-reason-mode ()
   "Generate reason config."
-  (define-key reason-mode-map (kbd "C-c l") 'my-reason/context-hydra/body))
+  (define-key
+    reason-mode-map (kbd "C-c l") '+my-transient-reasonml-context-menu))
 
 ;; Reason setup
 (add-hook 'reason-mode-hook
