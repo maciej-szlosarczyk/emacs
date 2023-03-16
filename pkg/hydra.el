@@ -111,13 +111,13 @@
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
     ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
-(define-key +custom-keys-mode-map (kbd "C-c p") '+my-transient-project-menu)
-(define-key +custom-keys-mode-map (kbd "C-c c") '+my-transient-code-menu)
-(define-key +custom-keys-mode-map (kbd "C-c w") '+my-transient-window-menu)
-(define-key +custom-keys-mode-map (kbd "C-c s") '+my-transient-history-menu)
-(define-key +custom-keys-mode-map (kbd "C-c f") '+my-transient-font-menu)
-(define-key +custom-keys-mode-map (kbd "C-c m") '+my-transient-move-menu)
-(define-key +custom-keys-mode-map (kbd "C-c l") '+my-transient-language-context-menu)
+(define-key global-map (kbd "C-c p") '+my-transient-project-menu)
+(define-key global-map (kbd "C-c c") '+my-transient-code-menu)
+(define-key global-map (kbd "C-c w") '+my-transient-window-menu)
+(define-key global-map (kbd "C-c s") '+my-transient-history-menu)
+(define-key global-map (kbd "C-c f") '+my-transient-font-menu)
+(define-key global-map (kbd "C-c m") '+my-transient-move-menu)
+(define-key global-map (kbd "C-c l") '+my-transient-language-context-menu)
 
 (provide '+custom-pkg-hydra)
 ;;; hydra.el ends here

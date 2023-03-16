@@ -81,7 +81,8 @@
 
 (defun my-reason-mode ()
   "Generate reason config."
-  (define-key reason-mode-map (kbd "C-c l") '+my-transient-reasonml-context-menu)
+  (define-key
+    reason-mode-map (kbd "C-c l") '+my-transient-reasonml-context-menu))
 
 ;; Reason setup
 (add-hook 'reason-mode-hook
