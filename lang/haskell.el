@@ -25,31 +25,11 @@
   :config
   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
 
-(defhydra my-haskell/context-hydra (:color teal :hint nil)
-  "
-^
-^ LSP       ^^Buffer
-^────────────────────────────────────────────────────────────────────────────────
-^ _m_: iMenu _r_: Reload
-^ ^ ^        _f_: Format
-^ ^ ^        _i_: Indent
-^ ^ ^        _e_: Show Errors
-^
-"
-  ("q" nil "cancel" :color blue)
-
-  ("r" revert-buffer-no-confirm)
-  ("i" indent-region)
-  ("f" lsp-format-buffer)
-  ("e" flycheck-list-errors)
-  ("m" lsp-ui-imenu))
-
 (defun activate-haskell-mode ()
   "Run this in haskell-mode."
   (set-indent 2)
   (column-enforce-n 80)
   (lsp)
-  (define-key haskell-mode-map (kbd "C-c l") 'my-haskell/context-hydra/body)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

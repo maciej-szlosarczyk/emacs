@@ -5,9 +5,7 @@
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
 
-(use-package clojure-mode
-	:defer t
-	:straight t)
+(use-package clojure-mode :defer t :straight t)
 
 (use-package cider
   :requires clojure-mode
@@ -22,25 +20,19 @@
 	:straight t)
 
 ;; Hydra
-(defhydra my-clojure/context-hydra (:color teal :hint nil)
-  "
-^
-^ Cider        ^^Buffer
-^────────────────────────────────────────────────────────────────────────────────
-^ _j_: Jack in   _r_: Reload
-^ _t_: Test      _f_: Format
-^ ^ ^            _l_: Load
-^ ^ ^            _e_: Show Errors
-^
-"
-  ("q" nil "cancel" :color blue)
-
-  ("r" revert-buffer-no-confirm)
-  ("j" cider-jack-in)
-  ("f" cider-format-buffer)
-  ("l" cider-load-buffer)
-  ("e" flycheck-list-errors)
-  ("t" cider-test-run-loaded-tests))
+(transient-define-prefix +my-transient-cider-context-menu ()
+    "Clojure Buffer Commands"
+    [""
+     ["Cider"
+      ("j" "Jack in"     cider-jack-in)
+      ("t" "Test"        cider-test-run-loaded-tests)]
+     ["Buffer"
+      ("r" "Reload"      revert-buffer-no-confirm)
+      ("f" "Format"      cider-format-buffer)
+      ("l" "Load"        cider-load-buffer)
+      ("e" "Show Errors" flycheck-list-errors)]]
+    [""
+     ("q" "Quit"        keyboard-quit)])
 
 (defun activate-my-clojure-mode ()
   "Goodies for clojure files."
@@ -50,7 +42,7 @@
   (cider-mode 1)
   (setq-local indent-tabs-mode nil)
 
-  (define-key clojure-mode-map (kbd "C-c l") 'my-clojure/context-hydra/body)
+  (define-key clojure-mode-map (kbd "C-c l") '+my-transient-cider-context-menu)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)
