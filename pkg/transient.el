@@ -1,6 +1,6 @@
-;;; pkg/hydra -- summary -*- lexical-binding: t; -*-
+;;; pkg/transient -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
-;;; Global hydra definitions.
+;;; Global Transient definitions.
 ;;; Code:
 
 (require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
@@ -119,5 +119,5 @@
 (define-key global-map (kbd "C-c m") '+my-transient-move-menu)
 (define-key global-map (kbd "C-c l") '+my-transient-language-context-menu)
 
-(provide '+custom-pkg-hydra)
-;;; hydra.el ends here
+(provide '+custom-pkg-transient)
+;;; transient.el ends here

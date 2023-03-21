@@ -4,7 +4,7 @@
 ;;; Code:
 
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
-(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
 (use-package deft
   :straight t

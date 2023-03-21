@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
 (use-package tuareg
   :defer t

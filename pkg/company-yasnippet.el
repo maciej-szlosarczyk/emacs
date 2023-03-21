@@ -28,8 +28,16 @@
   :after company
   :hook (((company-mode) . company-box-mode)))
 
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :ensure t)
+
 (global-company-mode t)
 (yas-global-mode t)
+
+(add-hook 'prog-mode-hook 'copilot-mode)
+(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
 
 (setq-default
  company-minimum-prefix-length 3   ;; minimum prefix character number for auto complete.

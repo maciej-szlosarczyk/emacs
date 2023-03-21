@@ -4,7 +4,7 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
 (use-package elixir-mode :requires (lsp-mode lsp-ui) :straight t)
 

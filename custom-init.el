@@ -36,7 +36,7 @@
 (require '+custom-pkg-base "$HOME/.emacs.d/pkg/base.el")
 (require '+custom-pkg-sys-specific "$HOME/.emacs.d/pkg/sys-specific.el")
 (require '+custom-pkg-ivy "$HOME/.emacs.d/pkg/ivy.el")
-(require '+custom-pkg-hydra "$HOME/.emacs.d/pkg/hydra.el")
+(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 (require '+custom-pkg-magit "$HOME/.emacs.d/pkg/magit.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-company-yasnippet "$HOME/.emacs.d/pkg/company-yasnippet.el")
