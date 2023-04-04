@@ -20,7 +20,7 @@
 	:straight t)
 
 ;; Transient
-(transient-define-prefix +my-transient-cider-context-menu ()
+(transient-define-prefix +custom-lang-clojure/cider-context-menu ()
   "Clojure Buffer Commands"
   [""
    ["Cider"
@@ -34,7 +34,7 @@
   [""
    ("q"  "Quit"        keyboard-quit)])
 
-(defun activate-my-clojure-mode ()
+(defun +custom-lang-clojure/activate-clojure-mode ()
   "Goodies for clojure files."
   (set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
@@ -42,20 +42,21 @@
   (cider-mode 1)
   (setq-local indent-tabs-mode nil)
 
-  (define-key clojure-mode-map (kbd "C-c l") '+my-transient-cider-context-menu)
+  (define-key
+    clojure-mode-map (kbd "C-c l") '+custom-lang-clojure/cider-context-menu)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)
 	;; Do not show separate error window when in REPL
   (setq cider-show-error-buffer 'except-in-repl))
 
-(add-hook 'clojure-mode-hook 'activate-my-clojure-mode)
+(add-hook 'clojure-mode-hook '+custom-lang-clojure/activate-clojure-mode)
 
-(defun my-clj-repl-config ()
+(defun +custom-lang-clojure/clj-repl-config ()
   "Do not show stacktrace when in REPL."
 	(setq-local cider-show-error-buffer 'except-in-repl))
 
-(add-hook 'cider-repl-mode-hook 'my-clj-repl-config)
+(add-hook 'cider-repl-mode-hook '+custom-lang-clojure/clj-repl-config)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
 (provide '+custom-lang-clojure)

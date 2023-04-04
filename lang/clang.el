@@ -6,7 +6,7 @@
 (require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
-(defun activate-clang-mode ()
+(defun +custom-lang-clang/activate-clang-mode ()
   "Goodies for editing c files."
 
   ;; Set column width to 100
@@ -30,7 +30,7 @@
     "ctags -e -R --languages=C -f %sTAGS %s/*"
     (projectile-project-root) (projectile-project-root))))
 
-(add-hook 'c-mode-hook 'activate-clang-mode)
+(add-hook 'c-mode-hook '+custom-lang-clang/activate-clang-mode)
 
 (provide '+custom-lang-clang)
 ;;; clang.el ends here

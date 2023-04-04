@@ -10,7 +10,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-mode))
 
-(transient-define-prefix +my-transient-elixir-context-menu ()
+(transient-define-prefix +custom-lang-elixir/transient-context-menu ()
   "Elixir Buffer Commands"
   [""
    ["LSP"
@@ -23,7 +23,7 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
-(defun activate-elixir-mode ()
+(defun +custom-lang-elixir/activate-elixir-mode ()
   "All things Elixir."
   (set-indent 2)
   (column-enforce-n 98)
@@ -36,13 +36,13 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (define-key elixir-mode-map (kbd "C-c l") '+my-transient-elixir-context-menu)
+  (define-key elixir-mode-map (kbd "C-c l") '+custom-lang-elixir/transient-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'elixir-mode-hook 'activate-elixir-mode)
+(add-hook 'elixir-mode-hook '+custom-lang-elixir/activate-elixir-mode)
 
 (provide '+custom-lang-elixir)
 ;;; elixir.el ends here

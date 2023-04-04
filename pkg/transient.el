@@ -12,7 +12,7 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(transient-define-prefix +my-transient-project-menu ()
+(transient-define-prefix +custom-pkg-transient/project-menu ()
   "Project Commands"
   [""
    ["Projectile"
@@ -37,7 +37,7 @@
     ("d" "deft"                 deft)
     ("T" "Speed Type"           speed-type-text)]])
 
-(transient-define-prefix +my-transient-code-menu ()
+(transient-define-prefix +custom-pkg-transient/code-menu ()
   "Code Commands"
   [""
    ["Manipulate"
@@ -53,7 +53,7 @@
     ("u" "Undo tree"      undo-tree-visualize)
     ("d" "Dash"           dash-at-point)]])
 
-(transient-define-prefix +my-transient-window-menu ()
+(transient-define-prefix +custom-pkg-transient/window-menu ()
   "Windows Commands"
   [""
    ["Move"
@@ -70,7 +70,7 @@
     ""
     ("k" "Kill Buffer"  kill-buffer-and-window)]])
 
-(transient-define-prefix +my-transient-language-context-menu ()
+(transient-define-prefix +custom-pkg-transient/language-context-menu ()
   "Language (Buffer) Commands"
   [""
    ["Buffer"
@@ -81,13 +81,13 @@
     ("m" "iMenu"       lsp-ui-imenu)
     ("e" "Show Errors" flycheck-list-errors)]])
 
-(transient-define-prefix +my-transient-history-menu ()
+(transient-define-prefix +custom-pkg-transient/history-menu ()
   "Buffer History Commands"
   ["History"
    ("[" "Previous" previous-buffer)
    ("]" "Next" previous-buffer)])
 
-(transient-define-prefix +my-transient-move-menu ()
+(transient-define-prefix +custom-pkg-transient/move-menu ()
   "Move Commands"
   [""
    ["Move this buffer"
@@ -100,7 +100,7 @@
     ("l" "Character" avy-goto-line)
     ("c" "Line" avy-goto-char-2)]])
 
-(transient-define-prefix +my-transient-font-menu ()
+(transient-define-prefix +custom-pkg-transient/font-menu ()
   "Font Commands"
   [""
    ["Everywhere"
@@ -111,13 +111,13 @@
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
     ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
-(define-key global-map (kbd "C-c p") '+my-transient-project-menu)
-(define-key global-map (kbd "C-c c") '+my-transient-code-menu)
-(define-key global-map (kbd "C-c w") '+my-transient-window-menu)
-(define-key global-map (kbd "C-c s") '+my-transient-history-menu)
-(define-key global-map (kbd "C-c f") '+my-transient-font-menu)
-(define-key global-map (kbd "C-c m") '+my-transient-move-menu)
-(define-key global-map (kbd "C-c l") '+my-transient-language-context-menu)
+(define-key global-map (kbd "C-c p") '+custom-pkg-transient/project-menu)
+(define-key global-map (kbd "C-c c") '+custom-pkg-transient/code-menu)
+(define-key global-map (kbd "C-c w") '+custom-pkg-transient/window-menu)
+(define-key global-map (kbd "C-c s") '+custom-pkg-transient/history-menu)
+(define-key global-map (kbd "C-c f") '+custom-pkg-transient/font-menu)
+(define-key global-map (kbd "C-c m") '+custom-pkg-transient/move-menu)
+(define-key global-map (kbd "C-c l") '+custom-pkg-transient/language-context-menu)
 
 (provide '+custom-pkg-transient)
 ;;; transient.el ends here

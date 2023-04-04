@@ -18,32 +18,32 @@
   :requires (lsp-mode lsp-ui)
   :straight t)
 
-(transient-define-prefix +my-transient-php-context-menu ()
+(transient-define-prefix +custom-lang-php/context-menu ()
   "PHP Buffer Commands"
   [""
    ["LSP"
     ("m" "iMenu"       lsp-ui-imenu)]
    ["Buffer"
     ("r" "Reload"      revert-buffer-no-confirm)
-    ("f" "Format"      elixir-format)
+    ("f" "Format"      lsp-format-buffer)
     ("i" "Indent"      mark-and-indent-whole-buffer)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 
 
-(defun activate-php-mode ()
+(defun +custom-lang-php/activate-php-mode ()
   "All things php."
   (set-indent 4)
   (column-enforce-n 80)
 
-  (define-key php-mode-map (kbd "C-c l") '+my-transient-php-context-menu)
+  (define-key php-mode-map (kbd "C-c l") '+custom-lang-php/context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'php-mode-hook 'activate-php-mode)
+(add-hook 'php-mode-hook '+custom-lang-php/activate-php-mode)
 
 (provide '+custom-lang-php)
 ;;; php.el ends here

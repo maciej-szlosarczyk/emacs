@@ -9,7 +9,7 @@
   :defer t
   :init (setq-default markdown-command "pandoc"))
 
-(defun activate-markdown-mode ()
+(defun +custom-lang-markdown/activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."
   (set-indent 2)
   (column-enforce-n 10000)
@@ -21,7 +21,7 @@
   (define-key markdown-mode-map (kbd "C-c <down>") nil)
   (define-key markdown-mode-map (kbd "C-c C-v") 'markdown-preview))
 
-(add-hook 'markdown-mode-hook 'activate-markdown-mode)
+(add-hook 'markdown-mode-hook '+custom-lang-markdown/activate-markdown-mode)
 (add-hook 'markdown-mode-hook 'display-line-numbers-mode)
 
 (provide '+custom-lang-markdown)

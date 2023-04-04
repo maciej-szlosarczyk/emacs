@@ -28,12 +28,12 @@
   :after company
   :hook (((company-mode) . company-box-mode)))
 
+(global-company-mode t)
+(yas-global-mode t)
+
 (use-package copilot
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
   :ensure t)
-
-(global-company-mode t)
-(yas-global-mode t)
 
 (add-hook 'prog-mode-hook 'copilot-mode)
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)

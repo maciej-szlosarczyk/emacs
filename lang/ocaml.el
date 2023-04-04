@@ -23,7 +23,7 @@
   :defer t
   :straight t)
 
-(transient-define-prefix +my-transient-ocaml-context-menu ()
+(transient-define-prefix +custom-lang-ocaml/context-menu ()
   "Ocaml Actions"
   ["OCaml actions"
    [""
@@ -48,7 +48,7 @@
 
       ;; Use opam switch to lookup ocamlmerlin binary
       (setq merlin-command 'opam)))
-  (define-key tuareg-mode-map (kbd "C-c l") '+my-transient-ocaml-context-menu))
+  (define-key tuareg-mode-map (kbd "C-c l") '+custom-lang-ocaml/context-menu))
 
 ;; OCaml setup
 (add-hook 'tuareg-mode-hook 'merlin-mode)
@@ -66,7 +66,7 @@
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
-(transient-define-prefix +my-transient-reasonml-context-menu ()
+(transient-define-prefix +custom-lang-ocaml/reasonml-context-menu ()
   "ReasonML Actions"
   ["ReasonML actions"
    [""
@@ -79,16 +79,16 @@
    ("q" "Quit"      keyboard-quit)])
 
 
-(defun my-reason-mode ()
+(defun custom-lang-ocaml/activate-reason-mode ()
   "Generate reason config."
   (define-key
-    reason-mode-map (kbd "C-c l") '+my-transient-reasonml-context-menu))
+    reason-mode-map (kbd "C-c l") '+custom-lang-ocaml/reasonml-context-menu))
 
 ;; Reason setup
 (add-hook 'reason-mode-hook
           (lambda ()
             (add-hook 'before-save-hook #'refmt-before-save)))
-(add-hook 'reason-mode-hook 'my-reason-mode)
+(add-hook 'reason-mode-hook 'custom-lang-ocaml/activate-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
 (provide '+custom-lang-ocaml)
