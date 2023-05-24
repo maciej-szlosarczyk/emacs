@@ -82,6 +82,9 @@
     (insert " "))
   (company-indent-or-complete-common))
 
+;; Only use RETURN for completion in company
+(unbind-key "TAB" company-active-map)
+
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key prog-mode-map (kbd "<f13>") 'insert-space-and-complete)
