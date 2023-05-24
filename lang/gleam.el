@@ -11,7 +11,7 @@
 ;;; Code:
 
 (use-package gleam-mode
-  :straight `(gleam-mode :type git :host github :repo "gleam-lang/gleam-mode")
+  :straight '(gleam-mode :type git :host github :repo "gleam-lang/gleam-mode")
   :mode "\\.gleam\\'")
 
 (provide '+custom-lang-gleam)

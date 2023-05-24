@@ -66,6 +66,7 @@
 (require '+custom-lang-gleam "$HOME/.emacs.d/lang/gleam.el")
 (require '+custom-lang-fsharp "$HOME/.emacs.d/lang/fsharp.el")
 (require '+custom-lang-sh "$HOME/.emacs.d/lang/sh.el")
+(require '+custom-lang-python "$HOME/.emacs.d/lang/python.el")
 (require '+custom-lang-rust "$HOME/.emacs.d/lang/rust.el")
 (require '+custom-lang-haskell "$HOME/.emacs.d/lang/haskell.el")
 (require '+custom-lang-clang "$HOME/.emacs.d/lang/clang.el")

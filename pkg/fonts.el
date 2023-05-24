@@ -31,27 +31,34 @@
 
   ;; Set completion and modeline font to be 1 pixel point smaller than
   ;; the general font
-  ;; (set-face-attribute 'markdown-code-face nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'tooltip nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'company-tooltip nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'company-tooltip-annotation nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'company-tooltip-mouse nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'mode-line nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute 'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
+  ;; (set-face-attribute
+  ;;  'markdown-code-face nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'tooltip nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'company-tooltip nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'company-tooltip-annotation nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'company-tooltip-mouse nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'mode-line nil :font (format "%s %d" name (- size 1)))
+  (set-face-attribute
+   'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
 
   ;; Call LSP-UI hook
   (+custom-set-lsp-ui-font-hook))
 
-(defvar +custom-font "Iosevka")
+;; (defvar +custom-font "Iosevka")
 ;; (defvar +custom-font "Input Mono Condensed")
 ;; (defvar +custom-font "SF Mono")
 ;; (defvar +custom-font "Monaco")
-;; (defvar +custom-font "JetBrains Mono")
+(defvar +custom-font "JetBrains Mono")
 ;; (defvar +custom-font "JuliaMono")
 ;; (defvar +custom-font "Rec Mono Semicasual")
 ;; (defvar +custom-font "Victor Mono")
 ;; (defvar +custom-font "IBM Plex Mono")
-(defvar +custom-font-size 15)
+(defvar +custom-font-size 14)
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
@@ -59,20 +66,29 @@
   ;; smaller.
   (interactive)
   (cond ((eq (x-display-list) nil))
-
         ;; built-in screen
-        ((>= 1050 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
+        ((>= 1050 (x-display-pixel-height))
+         (set-font +custom-font +custom-font-size))
 
         ;; 4K screen on a Mac
-        ((>= 1080 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
+        ((>= 1080 (x-display-pixel-height))
+         (set-font +custom-font +custom-font-size))
 
         ;; Other screens
-        ((>= 1120 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
-        ((>= 1440 (x-display-pixel-height)) (set-font +custom-font (+ +custom-font-size 3)))
-        ((>= 1920 (x-display-pixel-height)) (set-font +custom-font +custom-font-size))
+        ((>= 1120 (x-display-pixel-height))
+         (set-font +custom-font +custom-font-size))
+
+        ((>= 1440 (x-display-pixel-height))
+         (set-font +custom-font (+ +custom-font-size 3)))
+
+        ((>= 1920 (x-display-pixel-height))
+         (set-font +custom-font +custom-font-size))
 
         ;; 4K screen on Windows
-        ((>= 2160 (x-display-pixel-height)) (set-font +custom-font (+ +custom-font-size 6)))
+        ((>= 2160 (x-display-pixel-height))
+         (set-font +custom-font (+ +custom-font-size 6)))
+
+        ;; Default
         (t (set-font +custom-font (+ +custom-font-size 2)))))
 
 ;; Do it automatically on startup

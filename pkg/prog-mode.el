@@ -23,7 +23,7 @@
   :hook (((prog-mode text-mode conf-mode) . whitespace-mode)
          (before-save . whitespace-cleanup))
   :config
-  (setq whitespace-style #'(face trailing empty newline)
+  (setq whitespace-style #'(face trailing empty)
         ;;; Insert newline on save
         require-final-newline 't))
 
