@@ -19,8 +19,16 @@
 (use-package graphql-mode :straight t :defer t)
 (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
 
-;; Text files
+;; Yaml
 (use-package yaml-mode :straight t :defer t)
+
+(defun +custom-lang-yaml/activate-yaml-mode ()
+  "Activate yaml-mode."
+  (lsp))
+
+(add-hook 'yaml-mode-hook '+custom-lang-yaml/activate-yaml-mode)
+
+;; Other text files
 (use-package json-mode :straight t :defer t)
 (use-package git-modes
   :straight t
