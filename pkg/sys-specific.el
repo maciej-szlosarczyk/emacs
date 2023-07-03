@@ -65,6 +65,16 @@
 ;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-GNU
     (progn
+      ;;;; Save and undo
+      (define-key +custom-keys-mode-map (kbd "s-s") 'save-buffer)
+      (define-key +custom-keys-mode-map (kbd "s-z") 'undo)
+      (define-key +custom-keys-mode-map (kbd "s-a") 'mark-whole-buffer)
+
+      ;;;;;;;; Copy and paste bindings ;;;;;;;;;;;;;;;;;;
+      (define-key +custom-keys-mode-map (kbd "s-x") 'kill-region)
+      (define-key +custom-keys-mode-map (kbd "s-v") 'yank)
+      (define-key +custom-keys-mode-map (kbd "s-c") 'kill-ring-save)
+
       ;;;;;;;;; Linux Ergo bindings (fix) ;;;;;;;;;;;;;;;;;;
       (define-key +custom-keys-mode-map (kbd "C-<right>") 'end-of-line)
       (define-key +custom-keys-mode-map (kbd "C-<left>") 'beginning-of-line)
