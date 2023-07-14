@@ -61,6 +61,7 @@
 (require '+custom-lang-ruby "$HOME/.emacs.d/lang/ruby.el")
 (require '+custom-lang-web "$HOME/.emacs.d/lang/web.el")
 (require '+custom-lang-javascript "$HOME/.emacs.d/lang/javascript.el")
+(require '+custom-lang-dhall "$HOME/.emacs.d/lang/dhall.el")
 (require '+custom-lang-elixir "$HOME/.emacs.d/lang/elixir.el")
 (require '+custom-lang-erlang "$HOME/.emacs.d/lang/erlang.el")
 (require '+custom-lang-gleam "$HOME/.emacs.d/lang/gleam.el")
