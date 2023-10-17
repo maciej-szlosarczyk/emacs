@@ -8,6 +8,7 @@
 (use-package apropospriate-theme :straight t :defer t)
 (use-package leuven-theme :straight t :defer t)
 (use-package modus-themes :straight t :defer t)
+(use-package darktooth-theme :straight t :defer t)
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -24,6 +25,7 @@
 (load-theme 'base16-humanoid-light t t)
 
 ;; Dark themes
+(load-theme 'darktooth t t)
 (load-theme 'base16-zenburn t)
 (load-theme 'base16-tomorrow-night-eighties t t)
 (load-theme 'base16-darcula t t)
@@ -41,7 +43,9 @@
          "$HOME/.emacs.d/themes/base16-harmonic-light-modified.el")
 
 (spaceline-emacs-theme)
-(enable-theme 'base16-harmonic-light-modified)
+
+;; Zenburn with customizations
+(enable-theme 'base16-zenburn-modified)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here

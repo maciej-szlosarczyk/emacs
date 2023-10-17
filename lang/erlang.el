@@ -4,6 +4,7 @@
 
 (require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require '+custom-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
 
 (use-package erlang
   :defer t
@@ -75,17 +76,6 @@
   (require 'erlang-start)
   (set-indent 4)
   (column-enforce-n 80)
-
-  ;; Set specific ctags command
-  (setq-local
-   ctags/refresh-command
-   (format
-    "ctags -e -R --languages=erlang -f %sTAGS %ssrc %sdeps %sapps %s_build %stest %slib/stdlib-* %slib/kernel-*"
-    (projectile-project-root) (projectile-project-root)
-    (projectile-project-root) (projectile-project-root)
-    (projectile-project-root) (projectile-project-root)
-    (plist-get erlang/current-erlang :erlang-path)
-    (plist-get erlang/current-erlang :erlang-path)))
 
   ;; Add include path so that Erlang does not complain about
   ;; missing header files.

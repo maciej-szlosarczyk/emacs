@@ -74,9 +74,11 @@
   :config (global-column-enforce-mode t))
 
 ;; Vim-like regex replace with preview in buffer.
-(use-package visual-regexp
-  :straight t
-  :defer t)
+(use-package visual-regexp :straight t :defer t)
+
+;; Formatter for many files
+(use-package apheleia :straight t :defer t)
+
 
 (provide '+custom-pkg-prog-mode)
 ;;; prog-mode ends here

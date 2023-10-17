@@ -12,6 +12,7 @@
 
 ;; Infrastructure files
 (use-package dockerfile-mode :straight t :defer t)
+(use-package docker :straight t :defer t :ensure t)
 (use-package terraform-mode :straight t :defer t)
 (use-package ansible :straight t :defer t)
 (use-package nginx-mode :straight t :defer t)

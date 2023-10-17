@@ -22,6 +22,9 @@
 ;; Plain React
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 
+;; Vue JS
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
 (setq web-mode-extra-auto-pairs
       '(("eex"  . (("<%" "%>")))
         ("leex"  . (("<%" "%>")))
@@ -40,9 +43,11 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet))
 
-	(when (string-match-p "jsx" (buffer-file-name))
+	(when (string-match-p ".jsx" (buffer-file-name))
 		(lsp))
-	(when (string-match-p "tsx" (buffer-file-name))
+	(when (string-match-p ".tsx" (buffer-file-name))
+		(lsp))
+	(when (string-match-p ".vue" (buffer-file-name))
 		(lsp)))
 
 (add-hook 'web-mode-hook 'activate-web-mode)

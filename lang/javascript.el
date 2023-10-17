@@ -10,9 +10,9 @@
   :requires (web-mode company-web lsp-mode lsp-ui)
   :straight t)
 
-(use-package vue-mode
-  :straight t
-  :defer t)
+;; (use-package vue-mode
+;;   :straight t
+;;   :defer t)
 
 ;; Use js2-mode for javascript editing
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -43,13 +43,6 @@
                '(company-capf company-yasnippet)))
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
-
-(defun activate-vue-mode ()
-  "VueJS overrides."
-  (lsp-deferred)
-  (setq-local lsp-ui-show-code-actions f))
-
-(add-hook 'vue-mode-hook 'activate-vue-mode)
 
 (provide '+custom-lang-javascript)
 ;;; javascript.el ends here
