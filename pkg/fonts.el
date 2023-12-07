@@ -86,7 +86,7 @@
 
         ;; 4K screen on Windows or Linux
         ((>= 2160 (x-display-pixel-height))
-         (set-font +custom-font (- +custom-font-size 5)))
+         (set-font +custom-font (- +custom-font-size 3)))
 
         ;; Default
         (t (set-font +custom-font (+ +custom-font-size 2)))))
