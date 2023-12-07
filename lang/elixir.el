@@ -6,9 +6,9 @@
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
-(use-package elixir-mode :requires (lsp-mode lsp-ui) :straight t)
+(use-package elixir-ts-mode :requires (lsp-mode lsp-ui) :straight t)
 
-(add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-mode))
+(add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
 (transient-define-prefix +custom-lang-elixir/transient-context-menu ()
   "Elixir Buffer Commands"
@@ -17,13 +17,13 @@
     ("m" "iMenu"       lsp-ui-imenu)]
    ["Buffer"
     ("r" "Reload"      revert-buffer-no-confirm)
-    ("f" "Format"      elixir-format)
+    ("f" "Format"      lsp-format-buffer)
     ("i" "Indent"      mark-and-indent-whole-buffer)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 
-(defun +custom-lang-elixir/activate-elixir-mode ()
+(defun +custom-lang-elixir/activate-elixir-ts-mode ()
   "All things Elixir."
   (set-indent 2)
   (column-enforce-n 98)
@@ -31,18 +31,17 @@
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local company-minimum-prefix-length 3)
-  (define-key elixir-mode-map (kbd "<f17>") 'elixir-format)
 
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (define-key elixir-mode-map (kbd "C-c l") '+custom-lang-elixir/transient-context-menu)
+  (define-key elixir-ts-mode-map (kbd "C-c l") '+custom-lang-elixir/transient-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'elixir-mode-hook '+custom-lang-elixir/activate-elixir-mode)
+(add-hook 'elixir-ts-mode-hook '+custom-lang-elixir/activate-elixir-ts-mode)
 
 (provide '+custom-lang-elixir)
 ;;; elixir.el ends here
