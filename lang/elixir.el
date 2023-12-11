@@ -6,8 +6,11 @@
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
+(use-package elixir-mode :requires (lsp-mode lsp-ui) :straight t)
 (use-package elixir-ts-mode :requires (lsp-mode lsp-ui) :straight t)
 
+(add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
 (transient-define-prefix +custom-lang-elixir/transient-context-menu ()
@@ -17,7 +20,7 @@
     ("m" "iMenu"       lsp-ui-imenu)]
    ["Buffer"
     ("r" "Reload"      revert-buffer-no-confirm)
-    ("f" "Format"      lsp-format-buffer)
+    ("f" "Format"      elixir-format)
     ("i" "Indent"      mark-and-indent-whole-buffer)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
