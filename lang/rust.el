@@ -14,11 +14,6 @@
   :defer t
   :requires (rust-mode))
 
-(use-package racer
-  :straight t
-  :defer t
-  :requires (rust-mode))
-
 (defun activate-rust-mode ()
   "All things for Rust mode."
   (interactive)
@@ -34,7 +29,6 @@
 
 (add-hook 'rust-mode-hook 'activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)
-(add-hook 'rust-mode-hook 'racer-mode)
 
 (provide '+custom-lang-rust)
 ;;; rust.el ends here

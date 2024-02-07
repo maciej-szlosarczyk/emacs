@@ -10,8 +10,9 @@
 
 ;;; Code:
 
-;; Set GC at 300 MB for startup
-(setq gc-cons-threshold 300000000)
+;; Set GC at 500 MB for startup
+(setq gc-cons-threshold 500000000)
+(setq gc-cons-percentage 0.6)
 
 ;;; Use straight.el for package management
 (defvar bootstrap-version)
@@ -88,6 +89,7 @@
 
 ;; Restore GC to normal, but still high
 (setq gc-cons-threshold 100000000)
+(setq gc-cons-percentage 0.1)
 
 (provide '+custom-init)
 ;;; custom-init.el ends here

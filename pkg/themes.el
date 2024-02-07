@@ -44,8 +44,8 @@
 
 (spaceline-emacs-theme)
 
-;; Zenburn with customizations
-(enable-theme 'base16-zenburn-modified)
+;; Harmonic light with customizations
+(enable-theme 'base16-harmonic-light-modified)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here
