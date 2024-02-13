@@ -49,7 +49,11 @@
   ;; Call LSP-UI hook
   (+custom-set-lsp-ui-font-hook))
 
-(defvar +custom-font "Iosevka")
+(defvar +custom-font "Iosevka Term")
+;; (defvar +custom-font "Fira Mono")
+;; (defvar +custom-font "Fira Code")
+;; (defvar +custom-font "Red Hat Mono")
+;; (defvar +custom-font "Agave Nerd Font Mono")
 ;; (defvar +custom-font "Input Mono Condensed")
 ;; (defvar +custom-font "SF Mono")
 ;; (defvar +custom-font "Monaco")

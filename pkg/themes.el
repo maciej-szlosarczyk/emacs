@@ -9,6 +9,8 @@
 (use-package leuven-theme :straight t :defer t)
 (use-package modus-themes :straight t :defer t)
 (use-package darktooth-theme :straight t :defer t)
+(use-package cyberpunk-theme :straight t :defer t)
+(use-package color-theme-sanityinc-tomorrow :straight t :defer t)
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -25,6 +27,7 @@
 (load-theme 'base16-humanoid-light t t)
 
 ;; Dark themes
+(load-theme 'cyberpunk t t)
 (load-theme 'darktooth t t)
 (load-theme 'base16-zenburn t)
 (load-theme 'base16-tomorrow-night-eighties t t)
@@ -34,6 +37,8 @@
 (load-theme 'base16-gruvbox-dark-hard t t)
 (load-theme 'modus-vivendi t t)
 (load-theme 'base16-zenbones t t)
+(load-theme 'sanityinc-tomorrow-eighties t t)
+(load-theme 'sanityinc-tomorrow-night t t)
 
 ;; My own theme modifications:
 (require 'base16-zenburn-modified-theme
@@ -44,8 +49,7 @@
 
 (spaceline-emacs-theme)
 
-;; Harmonic light with customizations
-(enable-theme 'base16-harmonic-light-modified)
+(enable-theme 'sanityinc-tomorrow-eighties)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here
