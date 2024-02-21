@@ -35,7 +35,7 @@
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
-(add-hook 'enh-ruby-mode-hook 'lsp-deferred)
+;; (add-hook 'enh-ruby-mode-hook 'lsp-deferred)
 
 (provide '+custom-lang-ruby)
 ;;; ruby.el ends here

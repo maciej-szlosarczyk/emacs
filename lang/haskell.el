@@ -21,15 +21,13 @@
 (use-package lsp-haskell
   :straight t
   :defer t
-  :requires (lsp-mode lsp-ui haskell-mode)
-  :config
-  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
+  :requires (lsp-mode lsp-ui haskell-mode))
 
 (defun activate-haskell-mode ()
   "Run this in haskell-mode."
   (set-indent 2)
   (column-enforce-n 80)
-  (lsp)
+  (lsp-deferred)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
