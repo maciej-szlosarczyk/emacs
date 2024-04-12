@@ -10,6 +10,8 @@
   :requires (web-mode company-web lsp-mode lsp-ui)
   :straight t)
 
+(use-package typescript-mode :straight t)
+
 ;; (use-package vue-mode
 ;;   :straight t
 ;;   :defer t)
@@ -17,9 +19,6 @@
 ;; Use js2-mode for javascript editing
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
-
-;; Use js2-mode for typescript editing
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . js2-mode))
 
 (defun activate-js2-mode ()
 	"JS2 mode overrides."

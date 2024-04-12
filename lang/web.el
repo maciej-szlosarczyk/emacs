@@ -16,12 +16,6 @@
 ;; ERB mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
-;; React Typescript
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-
-;; Plain React
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-
 ;; Vue JS
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
