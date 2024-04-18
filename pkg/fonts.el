@@ -93,7 +93,7 @@
          (set-font +custom-font (- +custom-font-size 3)))
 
         ;; Default
-        (t (set-font +custom-font (+ +custom-font-size 2)))))
+        (t (set-font +custom-font (- +custom-font-size 3)))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)
