@@ -17,6 +17,7 @@
 (use-package ansible :straight t :defer t)
 (use-package nginx-mode :straight t :defer t)
 (use-package jenkinsfile-mode :straight t :defer t)
+(use-package lua-mode :straight t :defer t)
 (use-package graphql-mode :straight t :defer t)
 (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
 

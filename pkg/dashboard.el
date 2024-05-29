@@ -19,6 +19,7 @@
       '("Happy coding!" "I showed you my source code, pls respond"))
 
 (setq dashboard-startup-banner 'logo)
+(setq dashboard-projects-backend 'projectile)
 
 (setq dashboard-items '((recents  . 5)
                         ;; (bookmarks . 5)
