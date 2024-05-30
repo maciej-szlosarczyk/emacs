@@ -34,6 +34,7 @@
 (load-theme 'base16-darcula t t)
 (load-theme 'base16-solarflare t t)
 (load-theme 'base16-snazzy t t)
+(load-theme 'base16-onedark t t)
 (load-theme 'base16-gruvbox-dark-hard t t)
 (load-theme 'modus-vivendi t t)
 (load-theme 'base16-zenbones t t)
@@ -49,7 +50,7 @@
 
 (spaceline-emacs-theme)
 
-(enable-theme 'sanityinc-tomorrow-eighties)
+(enable-theme 'base16-onedark)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here
