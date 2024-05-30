@@ -16,5 +16,8 @@ jobs:
       - name: Install eask
         run: npm install -g @emacs-eask/cli
 
+      - name: Run tests
+        run: eask test buttercup
+
       - name: Uninstall eask
         run: npm uninstall -g @emacs-eask/cli
