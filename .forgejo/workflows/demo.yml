@@ -1,6 +1,18 @@
 on: [push]
 jobs:
   test:
+    name: "Test config on ${{matrix.node}}"
     runs-on: docker
+    strategy:
+      matrix:
+        node: ["20"]
+
     steps:
-      - run: echo All Good
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node}}
+      - name: Install eask
+        run: npm install -g eask
+      - name: Uninstall eask
+        run: npm uninstall -g eask
