@@ -25,6 +25,7 @@
 (load-theme 'base16-harmonic16-light t t)
 (load-theme 'base16-horizon-light t t)
 (load-theme 'base16-humanoid-light t t)
+(load-theme 'sanityinc-tomorrow-day t t)
 
 ;; Dark themes
 (load-theme 'cyberpunk t t)
@@ -50,7 +51,7 @@
 
 (spaceline-emacs-theme)
 
-(enable-theme 'base16-onedark)
+(enable-theme 'base16-zenburn-modified)
 
 (provide '+custom-pkg-themes)
 ;;; themes.el ends here

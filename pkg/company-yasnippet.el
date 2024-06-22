@@ -31,14 +31,6 @@
 (global-company-mode t)
 (yas-global-mode t)
 
-(use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-  :ensure t)
-
-;; (add-hook 'prog-mode-hook 'copilot-mode)
-(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
-
 (setq-default
  company-minimum-prefix-length 3   ;; minimum prefix character number for auto complete.
  company-idle-delay 0.1
@@ -93,6 +85,25 @@
 (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
+
+
+;;; Copilot and other GPT stuff
+(use-package copilot
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
+  :ensure t)
+
+;; Do not enable copilot by default because it sorta sucks?
+;; (add-hook 'prog-mode-hook 'copilot-mode)
+(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+
+;; Enable Anthropic Claude LLM support for chat (it also sucks)
+(use-package gptel :straight t :ensure t)
+
+(setq
+ gptel-model "claude-3-sonnet-20240229"
+ gptel-backend (gptel-make-anthropic "Claude"
+                 :stream t :key "Your key goes here"))
 
 (provide '+custom-pkg-company-yasnippet)
 ;;; company-yasnippet.el ends here
