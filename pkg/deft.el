@@ -12,6 +12,7 @@
   :config (setq
            deft-directory (substitute-in-file-name "$DEFT_PATH")
            deft-default-extension "md"
+           deft-ignore-file-regexp "^\\._[0-9-A-Z]+.md$"
            deft-strip-summary-regexp (concat "\\("
               "[\n\t]" ;; blank
               "\\|^:[[:ascii:]]+:.*$" ;; org-mode properties string

@@ -100,10 +100,13 @@
 ;; Enable Anthropic Claude LLM support for chat (it also sucks)
 (use-package gptel :straight t :ensure t)
 
+(defcustom anthropic-api-key "api-key" "The value of your Anthropic API key."
+  :type 'string
+  :initialize 'custom-initialize-set)
+
 (setq
- gptel-model "claude-3-sonnet-20240229"
- gptel-backend (gptel-make-anthropic "Claude"
-                 :stream t :key "Your key goes here"))
+ gptel-model "claude-3-5-sonnet-20240620"
+ gptel-backend (gptel-make-anthropic "Claude" :stream t :key (lambda () anthropic-api-key)))
 
 (provide '+custom-pkg-company-yasnippet)
 ;;; company-yasnippet.el ends here

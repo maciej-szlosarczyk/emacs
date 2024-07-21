@@ -47,7 +47,8 @@
     ("a" "Align"          align-regexp)]
    ["Complete"
     ("y" "Snippet"        company-yasnippet)
-    ("m" "Any (Company)"  company-complete)]
+    ("m" "Any (Company)"  company-complete)
+    ("g" "Ask GPT"        gptel-menu)]
    ["Find"
     ("s" "Swiper"         swiper)
     ("u" "Undo tree"      undo-tree-visualize)
