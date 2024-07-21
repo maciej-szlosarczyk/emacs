@@ -54,9 +54,9 @@
 
 ;; #====================== Backup config #==============================
 (setq backup-directory-alist
-      `((".*" . "~/.emacs_backups/auto-save-list")))
+      `((".*" . "~/.emacs/backups/auto-save-list")))
 (setq auto-save-file-name-transforms
-      `((".*", "~/.emacs_backups/auto-save-list" t)))
+      `((".*", "~/.emacs/backups/auto-save-list" t)))
 
 (setq backup-by-copying t)
 (setq delete-old-versions t
