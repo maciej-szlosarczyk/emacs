@@ -11,7 +11,7 @@
 ;;; Code:
 
 (define-minor-mode +custom-keys-mode
-  "Minor mode for all of my personal key bindings"
+  "Minor mode for all of my personal key bindings."
   :global t
   :keymap (make-sparse-keymap))
 

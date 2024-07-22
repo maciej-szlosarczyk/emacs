@@ -5,9 +5,15 @@
 
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 
-(use-package counsel :straight t :defer t)
-(use-package swiper :straight t :defer t)
+
 (use-package helpful :straight t :defer t)
+(use-package counsel :straight t :defer t :requires (helpful)
+  :config
+  ;; Use helpful for showing Elisp documentation
+  (setq counsel-describe-function-function #'helpful-callable)
+  (setq counsel-describe-variable-function #'helpful-variable))
+
+(use-package swiper :straight t :defer t)
 
 (use-package ivy
   :requires (counsel swiper helpful)
@@ -18,10 +24,6 @@
                 ivy-wrap t ;; Wrap around completions
                 ivy-display-style 'fancy ;; Formatting style
                 ))
-
-;; Use helpful for showing Elisp documentation
-(setq counsel-describe-function-function #'helpful-callable)
-(setq counsel-describe-variable-function #'helpful-variable)
 
 (define-key +custom-keys-mode-map (kbd "C-c a") 'counsel-rg)
 (define-key +custom-keys-mode-map (kbd "C-c t") 'counsel-find-file)

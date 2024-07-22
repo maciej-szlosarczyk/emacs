@@ -11,6 +11,7 @@
 	           :host github
 	           :repo "leanprover/lean4-mode"
 	           :files ("*.el" "data"))
+  :requires (lsp)
   :defer t)
 
 (defun activate-lean-mode ()

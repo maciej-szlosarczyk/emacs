@@ -12,7 +12,7 @@
 (use-package flycheck-rust
   :straight t
   :defer t
-  :requires (rust-mode))
+  :requires (rust-mode lsp))
 
 (defun activate-rust-mode ()
   "All things for Rust mode."

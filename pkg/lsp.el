@@ -16,6 +16,14 @@
                 lsp-lens-enable nil
                 lsp-lens-mode nil
                 read-process-output-max (* 1024 1024 2)
+                ;; Disable the piece of shit vue LSP server. It activates itself in every
+                ;; project with .js, .ts or .json file due to something called 'takeover
+                ;; mode' or 'hybrid mode' or some such.
+                ;; It would be okay, but it also doesn't work 99% of the time.
+
+                ;; When needed, enable this hot garbage in dir-locals.el
+                lsp-disabled-clients '(vue-semantic-server)
+                lsp-log-io nil
                 lsp-enable-file-watchers nil)
   (unbind-key "s-l =" lsp-mode-map)
   (unbind-key "s-l G" lsp-mode-map)
@@ -58,21 +66,13 @@
 (use-package lsp-ui
   :straight t
   :requires (lsp-mode)
-  :defer t)
-
-(setq lsp-ui-doc-enable t
-      lsp-ui-header t
-      lsp-ui-delay 0.5 ;; Wait half a second to display documentation
-      lsp-ui-doc-position 'at-point
-      lsp-ui-doc-include-signature t
-      ;; Disable the piece of shit vue LSP server. It activates itself in every
-      ;; project with .js, .ts or .json file due to something called 'takeover
-      ;; mode' or 'hybrid mode' or some such.
-      ;; It would be okay, but it also doesn't work 99% of the time.
-
-      ;; When needed, enable this hot garbage in dir-locals.el
-      lsp-disabled-clients '(vue-semantic-server)
-      lsp-log-io nil)
+  :defer t
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-header t
+        lsp-ui-delay 0.5 ;; Wait half a second to display documentation
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-include-signature t))
 
 ;; Lsp debugger mode
 (use-package dap-mode

@@ -54,9 +54,9 @@
 
 ;; #====================== Backup config #==============================
 (setq backup-directory-alist
-      `((".*" . "~/.emacs/backups/auto-save-list")))
+      `((".*" . "~/.emacs.d/backups/auto-save-list")))
 (setq auto-save-file-name-transforms
-      `((".*", "~/.emacs/backups/auto-save-list" t)))
+      `((".*", "~/.emacs.d/backups/auto-save-list" t)))
 
 (setq backup-by-copying t)
 (setq delete-old-versions t
@@ -88,7 +88,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;; Tree sitter ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package tree-sitter :straight t)
-(use-package tree-sitter-langs :straight t)
+(use-package tree-sitter-langs :straight t :requires (tree-sitter))
+(use-package tree-sitter-indent :straight t)
+
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode)
 
@@ -119,23 +121,24 @@
 
 ;;;;;;;;;;;;;;;;; Treemacs
 (use-package treemacs :straight t :defer t)
-(use-package treemacs-all-the-icons :straight t)
-
-(treemacs-load-theme "all-the-icons")
-(treemacs-project-follow-mode t)
+(use-package treemacs-all-the-icons :defer t :requires (treemacs) :straight t
+  :config
+  (treemacs-load-theme "all-the-icons")
+  (treemacs-project-follow-mode t))
 
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
 (use-package keyfreq
   :defer t
-  :straight t)
-
-(keyfreq-mode t)
-(keyfreq-autosave-mode t)
+  :straight t
+  :config
+  (keyfreq-mode t)
+  (keyfreq-autosave-mode t))
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key
   :defer t
-  :straight t)
+  :straight t
+  :config (which-key-mode t))
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setq next-line-add-newlines t)
@@ -143,8 +146,6 @@
 ;;;;;;;;;;;;;;;;; Speed up long line display by disabling bidirectional text
 (setq-default bidi-paragraph-direction 'left-to-right
               bidi-inhibit-bpa t)
-
-(which-key-mode t)
 
 (provide '+custom-pkg-base)
 ;;; base.el ends here

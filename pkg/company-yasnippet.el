@@ -10,10 +10,12 @@
 (use-package yasnippet-snippets
   :straight t
   :defer t
+  :requires (yasnippet)
   :config
   (unbind-key "C-c & C-n" yas-minor-mode-map)
   (unbind-key "C-c & C-s" yas-minor-mode-map)
-  (unbind-key "C-c & C-v" yas-minor-mode-map))
+  (unbind-key "C-c & C-v" yas-minor-mode-map)
+  (yas-global-mode t))
 
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
@@ -25,11 +27,10 @@
 (use-package company-box
   :straight t
   :defer t
-  :after company
+  :requires (company)
   :hook (((company-mode) . company-box-mode)))
 
 (global-company-mode t)
-(yas-global-mode t)
 
 (setq-default
  company-minimum-prefix-length 3   ;; minimum prefix character number for auto complete.

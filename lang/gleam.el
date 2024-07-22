@@ -14,10 +14,8 @@
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
-(use-package tree-sitter-indent :straight t)
-
 (use-package gleam-mode
-  :requires (tree-sitter-indent)
+  :requires (tree-sitter-indent lsp column-enforce-mode)
   :straight '(:type git
               :host github
               :repo "gleam-lang/gleam-mode"

@@ -13,19 +13,19 @@
 (use-package dashboard
   :straight t
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
 
-(setq dashboard-footer-messages
-      '("Happy coding!" "I showed you my source code, pls respond"))
+  (setq dashboard-footer-messages
+        '("Happy coding!" "I showed you my source code, pls respond"))
 
-(setq dashboard-startup-banner 'logo)
-(setq dashboard-projects-backend 'projectile)
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-projects-backend 'projectile)
 
-(setq dashboard-items '((recents  . 5)
-                        ;; (bookmarks . 5)
-                        ;; (agenda . 5)
-                        ;; (registers . 5)
-                        (projects . 5)))
+  (setq dashboard-items '((recents  . 5)
+                          ;; (bookmarks . 5)
+                          ;; (agenda . 5)
+                          ;; (registers . 5)
+                          (projects . 5))))
 
 (provide '+custom-pkg-dashboard)
 ;;; dashboard.el ends here

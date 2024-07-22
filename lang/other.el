@@ -22,7 +22,7 @@
 (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
 
 ;; Yaml
-(use-package yaml-mode :straight t :defer t)
+(use-package yaml-mode :straight t :defer t :requires (lsp))
 
 (defun +custom-lang-yaml/activate-yaml-mode ()
   "Activate yaml-mode."

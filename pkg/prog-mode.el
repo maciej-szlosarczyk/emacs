@@ -63,7 +63,7 @@
 
 ;; Ensure indentation in steps:
 (defun set-indent (step)
-  "Set indentation to X STEPs."
+  "Set indentation to STEP."
   (interactive "NNumber of columns for one step: ")
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
@@ -78,7 +78,6 @@
 
 ;; Formatter for many files
 (use-package apheleia :straight t :defer t)
-
 
 (provide '+custom-pkg-prog-mode)
 ;;; prog-mode ends here

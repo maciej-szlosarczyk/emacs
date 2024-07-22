@@ -6,8 +6,8 @@
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
-(use-package elixir-mode :requires (lsp-mode lsp-ui) :straight t)
-(use-package elixir-ts-mode :requires (lsp-mode lsp-ui) :straight t)
+(use-package elixir-mode :defer t :straight t)
+(use-package elixir-ts-mode :requires (elixir-mode lsp-mode lsp-ui) :straight t)
 
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))

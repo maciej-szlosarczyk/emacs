@@ -4,7 +4,7 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
-(use-package dhall-mode :straight t :defer t)
+(use-package dhall-mode :straight t :defer t :requires (lsp))
 
 (defun +custom-lang-dhall/activate-dhall-mode ()
   "Reconfigure dhall mode for your own purposes."

@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-(require 'base16-theme)
+(use-package base16-theme :straight t :defer t)
 
 (defvar base16-harmonic-light-modified-colors
   '(:base00 "#f7f9fb"

@@ -14,7 +14,7 @@
 (require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
-(use-package zig-mode :straight t :defer t)
+(use-package zig-mode :straight t :defer t :requires (lsp))
 
 (defun activate-zig-mode ()
   "Goodies for editing zig files."
