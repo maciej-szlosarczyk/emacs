@@ -11,18 +11,9 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;; Use more advanced undo options
-(use-package undo-tree
-  :defer t
+(use-package vundo
   :straight t
-  :config (setq-default
-           ;; Save history to a specific folder
-           undo-tree-history-directory-alist '(("." . "~/.emacs.d/backups/undo-tree"))
-           ;; Show diff
-           undo-tree-visualizer-diff t
-           ;; Show timestamps
-           undo-tree-visualizer-timestamps t))
-
-(global-undo-tree-mode t)
+  :defer t)
 
 (provide '+custom-pkg-undo-tree)
 ;;; undo-tree.el ends here

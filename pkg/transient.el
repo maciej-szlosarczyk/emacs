@@ -51,7 +51,7 @@
     ("g" "Ask GPT"        gptel-menu)]
    ["Find"
     ("s" "Swiper"         swiper)
-    ("u" "Undo tree"      undo-tree-visualize)
+    ("u" "Vundo"          vundo)
     ("d" "Dash"           dash-at-point)]])
 
 (transient-define-prefix +custom-pkg-transient/window-menu ()
