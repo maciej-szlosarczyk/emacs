@@ -50,6 +50,7 @@
   (+custom-set-lsp-ui-font-hook))
 
 (defvar +custom-font "Iosevka Term")
+;; (defvar +custom-font "Monoid")
 ;; (defvar +custom-font "Fira Mono")
 ;; (defvar +custom-font "Fira Code")
 ;; (defvar +custom-font "Red Hat Mono")

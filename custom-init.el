@@ -28,8 +28,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(setq package-enable-at-startup nil)
-
 (straight-use-package 'use-package)
 
 ;; General configuration files.

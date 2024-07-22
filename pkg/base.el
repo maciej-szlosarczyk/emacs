@@ -136,7 +136,6 @@
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key
-  :defer t
   :straight t
   :config (which-key-mode t))
 

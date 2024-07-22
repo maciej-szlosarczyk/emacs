@@ -53,9 +53,8 @@
   :straight t
   :defer t
   :config
-  (add-to-list 'dash-at-point-mode-alist
-               ;; Configure lookup for Ruby mode
-               '(enh-ruby-mode . "ruby,rubygems,rails")))
+  (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
+  (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
 
 ;; By default, use 2 spaces for indentation
 (setq tab-width 2)
@@ -75,9 +74,6 @@
 
 ;; Vim-like regex replace with preview in buffer.
 (use-package visual-regexp :straight t :defer t)
-
-;; Formatter for many files
-(use-package apheleia :straight t :defer t)
 
 (provide '+custom-pkg-prog-mode)
 ;;; prog-mode ends here
