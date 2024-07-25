@@ -30,6 +30,8 @@
 
 (straight-use-package 'use-package)
 
+(add-to-list 'load-path (concat user-emacs-directory "pkg"))
+
 ;; General configuration files.
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
 (require '+custom-pkg-base "$HOME/.emacs.d/pkg/base.el")
