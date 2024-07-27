@@ -4,7 +4,7 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-flycheck)
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 
 (use-package elixir-mode :defer t :straight t)
 (use-package elixir-ts-mode :requires (elixir-mode lsp-mode lsp-ui) :straight t)
@@ -14,7 +14,7 @@
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
 (transient-define-prefix +custom-lang-elixir/transient-context-menu ()
-  "Elixir Buffer Commands"
+  "Elixir Buffer Commands."
   [""
    ["LSP"
     ("m" "iMenu"       lsp-ui-imenu)]

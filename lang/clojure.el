@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 
 (use-package clojure-mode :defer t :straight t)
 
@@ -21,7 +21,7 @@
 
 ;; Transient
 (transient-define-prefix +custom-lang-clojure/cider-context-menu ()
-  "Clojure Buffer Commands"
+  "Clojure Buffer Commands."
   [""
    ["Cider"
     ("j" "Jack in"     cider-jack-in)

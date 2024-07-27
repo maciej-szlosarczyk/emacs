@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 
 (use-package tuareg
   :defer t
@@ -24,7 +24,7 @@
   :straight t)
 
 (transient-define-prefix +custom-lang-ocaml/context-menu ()
-  "Ocaml Actions"
+  "Ocaml Actions."
   ["OCaml actions"
    [""
     ("r" "Reload"   revert-buffer-no-confirm)

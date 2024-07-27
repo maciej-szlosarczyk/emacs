@@ -4,7 +4,7 @@
 ;;; Code:
 
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 
 (use-package deft
   :straight t

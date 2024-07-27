@@ -13,7 +13,7 @@
   (indent-region (point-min) (point-max)))
 
 (transient-define-prefix +custom-pkg-transient/project-menu ()
-  "Project Commands"
+  "Project Commands."
   [""
    ["Projectile"
     ("s" "Switch project"       counsel-projectile-switch-project)
@@ -89,7 +89,7 @@
    ("]" "Next" previous-buffer)])
 
 (transient-define-prefix +custom-pkg-transient/move-menu ()
-  "Move Commands"
+  "Move Commands."
   [""
    ["Move this buffer"
     ("{" "Up"    buf-move-left)
@@ -102,7 +102,7 @@
     ("c" "Line" avy-goto-char-2)]])
 
 (transient-define-prefix +custom-pkg-transient/font-menu ()
-  "Font Commands"
+  "Font Commands."
   [""
    ["Everywhere"
     ("R" "Reset to default" set-font-to-screen)
@@ -120,5 +120,5 @@
 (define-key global-map (kbd "C-c m") '+custom-pkg-transient/move-menu)
 (define-key global-map (kbd "C-c l") '+custom-pkg-transient/language-context-menu)
 
-(provide '+custom-pkg-transient)
-;;; transient.el ends here
+(provide 'icejam-transient)
+;;; icejam-transient.el ends here

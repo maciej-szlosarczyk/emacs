@@ -11,7 +11,6 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
 (use-package gleam-mode
   :requires (tree-sitter-indent lsp column-enforce-mode)

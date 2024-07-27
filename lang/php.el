@@ -12,14 +12,14 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-flycheck)
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 
 (use-package php-mode
   :requires (lsp-mode lsp-ui)
   :straight t)
 
 (transient-define-prefix +custom-lang-php/context-menu ()
-  "PHP Buffer Commands"
+  "PHP Buffer Commands."
   [""
    ["LSP"
     ("m" "iMenu"       lsp-ui-imenu)]

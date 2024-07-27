@@ -38,7 +38,7 @@
 (require 'icejam-sys-specific)
 (require 'icejam-ivy)
 (require 'icejam-avy)
-(require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
+(require 'icejam-transient)
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-company-yasnippet)
 (require 'icejam-flycheck)
