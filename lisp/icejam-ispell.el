@@ -20,5 +20,5 @@
 (use-package flyspell-correct :straight t :after flyspell :defer t)
 (use-package flyspell-correct-ivy :straight :after flyspell-correct :defer t)
 
-(provide '+custom-pkg-ispell)
-;;; ispell.el ends here
+(provide 'icejam-ispell)
+;;; icejam-ispell.el ends here

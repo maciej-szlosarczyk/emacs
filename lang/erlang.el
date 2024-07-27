@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-lsp)
 

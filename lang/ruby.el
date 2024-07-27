@@ -4,7 +4,6 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
-(require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 
 (use-package rspec-mode :straight t :defer t)
 (use-package ruby-end :straight t :defer t)

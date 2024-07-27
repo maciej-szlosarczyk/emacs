@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
-(require '+custom-pkg-ctags "$HOME/.emacs.d/pkg/ctags.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (defun +custom-lang-clang/activate-clang-mode ()
@@ -22,13 +21,7 @@
     (defvar c-default-style "bsd"))
 
   (add-to-list (make-local-variable 'company-backends)
-               '(company-etags company-yasnippet))
-
-  (setq-local
-   ctags/refresh-command
-   (format
-    "ctags -e -R --languages=C -f %sTAGS %s/*"
-    (projectile-project-root) (projectile-project-root))))
+               '(company-etags company-yasnippet)))
 
 (add-hook 'c-mode-hook '+custom-lang-clang/activate-clang-mode)
 
