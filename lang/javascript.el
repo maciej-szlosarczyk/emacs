@@ -4,7 +4,7 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require '+custom-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
+(require 'icejam-lsp)
 
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)

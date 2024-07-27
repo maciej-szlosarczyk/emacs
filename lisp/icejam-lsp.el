@@ -1,4 +1,4 @@
-;;; pkg/lsp -- summary -*- lexical-binding: t; -*-
+;;; icejam-lsp -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Global Language Server Protocol Config
 ;;; Code:
@@ -80,5 +80,5 @@
   :defer t
   :requires (lsp-mode lsp-ui))
 
-(provide '+custom-pkg-lsp)
-;;; lsp.el ends here
+(provide 'icejam-lsp)
+;;; icejam-lsp.el ends here

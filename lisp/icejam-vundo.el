@@ -1,4 +1,4 @@
-;;; undo-tree.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-vundo.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -15,5 +15,5 @@
   :straight t
   :defer t)
 
-(provide '+custom-pkg-undo-tree)
-;;; undo-tree.el ends here
+(provide 'icejam-vundo)
+;;; icejam-vundo.el ends here

@@ -25,12 +25,12 @@
            deft-auto-save-interval 30.0))
 
 (transient-define-prefix +custom-pkg-deft/menu ()
- "Start Deft"
+ "Start Deft."
  [""
  ("d" "Deft" deft)
  ("q" "quit" keyboard-quit)])
 
 (define-key +custom-keys-mode-map (kbd "C-c d") '+custom-pkg-deft/menu)
 
-(provide '+custom-pkg-deft)
-;;; deft.el ends here
+(provide 'icejam-deft)
+;;; icejam-deft.el ends here

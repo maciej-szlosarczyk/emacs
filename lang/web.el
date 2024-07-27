@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
+(require 'icejam-lsp)
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package web-mode
