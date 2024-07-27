@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require 'icejam-lsp)
-(require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-flycheck)
 
 (use-package web-mode
   :requires (lsp-mode flycheck)

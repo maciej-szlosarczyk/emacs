@@ -11,7 +11,7 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-lsp)
 
 (use-package fsharp-mode
   :requires (lsp-mode lsp-ui)

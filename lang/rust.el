@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
 
 (use-package rust-mode
   :straight t

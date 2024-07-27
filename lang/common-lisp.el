@@ -9,7 +9,7 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-company-yasnippet "$HOME/.emacs.d/pkg/company-yasnippet.el")
+(require 'icejam-company-yasnippet)
 
 (use-package slime :straight t)
 (use-package slime-company :straight t

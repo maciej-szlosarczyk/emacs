@@ -1,4 +1,4 @@
-;;; pkg/company-yasnippet -- summary -*- lexical-binding: t; -*-
+;;; icejam-company-yasnippet.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Company completion framework configuration
 ;;; Code:
@@ -110,5 +110,5 @@
  gptel-model "claude-3-5-sonnet-20240620"
  gptel-backend (gptel-make-anthropic "Claude" :stream t :key (lambda () anthropic-api-key)))
 
-(provide '+custom-pkg-company-yasnippet)
-;;; company-yasnippet.el ends here
+(provide 'icejam-company-yasnippet)
+;;; icejam-company-yasnippet.el ends here

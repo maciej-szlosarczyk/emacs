@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
+(require 'icejam-flycheck)
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
 
 (use-package elixir-mode :defer t :straight t)

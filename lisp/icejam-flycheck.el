@@ -1,4 +1,4 @@
-;;; pkg/flycheck -- summary -*- lexical-binding: t; -*-
+;;; icejam-flycheck -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -8,6 +8,7 @@
   :straight t
   :defer t
   :config (global-flycheck-mode t)
+  (setq flycheck-emacs-lisp-load-path 'inherit)
   (unbind-key "C-c ! C-c" flycheck-mode-map)
   (unbind-key "C-c ! C-w" flycheck-mode-map)
   (unbind-key "C-c ! ?" flycheck-mode-map)
@@ -25,5 +26,5 @@
   (unbind-key "C-c ! v" flycheck-mode-map)
   (unbind-key "C-c ! x" flycheck-mode-map))
 
-(provide '+custom-pkg-flycheck)
-;;; flycheck.el ends here
+(provide 'icejam-flycheck)
+;;; icejam-flycheck.el ends here
