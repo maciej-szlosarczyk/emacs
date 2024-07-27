@@ -30,10 +30,14 @@
 
 (straight-use-package 'use-package)
 
+;; I don't know why this needs to be here and with a lisp specifier, but
+;; normal subdirs.el file doesn't work.
+(normal-top-level-add-to-load-path '("lisp/themes" "lisp/langs"))
+
 ;; (add-to-list 'load-path (concat user-emacs-directory "pkg"))
 
 ;; General configuration files.
-(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require 'icejam-keys-mode)
 (require 'icejam-base)
 (require 'icejam-sys-specific)
 (require 'icejam-ivy)
@@ -52,8 +56,8 @@
 (require 'icejam-speed-type)
 
 ;; Themes
-(require '+custom-pkg-themes "$HOME/.emacs.d/pkg/themes.el")
-(require '+custom-pkg-fonts "$HOME/.emacs.d/pkg/fonts.el")
+(require 'icejam-themes)
+(require 'icejam-fonts)
 
 ;; Actual supported languages and file syntax.
 (require '+custom-lang-clang "$HOME/.emacs.d/lang/clang.el")
@@ -84,7 +88,7 @@
 (require '+custom-lang-ziglang "$HOME/.emacs.d/lang/ziglang.el")
 
 ;; Diminish modeline litter
-(require '+custom-pkg-diminish "$HOME/.emacs.d/pkg/diminish.el")
+(require 'icejam-diminish)
 
 ;; Restore GC to normal, but still high
 (setq gc-cons-threshold 100000000)

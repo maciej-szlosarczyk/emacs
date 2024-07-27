@@ -7,7 +7,7 @@
 (defconst IS-BSD (eq system-type 'berkeley-unix))
 (defconst IS-GNU (eq system-type 'gnu/linux))
 
-(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require 'icejam-keys-mode)
 
 (defun +custom-function-delete-window ()
   "Kill a window."

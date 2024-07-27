@@ -1,4 +1,4 @@
-;;; keys-mode.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-keys-mode.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -51,5 +51,5 @@
 (define-key +custom-keys-mode-map [home] 'beginning-of-line)
 (define-key +custom-keys-mode-map [end] 'end-of-line)
 
-(provide '+custom-pkg-keys-mode)
-;;; keys-mode.el ends here
+(provide 'icejam-keys-mode)
+;;; icejam-keys-mode.el ends here

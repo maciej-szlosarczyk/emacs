@@ -36,5 +36,5 @@
 
 ;; Mark the theme as provided
 (provide-theme 'base16-summerfruit-light-modified)
-(provide 'themes/base16-summerfruit-light-modified-theme)
-;;; base16-summerfruit-light-modified-theme.el ends here
+(provide 'icejam-base16-summerfruit-light)
+;;; icejam-base16-summerfruit-light.el ends here

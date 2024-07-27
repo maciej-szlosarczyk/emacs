@@ -1,9 +1,9 @@
-;;; pkg/deft.el -- summary -*- lexical-binding: t; -*-
+;;; icejam-deft.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:
 
-(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
+(require 'icejam-keys-mode)
 (require 'icejam-transient)
 
 (use-package deft

@@ -46,6 +46,5 @@
 
 ;; Mark the theme as provided
 (provide-theme 'base16-zenburn-modified)
-
-(provide 'base16-zenburn-modified-theme)
-;;; base16-zenburn-modified-theme.el ends here
+(provide 'icejam-base16-zenburn)
+;;; icejam-base16-zenburn.el ends here

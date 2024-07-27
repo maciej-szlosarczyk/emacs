@@ -36,5 +36,5 @@
 
 ;; Mark the theme as provided
 (provide-theme 'base16-harmonic-light-modified)
-(provide 'themes/base16-harmonic-light-modified-theme)
-;;; base16-harmonic-light-modified-theme.el ends here
+(provide 'icejam-base16-harmonic-light)
+;;; icejam-base16-harmonic-light.el ends here

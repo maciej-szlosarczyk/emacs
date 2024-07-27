@@ -384,4 +384,5 @@ More information on Tron: https://en.wikipedia.org/wiki/Tron")
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'tronesque)
-;;; tronesque-theme.el ends here
+(provide icejam-tronesque)
+;;; icejam-tronesque.el ends here

@@ -1,4 +1,4 @@
-;;; fonts.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-fonts.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -118,5 +118,5 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(provide '+custom-pkg-fonts)
-;;; fonts.el ends here
+(provide 'icejam-fonts)
+;;; icejam-fonts.el ends here

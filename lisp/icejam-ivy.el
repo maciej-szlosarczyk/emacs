@@ -1,10 +1,9 @@
-;;; pkg/ivy -- summary -*- lexical-binding: t; -*-
+;;; icejam-ivy -- Counsel, Swiper and Ivy. -*- lexical-binding: t; -*-
 ;;; Commentary:
-;;; Counsel, Swiper and Ivy.
+;;;
 ;;; Code:
 
-(require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
-
+(require 'icejam-keys-mode)
 
 (use-package helpful :straight t :defer t)
 (use-package counsel :straight t :defer t :requires (helpful)

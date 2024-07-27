@@ -1,4 +1,4 @@
-;;; diminish.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-diminish.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -23,5 +23,5 @@
 (eval-after-load "whitespace" '(diminish 'whitespace-mode))
 (eval-after-load "auto-revert-mode" '(diminish 'auto-revert-mode))
 
-(provide '+custom-pkg-diminish)
-;;; diminish.el ends here
+(provide 'icejam-diminish)
+;;; icejam-diminish.el ends here

@@ -1,4 +1,4 @@
-;;; Themes -- summary -*- lexical-binding: t; -*-
+;;; icejam-themes.el -- Theme configuration -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -43,15 +43,11 @@
 (load-theme 'sanityinc-tomorrow-night t t)
 
 ;; My own theme modifications:
-(require 'base16-zenburn-modified-theme
-         "$HOME/.emacs.d/themes/base16-zenburn-modified.el")
-
-(require 'base16-harmonic-light-modified-theme
-         "$HOME/.emacs.d/themes/base16-harmonic-light-modified.el")
+(require 'icejam-base16-zenburn)
+(require 'icejam-base16-harmonic-light)
 
 (spaceline-emacs-theme)
-
 (enable-theme 'base16-zenburn-modified)
 
-(provide '+custom-pkg-themes)
-;;; themes.el ends here
+(provide 'icejam-themes)
+;;; icejam-themes.el ends here

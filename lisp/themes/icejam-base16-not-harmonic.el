@@ -55,7 +55,5 @@
 
 ;; Mark the theme as provided
 (provide-theme 'base16-not-harmonic)
-
-(provide 'base16-not-harmonic-theme)
-
-;;; base16-not-harmonic-theme.el ends here
+(provide 'icejam-base16-not-harmonic)
+;;; icejam-base16-not-harmonic.el ends here
