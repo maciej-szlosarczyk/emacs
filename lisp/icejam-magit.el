@@ -1,4 +1,4 @@
-;;; pkg/magit -- summary -*- lexical-binding: t; -*-
+;;; icejam-magit.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -11,5 +11,5 @@
         (:map magit-blame-mode-map
               ("<f5> b" . 'magit-blame-quit)))
 
-(provide '+custom-pkg-magit)
-;;; magit.el ends here
+(provide 'icejam-magit)
+;;; icejam-magit.el ends here

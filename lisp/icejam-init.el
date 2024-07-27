@@ -34,12 +34,11 @@
 
 ;; General configuration files.
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
-(require '+custom-pkg-base "$HOME/.emacs.d/pkg/base.el")
-(require '+custom-pkg-sys-specific "$HOME/.emacs.d/pkg/sys-specific.el")
-(require '+custom-pkg-ivy "$HOME/.emacs.d/pkg/ivy.el")
+(require 'icejam-base)
+(require 'icejam-sys-specific)
+(require 'icejam-ivy)
 (require 'icejam-avy)
 (require '+custom-pkg-transient "$HOME/.emacs.d/pkg/transient.el")
-(require '+custom-pkg-magit "$HOME/.emacs.d/pkg/magit.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-company-yasnippet)
 (require 'icejam-flycheck)
@@ -48,6 +47,7 @@
 (require 'icejam-deft)
 (require 'icejam-lsp)
 (require 'icejam-dashboard)
+(require 'icejam-magit)
 (require 'icejam-vundo)
 (require 'icejam-speed-type)
 

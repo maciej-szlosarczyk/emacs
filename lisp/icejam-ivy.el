@@ -37,5 +37,5 @@
 (define-key +custom-keys-mode-map (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (define-key +custom-keys-mode-map (kbd "<f2> u") 'counsel-unicode-char)
 
-(provide '+custom-pkg-ivy)
-;;; ivy.el ends here
+(provide 'icejam-ivy)
+;;; icejam-ivy.el ends here

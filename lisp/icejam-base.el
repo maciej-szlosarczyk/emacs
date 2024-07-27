@@ -146,5 +146,5 @@
 (setq-default bidi-paragraph-direction 'left-to-right
               bidi-inhibit-bpa t)
 
-(provide '+custom-pkg-base)
-;;; base.el ends here
+(provide 'icejam-base)
+;;; icejam-base.el ends here

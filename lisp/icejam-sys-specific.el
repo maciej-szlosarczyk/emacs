@@ -99,5 +99,5 @@
       (define-key +custom-keys-mode-map (kbd "A-z") 'undo)
       (define-key +custom-keys-mode-map (kbd "A-q") 'kill-emacs))))
 
-(provide '+custom-pkg-sys-specific)
-;;; sys-specific.el ends here
+(provide 'icejam-sys-specific)
+;;; icejam-sys-specific.el ends here
