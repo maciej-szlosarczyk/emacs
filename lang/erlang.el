@@ -4,6 +4,7 @@
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require 'icejam-lsp)
+(require 'icejam-projectile)
 
 (use-package erlang
   :defer t

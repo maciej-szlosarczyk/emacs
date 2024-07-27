@@ -42,7 +42,7 @@
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 (require '+custom-pkg-company-yasnippet "$HOME/.emacs.d/pkg/company-yasnippet.el")
 (require '+custom-pkg-flycheck "$HOME/.emacs.d/pkg/flycheck.el")
-(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
+(require 'icejam-projectile)
 (require 'icejam-ispell)
 (require 'icejam-deft)
 (require 'icejam-lsp)

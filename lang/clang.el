@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (defun +custom-lang-clang/activate-clang-mode ()

@@ -3,10 +3,9 @@
 ;;; Code:
 
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
-(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 
 (transient-define-prefix +custom-lang-python/transient-context-menu ()
-  "Python Buffer Commands"
+  "Python Buffer Commands."
   [""
    ["LSP"
     ("m" "iMenu"       lsp-ui-imenu)]

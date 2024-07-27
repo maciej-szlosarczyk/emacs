@@ -9,8 +9,6 @@
 ;; ziglang does a thing.
 
 ;;; Code:
-
-(require '+custom-pkg-projectile "$HOME/.emacs.d/pkg/projectile.el")
 (require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
 
 (use-package zig-mode :straight t :defer t :requires (lsp))
