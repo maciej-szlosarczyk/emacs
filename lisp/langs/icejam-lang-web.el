@@ -46,5 +46,5 @@
 
 (add-hook 'web-mode-hook 'activate-web-mode)
 
-(provide '+custom-lang-web)
-;;; web.el ends here
+(provide 'icejam-lang-web)
+;;; icejam-lang-web.el ends here

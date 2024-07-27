@@ -9,5 +9,5 @@
 (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.envrc\\'" . sh-mode))
 
-(provide '+custom-lang-sh)
-;;; sh.el ends here
+(provide 'icejam-lang-sh)
+;;; icejam-lang-sh.el ends here

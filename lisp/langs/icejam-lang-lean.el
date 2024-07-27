@@ -27,5 +27,5 @@
 
 (add-hook 'lean4-mode-hook 'activate-lean-mode)
 
-(provide '+custom-lang-lean)
-;;; lean.el ends here
+(provide 'icejam-lang-lean)
+;;; icejam-lang-lean.el ends here

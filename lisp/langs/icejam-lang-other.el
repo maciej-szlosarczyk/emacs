@@ -38,5 +38,5 @@
   :hook ((gitignore-mode . whitespace-mode)
          (before-save . whitespace-cleanup)))
 
-(provide '+custom-lang-other)
-;;; other.el ends here
+(provide 'icejam-lang-other)
+;;; icejam-lang-other.el ends here

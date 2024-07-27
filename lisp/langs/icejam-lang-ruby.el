@@ -36,5 +36,5 @@
 (add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
 ;; (add-hook 'enh-ruby-mode-hook 'lsp-deferred)
 
-(provide '+custom-lang-ruby)
-;;; ruby.el ends here
+(provide 'icejam-lang-ruby)
+;;; icejam-lang-ruby.el ends here

@@ -19,5 +19,5 @@
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-fancy slime-company slime-quicklisp slime-asdf))
 
-(provide '+custom-lang-common-lisp)
-;;; common-lisp.el ends here
+(provide 'icejam-lang-common-lisp)
+;;; icejam-lang-common-lisp.el ends here

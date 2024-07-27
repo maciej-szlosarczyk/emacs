@@ -27,5 +27,5 @@
 
 (add-hook 'purescript-mode-hook 'activate-purescript-mode)
 
-(provide '+custom-lang-purescript)
-;;; purescript.el ends here
+(provide 'icejam-lang-purescript)
+;;; icejam-lang-purescript.el ends here

@@ -45,5 +45,5 @@
 
 (add-hook 'php-mode-hook '+custom-lang-php/activate-php-mode)
 
-(provide '+custom-lang-php)
-;;; php.el ends here
+(provide 'icejam-lang-php)
+;;; icejam-lang-php.el ends here

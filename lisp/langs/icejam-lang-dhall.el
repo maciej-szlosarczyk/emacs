@@ -13,5 +13,5 @@
 (add-hook 'dhall-mode-hook '+custom-lang-dhall/activate-dhall-mode)
 (add-hook 'dhall-mode-hook 'display-line-numbers-mode)
 
-(provide '+custom-lang-dhall)
-;;; dhall.el ends here
+(provide 'icejam-lang-dhall)
+;;; icejam-lang-dhall.el ends here

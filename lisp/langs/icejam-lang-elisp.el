@@ -29,5 +29,5 @@
 
 (add-hook 'emacs-lisp-mode-hook 'activate-emacs-lisp-mode)
 
-(provide '+custom-lang-elisp)
-;;; elisp.el ends here
+(provide 'icejam-lang-elisp)
+;;; icejam-lang-elisp.el ends here

@@ -13,5 +13,5 @@
 
 (add-hook 'dart-mode-hook '+custom-lang-dart/activate-dart-mode)
 
-(provide '+custom-lang-dart)
-;;; dart.el ends here
+(provide 'icejam-lang-dart)
+;;; icejam-lang-dart.el ends here

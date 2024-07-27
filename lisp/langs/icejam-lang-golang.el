@@ -24,5 +24,5 @@
 
 (add-hook 'go-mode-hook 'activate-golang-mode)
 
-(provide '+custom-lang-golang)
-;;; golang.el ends here
+(provide 'icejam-lang-golang)
+;;; icejam-lang-golang.el ends here

@@ -24,5 +24,5 @@
 
 (add-hook 'c-mode-hook '+custom-lang-clang/activate-clang-mode)
 
-(provide '+custom-lang-clang)
-;;; clang.el ends here
+(provide 'icejam-lang-clang)
+;;; icejam-lang-clang.el ends here

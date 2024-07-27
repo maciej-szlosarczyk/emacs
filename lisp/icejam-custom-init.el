@@ -30,11 +30,10 @@
 
 (straight-use-package 'use-package)
 
-;; I don't know why this needs to be here and with a lisp specifier, but
+;; I don't know why this needs to be here and with a lisp directory, but
 ;; normal subdirs.el file doesn't work.
-(normal-top-level-add-to-load-path '("lisp/themes" "lisp/langs"))
-
-;; (add-to-list 'load-path (concat user-emacs-directory "pkg"))
+(add-to-list 'load-path (concat user-emacs-directory "lisp/themes"))
+(add-to-list 'load-path (concat user-emacs-directory "lisp/langs"))
 
 ;; General configuration files.
 (require 'icejam-keys-mode)
@@ -60,32 +59,32 @@
 (require 'icejam-fonts)
 
 ;; Actual supported languages and file syntax.
-(require '+custom-lang-clang "$HOME/.emacs.d/lang/clang.el")
-(require '+custom-lang-clojure "$HOME/.emacs.d/lang/clojure.el")
-(require '+custom-lang-common-lisp "$HOME/.emacs.d/lang/common-lisp.el")
-(require '+custom-lang-dart "$HOME/.emacs.d/lang/dart.el")
-(require '+custom-lang-dhall "$HOME/.emacs.d/lang/dhall.el")
-(require '+custom-lang-elisp "$HOME/.emacs.d/lang/elisp.el")
-(require '+custom-lang-elixir "$HOME/.emacs.d/lang/elixir.el")
-(require '+custom-lang-erlang "$HOME/.emacs.d/lang/erlang.el")
-(require '+custom-lang-fsharp "$HOME/.emacs.d/lang/fsharp.el")
-(require '+custom-lang-gleam "$HOME/.emacs.d/lang/gleam.el")
-(require '+custom-lang-golang "$HOME/.emacs.d/lang/golang.el")
-(require '+custom-lang-haskell "$HOME/.emacs.d/lang/haskell.el")
-(require '+custom-lang-javascript "$HOME/.emacs.d/lang/javascript.el")
-(require '+custom-lang-kotlin "$HOME/.emacs.d/lang/kotlin.el")
-(require '+custom-lang-lean "$HOME/.emacs.d/lang/lean.el")
-(require '+custom-lang-markdown "$HOME/.emacs.d/lang/markdown.el")
-(require '+custom-lang-ocaml "$HOME/.emacs.d/lang/ocaml.el")
-(require '+custom-lang-other "$HOME/.emacs.d/lang/other.el")
-(require '+custom-lang-php "$HOME/.emacs.d/lang/php.el")
-(require '+custom-lang-purescript "$HOME/.emacs.d/lang/purescript.el")
-(require '+custom-lang-python "$HOME/.emacs.d/lang/python.el")
-(require '+custom-lang-ruby "$HOME/.emacs.d/lang/ruby.el")
-(require '+custom-lang-rust "$HOME/.emacs.d/lang/rust.el")
-(require '+custom-lang-sh "$HOME/.emacs.d/lang/sh.el")
-(require '+custom-lang-web "$HOME/.emacs.d/lang/web.el")
-(require '+custom-lang-ziglang "$HOME/.emacs.d/lang/ziglang.el")
+(require 'icejam-lang-clang)
+(require 'icejam-lang-clojure)
+(require 'icejam-lang-common-lisp)
+(require 'icejam-lang-dart)
+(require 'icejam-lang-dhall)
+(require 'icejam-lang-elisp)
+(require 'icejam-lang-elixir)
+(require 'icejam-lang-erlang)
+(require 'icejam-lang-fsharp)
+(require 'icejam-lang-gleam)
+(require 'icejam-lang-golang)
+(require 'icejam-lang-haskell)
+(require 'icejam-lang-javascript)
+(require 'icejam-lang-kotlin)
+(require 'icejam-lang-lean)
+(require 'icejam-lang-markdown)
+(require 'icejam-lang-ocaml)
+(require 'icejam-lang-other)
+(require 'icejam-lang-php)
+(require 'icejam-lang-purescript)
+(require 'icejam-lang-python)
+(require 'icejam-lang-ruby)
+(require 'icejam-lang-rust)
+(require 'icejam-lang-sh)
+(require 'icejam-lang-web)
+(require 'icejam-lang-ziglang)
 
 ;; Diminish modeline litter
 (require 'icejam-diminish)

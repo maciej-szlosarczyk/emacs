@@ -29,5 +29,5 @@
 (add-hook 'rust-mode-hook 'activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)
 
-(provide '+custom-lang-rust)
-;;; rust.el ends here
+(provide 'icejam-lang-rust)
+;;; icejam-lang-rust.el ends here

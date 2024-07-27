@@ -30,5 +30,5 @@
 
 (add-hook 'kotlin-mode-hook 'activate-kotlin-mode)
 
-(provide '+custom-lang-kotlin)
-;;; kotlin.el ends here
+(provide 'icejam-lang-kotlin)
+;;; icejam-lang-kotlin.el ends here

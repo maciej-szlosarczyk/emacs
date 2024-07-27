@@ -24,5 +24,5 @@
 (add-hook 'markdown-mode-hook '+custom-lang-markdown/activate-markdown-mode)
 (add-hook 'markdown-mode-hook 'display-line-numbers-mode)
 
-(provide '+custom-lang-markdown)
-;;; markdown.el ends here
+(provide 'icejam-lang-markdown)
+;;; icejam-lang-markdown.el ends here

@@ -99,5 +99,5 @@
 
 (add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
 
-(provide '+custom-lang-erlang)
-;;; erlang.el ends here
+(provide 'icejam-lang-erlang)
+;;; icejam-lang-erlang.el ends here

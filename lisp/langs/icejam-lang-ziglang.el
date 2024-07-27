@@ -25,5 +25,5 @@
 
 (add-hook 'zig-mode-hook 'activate-zig-mode)
 
-(provide '+custom-lang-ziglang)
-;;; ziglang.el ends here
+(provide 'icejam-lang-ziglang)
+;;; icejam-lang-ziglang.el ends here

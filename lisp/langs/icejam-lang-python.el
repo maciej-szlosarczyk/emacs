@@ -32,5 +32,5 @@
 
 (add-hook 'python-mode-hook '+custom-lang-python/activate-python-mode)
 
-(provide '+custom-lang-python)
-;;; python.el ends here
+(provide 'icejam-lang-python)
+;;; icejam-lang-python.el ends here

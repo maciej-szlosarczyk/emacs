@@ -30,5 +30,5 @@
 
 (add-hook 'fsharp-mode-hook 'activate-fsharp-mode)
 
-(provide '+custom-lang-fsharp)
-;;; fsharp.el ends here
+(provide 'icejam-lang-fsharp)
+;;; icejam-lang-fsharp.el ends here

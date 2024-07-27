@@ -43,5 +43,5 @@
 
 (add-hook 'js2-mode-hook 'activate-js2-mode)
 
-(provide '+custom-lang-javascript)
-;;; javascript.el ends here
+(provide 'icejam-lang-javascript)
+;;; icejam-lang-javascript.el ends here

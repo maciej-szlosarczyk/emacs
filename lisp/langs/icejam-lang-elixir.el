@@ -46,5 +46,5 @@
 
 (add-hook 'elixir-ts-mode-hook '+custom-lang-elixir/activate-elixir-ts-mode)
 
-(provide '+custom-lang-elixir)
-;;; elixir.el ends here
+(provide 'icejam-lang-elixir)
+;;; icejam-lang-elixir.el ends here

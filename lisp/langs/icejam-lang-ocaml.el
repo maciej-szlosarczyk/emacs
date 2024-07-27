@@ -91,5 +91,5 @@
 (add-hook 'reason-mode-hook 'custom-lang-ocaml/activate-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
-(provide '+custom-lang-ocaml)
-;;; ocaml.el ends here
+(provide 'icejam-lang-ocaml)
+;;; icejam-lang-ocaml.el ends here

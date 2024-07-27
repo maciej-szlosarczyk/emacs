@@ -33,5 +33,5 @@
 
 (add-hook 'haskell-mode-hook 'activate-haskell-mode)
 
-(provide '+custom-lang-haskell)
-;;; haskell.el ends here
+(provide 'icejam-lang-haskell)
+;;; icejam-lang-haskell.el ends here

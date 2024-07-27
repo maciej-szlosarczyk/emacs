@@ -59,5 +59,5 @@
 (add-hook 'cider-repl-mode-hook '+custom-lang-clojure/clj-repl-config)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
-(provide '+custom-lang-clojure)
-;;; clojure.el ends here
+(provide 'icejam-lang-clojure)
+;;; icejam-lang-clojure.el ends here

@@ -27,5 +27,5 @@
 
 (add-hook 'gleam-mode-hook '+custom-lang-gleam/activate-gleam-mode)
 
-(provide '+custom-lang-gleam)
-;;; gleam.el ends here
+(provide 'icejam-lang-gleam)
+;;; icejam-lang-gleam.el ends here
