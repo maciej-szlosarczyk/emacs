@@ -13,20 +13,20 @@
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
-(transient-define-prefix +custom-lang-elixir/transient-context-menu ()
+(transient-define-prefix icejam-lang-elixir/transient-context-menu ()
   "Elixir Buffer Commands."
   [""
    ["LSP"
     ("m" "iMenu"       lsp-ui-imenu)]
    ["Buffer"
-    ("r" "Reload"      revert-buffer-no-confirm)
+    ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("f" "Format"      elixir-format)
-    ("i" "Indent"      mark-and-indent-whole-buffer)
+    ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 
-(defun +custom-lang-elixir/activate-elixir-ts-mode ()
+(defun icejam-lang-elixir/activate-elixir-ts-mode ()
   "All things Elixir."
   (set-indent 2)
   (column-enforce-n 98)
@@ -38,13 +38,13 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (define-key elixir-ts-mode-map (kbd "C-c l") '+custom-lang-elixir/transient-context-menu)
+  (define-key elixir-ts-mode-map (kbd "C-c l") 'icejam-lang-elixir/transient-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'elixir-ts-mode-hook '+custom-lang-elixir/activate-elixir-ts-mode)
+(add-hook 'elixir-ts-mode-hook 'icejam-lang-elixir/activate-elixir-ts-mode)
 
 (provide 'icejam-lang-elixir)
 ;;; icejam-lang-elixir.el ends here

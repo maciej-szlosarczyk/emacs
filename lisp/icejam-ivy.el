@@ -24,17 +24,17 @@
                 ivy-display-style 'fancy ;; Formatting style
                 ))
 
-(define-key +custom-keys-mode-map (kbd "C-c a") 'counsel-rg)
-(define-key +custom-keys-mode-map (kbd "C-c t") 'counsel-find-file)
-(define-key +custom-keys-mode-map (kbd "C-c C-s") 'swiper) ;; Find things by regexp
-(define-key +custom-keys-mode-map (kbd "M-x") 'counsel-M-x) ;; M-x on steroids
+(define-key icejam-keys-mode-map (kbd "C-c a") 'counsel-rg)
+(define-key icejam-keys-mode-map (kbd "C-c t") 'counsel-find-file)
+(define-key icejam-keys-mode-map (kbd "C-c C-s") 'swiper) ;; Find things by regexp
+(define-key icejam-keys-mode-map (kbd "M-x") 'counsel-M-x) ;; M-x on steroids
 
  ;; List all key bindings there are.
-(define-key +custom-keys-mode-map (kbd "<f1> f") 'counsel-describe-function)
-(define-key +custom-keys-mode-map (kbd "<f1> v") 'counsel-describe-variable)
-(define-key +custom-keys-mode-map (kbd "<f1> l") 'counsel-find-library)
-(define-key +custom-keys-mode-map (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(define-key +custom-keys-mode-map (kbd "<f2> u") 'counsel-unicode-char)
+(define-key icejam-keys-mode-map (kbd "<f1> f") 'counsel-describe-function)
+(define-key icejam-keys-mode-map (kbd "<f1> v") 'counsel-describe-variable)
+(define-key icejam-keys-mode-map (kbd "<f1> l") 'counsel-find-library)
+(define-key icejam-keys-mode-map (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(define-key icejam-keys-mode-map (kbd "<f2> u") 'counsel-unicode-char)
 
 (provide 'icejam-ivy)
 ;;; icejam-ivy.el ends here

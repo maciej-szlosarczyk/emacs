@@ -23,12 +23,12 @@
   :defer t
   :straight t)
 
-(transient-define-prefix +custom-lang-ocaml/context-menu ()
+(transient-define-prefix icejam-lang-ocaml/context-menu ()
   "Ocaml Actions."
   ["OCaml actions"
    [""
-    ("r" "Reload"   revert-buffer-no-confirm)
-    ("i" "Indent"   mark-and-indent-whole-buffer)]
+    ("r" "Reload"   icejam-revert-buffer-no-confirm)
+    ("i" "Indent"   icejam-mark-and-indent-whole-buffer)]
    [""
     ("f" "Format"   ocamlformat)
     ("e" "Opam Env" tuareg-opam-update-env)]]
@@ -48,7 +48,7 @@
 
       ;; Use opam switch to lookup ocamlmerlin binary
       (setq merlin-command 'opam)))
-  (define-key tuareg-mode-map (kbd "C-c l") '+custom-lang-ocaml/context-menu))
+  (define-key tuareg-mode-map (kbd "C-c l") 'icejam-lang-ocaml/context-menu))
 
 ;; OCaml setup
 (add-hook 'tuareg-mode-hook 'merlin-mode)
@@ -66,12 +66,12 @@
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
-(transient-define-prefix +custom-lang-ocaml/reasonml-context-menu ()
+(transient-define-prefix icejam-lang-ocaml/reasonml-context-menu ()
   "ReasonML Actions"
   ["ReasonML actions"
    [""
-    ("r" "Reload"   revert-buffer-no-confirm)
-    ("i" "Indent"   mark-and-indent-whole-buffer)]
+    ("r" "Reload"   icejam-revert-buffer-no-confirm)
+    ("i" "Indent"   icejam-mark-and-indent-whole-buffer)]
    [""
     ("f" "Format"   refmt)
     ("e" "Opam Env" tuareg-opam-update-env)]]
@@ -79,16 +79,16 @@
    ("q" "Quit"      keyboard-quit)])
 
 
-(defun custom-lang-ocaml/activate-reason-mode ()
+(defun icejam-lang-ocaml/activate-reason-mode ()
   "Generate reason config."
   (define-key
-    reason-mode-map (kbd "C-c l") '+custom-lang-ocaml/reasonml-context-menu))
+    reason-mode-map (kbd "C-c l") 'icejam-lang-ocaml/reasonml-context-menu))
 
 ;; Reason setup
 (add-hook 'reason-mode-hook
           (lambda ()
             (add-hook 'before-save-hook #'refmt-before-save)))
-(add-hook 'reason-mode-hook 'custom-lang-ocaml/activate-reason-mode)
+(add-hook 'reason-mode-hook 'icejam-lang-ocaml/activate-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
 (provide 'icejam-lang-ocaml)

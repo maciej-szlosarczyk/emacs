@@ -19,6 +19,6 @@ git clone git@github.com:maciej-szlosarczyk/emacs.git ~/.emacs.d
 And then put the following lines into init.el
 
 ```emacs
-(require '+custom-init "$HOME/.emacs.d/custom-init.el")
+(require 'icejam-custom-init)
 (provide 'init)
 ```

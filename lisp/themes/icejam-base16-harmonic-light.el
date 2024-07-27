@@ -1,4 +1,4 @@
-;;; base16-harmonic-light-modified-theme.el --- summary
+;;; icejam-base16-harmonic-light-modified.el --- summary
 ;;; Commentary:
 
 ;; Author: Maciej Szlosarczyk
@@ -9,7 +9,7 @@
 
 (use-package base16-theme :straight t :defer t)
 
-(defvar base16-harmonic-light-modified-colors
+(defvar icejam-base16-harmonic-light-colors
   '(:base00 "#f7f9fb"
     :base01 "#e5ebf1"
     :base02 "#cbd6e2"
@@ -29,12 +29,12 @@
   "All colors for Base16 Harmonic Light Modified are defined here.")
 
 ;; Define the theme
-(deftheme base16-harmonic-light-modified)
+(deftheme icejam-base16-harmonic-light)
 
 ;; Add all the faces to the theme
-(base16-theme-define 'base16-harmonic-light-modified base16-harmonic-light-modified-colors)
+(base16-theme-define 'icejam-base16-harmonic-light icejam-base16-harmonic-light-colors)
 
 ;; Mark the theme as provided
-(provide-theme 'base16-harmonic-light-modified)
+(provide-theme 'icejam-base16-harmonic-light)
 (provide 'icejam-base16-harmonic-light)
 ;;; icejam-base16-harmonic-light.el ends here

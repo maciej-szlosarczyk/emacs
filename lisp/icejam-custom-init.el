@@ -35,6 +35,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/themes"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/langs"))
 
+(defgroup :icejam nil "My customisation group.")
+
 ;; General configuration files.
 (require 'icejam-keys-mode)
 (require 'icejam-base)

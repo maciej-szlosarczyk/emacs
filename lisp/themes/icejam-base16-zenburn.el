@@ -1,4 +1,4 @@
-;; base16-zenburn-modified-theme.el -- A base16 colorscheme
+;; icejam-base16-zenburn.el -- A base16 colorscheme
 
 ;;; Commentary:
 ;; Base16: (https://github.com/chriskempson/base16)
@@ -17,9 +17,9 @@
 ;; 0B made lighter by 10% #5f7f5f => #799979
 
 
-(use-package base16-theme :straight t :defer t)
+(use-package base16-theme :straight t)
 
-(defvar base16-zenburn-modified-colors
+(defvar icejam-base16-zenburn-colors
   '(:base00 "#383838"
     :base01 "#404040"
     :base02 "#5b5b5b"
@@ -39,12 +39,12 @@
   "All colors for Base16 Zenburn-Modified are defined here.")
 
 ;; Define the theme
-(deftheme base16-zenburn-modified)
+(deftheme icejam-base16-zenburn)
 
 ;; Add all the faces to the theme
-(base16-theme-define 'base16-zenburn-modified base16-zenburn-modified-colors)
+(base16-theme-define 'icejam-base16-zenburn icejam-base16-zenburn-colors)
 
 ;; Mark the theme as provided
-(provide-theme 'base16-zenburn-modified)
+(provide-theme 'icejam-base16-zenburn)
 (provide 'icejam-base16-zenburn)
 ;;; icejam-base16-zenburn.el ends here

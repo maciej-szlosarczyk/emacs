@@ -9,7 +9,7 @@
 
 (require 'icejam-keys-mode)
 
-(defun +custom-function-delete-window ()
+(defun icejam-function-delete-window ()
   "Kill a window."
   (interactive) (delete-window))
 
@@ -31,27 +31,27 @@
             (setq mac-command-modifier 'meta))))
 
       ;;;;;;;;; Mac binding (fix) ;;;;;;;;;;;;;;;;;;
-      (define-key +custom-keys-mode-map (kbd "H-<right>") 'end-of-line)
-      (define-key +custom-keys-mode-map (kbd "H-<left>") 'beginning-of-line)
-      (define-key +custom-keys-mode-map (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (define-key +custom-keys-mode-map (kbd "H-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "H-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "H-<down>") 'scroll-up)
 
-      (define-key +custom-keys-mode-map [(hyper a)] 'mark-whole-buffer)
-      (define-key +custom-keys-mode-map [(hyper v)] 'yank)
-      (define-key +custom-keys-mode-map [(hyper x)] 'kill-region)
-      (define-key +custom-keys-mode-map [(hyper c)] 'kill-ring-save)
-      (define-key +custom-keys-mode-map [(hyper s)] 'save-buffer)
-      (define-key +custom-keys-mode-map [(hyper l)] 'goto-line)
-      (define-key +custom-keys-mode-map [(hyper b)] 'treemacs)
-      (define-key +custom-keys-mode-map [(hyper w)] '+custom-function-delete-window)
-      (define-key +custom-keys-mode-map [(hyper z)] 'undo)
-      (define-key +custom-keys-mode-map [(hyper q)] 'kill-emacs)
+      (define-key icejam-keys-mode-map [(hyper a)] 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map [(hyper v)] 'yank)
+      (define-key icejam-keys-mode-map [(hyper x)] 'kill-region)
+      (define-key icejam-keys-mode-map [(hyper c)] 'kill-ring-save)
+      (define-key icejam-keys-mode-map [(hyper s)] 'save-buffer)
+      (define-key icejam-keys-mode-map [(hyper l)] 'goto-line)
+      (define-key icejam-keys-mode-map [(hyper b)] 'treemacs)
+      (define-key icejam-keys-mode-map [(hyper w)] 'icejam-function-delete-window)
+      (define-key icejam-keys-mode-map [(hyper z)] 'undo)
+      (define-key icejam-keys-mode-map [(hyper q)] 'kill-emacs)
 
       ;; Disable meta on right alt (useful for Polish characters)
       ;; (setq mac-right-option-modifier nil)
       ))
 
-(defun +custom-switch-right-left-alt ()
+(defun icejam-switch-right-left-alt ()
   "Set keyboard to das keyboard."
   (interactive)
   (if (eq mac-right-option-modifier nil)
@@ -66,38 +66,38 @@
 (if IS-GNU
     (progn
       ;;;; Save and undo
-      (define-key +custom-keys-mode-map (kbd "s-s") 'save-buffer)
-      (define-key +custom-keys-mode-map (kbd "s-z") 'undo)
-      (define-key +custom-keys-mode-map (kbd "s-a") 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map (kbd "s-s") 'save-buffer)
+      (define-key icejam-keys-mode-map (kbd "s-z") 'undo)
+      (define-key icejam-keys-mode-map (kbd "s-a") 'mark-whole-buffer)
 
       ;;;;;;;; Copy and paste bindings ;;;;;;;;;;;;;;;;;;
-      (define-key +custom-keys-mode-map (kbd "s-x") 'kill-region)
-      (define-key +custom-keys-mode-map (kbd "s-v") 'yank)
-      (define-key +custom-keys-mode-map (kbd "s-c") 'kill-ring-save)
+      (define-key icejam-keys-mode-map (kbd "s-x") 'kill-region)
+      (define-key icejam-keys-mode-map (kbd "s-v") 'yank)
+      (define-key icejam-keys-mode-map (kbd "s-c") 'kill-ring-save)
 
       ;;;;;;;;; Linux Ergo bindings (fix) ;;;;;;;;;;;;;;;;;;
-      (define-key +custom-keys-mode-map (kbd "C-<right>") 'end-of-line)
-      (define-key +custom-keys-mode-map (kbd "C-<left>") 'beginning-of-line)
-      (define-key +custom-keys-mode-map (kbd "C-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (define-key +custom-keys-mode-map (kbd "C-<down>") 'scroll-up)))
+      (define-key icejam-keys-mode-map (kbd "C-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "C-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "C-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "C-<down>") 'scroll-up)))
 
 ;;;;;;;;; BSD-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-BSD
     (progn
-      (define-key +custom-keys-mode-map (kbd "A-<right>") 'end-of-line)
-      (define-key +custom-keys-mode-map (kbd "A-<left>") 'beginning-of-line)
-      (define-key +custom-keys-mode-map (kbd "A-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (define-key +custom-keys-mode-map (kbd "A-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "A-<right>") 'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "A-<left>") 'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "A-<up>") 'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "A-<down>") 'scroll-up)
 
-      (define-key +custom-keys-mode-map (kbd "A-a") 'mark-whole-buffer)
-      (define-key +custom-keys-mode-map (kbd "A-v") 'yank)
-      (define-key +custom-keys-mode-map (kbd "A-x") 'kill-region)
-      (define-key +custom-keys-mode-map (kbd "A-c") 'kill-ring-save)
-      (define-key +custom-keys-mode-map (kbd "A-s") 'save-buffer)
-      (define-key +custom-keys-mode-map (kbd "A-l") 'goto-line)
-      (define-key +custom-keys-mode-map (kbd "A-w" '+delete-window)
-      (define-key +custom-keys-mode-map (kbd "A-z") 'undo)
-      (define-key +custom-keys-mode-map (kbd "A-q") 'kill-emacs))))
+      (define-key icejam-keys-mode-map (kbd "A-a") 'mark-whole-buffer)
+      (define-key icejam-keys-mode-map (kbd "A-v") 'yank)
+      (define-key icejam-keys-mode-map (kbd "A-x") 'kill-region)
+      (define-key icejam-keys-mode-map (kbd "A-c") 'kill-ring-save)
+      (define-key icejam-keys-mode-map (kbd "A-s") 'save-buffer)
+      (define-key icejam-keys-mode-map (kbd "A-l") 'goto-line)
+      (define-key icejam-keys-mode-map (kbd "A-w" '+delete-window)
+      (define-key icejam-keys-mode-map (kbd "A-z") 'undo)
+      (define-key icejam-keys-mode-map (kbd "A-q") 'kill-emacs))))
 
 (provide 'icejam-sys-specific)
 ;;; icejam-sys-specific.el ends here

@@ -47,7 +47,7 @@
 (require 'icejam-base16-harmonic-light)
 
 (spaceline-emacs-theme)
-(enable-theme 'base16-zenburn-modified)
+(enable-theme 'icejam-base16-zenburn)
 
 (provide 'icejam-themes)
 ;;; icejam-themes.el ends here

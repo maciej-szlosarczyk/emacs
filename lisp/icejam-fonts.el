@@ -12,20 +12,20 @@
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun +custom-set-lsp-ui-font-hook ()
-  "Reset LSP IO font to specified +custom-font and +custom-font-size."
+(defun icejam-set-lsp-ui-font-hook ()
+  "Reset LSP IO font to specified icejam-font and icejam-font-size."
   (setq lsp-ui-doc-frame-hook nil)
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)
               (set-face-attribute
                'default frame :font
-               (format "%s %d" +custom-font (- +custom-font-size 2))))))
+               (format "%s %d" icejam-font (- icejam-font-size 2))))))
 
 (defun set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
-  (setq +custom-font name)
-  (setq +custom-font-size size)
+  (setq icejam-font name)
+  (setq icejam-font-size size)
 
   (set-face-attribute 'default nil :font (format "%s %d" name size))
 
@@ -47,23 +47,23 @@
    'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
 
   ;; Call LSP-UI hook
-  (+custom-set-lsp-ui-font-hook))
+  (icejam-set-lsp-ui-font-hook))
 
-(defvar +custom-font "Iosevka Term")
-;; (defvar +custom-font "Monoid")
-;; (defvar +custom-font "Fira Mono")
-;; (defvar +custom-font "Fira Code")
-;; (defvar +custom-font "Red Hat Mono")
-;; (defvar +custom-font "Agave Nerd Font Mono")
-;; (defvar +custom-font "Input Mono Condensed")
-;; (defvar +custom-font "SF Mono")
-;; (defvar +custom-font "Monaco")
-;; (defvar +custom-font "JetBrains Mono")
-;; (defvar +custom-font "JuliaMono")
-;; (defvar +custom-font "Rec Mono Semicasual")
-;; (defvar +custom-font "Victor Mono")
-;; (defvar +custom-font "IBM Plex Mono")
-(defvar +custom-font-size 14)
+(defvar icejam-font "Iosevka Term")
+;; (defvar icejam-font "Monoid")
+;; (defvar icejam-font "Fira Mono")
+;; (defvar icejam-font "Fira Code")
+;; (defvar icejam-font "Red Hat Mono")
+;; (defvar icejam-font "Agave Nerd Font Mono")
+;; (defvar icejam-font "Input Mono Condensed")
+;; (defvar icejam-font "SF Mono")
+;; (defvar icejam-font "Monaco")
+;; (defvar icejam-font "JetBrains Mono")
+;; (defvar icejam-font "JuliaMono")
+;; (defvar icejam-font "Rec Mono Semicasual")
+;; (defvar icejam-font "Victor Mono")
+;; (defvar icejam-font "IBM Plex Mono")
+(defvar icejam-font-size 14)
 
 (defun set-font-to-screen ()
   "Automatically set font size to suit the monitor."
@@ -73,28 +73,28 @@
   (cond ((eq (x-display-list) nil))
         ;; built-in screen
         ((>= 1050 (x-display-pixel-height))
-         (set-font +custom-font +custom-font-size))
+         (set-font icejam-font icejam-font-size))
 
         ;; 4K screen on a Mac
         ((>= 1080 (x-display-pixel-height))
-         (set-font +custom-font +custom-font-size))
+         (set-font icejam-font icejam-font-size))
 
         ;; Other screens
         ((>= 1120 (x-display-pixel-height))
-         (set-font +custom-font +custom-font-size))
+         (set-font icejam-font icejam-font-size))
 
         ((>= 1440 (x-display-pixel-height))
-         (set-font +custom-font (+ +custom-font-size 3)))
+         (set-font icejam-font (+ icejam-font-size 3)))
 
         ((>= 1920 (x-display-pixel-height))
-         (set-font +custom-font +custom-font-size))
+         (set-font icejam-font icejam-font-size))
 
         ;; 4K screen on Windows or Linux
         ((>= 2160 (x-display-pixel-height))
-         (set-font +custom-font (- +custom-font-size 3)))
+         (set-font icejam-font (- icejam-font-size 3)))
 
         ;; Default
-        (t (set-font +custom-font (- +custom-font-size 3)))))
+        (t (set-font icejam-font (- icejam-font-size 3)))))
 
 ;; Do it automatically on startup
 (set-font-to-screen)
@@ -102,12 +102,12 @@
 (defun set-font-size (size)
   "Set font to a specified SIZE."
   (interactive "nEnter size for font: ")
-  (set-font +custom-font size))
+  (set-font icejam-font size))
 
 (defun set-font-size-for-this-frame (new-size)
   "Set font NEW-SIZE for this frame only."
   (interactive "nEnter new size for font in this frame: ")
-  (set-frame-font (format "%s %d" +custom-font new-size)))
+  (set-frame-font (format "%s %d" icejam-font new-size)))
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground

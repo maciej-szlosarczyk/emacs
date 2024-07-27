@@ -4,12 +4,12 @@
 
 (require 'icejam-prog-mode)
 
-(transient-define-prefix +custom-lang-elisp/transient-context-menu ()
+(transient-define-prefix icejam-lang-elisp/transient-context-menu ()
   "Elisp Buffer Commands."
   [""
    ["Buffer"
-    ("r" "Reload"      revert-buffer-no-confirm)
-    ("i" "Indent"      mark-and-indent-whole-buffer)
+    ("r" "Reload"      icejam-revert-buffer-no-confirm)
+    ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
    ("q" "Quit"        keyboard-quit)])
@@ -21,7 +21,7 @@
   (setq-default indent-tabs-mode nil)
 
   (define-key emacs-lisp-mode-map
-              (kbd "C-c l") '+custom-lang-elisp/transient-context-menu)
+              (kbd "C-c l") 'icejam-lang-elisp/transient-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
