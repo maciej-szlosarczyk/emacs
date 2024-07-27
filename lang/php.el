@@ -10,7 +10,7 @@
 
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 (require 'icejam-flycheck)
 (require 'icejam-transient)
 

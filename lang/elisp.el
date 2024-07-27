@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 
 (transient-define-prefix +custom-lang-elisp/transient-context-menu ()
   "Elisp Buffer Commands."

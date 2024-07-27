@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 (require 'icejam-transient)
 
 (transient-define-prefix +custom-lang-python/transient-context-menu ()

@@ -9,7 +9,7 @@
 ;; ziglang does a thing.
 
 ;;; Code:
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 
 (use-package zig-mode :straight t :defer t :requires (lsp))
 

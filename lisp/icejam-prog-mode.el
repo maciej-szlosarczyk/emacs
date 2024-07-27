@@ -1,4 +1,4 @@
-;;; pkg/prog-mode -- summary -*- lexical-binding: t; -*-
+;;; icejam-prog-mode.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -77,5 +77,5 @@
 ;; Vim-like regex replace with preview in buffer.
 (use-package visual-regexp :straight t :defer t)
 
-(provide '+custom-pkg-prog-mode)
-;;; prog-mode ends here
+(provide 'icejam-prog-mode)
+;;; icejam-prog-mode ends here

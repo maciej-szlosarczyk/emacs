@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
+(require 'icejam-lsp)
 
 (use-package lean4-mode
   :straight (lean4-mode

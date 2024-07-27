@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 
 (use-package dart-mode :straight t :defer t)
 (use-package lsp-dart :defer t :straight t :requires (dart-mode lsp))

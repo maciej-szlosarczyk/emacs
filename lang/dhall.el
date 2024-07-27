@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 
 (use-package dhall-mode :straight t :defer t :requires (lsp))
 

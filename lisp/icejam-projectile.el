@@ -1,4 +1,4 @@
-;;; pkg/projectile -- summary -*- lexical-binding: t; -*-
+;;; icejam-projectile.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Project management based on git repos
 ;;; Code:

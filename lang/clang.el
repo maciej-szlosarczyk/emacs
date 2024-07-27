@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 
 (defun +custom-lang-clang/activate-clang-mode ()
   "Goodies for editing c files."

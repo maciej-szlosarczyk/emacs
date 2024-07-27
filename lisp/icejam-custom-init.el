@@ -1,4 +1,4 @@
-;;; +custom-init.el --- summary
+;;; icejam-custom-init.el --- summary
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -39,7 +39,7 @@
 (require 'icejam-ivy)
 (require 'icejam-avy)
 (require 'icejam-transient)
-(require '+custom-pkg-prog-mode "$HOME/.emacs.d/pkg/prog-mode.el")
+(require 'icejam-prog-mode)
 (require 'icejam-company-yasnippet)
 (require 'icejam-flycheck)
 (require 'icejam-projectile)
@@ -90,5 +90,5 @@
 (setq gc-cons-threshold 100000000)
 (setq gc-cons-percentage 0.1)
 
-(provide 'icejam-init)
-;;; icejam-init.el ends here
+(provide 'icejam-custom-init)
+;;; icejam-custom-init.el ends here
