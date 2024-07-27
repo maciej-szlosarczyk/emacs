@@ -30,7 +30,7 @@
 
 (straight-use-package 'use-package)
 
-(add-to-list 'load-path (concat user-emacs-directory "pkg"))
+;; (add-to-list 'load-path (concat user-emacs-directory "pkg"))
 
 ;; General configuration files.
 (require '+custom-pkg-keys-mode "$HOME/.emacs.d/pkg/keys-mode.el")
@@ -49,8 +49,8 @@
 (require '+custom-pkg-lsp "$HOME/.emacs.d/pkg/lsp.el")
 (require '+custom-pkg-dashboard "$HOME/.emacs.d/pkg/dashboard.el")
 (require '+custom-pkg-undo-tree "$HOME/.emacs.d/pkg/undo-tree.el")
-(require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
-(require '+custom-pkg-speed-type "$HOME/.emacs.d/pkg/speed-type.el")
+(require 'icejam-avy)
+(require 'icejam-speed-type)
 
 ;; Themes
 (require '+custom-pkg-themes "$HOME/.emacs.d/pkg/themes.el")
@@ -91,5 +91,5 @@
 (setq gc-cons-threshold 100000000)
 (setq gc-cons-percentage 0.1)
 
-(provide '+custom-init)
-;;; custom-init.el ends here
+(provide 'icejam-init)
+;;; icejam-init.el ends here

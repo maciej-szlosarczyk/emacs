@@ -53,8 +53,10 @@
   :straight t
   :defer t
   :config
-  (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
-  (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
+  (add-to-list 'dash-at-point-mode-alist
+               '(enh-ruby-mode  . "ruby,rubygems,rails"))
+  (add-to-list 'dash-at-point-mode-alist
+               '(elixir-ts-mode . "elixir,hex")))
 
 ;; By default, use 2 spaces for indentation
 (setq tab-width 2)

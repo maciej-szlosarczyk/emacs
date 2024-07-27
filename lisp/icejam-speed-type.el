@@ -1,4 +1,4 @@
-;;; speed-type.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-speed-type.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -15,5 +15,5 @@
   :ensure t
   :defer t)
 
-(provide '+custom-pkg-speed-type)
-;;; speed-type.el ends here
+(provide 'icejam-speed-type)
+;;; icejam-speed-type.el ends here

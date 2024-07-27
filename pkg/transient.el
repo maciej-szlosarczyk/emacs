@@ -3,7 +3,7 @@
 ;;; Global Transient definitions.
 ;;; Code:
 
-(require '+custom-pkg-avy "$HOME/.emacs.d/pkg/avy.el")
+(require 'icejam-avy)
 
 (use-package transient :straight t)
 

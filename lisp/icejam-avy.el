@@ -1,4 +1,4 @@
-;;; avy.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-avy.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -10,5 +10,5 @@
 
 ;;; Code:
 (use-package avy :straight t :defer t)
-(provide '+custom-pkg-avy)
-;;; avy.el ends here
+(provide 'icejam-avy)
+;;; icejam-avy.el ends here

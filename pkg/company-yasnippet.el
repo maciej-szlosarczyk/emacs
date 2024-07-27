@@ -14,8 +14,9 @@
   :config
   (unbind-key "C-c & C-n" yas-minor-mode-map)
   (unbind-key "C-c & C-s" yas-minor-mode-map)
-  (unbind-key "C-c & C-v" yas-minor-mode-map)
-  (yas-global-mode t))
+  (unbind-key "C-c & C-v" yas-minor-mode-map))
+
+(yas-global-mode t)
 
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
