@@ -13,17 +13,17 @@
 
 (use-package zig-mode :straight t :defer t :requires (lsp))
 
-(defun activate-zig-mode ()
+(defun icejam/activate-zig-mode ()
   "Goodies for editing zig files."
 
   ;; Set column width to 100
   (column-enforce-n 100)
 
   ;; Set indentation to 4 chars
-  (set-indent 4)
+  (icejam/set-indent 4)
   (lsp))
 
-(add-hook 'zig-mode-hook 'activate-zig-mode)
+(add-hook 'zig-mode-hook 'icejam/activate-zig-mode)
 
 (provide 'icejam-lang-ziglang)
 ;;; icejam-lang-ziglang.el ends here

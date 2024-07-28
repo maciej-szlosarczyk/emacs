@@ -69,7 +69,7 @@
 (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
 (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
 
-(defun insert-space-and-complete ()
+(defun icejam/insert-space-and-complete ()
   "Insert space before trying to complete a section."
   (interactive)
   (save-excursion
@@ -81,11 +81,11 @@
 
 ;;; Yasnippet configuration
 (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
-(define-key prog-mode-map (kbd "<f13>") 'insert-space-and-complete)
+(define-key prog-mode-map (kbd "<f13>") 'icejam/insert-space-and-complete)
 (define-key prog-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
 (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
-(define-key text-mode-map (kbd "<f13>") 'insert-space-and-complete)
+(define-key text-mode-map (kbd "<f13>") 'icejam/insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
 

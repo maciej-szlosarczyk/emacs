@@ -36,7 +36,7 @@
 
 (defun icejam-lang-clojure/activate-clojure-mode ()
   "Goodies for clojure files."
-  (set-indent 2) ;; Default indentation of 2 characters
+  (icejam/set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (clj-refactor-mode 1)
   (cider-mode 1)

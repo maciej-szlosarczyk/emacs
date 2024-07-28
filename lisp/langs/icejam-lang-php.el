@@ -34,7 +34,7 @@
 
 (defun icejam-lang-php/activate-php-mode ()
   "All things php."
-  (set-indent 4)
+  (icejam/set-indent 4)
   (column-enforce-n 80)
 
   (define-key php-mode-map (kbd "C-c l") 'icejam-lang-php/context-menu)

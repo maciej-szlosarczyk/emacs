@@ -63,7 +63,7 @@
 (setq tab-stop-list (number-sequence tab-width 200 tab-width))
 
 ;; Ensure indentation in steps:
-(defun set-indent (step)
+(defun icejam/set-indent (step)
   "Set indentation to STEP."
   (interactive "NNumber of columns for one step: ")
   (setq-local tab-width step)
@@ -74,8 +74,14 @@
   :defer t
   :config (global-column-enforce-mode t))
 
-;; Vim-like regex replace with preview in buffer.
-(use-package visual-regexp :straight t :defer t)
+;; PCRE to emacs regex translations
+(use-package pcre2el :straight t)
+
+;; Visual regexp
+(use-package visual-regexp-steroids
+  :straight t
+  :requires (pcre2el)
+  :config (setq vr/engine 'pcre2el))
 
 (provide 'icejam-prog-mode)
-;;; icejam-prog-mode ends here
+;;; icejam-prog-mode.el ends here

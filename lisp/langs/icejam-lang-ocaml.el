@@ -35,7 +35,7 @@
   [""
    ("q" "Quit"      keyboard-quit)])
 
-(defun load-ocaml-site-packages ()
+(defun icejam/load-ocaml-site-packages ()
   "Generate ocaml config."
   (let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
     (when (and opam-share (file-directory-p opam-share))
@@ -52,7 +52,7 @@
 
 ;; OCaml setup
 (add-hook 'tuareg-mode-hook 'merlin-mode)
-(add-hook 'tuareg-mode-hook 'load-ocaml-site-packages)
+(add-hook 'tuareg-mode-hook 'icejam/load-ocaml-site-packages)
 (add-hook 'merlin-mode-hook (lambda ()
                               (unbind-key "C-c C-d" merlin-mode-map)
                               (unbind-key "C-c C-l" merlin-mode-map)

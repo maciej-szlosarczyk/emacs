@@ -1,4 +1,4 @@
-;;; golang.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-lang-golang.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -17,12 +17,13 @@
   :defer t
   :straight t)
 
-(defun activate-golang-mode ()
-  (set-indent 8)
+(defun icejam/activate-golang-mode ()
+  "Activate my own Golang mode settings."
+  (icejam/set-indent 8)
   (column-enforce-n 100)
   (lsp))
 
-(add-hook 'go-mode-hook 'activate-golang-mode)
+(add-hook 'go-mode-hook 'icejam/activate-golang-mode)
 
 (provide 'icejam-lang-golang)
 ;;; icejam-lang-golang.el ends here

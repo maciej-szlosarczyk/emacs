@@ -21,9 +21,9 @@
   :defer t
   :requires (lsp-mode lsp-ui haskell-mode))
 
-(defun activate-haskell-mode ()
+(defun icejam/activate-haskell-mode ()
   "Run this in haskell-mode."
-  (set-indent 2)
+  (icejam/set-indent 2)
   (column-enforce-n 80)
   (lsp-deferred)
 
@@ -31,7 +31,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'haskell-mode-hook 'activate-haskell-mode)
+(add-hook 'haskell-mode-hook 'icejam/activate-haskell-mode)
 
 (provide 'icejam-lang-haskell)
 ;;; icejam-lang-haskell.el ends here

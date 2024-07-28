@@ -21,7 +21,7 @@
 
 (defun icejam-lang-gleam/activate-gleam-mode ()
   "All things Gleam."
-  (set-indent 2)
+  (icejam/set-indent 2)
   (column-enforce-n 100)
   (lsp))
 

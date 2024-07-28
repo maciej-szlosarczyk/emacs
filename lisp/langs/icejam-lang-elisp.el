@@ -4,7 +4,7 @@
 
 (require 'icejam-prog-mode)
 
-(transient-define-prefix icejam-lang-elisp/transient-context-menu ()
+(transient-define-prefix icejam/elisp-lang-menu ()
   "Elisp Buffer Commands."
   [""
    ["Buffer"
@@ -14,20 +14,19 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
-(defun activate-emacs-lisp-mode ()
+(defun icejam/activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
-  (set-indent 2) ;; Default indentation of 2 characters
+  (icejam/set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (setq-default indent-tabs-mode nil)
 
-  (define-key emacs-lisp-mode-map
-              (kbd "C-c l") 'icejam-lang-elisp/transient-context-menu)
+  (define-key emacs-lisp-mode-map (kbd "C-c l") 'icejam/elisp-lang-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-yasnippet company-elisp)))
 
-(add-hook 'emacs-lisp-mode-hook 'activate-emacs-lisp-mode)
+(add-hook 'emacs-lisp-mode-hook 'icejam/activate-emacs-lisp-mode)
 
 (provide 'icejam-lang-elisp)
 ;;; icejam-lang-elisp.el ends here

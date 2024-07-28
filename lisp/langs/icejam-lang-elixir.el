@@ -13,7 +13,7 @@
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
-(transient-define-prefix icejam-lang-elixir/transient-context-menu ()
+(transient-define-prefix icejam/elixir-lang-menu ()
   "Elixir Buffer Commands."
   [""
    ["LSP"
@@ -26,9 +26,9 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
-(defun icejam-lang-elixir/activate-elixir-ts-mode ()
+(defun icejam/activate-elixir-ts-mode ()
   "All things Elixir."
-  (set-indent 2)
+  (icejam/set-indent 2)
   (column-enforce-n 98)
   (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
@@ -38,13 +38,13 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (define-key elixir-ts-mode-map (kbd "C-c l") 'icejam-lang-elixir/transient-context-menu)
+  (define-key elixir-ts-mode-map (kbd "C-c l") 'icejam/elixir-lang-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'elixir-ts-mode-hook 'icejam-lang-elixir/activate-elixir-ts-mode)
+(add-hook 'elixir-ts-mode-hook 'icejam/activate-elixir-ts-mode)
 
 (provide 'icejam-lang-elixir)
 ;;; icejam-lang-elixir.el ends here

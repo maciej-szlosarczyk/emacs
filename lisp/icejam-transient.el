@@ -4,7 +4,6 @@
 ;;; Code:
 
 (require 'icejam-avy)
-
 (use-package transient :straight t)
 
 (defun icejam-mark-and-indent-whole-buffer ()
@@ -12,7 +11,7 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(transient-define-prefix icejam-transient/project-menu ()
+(transient-define-prefix icejam/project-menu ()
   "Project Commands."
   [""
    ["Projectile"
@@ -37,7 +36,7 @@
     ("d" "deft"                 deft)
     ("T" "Speed Type"           speed-type-text)]])
 
-(transient-define-prefix icejam-transient/code-menu ()
+(transient-define-prefix icejam/code-menu ()
   "Code Commands."
   [""
    ["Manipulate"
@@ -54,7 +53,7 @@
     ("u" "Vundo"          vundo)
     ("d" "Dash"           dash-at-point)]])
 
-(transient-define-prefix icejam-transient/window-menu ()
+(transient-define-prefix icejam/window-menu ()
   "Windows Commands."
   [""
    ["Move"
@@ -71,7 +70,7 @@
     ""
     ("k" "Kill Buffer"  kill-buffer-and-window)]])
 
-(transient-define-prefix icejam-transient/language-context-menu ()
+(transient-define-prefix icejam/language-context-menu ()
   "Language (Buffer) Commands."
   [""
    ["Buffer"
@@ -82,13 +81,13 @@
     ("m" "iMenu"       lsp-ui-imenu)
     ("e" "Show Errors" flycheck-list-errors)]])
 
-(transient-define-prefix icejam-transient/history-menu ()
+(transient-define-prefix icejam/history-menu ()
   "Buffer History Commands."
   ["History"
    ("[" "Previous" previous-buffer)
    ("]" "Next" previous-buffer)])
 
-(transient-define-prefix icejam-transient/move-menu ()
+(transient-define-prefix icejam/move-menu ()
   "Move Commands."
   [""
    ["Move this buffer"
@@ -101,7 +100,7 @@
     ("l" "Character" avy-goto-line)
     ("c" "Line" avy-goto-char-2)]])
 
-(transient-define-prefix icejam-transient/font-menu ()
+(transient-define-prefix icejam/font-menu ()
   "Font Commands."
   [""
    ["Everywhere"
@@ -112,13 +111,13 @@
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
     ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
-(define-key global-map (kbd "C-c p") 'icejam-transient/project-menu)
-(define-key global-map (kbd "C-c c") 'icejam-transient/code-menu)
-(define-key global-map (kbd "C-c w") 'icejam-transient/window-menu)
-(define-key global-map (kbd "C-c s") 'icejam-transient/history-menu)
-(define-key global-map (kbd "C-c f") 'icejam-transient/font-menu)
-(define-key global-map (kbd "C-c m") 'icejam-transient/move-menu)
-(define-key global-map (kbd "C-c l") 'icejam-transient/language-context-menu)
+(define-key global-map (kbd "C-c p") 'icejam/project-menu)
+(define-key global-map (kbd "C-c c") 'icejam/code-menu)
+(define-key global-map (kbd "C-c w") 'icejam/window-menu)
+(define-key global-map (kbd "C-c s") 'icejam/history-menu)
+(define-key global-map (kbd "C-c f") 'icejam/font-menu)
+(define-key global-map (kbd "C-c m") 'icejam/move-menu)
+(define-key global-map (kbd "C-c l") 'icejam/language-context-menu)
 
 (provide 'icejam-transient)
 ;;; icejam-transient.el ends here

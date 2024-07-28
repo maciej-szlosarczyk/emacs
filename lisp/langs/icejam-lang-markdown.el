@@ -11,7 +11,7 @@
 
 (defun icejam-lang-markdown/activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."
-  (set-indent 2)
+  (icejam/set-indent 2)
   (column-enforce-n 10000)
 
   ;; Markdown mode reuses my bindings, remove them.

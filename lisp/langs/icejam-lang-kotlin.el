@@ -18,9 +18,9 @@
 	:defer t
 	:straight t)
 
-(defun activate-kotlin-mode ()
+(defun icejam/activate-kotlin-mode ()
   "All things Kotlin."
-  (set-indent 4)
+  (icejam/set-indent 4)
   (column-enforce-n 100)
   (lsp)
 
@@ -28,7 +28,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'kotlin-mode-hook 'activate-kotlin-mode)
+(add-hook 'kotlin-mode-hook 'icejam/activate-kotlin-mode)
 
 (provide 'icejam-lang-kotlin)
 ;;; icejam-lang-kotlin.el ends here

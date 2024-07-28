@@ -13,10 +13,10 @@
   :defer t
   :requires (rust-mode lsp))
 
-(defun activate-rust-mode ()
+(defun icejam/activate-rust-mode ()
   "All things for Rust mode."
   (interactive)
-  (set-indent 4)
+  (icejam/set-indent 4)
   (column-enforce-n 99)
 
   ;; Run LSP
@@ -26,7 +26,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'rust-mode-hook 'activate-rust-mode)
+(add-hook 'rust-mode-hook 'icejam/activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)
 
 (provide 'icejam-lang-rust)

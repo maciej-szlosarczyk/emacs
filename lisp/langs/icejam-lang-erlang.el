@@ -56,7 +56,7 @@
    (error line-start (file-name) ":" line ": " (message) line-end))
   :modes (my-erlang-mode))
 
-(defun erlang/activate-erlang-mode ()
+(defun icejam/activate-erlang-mode ()
   "All things for all Erlang, including header files."
   (when (featurep 'erlang-start) (unload-feature 'erlang-start))
 
@@ -74,7 +74,7 @@
                       (plist-get erlang/current-erlang :erlang-path)))
 
   (require 'erlang-start)
-  (set-indent 4)
+  (icejam/set-indent 4)
   (column-enforce-n 80)
 
   ;; Add include path so that Erlang does not complain about
@@ -97,7 +97,7 @@
   ;; Start LSP server
   (lsp))
 
-(add-hook 'erlang-mode-hook 'erlang/activate-erlang-mode)
+(add-hook 'erlang-mode-hook 'icejam/activate-erlang-mode)
 
 (provide 'icejam-lang-erlang)
 ;;; icejam-lang-erlang.el ends here

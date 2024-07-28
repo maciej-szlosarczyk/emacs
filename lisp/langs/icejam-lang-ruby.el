@@ -14,9 +14,9 @@
   :straight t
   :defer t)
 
-(defun activate-ruby-mode ()
+(defun icejam/activate-ruby-mode ()
   "All things for ruby mode."
-  (set-indent 2)
+  (icejam/set-indent 2)
 
   ;; Disable reek syntax checking permanently
   (add-to-list (make-local-variable 'flycheck-disabled-checkers) 'ruby-reek 'ruby-rubocop)
@@ -33,7 +33,7 @@
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
-(add-hook 'enh-ruby-mode-hook 'activate-ruby-mode)
+(add-hook 'enh-ruby-mode-hook 'icejam/activate-ruby-mod)
 ;; (add-hook 'enh-ruby-mode-hook 'lsp-deferred)
 
 (provide 'icejam-lang-ruby)

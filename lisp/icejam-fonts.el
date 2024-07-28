@@ -12,7 +12,7 @@
 
 ;; Set font face
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun icejam-set-lsp-ui-font-hook ()
+(defun icejam/set-lsp-ui-font-hook ()
   "Reset LSP IO font to specified icejam-font and icejam-font-size."
   (setq lsp-ui-doc-frame-hook nil)
   (add-hook 'lsp-ui-doc-frame-hook
@@ -47,7 +47,7 @@
    'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
 
   ;; Call LSP-UI hook
-  (icejam-set-lsp-ui-font-hook))
+  (icejam/set-lsp-ui-font-hook))
 
 (defvar icejam-font "Iosevka Term")
 ;; (defvar icejam-font "Monoid")
