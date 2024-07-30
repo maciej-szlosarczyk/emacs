@@ -10,7 +10,7 @@
 (use-package rbs-mode :straight t :defer t)
 
 (use-package enh-ruby-mode
-  :requires (rspec-mode ruby-end)
+  :requires (rspec-mode ruby-end lsp)
   :straight t
   :defer t)
 
@@ -24,6 +24,9 @@
   ;; Do not insert magic encoding comment at the begining of each file
   (setq ruby-insert-encoding-magic-comment nil)
 
+  ;; Start LSP
+  (lsp)
+
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
@@ -33,7 +36,7 @@
 (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
-(add-hook 'enh-ruby-mode-hook 'icejam/activate-ruby-mod)
+(add-hook 'enh-ruby-mode-hook 'icejam/activate-ruby-mode)
 ;; (add-hook 'enh-ruby-mode-hook 'lsp-deferred)
 
 (provide 'icejam-lang-ruby)

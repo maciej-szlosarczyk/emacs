@@ -19,7 +19,7 @@
    ("q" "Quit"        keyboard-quit)])
 
 
-(defun icejam-lang-python/activate-python-mode ()
+(defun icejam-lang/activate-python-mode ()
   (lsp)
 
   (column-enforce-n 99)
@@ -30,7 +30,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'python-mode-hook 'icejam-lang-python/activate-python-mode)
+(add-hook 'python-mode-hook 'icejam-lang/activate-python-mode)
 
 (provide 'icejam-lang-python)
 ;;; icejam-lang-python.el ends here

@@ -6,8 +6,13 @@
 (require 'icejam-flycheck)
 (require 'icejam-transient)
 
+(declare-function lsp "lsp-mode" nil)
+(declare-function column-enforce-n "column-enforce-mode" (number))
+
 (use-package elixir-mode :defer t :straight t)
-(use-package elixir-ts-mode :requires (elixir-mode lsp-mode lsp-ui) :straight t)
+(use-package elixir-ts-mode :straight t
+  :requires (elixir-mode lsp-mode lsp-ui)
+  :defines (elixir-ts-mode-map))
 
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
@@ -38,6 +43,7 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
+  ;; Enable mode map
   (define-key elixir-ts-mode-map (kbd "C-c l") 'icejam/elixir-lang-menu)
 
   ;; Company list override

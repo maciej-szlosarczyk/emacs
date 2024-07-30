@@ -88,7 +88,6 @@
 (define-key text-mode-map (kbd "<f13>") 'icejam/insert-space-and-complete)
 (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 
-
 ;;; Copilot and other GPT stuff
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
@@ -104,6 +103,7 @@
 
 (defcustom anthropic-api-key "api-key" "The value of your Anthropic API key."
   :type 'string
+  :group 'icejam
   :initialize 'custom-initialize-set)
 
 (setq

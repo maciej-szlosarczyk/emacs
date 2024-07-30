@@ -32,7 +32,7 @@
    ("q" "Quit"        keyboard-quit)])
 
 
-(defun icejam-lang-php/activate-php-mode ()
+(defun icejam-lang/activate-php-mode ()
   "All things php."
   (icejam/set-indent 4)
   (column-enforce-n 80)
@@ -43,7 +43,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'php-mode-hook 'icejam-lang-php/activate-php-mode)
+(add-hook 'php-mode-hook 'icejam-lang/activate-php-mode)
 
 (provide 'icejam-lang-php)
 ;;; icejam-lang-php.el ends here

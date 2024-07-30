@@ -24,11 +24,11 @@
 ;; Yaml
 (use-package yaml-mode :straight t :defer t :requires (lsp))
 
-(defun icejam-lang-yaml/activate-yaml-mode ()
+(defun icejam-lang/activate-yaml-mode ()
   "Activate yaml-mode."
   (lsp))
 
-(add-hook 'yaml-mode-hook 'icejam-lang-yaml/activate-yaml-mode)
+(add-hook 'yaml-mode-hook 'icejam-lang/activate-yaml-mode)
 
 ;; Other text files
 (use-package json-mode :straight t :defer t)

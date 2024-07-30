@@ -4,6 +4,8 @@
 
 (require 'icejam-prog-mode)
 
+(declare-function column-enforce-n "column-enforce-mode" (number))
+
 (transient-define-prefix icejam/elisp-lang-menu ()
   "Elisp Buffer Commands."
   [""

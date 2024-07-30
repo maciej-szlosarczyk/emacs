@@ -66,8 +66,8 @@
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
-(transient-define-prefix icejam-lang-ocaml/reasonml-context-menu ()
-  "ReasonML Actions"
+(transient-define-prefix icejam-lang/reasonml-context-menu ()
+  "ReasonML Actions."
   ["ReasonML actions"
    [""
     ("r" "Reload"   icejam-revert-buffer-no-confirm)
@@ -79,16 +79,16 @@
    ("q" "Quit"      keyboard-quit)])
 
 
-(defun icejam-lang-ocaml/activate-reason-mode ()
+(defun icejam-lang/activate-reason-mode ()
   "Generate reason config."
   (define-key
-    reason-mode-map (kbd "C-c l") 'icejam-lang-ocaml/reasonml-context-menu))
+    reason-mode-map (kbd "C-c l") 'icejam-lang/reasonml-context-menu))
 
 ;; Reason setup
 (add-hook 'reason-mode-hook
           (lambda ()
             (add-hook 'before-save-hook #'refmt-before-save)))
-(add-hook 'reason-mode-hook 'icejam-lang-ocaml/activate-reason-mode)
+(add-hook 'reason-mode-hook 'icejam-lang/activate-reason-mode)
 (add-hook 'reason-mode-hook 'merlin-mode)
 
 (provide 'icejam-lang-ocaml)

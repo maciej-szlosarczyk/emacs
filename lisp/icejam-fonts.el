@@ -21,7 +21,7 @@
                'default frame :font
                (format "%s %d" icejam-font (- icejam-font-size 2))))))
 
-(defun set-font (name size)
+(defun icejam/set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
   (setq icejam-font name)
@@ -65,7 +65,7 @@
 ;; (defvar icejam-font "IBM Plex Mono")
 (defvar icejam-font-size 14)
 
-(defun set-font-to-screen ()
+(defun icejam/set-font-to-screen ()
   "Automatically set font size to suit the monitor."
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
@@ -73,38 +73,38 @@
   (cond ((eq (x-display-list) nil))
         ;; built-in screen
         ((>= 1050 (x-display-pixel-height))
-         (set-font icejam-font icejam-font-size))
+         (icejam/set-font icejam-font icejam-font-size))
 
         ;; 4K screen on a Mac
         ((>= 1080 (x-display-pixel-height))
-         (set-font icejam-font icejam-font-size))
+         (icejam/set-font icejam-font icejam-font-size))
 
         ;; Other screens
         ((>= 1120 (x-display-pixel-height))
-         (set-font icejam-font icejam-font-size))
+         (icejam/set-font icejam-font icejam-font-size))
 
         ((>= 1440 (x-display-pixel-height))
-         (set-font icejam-font (+ icejam-font-size 3)))
+         (icejam/set-font icejam-font (+ icejam-font-size 3)))
 
         ((>= 1920 (x-display-pixel-height))
-         (set-font icejam-font icejam-font-size))
+         (icejam/set-font icejam-font icejam-font-size))
 
         ;; 4K screen on Windows or Linux
         ((>= 2160 (x-display-pixel-height))
-         (set-font icejam-font (- icejam-font-size 3)))
+         (icejam/set-font icejam-font (- icejam-font-size 3)))
 
         ;; Default
-        (t (set-font icejam-font (- icejam-font-size 3)))))
+        (t (icejam/set-font icejam-font (- icejam-font-size 3)))))
 
 ;; Do it automatically on startup
-(set-font-to-screen)
+(icejam/set-font-to-screen)
 
-(defun set-font-size (size)
+(defun icejam/set-font-size (size)
   "Set font to a specified SIZE."
   (interactive "nEnter size for font: ")
-  (set-font icejam-font size))
+  (icejam/set-font icejam-font size))
 
-(defun set-font-size-for-this-frame (new-size)
+(defun icejam/set-font-size-for-this-frame (new-size)
   "Set font NEW-SIZE for this frame only."
   (interactive "nEnter new size for font in this frame: ")
   (set-frame-font (format "%s %d" icejam-font new-size)))

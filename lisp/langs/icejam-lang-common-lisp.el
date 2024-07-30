@@ -15,7 +15,6 @@
 (use-package slime-company :straight t
   :requires (slime company))
 
-
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-fancy slime-company slime-quicklisp slime-asdf))
 

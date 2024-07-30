@@ -19,13 +19,13 @@
               :repo "gleam-lang/gleam-mode"
               :files ("gleam-mode.el" "tree-sitter-gleam")))
 
-(defun icejam-lang-gleam/activate-gleam-mode ()
+(defun icejam-lang/activate-gleam-mode ()
   "All things Gleam."
   (icejam/set-indent 2)
   (column-enforce-n 100)
   (lsp))
 
-(add-hook 'gleam-mode-hook 'icejam-lang-gleam/activate-gleam-mode)
+(add-hook 'gleam-mode-hook 'icejam-lang/activate-gleam-mode)
 
 (provide 'icejam-lang-gleam)
 ;;; icejam-lang-gleam.el ends here

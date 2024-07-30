@@ -328,7 +328,7 @@ More information on Tron: https://en.wikipedia.org/wiki/Tron")
                       :box `(:line-width 2 :color ,orange :style nil))
   )
 
-(defun tronesque-mode-line ()
+(defun icejam/tronesque-mode-line ()
   "Change default mode-line."
   (interactive)
   (setq-default
@@ -364,7 +364,7 @@ More information on Tron: https://en.wikipedia.org/wiki/Tron")
      mode-line-end-spaces)))
 
 ;; Helper function
-(defun shorten-directory (dir max-length)
+(defun icejam/shorten-directory (dir max-length)
   "Show up a directory named `DIR' with `MAX-LENGTH' characters."
   (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
         (output ""))

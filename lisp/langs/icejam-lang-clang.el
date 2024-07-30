@@ -4,7 +4,9 @@
 
 (require 'icejam-prog-mode)
 
-(defun icejam-lang-clang/activate-clang-mode ()
+(declare-function column-enforce-n "column-enforce-mode" (number))
+
+(defun icejam-lang/activate-clang-mode ()
   "Goodies for editing c files."
 
   ;; Set column width to 100
@@ -22,7 +24,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-etags company-yasnippet)))
 
-(add-hook 'c-mode-hook 'icejam-lang-clang/activate-clang-mode)
+(add-hook 'c-mode-hook 'icejam-lang/activate-clang-mode)
 
 (provide 'icejam-lang-clang)
 ;;; icejam-lang-clang.el ends here

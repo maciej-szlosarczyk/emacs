@@ -6,44 +6,54 @@
 (require 'icejam-lsp)
 (require 'icejam-projectile)
 
+(declare-function lsp "lsp-mode" nil)
+(declare-function column-enforce-n "column-enforce-mode" (number))
+
 (use-package erlang
   :defer t
   :straight t
   :requires (lsp-mode lsp-ui))
 
-(cl-defun erlang/emacs-path (erlang-version)
+(cl-defun icejam/erlang-emacs-path (erlang-version)
+  "Find path to Emacs tooling for ERLANG-VERSION."
   (car (split-string
         (shell-command-to-string
          (format "find $HOME/.asdf/installs/erlang/%s/ -name erlang.el"
                  erlang-version)) "erlang.el")))
 
-(cl-defun erlang/erlang-path (erlang-version)
+(cl-defun icejam/erlang-path (erlang-version)
+  "Find asdf path for ERLANG-VERSION."
   (format "$HOME/.asdf/installs/erlang/%s/" erlang-version))
 
-(defun erlang/erlang-plist (erlang-version)
+(defun icejam/erlang-plist (erlang-version)
   "Create property list for ERLANG-VERSION."
   (list :version erlang-version
-        :erlang-path (erlang/erlang-path erlang-version)
-        :emacs-path (erlang/emacs-path erlang-version)))
+        :erlang-path (icejam/erlang-path erlang-version)
+        :emacs-path (icejam/erlang-emacs-path erlang-version)))
 
-(cl-defun erlang/installed-erlangs ()
+(cl-defun icejam/installed-erlangs ()
+  "List Erlang versions installed with asdf."
   (split-string
    (shell-command-to-string
     (format "asdf list erlang"))))
 
-(cl-defun erlang/available-versions--plist ()
-  (mapcar 'erlang/erlang-plist (erlang/installed-erlangs)))
+(cl-defun icejam/erlang-available-versions--plist ()
+  "Create plist for all installed Erlang versions."
+  (mapcar 'icejam/erlang-plist (icejam/installed-erlangs)))
 
-(defvar erlang/available-versions (erlang/available-versions--plist))
+(defvar icejam/erlang-available-versions (icejam/erlang-available-versions--plist))
 
-(cl-defun erlang/currently-in-use ()
+(cl-defun icejam/erlang-currently-in-use ()
+  "Get Erlang version currently in use."
   (car (split-string (shell-command-to-string "asdf current erlang"))))
 
-(cl-defun erlang/current-version--plistp (erlang-plist)
-  (equal (plist-get erlang-plist :version) (erlang/currently-in-use)))
+(cl-defun icejam/erlang-current-version--plistp (erlang-plist)
+  "Check if currently in use Erlang is the same as the one in ERLANG-PLIST."
+  (equal (plist-get erlang-plist :version) (icejam/erlang-currently-in-use)))
 
-(cl-defun erlang/current-plist ()
-  (seq-find 'erlang/current-version--plistp erlang/available-versions))
+(cl-defun icejam/erlang-current-plist ()
+  "Create plist from current Erlang version."
+  (seq-find 'erlang/current-version--plistp icejam/erlang-available-versions))
 
 ;; Flycheck checker for Erlang
 (flycheck-define-checker erlang-otp
@@ -60,7 +70,7 @@
   "All things for all Erlang, including header files."
   (when (featurep 'erlang-start) (unload-feature 'erlang-start))
 
-  (defvar erlang/current-erlang (erlang/current-plist))
+  (defvar erlang/current-erlang (icejam/erlang-current-plist))
 
   (add-to-list (make-local-variable 'load-path)
                (plist-get erlang/current-erlang :emacs-path))
