@@ -4,6 +4,7 @@
 ;;; Code:
 
 (require 'icejam-avy)
+(require 'icejam-keys-mode)
 (use-package transient :straight t)
 
 (defun icejam-mark-and-indent-whole-buffer ()
@@ -111,13 +112,13 @@
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
     ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
-(define-key global-map (kbd "C-c p") 'icejam/project-menu)
-(define-key global-map (kbd "C-c c") 'icejam/code-menu)
-(define-key global-map (kbd "C-c w") 'icejam/window-menu)
-(define-key global-map (kbd "C-c s") 'icejam/history-menu)
-(define-key global-map (kbd "C-c f") 'icejam/font-menu)
-(define-key global-map (kbd "C-c m") 'icejam/move-menu)
-(define-key global-map (kbd "C-c l") 'icejam/language-context-menu)
+(define-key icejam-keys-mode-map (kbd "C-c p") 'icejam/project-menu)
+(define-key icejam-keys-mode-map (kbd "C-c c") 'icejam/code-menu)
+(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam/window-menu)
+(define-key icejam-keys-mode-map (kbd "C-c s") 'icejam/history-menu)
+(define-key icejam-keys-mode-map (kbd "C-c f") 'icejam/font-menu)
+(define-key icejam-keys-mode-map (kbd "C-c m") 'icejam/move-menu)
+(define-key icejam-keys-mode-map (kbd "C-c l") 'icejam/language-context-menu)
 
 (provide 'icejam-transient)
 ;;; icejam-transient.el ends here
