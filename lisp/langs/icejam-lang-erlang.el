@@ -53,7 +53,7 @@
 
 (cl-defun icejam/erlang-current-plist ()
   "Create plist from current Erlang version."
-  (seq-find 'erlang/current-version--plistp icejam/erlang-available-versions))
+  (seq-find 'icejam/erlang-current-version--plistp icejam/erlang-available-versions))
 
 ;; Flycheck checker for Erlang
 (flycheck-define-checker erlang-otp
