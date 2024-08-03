@@ -31,22 +31,23 @@
             (setq mac-command-modifier 'meta))))
 
       ;;;;;;;;; Mac binding (fix) ;;;;;;;;;;;;;;;;;;
-      (define-key icejam-keys-mode-map (kbd "H-<right>") 'end-of-line)
-      (define-key icejam-keys-mode-map (kbd "H-<left>") 'beginning-of-line)
-      (define-key icejam-keys-mode-map (kbd "H-<up>") 'scroll-down) ; WTF is this reverse, I dunno
-      (define-key icejam-keys-mode-map (kbd "H-<down>") 'scroll-up)
+      (define-key icejam-keys-mode-map (kbd "H-<right>") #'end-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<left>") #'beginning-of-line)
+      (define-key icejam-keys-mode-map (kbd "H-<up>") #'scroll-down) ; WTF is this reverse, I dunno
+      (define-key icejam-keys-mode-map (kbd "H-<down>") #'scroll-up)
 
-      (define-key icejam-keys-mode-map [(hyper a)] 'mark-whole-buffer)
-      (define-key icejam-keys-mode-map [(hyper v)] 'yank)
-      (define-key icejam-keys-mode-map [(hyper x)] 'kill-region)
-      (define-key icejam-keys-mode-map [(hyper c)] 'kill-ring-save)
-      (define-key icejam-keys-mode-map [(hyper s)] 'save-buffer)
-      (define-key icejam-keys-mode-map [(hyper l)] 'goto-line)
-      (define-key icejam-keys-mode-map [(hyper b)] 'treemacs)
-      (define-key icejam-keys-mode-map [(hyper w)] 'icejam-function-delete-window)
-      (define-key icejam-keys-mode-map [(hyper z)] 'undo)
-      (define-key icejam-keys-mode-map [(hyper q)] 'kill-emacs)
+      ;; Use CMD bindings that you know from the operating system
+      (define-key icejam-keys-mode-map [(hyper a)] #'mark-whole-buffer) ;; Select all
+      (define-key icejam-keys-mode-map [(hyper v)] #'yank) ;; Paste
+      (define-key icejam-keys-mode-map [(hyper x)] #'kill-region) ;; Cut
+      (define-key icejam-keys-mode-map [(hyper c)] #'kill-ring-save) ;; Copy
+      (define-key icejam-keys-mode-map [(hyper s)] #'save-buffer) ;; Save
+      (define-key icejam-keys-mode-map [(hyper z)] #'undo) ;; Undo
+      (define-key icejam-keys-mode-map [(hyper q)] #'kill-emacs) ;; Close emacs
+      (define-key icejam-keys-mode-map [(hyper w)] #'icejam-function-delete-window) ;; Close window
 
+      ;; And then some extras
+      (define-key icejam-keys-mode-map [(hyper l)] #'goto-line) ;; Goto Line
       ;; Disable meta on right alt (useful for Polish characters)
       ;; (setq mac-right-option-modifier nil)
       ))
@@ -62,7 +63,7 @@
       (setq mac-option-modifier 'meta)
       (setq mac-right-option-modifier nil))))
 
-;;;;;;;;; Mac-specific config ;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;; Linux-specific config ;;;;;;;;;;;;;;;;;;;;;
 (if IS-GNU
     (progn
       ;;;; Save and undo

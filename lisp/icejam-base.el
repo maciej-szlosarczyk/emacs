@@ -44,13 +44,7 @@
   :config (global-set-key [remap kill-ring-save] 'easy-kill))
 
 ;; Move buffers around with buffer keys
-(use-package buffer-move
-  :straight t
-  :defer t
-  :bind ("C-c m [" . buf-move-left)
-        ("C-c m ]" . buf-move-right)
-        ("C-c m {" . buf-move-up)
-        ("C-c m }" . buf-move-down))
+(use-package buffer-move :straight t :defer t)
 
 ;; #====================== Backup config #==============================
 (setq backup-directory-alist
@@ -108,7 +102,6 @@
              (exec-path-from-shell-initialize))
 
 (use-package direnv :straight t :config (direnv-mode))
-;; (use-package shadowenv :straight t :config (shadowenv-global-mode))
 
 ;; Draw underline lower
 (setq x-underline-at-descent-line t)
@@ -120,7 +113,10 @@
       indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Treemacs
-(use-package treemacs :straight t :defer t)
+(use-package treemacs :straight t :defer t
+  :bind (:map icejam-keys-mode-map
+              ([(hyper b)] . treemacs))) ;; Show the folder tree
+
 (use-package treemacs-all-the-icons :defer t :requires (treemacs) :straight t
   :config
   (treemacs-load-theme "all-the-icons")

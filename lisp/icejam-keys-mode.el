@@ -52,5 +52,10 @@
 (define-key icejam-keys-mode-map [home] 'beginning-of-line)
 (define-key icejam-keys-mode-map [end] 'end-of-line)
 
+;;;;;;;;; Translate keys ;;;;;;;;;;;;;;;;;;;;;
+(define-key key-translation-map (kbd "<f6>") (kbd "C-c l")) ;; On F6, send C-c l
+(define-key key-translation-map (kbd "<f7>") (kbd "C-c c")) ;; On F7, send C-c c
+(define-key key-translation-map (kbd "<f8>") (kbd "C-c p")) ;; On F8, send C-c p
+
 (provide 'icejam-keys-mode)
 ;;; icejam-keys-mode.el ends here

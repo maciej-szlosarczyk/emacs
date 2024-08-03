@@ -26,7 +26,7 @@
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-elisp)))
+               '(company-yasnippet company-capf)))
 
 (add-hook 'emacs-lisp-mode-hook 'icejam/activate-emacs-lisp-mode)
 
