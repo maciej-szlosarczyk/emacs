@@ -71,7 +71,7 @@
     ""
     ("k" "Kill Buffer"  kill-buffer-and-window)]])
 
-(transient-define-prefix icejam/language-context-menu ()
+(transient-define-prefix icejam/language-menu ()
   "Language (Buffer) Commands."
   [""
    ["Buffer"
@@ -112,13 +112,32 @@
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
     ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
 
+(defcustom icejam-language-transient-alist
+  '()
+  "List of functions to call for language transient."
+  :group 'icejam
+  :type '(repeat (cons (symbol :tag "Major mode name")
+                       (symbol :tag "Function to call"))))
+
+;; Use different thing for different language
+(defun icejam-language-transient-for-mode (&optional maybe-mode)
+  "Get transient for major mode.
+You can pass MAYBE-MODE to find mode explicitly."
+  (let* ((mode       (if maybe-mode maybe-mode major-mode)))
+    (alist-get mode icejam-language-transient-alist 'icejam/language-menu)))
+
+(defun icejam-transient-for-lang ()
+  "Call transient for current major mode."
+  (interactive)
+  (funcall (icejam-language-transient-for-mode)))
+
 (define-key icejam-keys-mode-map (kbd "C-c p") 'icejam/project-menu)
 (define-key icejam-keys-mode-map (kbd "C-c c") 'icejam/code-menu)
 (define-key icejam-keys-mode-map (kbd "C-c w") 'icejam/window-menu)
 (define-key icejam-keys-mode-map (kbd "C-c s") 'icejam/history-menu)
 (define-key icejam-keys-mode-map (kbd "C-c f") 'icejam/font-menu)
 (define-key icejam-keys-mode-map (kbd "C-c m") 'icejam/move-menu)
-(define-key icejam-keys-mode-map (kbd "C-c l") 'icejam/language-context-menu)
+(define-key icejam-keys-mode-map (kbd "C-c l") 'icejam-transient-for-lang)
 
 (provide 'icejam-transient)
 ;;; icejam-transient.el ends here

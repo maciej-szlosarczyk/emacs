@@ -5,7 +5,10 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-(transient-define-prefix icejam-lang-python/transient-context-menu ()
+(declare-function lsp nil)
+(declare-function column-enforce-n "column-enforce-mode" (number))
+
+(transient-define-prefix icejam/python-lang-menu ()
   "Python Buffer Commands."
   [""
    ["LSP"
@@ -18,13 +21,14 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
+;; Add lookup for C-c l transient menu
+(add-to-list
+ 'icejam-language-transient-alist '(python-mode . icejam/python-lang-menu))
 
 (defun icejam-lang/activate-python-mode ()
+  "Activate python mode."
   (lsp)
-
   (column-enforce-n 99)
-
-  (define-key python-mode-map (kbd "C-c l") 'icejam-lang-python/transient-context-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

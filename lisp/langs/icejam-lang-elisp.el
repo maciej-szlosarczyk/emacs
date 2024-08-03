@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
+(require 'icejam-transient)
 
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
@@ -12,17 +13,19 @@
    ["Buffer"
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
+    ("d" "Explain"     helpful-at-point)
     ("e" "Show Errors" flycheck-list-errors)]]
   [""
    ("q" "Quit"        keyboard-quit)])
+
+(add-to-list
+ 'icejam-language-transient-alist '(emacs-lisp-mode . icejam/elisp-lang-menu))
 
 (defun icejam/activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
   (icejam/set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (setq-default indent-tabs-mode nil)
-
-  (define-key emacs-lisp-mode-map (kbd "C-c l") 'icejam/elisp-lang-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

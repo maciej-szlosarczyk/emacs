@@ -31,6 +31,9 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
+(add-to-list
+ 'icejam-language-transient-alist '(elixir-ts-mode . icejam/elixir-lang-menu))
+
 (defun icejam/activate-elixir-ts-mode ()
   "All things Elixir."
   (icejam/set-indent 2)
@@ -42,9 +45,6 @@
 
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
-
-  ;; Enable mode map
-  (define-key elixir-ts-mode-map (kbd "C-c l") 'icejam/elixir-lang-menu)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

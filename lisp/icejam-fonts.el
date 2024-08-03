@@ -10,8 +10,42 @@
 
 ;;; Code:
 
-;; Set font face
+;; (defvar icejam-font "Monoid")
+;; (defvar icejam-font "Fira Mono")
+;; (defvar icejam-font "Fira Code")
+;; (defvar icejam-font "Red Hat Mono")
+;; (defvar icejam-font "Agave Nerd Font Mono")
+;; (defvar icejam-font "Input Mono Condensed")
+;; (defvar icejam-font "SF Mono")
+;; (defvar icejam-font "Monaco")
+;; (defvar icejam-font "JetBrains Mono")
+;; (defvar icejam-font "JuliaMono")
+;; (defvar icejam-font "Rec Mono Semicasual")
+;; (defvar icejam-font "Victor Mono")
+;; (defvar icejam-font "IBM Plex Mono")
+
+(defconst icejam-font "Iosevka Term"
+  "Default font.")
+(defconst icejam-font-size 14
+  "Default size of then font.
+It is used to calculated the size in relation to the screen
+in icejam/set-font-to-screen.")
+
+(defcustom icejam-mut-font
+  icejam-font
+  "Current font, defaults to the one loaded in the beginning."
+  :type 'string
+  :group 'icejam)
+(defcustom icejam-mut-font-size
+  icejam-font-size
+  "Current font size."
+  :type 'integer
+  :group 'icejam)
+
 ;;;;;;;;;;;;;;;;;;;;;; Font configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; First, let's silence a warning about free variables
+(defvar lsp-ui-doc-frame-hook)
+
 (defun icejam/set-lsp-ui-font-hook ()
   "Reset LSP IO font to specified icejam-font and icejam-font-size."
   (setq lsp-ui-doc-frame-hook nil)
@@ -19,13 +53,13 @@
             (lambda (frame _w)
               (set-face-attribute
                'default frame :font
-               (format "%s %d" icejam-font (- icejam-font-size 2))))))
+               (format "%s %d" icejam-mut-font (- icejam-mut-font-size 2))))))
 
 (defun icejam/set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
-  (setq icejam-font name)
-  (setq icejam-font-size size)
+  (setq icejam-mut-font name)
+  (setq icejam-mut-font-size size)
 
   (set-face-attribute 'default nil :font (format "%s %d" name size))
 
@@ -48,22 +82,6 @@
 
   ;; Call LSP-UI hook
   (icejam/set-lsp-ui-font-hook))
-
-(defvar icejam-font "Iosevka Term")
-;; (defvar icejam-font "Monoid")
-;; (defvar icejam-font "Fira Mono")
-;; (defvar icejam-font "Fira Code")
-;; (defvar icejam-font "Red Hat Mono")
-;; (defvar icejam-font "Agave Nerd Font Mono")
-;; (defvar icejam-font "Input Mono Condensed")
-;; (defvar icejam-font "SF Mono")
-;; (defvar icejam-font "Monaco")
-;; (defvar icejam-font "JetBrains Mono")
-;; (defvar icejam-font "JuliaMono")
-;; (defvar icejam-font "Rec Mono Semicasual")
-;; (defvar icejam-font "Victor Mono")
-;; (defvar icejam-font "IBM Plex Mono")
-(defvar icejam-font-size 14)
 
 (defun icejam/set-font-to-screen ()
   "Automatically set font size to suit the monitor."
@@ -102,12 +120,12 @@
 (defun icejam/set-font-size (size)
   "Set font to a specified SIZE."
   (interactive "nEnter size for font: ")
-  (icejam/set-font icejam-font size))
+  (icejam/set-font icejam-mut-font size))
 
 (defun icejam/set-font-size-for-this-frame (new-size)
   "Set font NEW-SIZE for this frame only."
   (interactive "nEnter new size for font in this frame: ")
-  (set-frame-font (format "%s %d" icejam-font new-size)))
+  (set-frame-font (format "%s %d" icejam-mut-font new-size)))
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground

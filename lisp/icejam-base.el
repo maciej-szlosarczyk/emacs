@@ -114,6 +114,7 @@
 
 ;;;;;;;;;;;;;;;;; Treemacs
 (use-package treemacs :straight t :defer t
+  :config (treemacs-follow-mode 1) ;; Follow the current project.
   :bind (:map icejam-keys-mode-map
               ([(hyper b)] . treemacs))) ;; Show the folder tree
 
