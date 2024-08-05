@@ -129,7 +129,7 @@
  ("terraform-mode" . "abfc10f5e313c4bb99de136a14636e9bc6df74f6")
  ("transient" . "6543000d5a509096f0f98eb4b814d7f6f2114ce3")
  ("tree-sitter-indent.el" . "4ef246db3e4ff99f672fe5e4b416c890f885c09e")
- ("tree-sitter-langs" . "8d2707e84fae46a78b3943644fcd734364e05cc4")
+ ("tree-sitter-langs" . "0c46e6a226a4d342f03c1b63089d4273a1acf0a9")
  ("treemacs" . "362bfa50904a27a7a6caaafd3ab254a5c2e5abc4")
  ("tuareg" . "1d53723e39f22ab4ab76d31f2b188a2879305092")
  ("typescript.el" . "fc3a4f3b275e8cf6cf41aa0c9ef42e25ef908feb")

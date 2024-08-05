@@ -41,6 +41,7 @@
 (require 'icejam-keys-mode)
 (require 'icejam-base)
 (require 'icejam-sys-specific)
+(require 'icejam-tree-sitter)
 (require 'icejam-ivy)
 (require 'icejam-avy)
 (require 'icejam-transient)

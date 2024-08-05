@@ -79,15 +79,6 @@
 
 ;; Numbers are arbitrary, but work on a large screen. Default is 160
 (setq split-width-threshold 180)
-
-;;;;;;;;;;;;;;;;;;;;;; Tree sitter ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package tree-sitter :straight t)
-(use-package tree-sitter-langs :straight t :requires (tree-sitter))
-(use-package tree-sitter-indent :straight t)
-
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode)
-
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 

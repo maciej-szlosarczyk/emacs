@@ -12,12 +12,13 @@
 
 (require 'icejam-prog-mode)
 
-(use-package gleam-mode
-  :requires (tree-sitter-indent lsp column-enforce-mode)
+(use-package gleam-ts-mode
   :straight '(:type git
               :host github
               :repo "gleam-lang/gleam-mode"
-              :files ("gleam-mode.el" "tree-sitter-gleam")))
+              :files ("gleam-ts-mode.el")))
+
+(add-to-list 'auto-mode-alist '("\\.gleam\\'" . gleam-ts-mode))
 
 (defun icejam-lang/activate-gleam-mode ()
   "All things Gleam."
