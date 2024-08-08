@@ -6,7 +6,9 @@
 
 (use-package rust-mode
   :straight t
-  :defer t)
+  :defer t
+  :config
+  (setq rust-mode-treesitter-derive t))
 
 (use-package flycheck-rust
   :straight t

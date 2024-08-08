@@ -4,7 +4,12 @@
 
 (use-package spaceline :straight t :defer t)
 
-(use-package base16-theme :straight t :defer t)
+(use-package base16-theme :straight t
+  :defer t
+  :config
+  ;; Set themes for terminal mode
+  (setq base16-theme-256-color-source "colors"))
+
 (use-package apropospriate-theme :straight t :defer t)
 (use-package leuven-theme :straight t :defer t)
 (use-package modus-themes :straight t :defer t)
@@ -14,9 +19,6 @@
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
-
-;; Set themes for terminal mode
-(setq base16-theme-256-color-source "colors")
 
 ;; Light themes
 (load-theme 'apropospriate-light t t)
@@ -43,8 +45,11 @@
 (load-theme 'sanityinc-tomorrow-night t t)
 
 ;; My own theme modifications:
-(require 'icejam-base16-zenburn)
-(require 'icejam-base16-harmonic-light)
+(with-eval-after-load 'base16-theme
+  (require 'icejam-base16-zenburn)
+  (require 'icejam-base16-harmonic-light))
+
+(declare-function spaceline-emacs-theme nil)
 
 (spaceline-emacs-theme)
 (enable-theme 'icejam-base16-zenburn)

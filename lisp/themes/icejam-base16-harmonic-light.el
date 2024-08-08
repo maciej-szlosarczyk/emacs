@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+(declare-function base16-theme-define (theme-name colors))
 (use-package base16-theme :straight t :defer t)
 
 (defvar icejam-base16-harmonic-light-colors

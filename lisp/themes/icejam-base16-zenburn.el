@@ -16,8 +16,8 @@
 ;; 04 made darker by 5%   #808080 => #7a7a7a
 ;; 0B made lighter by 10% #5f7f5f => #799979
 
-
 (use-package base16-theme :straight t)
+(declare-function base16-theme-define "base16-theme" (theme-name theme-colors))
 
 (defvar icejam-base16-zenburn-colors
   '(:base00 "#383838"

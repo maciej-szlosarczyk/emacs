@@ -72,7 +72,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Enable y/n answers to questions
-(fset 'yes-or-no-p 'y-or-n-p)
+(setopt use-short-answers t)
 
 ;; Only warn if a file is bigger than 50 MB when trying to open it
 (setq large-file-warning-threshold 50000000)
