@@ -30,4 +30,4 @@
 (add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode)
 
 (provide 'icejam-tree-sitter)
-;;; icejam-treesitter.el ends here
+;;; icejam-tree-sitter.el ends here

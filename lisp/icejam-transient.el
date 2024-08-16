@@ -123,7 +123,7 @@
 (defun icejam-language-transient-for-mode (&optional maybe-mode)
   "Get transient for major mode.
 You can pass MAYBE-MODE to find mode explicitly."
-  (let* ((mode       (if maybe-mode maybe-mode major-mode)))
+  (let* ((mode (if maybe-mode maybe-mode major-mode)))
     (alist-get mode icejam-language-transient-alist 'icejam/language-menu)))
 
 (defun icejam-transient-for-lang ()

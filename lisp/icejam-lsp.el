@@ -22,7 +22,9 @@
                 ;; It would be okay, but it also doesn't work 99% of the time.
 
                 ;; When needed, enable this hot garbage in dir-locals.el
-                lsp-disabled-clients '(vue-semantic-server)
+                lsp-disabled-clients '(vue-semantic-server
+                                       ;; Ruby LSP servers, none of which actually work.
+                                       ruby-ls rubocop-ls typeprof-ls)
                 lsp-log-io nil
                 lsp-enable-file-watchers nil)
   (unbind-key "s-l =" lsp-mode-map)

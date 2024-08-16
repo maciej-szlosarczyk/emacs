@@ -9,10 +9,7 @@
 (use-package ruby-end :straight t :defer t)
 (use-package rbs-mode :straight t :defer t)
 
-(use-package enh-ruby-mode
-  :requires (rspec-mode ruby-end lsp)
-  :straight t
-  :defer t)
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-ts-mode))
 
 (defun icejam/activate-ruby-mode ()
   "All things for ruby mode."
@@ -31,13 +28,10 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'ruby-mode-hook 'enh-ruby-mode)
-(add-hook 'enh-ruby-mode-hook 'rspec-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
-(add-hook 'enh-ruby-mode-hook 'icejam/activate-ruby-mode)
-;; (add-hook 'enh-ruby-mode-hook 'lsp-deferred)
+(add-hook 'ruby-ts-mode-hook 'rspec-mode)
+(add-hook 'ruby-ts-mode-hook 'ruby-end-mode)
+(eval-after-load 'rspec-mode '(rspec-install-snippets))
+(add-hook 'ruby-ts-mode-hook 'icejam/activate-ruby-mode)
 
 (provide 'icejam-lang-ruby)
 ;;; icejam-lang-ruby.el ends here

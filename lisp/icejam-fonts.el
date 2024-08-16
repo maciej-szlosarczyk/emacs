@@ -10,19 +10,21 @@
 
 ;;; Code:
 
-;; (defvar icejam-font "Monoid")
-;; (defvar icejam-font "Fira Mono")
-;; (defvar icejam-font "Fira Code")
-;; (defvar icejam-font "Red Hat Mono")
-;; (defvar icejam-font "Agave Nerd Font Mono")
-;; (defvar icejam-font "Input Mono Condensed")
-;; (defvar icejam-font "SF Mono")
-;; (defvar icejam-font "Monaco")
-;; (defvar icejam-font "JetBrains Mono")
-;; (defvar icejam-font "JuliaMono")
-;; (defvar icejam-font "Rec Mono Semicasual")
-;; (defvar icejam-font "Victor Mono")
-;; (defvar icejam-font "IBM Plex Mono")
+;; (defconst icejam-font "Monoid"
+;; (defconst icejam-font "Fira Mono"
+;; (defconst icejam-font "Fira Code"
+;; (defconst icejam-font "Red Hat Mono"
+;; (defconst icejam-font "Agave Nerd Font Mono"
+;; (defconst icejam-font "Input Mono Condensed"
+;; (defconst icejam-font "SF Mono"
+;; (defconst icejam-font "Monaco"
+;; (defconst icejam-font "JetBrains Mono"
+;; (defconst icejam-font "JuliaMono"
+;; (defconst icejam-font "Rec Mono Semicasual"
+;; (defconst icejam-font "Victor Mono"
+;; (defconst icejam-font "IBM Plex Mono"
+;; (defconst icejam-font "Berkeley Mono Trial"
+;; (defconst icejam-font "Inconsolata"
 
 (defconst icejam-font "Iosevka Term"
   "Default font.")

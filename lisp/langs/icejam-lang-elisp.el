@@ -7,6 +7,8 @@
 
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
+(add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
+
 (transient-define-prefix icejam/elisp-lang-menu ()
   "Elisp Buffer Commands."
   [""
