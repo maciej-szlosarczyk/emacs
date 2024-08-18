@@ -14,7 +14,7 @@
            deft-default-extension "md"
            ;; NB! deft returns absolute paths as filenames, so
            ;; ignore works slightly differently.
-           deft-ignore-file-regexp "\\._[0-9-A-Z]+\\.md$"
+           deft-ignore-file-regexp "\\._[0-9-A-Z_]+\\.md$"
            deft-strip-summary-regexp (concat "\\("
               "[\n\t]" ;; blank
               "\\|^:[[:ascii:]]+:.*$" ;; org-mode properties string

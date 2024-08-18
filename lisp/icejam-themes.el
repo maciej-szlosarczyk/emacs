@@ -15,9 +15,12 @@
 (use-package modus-themes :straight t :defer t)
 (use-package darktooth-theme :straight t :defer t)
 (use-package cyberpunk-theme :straight t :defer t)
+(use-package color-theme-sanityinc-tomorrow :straight t :defer t)
+(use-package zenburn-theme :straight t :defer t)
+
 (use-package catppuccin-theme :straight t :defer t
   :config (setq catppuccin-flavor 'frappe))
-(use-package color-theme-sanityinc-tomorrow :straight t :defer t)
+
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -30,7 +33,6 @@
 (load-theme 'base16-horizon-light t t)
 (load-theme 'base16-humanoid-light t t)
 (load-theme 'sanityinc-tomorrow-day t t)
-(load-theme 'catppuccin t t)
 
 ;; Dark themes
 (load-theme 'cyberpunk t t)
@@ -44,6 +46,8 @@
 (load-theme 'base16-gruvbox-dark-hard t t)
 (load-theme 'modus-vivendi t t)
 (load-theme 'base16-zenbones t t)
+(load-theme 'zenburn t t)
+(load-theme 'catppuccin t t)
 (load-theme 'sanityinc-tomorrow-eighties t t)
 (load-theme 'sanityinc-tomorrow-night t t)
 
@@ -55,8 +59,7 @@
 (declare-function spaceline-emacs-theme nil)
 
 (spaceline-emacs-theme)
-(enable-theme 'catppuccin)
-;; (enable-theme 'icejam-base16-zenburn)
+(enable-theme 'icejam-base16-zenburn)
 
 (provide 'icejam-themes)
 ;;; icejam-themes.el ends here

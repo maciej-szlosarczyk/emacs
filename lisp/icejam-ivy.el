@@ -6,7 +6,6 @@
 (require 'icejam-keys-mode)
 
 (use-package helpful :straight t :defer t)
-
 (use-package ivy :straight t :defer t
   :config (setq ivy-use-virtual-buffers t ;; Display recent files in ivy-switch-buffer
                 ivy-count-format "(%d of %d) " ;; Current candidate count style
@@ -15,8 +14,6 @@
   (ivy-mode 1))
 
 (use-package swiper :straight t)
-
-
 (use-package counsel :straight t :requires (helpful ivy swiper))
 
 (with-eval-after-load 'counsel

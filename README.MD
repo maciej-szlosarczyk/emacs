@@ -19,6 +19,6 @@ git clone git@github.com:maciej-szlosarczyk/emacs.git ~/.emacs.d
 And then put the following lines into init.el
 
 ```emacs
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'icejam-custom-init)
-(provide 'init)
 ```
