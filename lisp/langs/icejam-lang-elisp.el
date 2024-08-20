@@ -5,8 +5,9 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-(declare-function column-enforce-n "column-enforce-mode" (number))
+(use-package lispy :straight t :defer t)
 
+(declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
 (transient-define-prefix icejam/elisp-lang-menu ()
@@ -27,6 +28,7 @@
   "Goodies for editing Emacs files."
   (icejam/set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
+  (lispy-mode)
   (setq-default indent-tabs-mode nil)
 
   ;; Company list override

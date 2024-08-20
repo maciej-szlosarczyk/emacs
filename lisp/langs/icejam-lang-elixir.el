@@ -16,7 +16,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.heex\\'" . elixir-ts-mode))
 
 (transient-define-prefix icejam/elixir-lang-menu ()
   "Elixir Buffer Commands."
@@ -41,6 +40,7 @@
   (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (setq-local lsp-eldoc-enable-hover nil)
+  (setq-local lsp-completion-enable-additional-text-edit nil)
   (setq-local company-minimum-prefix-length 3)
 
   ;; If needed, switch the one below to false to disable documentation pop-ups
@@ -50,6 +50,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
+(add-hook 'heex-ts-mode-hook 'icejam/activate-elixir-ts-mode)
 (add-hook 'elixir-ts-mode-hook 'icejam/activate-elixir-ts-mode)
 
 (provide 'icejam-lang-elixir)

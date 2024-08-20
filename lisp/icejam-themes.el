@@ -58,7 +58,10 @@
 
 (declare-function spaceline-emacs-theme nil)
 
-(spaceline-emacs-theme)
+;; This is spacemacs modeline but I have disabled it for now.
+;; It doesn't seem like I need it for anything.
+;; (spaceline-emacs-theme)
+
 (enable-theme 'icejam-base16-zenburn)
 
 (provide 'icejam-themes)
