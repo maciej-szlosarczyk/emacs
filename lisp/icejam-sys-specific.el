@@ -50,6 +50,9 @@
       (define-key icejam-keys-mode-map [(hyper l)] #'goto-line) ;; Goto Line
       ;; Disable meta on right alt (useful for Polish characters)
       ;; (setq mac-right-option-modifier nil)
+
+      ;; Allow for fullscreen frames without gaps
+      (setq frame-resize-pixelwise t)
       ))
 
 (defun icejam-switch-right-left-alt ()

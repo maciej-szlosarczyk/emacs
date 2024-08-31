@@ -26,7 +26,7 @@
   :config
   (add-to-list 'treesit-extra-load-path (tree-sitter-langs--bin-dir)))
 
-(use-package tree-sitter-indent :straight t)
+;; (use-package tree-sitter-indent :straight t)
 (add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode)
 
 (provide 'icejam-tree-sitter)
