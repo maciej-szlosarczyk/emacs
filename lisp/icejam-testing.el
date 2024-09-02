@@ -1,4 +1,4 @@
-;;; icejam-testing.el --- summary
+;;; icejam-testing.el --- summary  -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -7,10 +7,9 @@
 ;;; Commentary:
 
 ;; icejam-testing includes required things for writing tests.
+;; Originally this was Buttercup but now I am thinking of writing my
+;; configuration tests in ERTs.
 
 ;;; Code:
-
-(use-package buttercup :straight t)
-
-(provide 'icejam-testing)
+ (provide 'icejam-testing)
 ;;; icejam-testing.el ends here
