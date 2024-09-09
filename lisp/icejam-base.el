@@ -78,7 +78,7 @@
 (setq large-file-warning-threshold 50000000)
 
 ;; Numbers are arbitrary, but work on a large screen. Default is 160
-(setq split-width-threshold 180)
+(setq split-width-threshold 200)
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -87,10 +87,12 @@
 
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
-             :if (memq window-system '(x mac ns))
-             :straight t
-             :config (add-to-list 'exec-path "/usr/local/bin")
-             (exec-path-from-shell-initialize))
+  :if (memq window-system '(x mac ns))
+  :straight t
+  :config (add-to-list 'exec-path "/usr/local/bin")
+  (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
 
 (use-package direnv :straight t :config (direnv-mode))
 
@@ -125,7 +127,9 @@
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key
   :straight t
-  :config (which-key-mode t))
+  :config
+  (setq which-key-idle-delay 0.5)
+  (which-key-mode t))
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setq next-line-add-newlines t)

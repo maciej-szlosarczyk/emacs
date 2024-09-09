@@ -93,8 +93,8 @@
 (require 'icejam-diminish)
 
 ;; Restore GC to normal, but still high
-(setq gc-cons-threshold 100000000)
-(setq gc-cons-percentage 0.1)
+(setq gc-cons-threshold 200000000)
+(setq gc-cons-percentage 0.2)
 
 (provide 'icejam-custom-init)
 ;;; icejam-custom-init.el ends here
