@@ -15,6 +15,6 @@
 ;; (add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;; Log garbage collection.
-(setq garbage-collection-messages t)
+(setq garbage-collection-messages nil)
 
 ;;; early-init.el ends here

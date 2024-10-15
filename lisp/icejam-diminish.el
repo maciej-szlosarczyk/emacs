@@ -23,6 +23,7 @@
 (eval-after-load 'whitespace '(diminish 'whitespace-mode))
 (eval-after-load 'autorevert '(diminish 'auto-revert-mode))
 (eval-after-load 'ivy '(diminish 'ivy-mode))
+(eval-after-load 'gcmh '(diminish 'gcmh-mode))
 
 (provide 'icejam-diminish)
 ;;; icejam-diminish.el ends here

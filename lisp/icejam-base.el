@@ -46,6 +46,14 @@
 ;; Move buffers around with buffer keys
 (use-package buffer-move :straight t :defer t)
 
+
+;; Garbage collection magic hack
+(use-package gcmh :straight t
+  :config (gcmh-mode 1)
+  (setq gcmh-verbose nil
+        gcmh-idle-delay 'auto
+        gcmh-auto-idle-delay-factor 10))
+
 ;; #====================== Backup config #==============================
 (setq backup-directory-alist
       `((".*" . "~/.emacs.d/backups/auto-save-list")))
