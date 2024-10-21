@@ -47,6 +47,7 @@
 (require 'icejam-transient)
 (require 'icejam-prog-mode)
 (require 'icejam-company-yasnippet)
+(require 'icejam-copilot)
 (require 'icejam-flycheck)
 (require 'icejam-ispell)
 (require 'icejam-deft)
