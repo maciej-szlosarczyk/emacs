@@ -33,6 +33,7 @@
 
 (global-company-mode t)
 
+;; Hacks for orderless
 (defun just-one-face (fn &rest args)
   (let ((orderless-match-faces [completions-common-part]))
     (apply fn args)))
@@ -40,7 +41,7 @@
 (advice-add 'company-capf--candidates :around #'just-one-face)
 
 (defun company-completion-styles (capf-fn &rest args)
-  (let ((completion-styles '(basic partial-match)))
+  (let ((completion-styles '(partial-completion basic)))
     (apply capf-fn args)))
 
 (advice-add 'company-capf :around #'company-completion-styles)
