@@ -4,7 +4,6 @@
 
 (require 'icejam-prog-mode)
 (require 'icejam-lsp)
-(require 'icejam-projectile)
 
 (declare-function lsp "lsp-mode" nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
@@ -90,15 +89,15 @@
   ;; Add include path so that Erlang does not complain about
   ;; missing header files.
   (setq-local flycheck-erlang-include-path
-              (list (format "%sdeps" (projectile-project-root))
-                    (format "%s_build/default/lib" (projectile-project-root))
-                    (format "%sinclude" (projectile-project-root))
-                    (format "%sapps" (projectile-project-root))))
+              (list (format "%sdeps" (project-root (project-current)))
+                    (format "%s_build/default/lib" (project-root (project-current)))
+                    (format "%sinclude" (project-root (project-current)))
+                    (format "%sapps" (project-root (project-current)))))
 
   (setq-local flycheck-erlang-library-path
-              (list (format "%sdeps" (projectile-project-root))
-                    (format "%s_build/default/lib" (projectile-project-root))
-                    (format "%sapps" (projectile-project-root))))
+              (list (format "%sdeps" (project-root (project-current)))
+                    (format "%s_build/default/lib" (project-root (project-current)))
+                    (format "%sapps" (project-root (project-current)))))
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

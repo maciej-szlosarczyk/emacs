@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
-(require 'icejam-projectile)
 
 (use-package rspec-mode :straight t :defer t)
 (use-package ruby-end :straight t :defer t)

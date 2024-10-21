@@ -15,16 +15,14 @@
 (transient-define-prefix icejam/project-menu ()
   "Project Commands."
   [""
-   ["Projectile"
-    ("s" "Switch project"       counsel-projectile-switch-project)
-    ("f" "Find file in project" counsel-projectile-find-file)
-    ("g" "Grep in project"      counsel-projectile-rg)
-    ("c" "invalidate cache"     projectile-invalidate-cache)
-    ("n" "New project"          projectile-add-known-project)]
+   ["Project"
+    ("s" "Switch project"       project-switch-project)
+    ("f" "Find file in project" project-find-file)
+    ("g" "Grep in project"      consult-ripgrep)]
    ["Ivy"
-    ("a" "Grep in buffer"       counsel-rg)
+    ("a" "Grep in buffer"       consult-ripgrep)
     ("b" "Buffer list"          ibuffer)
-    ("t" "Find file"            counsel-find-file)]
+    ("t" "Find file"            find-file)]
    ["Magit"
     ("m" "Git status"           magit-status)
     ("C" "Git checkout"         magit-checkout)

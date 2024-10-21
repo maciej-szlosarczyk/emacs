@@ -33,23 +33,35 @@
 
 (global-company-mode t)
 
+(defun just-one-face (fn &rest args)
+  (let ((orderless-match-faces [completions-common-part]))
+    (apply fn args)))
+
+(advice-add 'company-capf--candidates :around #'just-one-face)
+
+(defun company-completion-styles (capf-fn &rest args)
+  (let ((completion-styles '(basic partial-match)))
+    (apply capf-fn args)))
+
+(advice-add 'company-capf :around #'company-completion-styles)
+
 (setq-default
- company-minimum-prefix-length 3   ;; minimum prefix character number for auto complete.
+ company-minimum-prefix-length 3 ;; minimum prefix character number for auto complete.
  company-idle-delay 0.1
  company-require-match nil
  company-echo-delay 0 ;;;; company-show-numbers t
  company-tooltip-align-annotations t ;; align annotations to the right tooltip border.
  company-tooltip-flip-when-above t
- company-tooltip-limit 10          ;; tooltip candidates max limit.
- company-tooltip-minimum 2         ;; minimum candidates limit.
- company-tooltip-minimum-width 10  ;; The minimum width of the tooltip's inner area.
-                                   ;; This doesn't include the margins and the scroll bar.
- company-tooltip-margin 2          ;; width of margin columns to show around the tooltip
+ company-tooltip-limit 10  ;; tooltip candidates max limit.
+ company-tooltip-minimum 2 ;; minimum candidates limit.
+ company-tooltip-minimum-width 10 ;; The minimum width of the tooltip's inner area.
+ ;; This doesn't include the margins and the scroll bar.
+ company-tooltip-margin 2 ;; width of margin columns to show around the tooltip
  company-tooltip-offset-display 'lines ;; 'lines - how to show tooltip unshown candidates number.
  company-show-numbers nil ;; t: show quick-access numbers for the first ten candidates.
  company-selection-wrap-around t ;; loop over candidates
  company-dabbrev-other-buffers t ;; Only offer dabbrev from the same major mode
- company-dabbrev-downcase nil ;; Preserve case of candidates
+ company-dabbrev-downcase nil    ;; Preserve case of candidates
  company-format-margin-function nil
  ;; company-async-wait 0.03
  ;; company-async-timeout 2
