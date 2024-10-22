@@ -20,7 +20,7 @@
     ("f" "Find file in project" project-find-file)
     ("g" "Grep in project"      consult-ripgrep)]
    ["Completions"
-    ("a" "Grep in buffer"       swiper)
+    ("a" "Grep in buffer"       consult-line)
     ("b" "Buffer list"          consult-buffer)
     ("t" "Find file"            find-file)]
    ["Magit"
@@ -48,7 +48,7 @@
     ("m" "Any (Company)"  company-complete)
     ("g" "Ask GPT"        gptel-menu)]
    ["Find"
-    ("s" "Swiper"         swiper)
+    ("s" "Swiper"         consult-line)
     ("u" "Vundo"          vundo)
     ("d" "Dash"           dash-at-point)]])
 
