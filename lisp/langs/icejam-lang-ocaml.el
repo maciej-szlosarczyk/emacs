@@ -14,7 +14,7 @@
   :straight t
   :config (add-hook 'tuareg-mode-hook 'merlin-mode))
 
-(transient-define-prefix icejam/ocaml-lang-menu ()
+(transient-define-prefix icejam-ocaml-lang-menu ()
   "Ocaml Actions."
   ["OCaml actions"
    [""
@@ -27,9 +27,9 @@
   [""
    ("q" "Quit"      keyboard-quit)])
 
-(add-to-list 'icejam-language-transient-alist '(tuareg-mode . icejam/ocaml-lang-menu))
+(add-to-list 'icejam-language-transient-alist '(tuareg-mode . icejam-ocaml-lang-menu))
 
-(defun icejam/load-ocaml-site-packages ()
+(defun icejam-load-ocaml-site-packages ()
   "Generate ocaml config."
   (let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
     (when (and opam-share (file-directory-p opam-share))
@@ -43,14 +43,14 @@
       (setq merlin-command 'opam))))
 
 ;; OCaml setup
-(defun icejam/activate-tuareg-mode ()
+(defun icejam-activate-tuareg-mode ()
   "All thing OCaml."
-  (icejam/set-indent 2)
+  (icejam-set-indent 2)
   (opam-switch-mode t)
-  (icejam/load-ocaml-site-packages)
+  (icejam-load-ocaml-site-packages)
   (lsp))
 
-(add-hook 'tuareg-mode-hook 'icejam/activate-tuareg-mode)
+(add-hook 'tuareg-mode-hook 'icejam-activate-tuareg-mode)
 
 ;; Disable merlin keys that are unused by me
 (add-hook 'merlin-mode-hook (lambda ()
@@ -66,7 +66,7 @@
 ;; Use tuareg-opam with lock files
 (add-to-list 'auto-mode-alist '("\\.opam.locked\\'" . tuareg-opam-mode))
 
-;; (transient-define-prefix icejam-lang/reasonml-context-menu ()
+;; (transient-define-prefix icejam-lang-reasonml-context-menu ()
 ;;   "ReasonML Actions."
 ;;   ["ReasonML actions"
 ;;    [""
@@ -79,16 +79,16 @@
 ;;    ("q" "Quit"      keyboard-quit)])
 
 
-;; (defun icejam-lang/activate-reason-mode ()
+;; (defun icejam-lang-activate-reason-mode ()
 ;;   "Generate reason config."
 ;;   (define-key
-;;     reason-mode-map (kbd "C-c l") 'icejam-lang/reasonml-context-menu))
+;;     reason-mode-map (kbd "C-c l") 'icejam-lang-reasonml-context-menu))
 
 ;; ;; Reason setup
 ;; (add-hook 'reason-mode-hook
 ;;           (lambda ()
 ;;             (add-hook 'before-save-hook #'refmt-before-save)))
-;; (add-hook 'reason-mode-hook 'icejam-lang/activate-reason-mode)
+;; (add-hook 'reason-mode-hook 'icejam-lang-activate-reason-mode)
 ;; (add-hook 'reason-mode-hook 'merlin-mode)
 
 (provide 'icejam-lang-ocaml)

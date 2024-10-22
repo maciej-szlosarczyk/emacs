@@ -20,9 +20,9 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
-(defun icejam/activate-js2-mode ()
+(defun icejam-activate-js2-mode ()
 	"JS2 mode overrides."
-	(icejam/set-indent 2)
+	(icejam-set-indent 2)
 
   (when (not (string-match-p ".json" (buffer-file-name)))
     (lsp-deferred))
@@ -41,7 +41,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'js2-mode-hook 'icejam/activate-js2-mode)
+(add-hook 'js2-mode-hook 'icejam-activate-js2-mode)
 
 (provide 'icejam-lang-javascript)
 ;;; icejam-lang-javascript.el ends here

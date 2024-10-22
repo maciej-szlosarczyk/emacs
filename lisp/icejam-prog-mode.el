@@ -63,7 +63,7 @@
 (setq tab-stop-list (number-sequence tab-width 200 tab-width))
 
 ;; Ensure indentation in steps:
-(defun icejam/set-indent (step)
+(defun icejam-set-indent (step)
   "Set indentation to STEP."
   (interactive "NNumber of columns for one step: ")
   (setq-local tab-width step)

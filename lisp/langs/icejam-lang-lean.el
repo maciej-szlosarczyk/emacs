@@ -14,7 +14,7 @@
   :requires (lsp)
   :defer t)
 
-(defun icejam/activate-lean-mode ()
+(defun icejam-activate-lean-mode ()
   "All things for Lean mode."
   (interactive)
 
@@ -25,7 +25,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'lean4-mode-hook 'icejam/activate-lean-mode)
+(add-hook 'lean4-mode-hook 'icejam-activate-lean-mode)
 
 (provide 'icejam-lang-lean)
 ;;; icejam-lang-lean.el ends here

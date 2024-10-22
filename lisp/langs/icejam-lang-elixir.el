@@ -17,7 +17,7 @@
 (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
 
-(transient-define-prefix icejam/elixir-lang-menu ()
+(transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."
   [""
    ["LSP"
@@ -31,11 +31,11 @@
    ("q" "Quit"        keyboard-quit)])
 
 (add-to-list
- 'icejam-language-transient-alist '(elixir-ts-mode . icejam/elixir-lang-menu))
+ 'icejam-language-transient-alist '(elixir-ts-mode . icejam-elixir-lang-menu))
 
-(defun icejam/activate-elixir-ts-mode ()
+(defun icejam-activate-elixir-ts-mode ()
   "All things Elixir."
-  (icejam/set-indent 2)
+  (icejam-set-indent 2)
   (column-enforce-n 98)
   (lsp)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
@@ -50,8 +50,8 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'heex-ts-mode-hook 'icejam/activate-elixir-ts-mode)
-(add-hook 'elixir-ts-mode-hook 'icejam/activate-elixir-ts-mode)
+(add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
+(add-hook 'elixir-ts-mode-hook 'icejam-activate-elixir-ts-mode)
 
 (provide 'icejam-lang-elixir)
 ;;; icejam-lang-elixir.el ends here

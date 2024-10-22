@@ -25,7 +25,7 @@
         ("erb"  . (("<%" "%>")
                    ("beg" "end")))))
 
-(defun icejam/activate-web-mode ()
+(defun icejam-activate-web-mode ()
 	"Web mode overrides."
 	;; Indent web mode scripts by 2
 	(setq-local web-mode-script-padding 2)
@@ -44,7 +44,7 @@
 	(when (string-match-p ".vue" (buffer-file-name))
 		(lsp)))
 
-(add-hook 'web-mode-hook 'icejam/activate-web-mode)
+(add-hook 'web-mode-hook 'icejam-activate-web-mode)
 
 (provide 'icejam-lang-web)
 ;;; icejam-lang-web.el ends here

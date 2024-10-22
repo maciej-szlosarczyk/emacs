@@ -12,16 +12,16 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(transient-define-prefix icejam/project-menu ()
+(transient-define-prefix icejam-project-menu ()
   "Project Commands."
   [""
    ["Project"
     ("s" "Switch project"       project-switch-project)
     ("f" "Find file in project" project-find-file)
     ("g" "Grep in project"      consult-ripgrep)]
-   ["Ivy"
-    ("a" "Grep in buffer"       consult-ripgrep)
-    ("b" "Buffer list"          ibuffer)
+   ["Completions"
+    ("a" "Grep in buffer"       swiper)
+    ("b" "Buffer list"          consult-buffer)
     ("t" "Find file"            find-file)]
    ["Magit"
     ("m" "Git status"           magit-status)
@@ -35,7 +35,7 @@
     ("d" "deft"                 deft)
     ("T" "Speed Type"           speed-type-text)]])
 
-(transient-define-prefix icejam/code-menu ()
+(transient-define-prefix icejam-code-menu ()
   "Code Commands."
   [""
    ["Manipulate"
@@ -52,7 +52,7 @@
     ("u" "Vundo"          vundo)
     ("d" "Dash"           dash-at-point)]])
 
-(transient-define-prefix icejam/window-menu ()
+(transient-define-prefix icejam-window-menu ()
   "Windows Commands."
   [""
    ["Move"
@@ -69,7 +69,7 @@
     ""
     ("k" "Kill Buffer"  kill-buffer-and-window)]])
 
-(transient-define-prefix icejam/language-menu ()
+(transient-define-prefix icejam-language-menu ()
   "Language (Buffer) Commands."
   [""
    ["Buffer"
@@ -80,13 +80,13 @@
     ("m" "iMenu"       lsp-ui-imenu)
     ("e" "Show Errors" flycheck-list-errors)]])
 
-(transient-define-prefix icejam/history-menu ()
+(transient-define-prefix icejam-history-menu ()
   "Buffer History Commands."
   ["History"
    ("[" "Previous" previous-buffer)
    ("]" "Next" previous-buffer)])
 
-(transient-define-prefix icejam/move-menu ()
+(transient-define-prefix icejam-move-menu ()
   "Move Commands."
   [""
    ["Move this buffer"
@@ -99,7 +99,7 @@
     ("l" "Character" avy-goto-line)
     ("c" "Line" avy-goto-char-2)]])
 
-(transient-define-prefix icejam/font-menu ()
+(transient-define-prefix icejam-font-menu ()
   "Font Commands."
   [""
    ["Everywhere"
@@ -122,19 +122,19 @@
   "Get transient for major mode.
 You can pass MAYBE-MODE to find mode explicitly."
   (let* ((mode (if maybe-mode maybe-mode major-mode)))
-    (alist-get mode icejam-language-transient-alist 'icejam/language-menu)))
+    (alist-get mode icejam-language-transient-alist 'icejam-language-menu)))
 
 (defun icejam-transient-for-lang ()
   "Call transient for current major mode."
   (interactive)
   (funcall (icejam-language-transient-for-mode)))
 
-(define-key icejam-keys-mode-map (kbd "C-c p") 'icejam/project-menu)
-(define-key icejam-keys-mode-map (kbd "C-c c") 'icejam/code-menu)
-(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam/window-menu)
-(define-key icejam-keys-mode-map (kbd "C-c s") 'icejam/history-menu)
-(define-key icejam-keys-mode-map (kbd "C-c f") 'icejam/font-menu)
-(define-key icejam-keys-mode-map (kbd "C-c m") 'icejam/move-menu)
+(define-key icejam-keys-mode-map (kbd "C-c p") 'icejam-project-menu)
+(define-key icejam-keys-mode-map (kbd "C-c c") 'icejam-code-menu)
+(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam-window-menu)
+(define-key icejam-keys-mode-map (kbd "C-c s") 'icejam-history-menu)
+(define-key icejam-keys-mode-map (kbd "C-c f") 'icejam-font-menu)
+(define-key icejam-keys-mode-map (kbd "C-c m") 'icejam-move-menu)
 (define-key icejam-keys-mode-map (kbd "C-c l") 'icejam-transient-for-lang)
 
 (provide 'icejam-transient)

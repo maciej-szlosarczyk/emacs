@@ -18,9 +18,9 @@
   :straight t
   :defer t)
 
-(defun icejam/activate-fsharp-mode ()
+(defun icejam-activate-fsharp-mode ()
   "Activate F# goodies."
-  (icejam/set-indent 4)
+  (icejam-set-indent 4)
   (column-enforce-n 100)
   (lsp-deferred)
 
@@ -28,7 +28,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'fsharp-mode-hook 'icejam/activate-fsharp-mode)
+(add-hook 'fsharp-mode-hook 'icejam-activate-fsharp-mode)
 
 (provide 'icejam-lang-fsharp)
 ;;; icejam-lang-fsharp.el ends here

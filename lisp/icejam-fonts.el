@@ -31,7 +31,7 @@
 (defconst icejam-font-size 14
   "Default size of then font.
 It is used to calculated the size in relation to the screen
-in icejam/set-font-to-screen.")
+in icejam-set-font-to-screen.")
 
 (defcustom icejam-mut-font
   icejam-font
@@ -48,7 +48,7 @@ in icejam/set-font-to-screen.")
 ;; First, let's silence a warning about free variables
 (defvar lsp-ui-doc-frame-hook)
 
-(defun icejam/set-lsp-ui-font-hook ()
+(defun icejam-set-lsp-ui-font-hook ()
   "Reset LSP IO font to specified icejam-font and icejam-font-size."
   (setq lsp-ui-doc-frame-hook nil)
   (add-hook 'lsp-ui-doc-frame-hook
@@ -57,7 +57,7 @@ in icejam/set-font-to-screen.")
                'default frame :font
                (format "%s %d" icejam-mut-font (- icejam-mut-font-size 2))))))
 
-(defun icejam/set-font (name size)
+(defun icejam-set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
   (setq icejam-mut-font name)
@@ -83,9 +83,9 @@ in icejam/set-font-to-screen.")
    'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
 
   ;; Call LSP-UI hook
-  (icejam/set-lsp-ui-font-hook))
+  (icejam-set-lsp-ui-font-hook))
 
-(defun icejam/set-font-to-screen ()
+(defun icejam-set-font-to-screen ()
   "Automatically set font size to suit the monitor."
   ;; If display is set to emulate FullHD resultion or less, make the font
   ;; smaller.
@@ -93,38 +93,38 @@ in icejam/set-font-to-screen.")
   (cond ((eq (x-display-list) nil))
         ;; built-in screen
         ((>= 1050 (x-display-pixel-height))
-         (icejam/set-font icejam-font icejam-font-size))
+         (icejam-set-font icejam-font icejam-font-size))
 
         ;; 4K screen on a Mac
         ((>= 1080 (x-display-pixel-height))
-         (icejam/set-font icejam-font icejam-font-size))
+         (icejam-set-font icejam-font icejam-font-size))
 
         ;; Other screens
         ((>= 1120 (x-display-pixel-height))
-         (icejam/set-font icejam-font icejam-font-size))
+         (icejam-set-font icejam-font icejam-font-size))
 
         ((>= 1440 (x-display-pixel-height))
-         (icejam/set-font icejam-font (+ icejam-font-size 3)))
+         (icejam-set-font icejam-font (+ icejam-font-size 3)))
 
         ((>= 1920 (x-display-pixel-height))
-         (icejam/set-font icejam-font icejam-font-size))
+         (icejam-set-font icejam-font icejam-font-size))
 
         ;; 4K screen on Windows or Linux
         ((>= 2160 (x-display-pixel-height))
-         (icejam/set-font icejam-font (- icejam-font-size 3)))
+         (icejam-set-font icejam-font (- icejam-font-size 3)))
 
         ;; Default
-        (t (icejam/set-font icejam-font (- icejam-font-size 3)))))
+        (t (icejam-set-font icejam-font (- icejam-font-size 3)))))
 
 ;; Do it automatically on startup
-(icejam/set-font-to-screen)
+(icejam-set-font-to-screen)
 
-(defun icejam/set-font-size (size)
+(defun icejam-set-font-size (size)
   "Set font to a specified SIZE."
   (interactive "nEnter size for font: ")
-  (icejam/set-font icejam-mut-font size))
+  (icejam-set-font icejam-mut-font size))
 
-(defun icejam/set-font-size-for-this-frame (new-size)
+(defun icejam-set-font-size-for-this-frame (new-size)
   "Set font NEW-SIZE for this frame only."
   (interactive "nEnter new size for font in this frame: ")
   (set-frame-font (format "%s %d" icejam-mut-font new-size)))

@@ -3,6 +3,10 @@
 ;;; Global Language Server Protocol Config
 ;;; Code:
 
+;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+;; This supposedly makes it faster.
+(setenv "LSP_USE_PLISTS" "true")
+
 (use-package lsp-mode
   :straight t
   :defer t
@@ -15,7 +19,7 @@
                 lsp-server-trace nil
                 lsp-lens-enable nil
                 lsp-lens-mode nil
-                read-process-output-max (* 1024 1024 2)
+                read-process-output-max (* 1024 1024 4)
                 ;; Disable the piece of shit vue LSP server. It activates itself in every
                 ;; project with .js, .ts or .json file due to something called 'takeover
                 ;; mode' or 'hybrid mode' or some such.

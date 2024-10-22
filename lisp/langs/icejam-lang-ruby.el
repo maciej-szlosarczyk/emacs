@@ -10,9 +10,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-ts-mode))
 
-(defun icejam/activate-ruby-mode ()
+(defun icejam-activate-ruby-mode ()
   "All things for ruby mode."
-  (icejam/set-indent 2)
+  (icejam-set-indent 2)
 
   ;; Disable reek syntax checking permanently
   (add-to-list (make-local-variable 'flycheck-disabled-checkers) 'ruby-reek 'ruby-rubocop)
@@ -30,7 +30,7 @@
 (add-hook 'ruby-ts-mode-hook 'rspec-mode)
 (add-hook 'ruby-ts-mode-hook 'ruby-end-mode)
 (eval-after-load 'rspec-mode '(rspec-install-snippets))
-(add-hook 'ruby-ts-mode-hook 'icejam/activate-ruby-mode)
+(add-hook 'ruby-ts-mode-hook 'icejam-activate-ruby-mode)
 
 (provide 'icejam-lang-ruby)
 ;;; icejam-lang-ruby.el ends here

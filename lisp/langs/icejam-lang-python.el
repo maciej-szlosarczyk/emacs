@@ -8,7 +8,7 @@
 (declare-function lsp nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-(transient-define-prefix icejam/python-lang-menu ()
+(transient-define-prefix icejam-python-lang-menu ()
   "Python Buffer Commands."
   [""
    ["LSP"
@@ -23,9 +23,9 @@
 
 ;; Add lookup for C-c l transient menu
 (add-to-list
- 'icejam-language-transient-alist '(python-mode . icejam/python-lang-menu))
+ 'icejam-language-transient-alist '(python-mode . icejam-python-lang-menu))
 
-(defun icejam-lang/activate-python-mode ()
+(defun icejam-lang-activate-python-mode ()
   "Activate python mode."
   (lsp)
   (column-enforce-n 99)
@@ -34,7 +34,7 @@
   (add-to-list (make-local-variable 'company-backends)
                '(company-capf company-yasnippet)))
 
-(add-hook 'python-mode-hook 'icejam-lang/activate-python-mode)
+(add-hook 'python-mode-hook 'icejam-lang-activate-python-mode)
 
 (provide 'icejam-lang-python)
 ;;; icejam-lang-python.el ends here

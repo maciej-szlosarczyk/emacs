@@ -19,7 +19,7 @@
       (setq mac-option-modifier 'meta)
       (setq mac-command-modifier 'hyper)
 
-      (defun icejam/mac-switch-meta nil
+      (defun icejam-mac-switch-meta nil
         "Switch meta between Option and Command."
         (interactive)
         (if (eq mac-option-modifier nil)

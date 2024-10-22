@@ -7,11 +7,11 @@
 
 (use-package dhall-mode :straight t :defer t :requires (lsp))
 
-(defun icejam-lang/activate-dhall-mode ()
+(defun icejam-lang-activate-dhall-mode ()
   "Reconfigure dhall mode for your own purposes."
   (lsp))
 
-(add-hook 'dhall-mode-hook 'icejam-lang/activate-dhall-mode)
+(add-hook 'dhall-mode-hook 'icejam-lang-activate-dhall-mode)
 (add-hook 'dhall-mode-hook 'display-line-numbers-mode)
 
 (provide 'icejam-lang-dhall)
