@@ -64,7 +64,7 @@
 ;; Actual supported languages and file syntax.
 (require 'icejam-lang-clang)
 (require 'icejam-lang-clojure)
-(require 'icejam-lang-common-lisp)
+;; (require 'icejam-lang-common-lisp) ;; I don't use common lisp often, so let's not load.
 (require 'icejam-lang-dart)
 (require 'icejam-lang-dhall)
 (require 'icejam-lang-elisp)
