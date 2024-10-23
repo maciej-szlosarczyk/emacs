@@ -9,7 +9,7 @@
 ;; diminish minor modes
 
 ;;; Code:
-(use-package diminish :straight t)
+(use-package diminish :ensure (:wait t))
 
 (eval-after-load 'flyspell '(diminish 'flyspell-mode))
 (eval-after-load 'flycheck '(diminish 'flycheck-mode))

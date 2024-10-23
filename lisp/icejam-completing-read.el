@@ -5,7 +5,7 @@
 
 (require 'icejam-keys-mode)
 
-(use-package vertico :straight t :defer t
+(use-package vertico :ensure t :defer t
   :init
   (vertico-mode)
   :custom
@@ -42,7 +42,7 @@
   (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode))
 
 ;; Optionally use the `orderless' completion style.
-(use-package orderless :straight t :defer t
+(use-package orderless :ensure t :defer t
   :custom
   ;; Configure a custom style dispatcher (see the Consult wiki)
   ;; (orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch))
@@ -51,9 +51,9 @@
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
-(use-package marginalia :straight t :defer t :init (marginalia-mode))
-(use-package consult :straight t :defer t)
-(use-package helpful :straight t :defer t)
+(use-package marginalia :ensure t :defer t :init (marginalia-mode))
+(use-package consult :ensure t :defer t)
+(use-package helpful :ensure t :defer t)
 
 (with-eval-after-load 'consult
   (define-key icejam-keys-mode-map (kbd "C-c a") 'consult-ripgrep)

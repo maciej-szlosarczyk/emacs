@@ -5,13 +5,13 @@
 (require 'icejam-prog-mode)
 
 (use-package rust-mode
-  :straight t
+  :ensure t
   :defer t
   :config
   (setq rust-mode-treesitter-derive t))
 
 (use-package flycheck-rust
-  :straight t
+  :ensure t
   :defer t
   :requires (rust-mode lsp))
 

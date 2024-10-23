@@ -6,11 +6,11 @@
 (require 'icejam-lsp)
 
 (use-package lean4-mode
-  :straight (lean4-mode
-	           :type git
-	           :host github
-	           :repo "leanprover/lean4-mode"
-	           :files ("*.el" "data"))
+  :ensure (lean4-mode
+	   :type git
+	   :host github
+	   :repo "leanprover/lean4-mode"
+	   :files ("*.el" "data"))
   :requires (lsp)
   :defer t)
 

@@ -13,11 +13,11 @@
 (require 'icejam-prog-mode)
 
 (use-package haskell-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package lsp-haskell
-  :straight t
+  :ensure t
   :defer t
   :requires (lsp-mode lsp-ui haskell-mode))
 

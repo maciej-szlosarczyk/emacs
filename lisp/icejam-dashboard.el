@@ -11,7 +11,7 @@
 ;;; Code:
 
 (use-package dashboard
-  :straight t
+  :ensure (:wait t)
   :config
   (dashboard-setup-startup-hook)
 

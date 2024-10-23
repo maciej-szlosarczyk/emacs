@@ -5,7 +5,7 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-(use-package lispy :straight t :defer t)
+(use-package lispy :ensure (:wait t) :defer t)
 
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))

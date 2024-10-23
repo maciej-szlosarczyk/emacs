@@ -5,7 +5,7 @@
 
 (require 'icejam-avy)
 (require 'icejam-keys-mode)
-(use-package transient :straight t)
+(use-package transient :ensure (:wait t))
 
 (defun icejam-mark-and-indent-whole-buffer ()
   "Mark and indent whole buffer."

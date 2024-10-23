@@ -18,13 +18,13 @@
 ;;; Show trailing whitespace and remove whitespace on save
 (use-package whitespace
   :commands whitespace-mode
-  :straight t
+  :ensure nil
   :defer t
   :hook (((prog-mode text-mode conf-mode) . whitespace-mode)
          (before-save . whitespace-cleanup))
   :config
   (setq whitespace-style #'(face trailing empty)
-        ;;; Insert newline on save
+;;; Insert newline on save
         require-final-newline 't))
 
 (setq-default indent-tabs-mode nil)
@@ -32,7 +32,7 @@
 ;; Use colorful, matching parens
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
-  :straight t
+  :ensure t
   :defer t
   :hook (((prog-mode text-mode) . rainbow-delimiters-mode))
   :init
@@ -44,13 +44,13 @@
 ;;; Show hex (#aaa) colors as colors
 (use-package rainbow-mode
   :commands rainbow-mode
-  :straight t
+  :ensure t
   :hook ((prog-mode text-mode) . rainbow-mode))
 
 ;; Dash integration
 (use-package dash-at-point
   :commands dash-at-point
-  :straight t
+  :ensure t
   :defer t
   :config
   (add-to-list 'dash-at-point-mode-alist
@@ -70,16 +70,16 @@
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
 (use-package column-enforce-mode
-  :straight t
+  :ensure t
   :defer t
   :config (global-column-enforce-mode t))
 
 ;; PCRE to emacs regex translations
-(use-package pcre2el :straight t)
+(use-package pcre2el :ensure t)
 
 ;; Visual regexp
 (use-package visual-regexp-steroids
-  :straight t
+  :ensure t
   :requires (pcre2el)
   :config (setq vr/engine 'pcre2el))
 

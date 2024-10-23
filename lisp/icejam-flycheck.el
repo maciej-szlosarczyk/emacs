@@ -3,11 +3,10 @@
 ;;; Code:
 
 ;; Use flycheck globally to check syntax and compile languages
-(use-package flycheck
-  :commands flycheck-define-checker
-  :straight t
-  :defer t
-  :config (global-flycheck-mode t)
+(use-package flycheck :ensure t)
+
+(with-eval-after-load 'flycheck
+  (global-flycheck-mode t)
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (unbind-key "C-c ! C-c" flycheck-mode-map)
   (unbind-key "C-c ! C-w" flycheck-mode-map)

@@ -22,11 +22,11 @@
         (make-symbolic-link file target)))))
 
 ;;;;;;;;;;;;;;;;;;;;;; Tree sitter ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package tree-sitter-langs :straight t
+(use-package tree-sitter-langs :ensure t
   :config
   (add-to-list 'treesit-extra-load-path (tree-sitter-langs--bin-dir)))
 
-;; (use-package tree-sitter-indent :straight t)
+;; (use-package tree-sitter-indent :ensure t)
 (add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode)
 
 (provide 'icejam-tree-sitter)

@@ -8,8 +8,7 @@
 (setenv "LSP_USE_PLISTS" "true")
 
 (use-package lsp-mode
-  :straight t
-  :defer t
+  :ensure (:depth 5)
   :requires (company)
   :config
   (setq-default lsp-file-watch-threshold 10000
@@ -70,7 +69,7 @@
   :hook ((typescript-mode . lsp-deferred)))
 
 (use-package lsp-ui
-  :straight t
+  :ensure t
   :requires (lsp-mode)
   :defer t
   :config
@@ -82,7 +81,7 @@
 
 ;; Lsp debugger mode
 (use-package dap-mode
-  :straight t
+  :ensure t
   :defer t
   :requires (lsp-mode lsp-ui))
 

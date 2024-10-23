@@ -4,10 +4,11 @@
 
 (require 'icejam-prog-mode)
 
-(use-package markdown-mode
-  :straight t
-  :defer t
-  :init (setq-default markdown-command "pandoc"))
+(unless (elpaca-installed-p 'markdown-mode)
+  (use-package markdown-mode
+    :ensure t
+    :defer t
+    :init (setq-default markdown-command "pandoc")))
 
 (defun icejam-lang-activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."

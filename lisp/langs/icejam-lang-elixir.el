@@ -9,13 +9,13 @@
 (declare-function lsp "lsp-mode" nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-(use-package elixir-mode :defer t :straight t)
-(use-package elixir-ts-mode :straight t
-  :requires (elixir-mode lsp-mode lsp-ui)
-  :defines (elixir-ts-mode-map))
+(use-package elixir-mode :defer t :ensure t)
 
-(add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode))
+(use-package elixir-ts-mode :ensure t
+  :requires (elixir-mode lsp-mode lsp-ui)
+  :mode
+  ("\\.exs\\'" . elixir-ts-mode)
+  ("\\.ex\\'" . elixir-ts-mode))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."

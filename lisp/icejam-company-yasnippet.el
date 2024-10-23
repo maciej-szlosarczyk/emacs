@@ -3,37 +3,36 @@
 ;;; Company completion framework configuration
 ;;; Code:
 
-(use-package yasnippet
-  :straight t
-  :defer t)
+(use-package yasnippet :ensure t
+  :config
+  (yas-global-mode t))
 
 (use-package yasnippet-snippets
-  :straight t
-  :defer t
+  :ensure t
   :requires (yasnippet)
   :config
   (unbind-key "C-c & C-n" yas-minor-mode-map)
   (unbind-key "C-c & C-s" yas-minor-mode-map)
   (unbind-key "C-c & C-v" yas-minor-mode-map))
 
-(yas-global-mode t)
-
 (use-package company
   :commands (company-indent-or-complete-common company-yasnippet)
+  :ensure t
+  :config (global-company-mode t)
+  :demand t
   :requires (yasnippet
-             yasnippet-snippets)
-  :straight t
-  :defer t)
+             yasnippet-snippets))
 
 (use-package company-box
-  :straight t
+  :ensure t
   :defer t
   :requires (company)
-  :hook (((company-mode) . company-box-mode)))
+  :hook (company-mode . company-box-mode))
 
-(global-company-mode t)
+;; (global-company-mode t)
 
 ;; Hacks for orderless
+(with-eval-after-load 'company
 (defun just-one-face (fn &rest args)
   (let ((orderless-match-faces [completions-common-part]))
     (apply fn args)))
@@ -99,7 +98,7 @@
 
 (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
 (define-key text-mode-map (kbd "<f13>") 'icejam-insert-space-and-complete)
-(define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common)
+(define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common))
 
 (provide 'icejam-company-yasnippet)
 ;;; icejam-company-yasnippet.el ends here

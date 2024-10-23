@@ -11,7 +11,6 @@
 ;;; Code:
 
 (use-package speed-type
-  :straight t
   :ensure t
   :defer t)
 

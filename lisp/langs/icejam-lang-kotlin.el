@@ -12,11 +12,11 @@
 
 (use-package kotlin-mode
 	:defer t
-	:straight t)
+	:ensure t)
 
 (use-package gradle-mode
 	:defer t
-	:straight t)
+	:ensure t)
 
 (defun icejam-activate-kotlin-mode ()
   "All things Kotlin."

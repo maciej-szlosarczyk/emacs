@@ -10,7 +10,7 @@
 
 (use-package erlang
   :defer t
-  :straight t
+  :ensure (:depth 1)
   :requires (lsp-mode lsp-ui))
 
 (cl-defun icejam-erlang-emacs-path (erlang-version)

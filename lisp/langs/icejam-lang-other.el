@@ -11,29 +11,34 @@
 ;;; Code:
 
 ;; Infrastructure files
-(use-package dockerfile-mode :straight t :defer t)
-(use-package docker :straight t :defer t :ensure t)
-(use-package terraform-mode :straight t :defer t)
-(use-package ansible :straight t :defer t)
-(use-package nginx-mode :straight t :defer t)
-(use-package jenkinsfile-mode :straight t :defer t)
-(use-package lua-mode :straight t :defer t)
-(use-package graphql-mode :straight t :defer t)
-(add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
+(use-package dockerfile-mode :ensure t :defer t)
+(use-package docker :ensure t :defer t)
+(use-package terraform-mode :ensure t :defer t)
+(use-package ansible :ensure t :defer t)
+(use-package nginx-mode :ensure t :defer t)
+(use-package jenkinsfile-mode :ensure t :defer t)
+(use-package lua-mode :ensure t :defer t)
+
+;; Graphql schema definition files.
+(use-package graphql-mode :ensure t :defer t
+  :mode ("\\.graphqls\\'" . graphql-mode))
 
 ;; Yaml
-(use-package yaml-mode :straight t :defer t :requires (lsp))
+(declare-function lsp "lsp-mode" nil)
+(use-package yaml-mode :ensure t :defer t :requires (lsp))
 
-(defun icejam-lang-activate-yaml-mode ()
-  "Activate yaml-mode."
-  (lsp))
+(with-eval-after-load 'yaml-mode
+  (defun icejam-lang-activate-yaml-mode ()
+    "Activate yaml-mode."
+    (lsp))
 
-(add-hook 'yaml-mode-hook 'icejam-lang-activate-yaml-mode)
+  (add-hook 'yaml-mode-hook 'icejam-lang-activate-yaml-mode))
+
 
 ;; Other text files
-(use-package json-mode :straight t :defer t)
+(use-package json-mode :ensure t :defer t)
 (use-package git-modes
-  :straight t
+  :ensure t
   :defer t
   :hook ((gitignore-mode . whitespace-mode)
          (before-save . whitespace-cleanup)))

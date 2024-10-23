@@ -6,12 +6,12 @@
 (require 'icejam-prog-mode)
 (declare-function lsp "lsp-mode" nil)
 
-(use-package merlin :defer t :straight t)
-(use-package opam-switch-mode :straight t :defer t)
-(use-package dune :defer t :straight t)
+(use-package merlin :defer t :ensure t)
+(use-package opam-switch-mode :ensure t :defer t)
+(use-package dune :defer t :ensure t)
 (use-package tuareg
   :defer t
-  :straight t
+  :ensure t
   :config (add-hook 'tuareg-mode-hook 'merlin-mode))
 
 (transient-define-prefix icejam-ocaml-lang-menu ()

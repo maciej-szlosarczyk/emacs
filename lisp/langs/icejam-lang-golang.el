@@ -15,7 +15,7 @@
 (use-package go-mode
   :requires (lsp-mode lsp-ui)
   :defer t
-  :straight t)
+  :ensure t)
 
 (defun icejam-activate-golang-mode ()
   "Activate my own Golang mode settings."

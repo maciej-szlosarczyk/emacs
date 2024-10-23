@@ -5,7 +5,7 @@
 (require 'icejam-keys-mode)
 
 (use-package magit
-  :straight t
+  :ensure t
   :defer t
   :bind (:map icejam-keys-mode-map
               ("<f5> c" . magit-checkout)

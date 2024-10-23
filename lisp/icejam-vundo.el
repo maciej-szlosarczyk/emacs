@@ -11,9 +11,7 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;; Use more advanced undo options
-(use-package vundo
-  :straight t
-  :defer t)
+(use-package vundo :ensure t :defer t)
 
 (provide 'icejam-vundo)
 ;;; icejam-vundo.el ends here

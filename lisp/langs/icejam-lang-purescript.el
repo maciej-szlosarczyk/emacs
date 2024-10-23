@@ -11,7 +11,7 @@
 ;;; Code:
 (use-package purescript-mode
   :requires (lsp-mode lsp-ui)
-  :straight t)
+  :ensure t)
 
 (defun icejam-activate-purescript-mode ()
   "All things Purescript."

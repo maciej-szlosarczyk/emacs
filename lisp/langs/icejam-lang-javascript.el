@@ -8,12 +8,12 @@
 
 (use-package js2-mode
   :requires (web-mode company-web lsp-mode lsp-ui)
-  :straight t)
+  :ensure t)
 
-(use-package typescript-mode :straight t)
+(use-package typescript-mode :ensure t)
 
 ;; (use-package vue-mode
-;;   :straight t
+;;   :ensure t
 ;;   :defer t)
 
 ;; Use js2-mode for javascript editing

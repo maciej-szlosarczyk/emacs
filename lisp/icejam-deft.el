@@ -7,7 +7,7 @@
 (require 'icejam-transient)
 
 (use-package deft
-  :straight t
+  :ensure t
   :defer t
   :config (setq
            deft-directory (substitute-in-file-name "$DEFT_PATH")
