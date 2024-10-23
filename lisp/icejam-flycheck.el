@@ -4,7 +4,6 @@
 
 ;; Use flycheck globally to check syntax and compile languages
 (use-package flycheck :ensure t)
-
 (with-eval-after-load 'flycheck
   (global-flycheck-mode t)
   (setq flycheck-emacs-lisp-load-path 'inherit)

@@ -40,16 +40,17 @@
 (global-set-key (kbd "RET") 'newline)
 
 ;;;;;;;;; Easy copying of data ;;;;;;;;;;;;;;;
-(use-package easy-kill :ensure t :defer t
-  :config (global-set-key [remap kill-ring-save] 'easy-kill))
+(use-package easy-kill :ensure t)
+(with-eval-after-load 'easy-kill
+  (global-set-key [remap kill-ring-save] 'easy-kill))
 
 ;; Move buffers around with buffer keys
 (use-package buffer-move :ensure t :defer t)
 
-
 ;; Garbage collection magic hack
-(use-package gcmh :ensure t
-  :config (gcmh-mode 1)
+(use-package gcmh :ensure t)
+(with-eval-after-load 'gcmh
+  (gcmh-mode 1)
   (setq gcmh-verbose nil
         gcmh-idle-delay 'auto
         gcmh-auto-idle-delay-factor 10))
@@ -96,13 +97,17 @@
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
   :if (memq window-system '(x mac ns))
-  :ensure t
-  :config (add-to-list 'exec-path "/usr/local/bin")
+  :ensure t)
+
+(with-eval-after-load 'exec-path-from-shell
+  (add-to-list 'exec-path "/usr/local/bin")
   (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
-(use-package direnv :ensure t :config (direnv-mode))
+(use-package direnv :ensure t)
+(with-eval-after-load 'direnv
+  (direnv-mode t))
 
 ;; Draw underline lower
 (setq x-underline-at-descent-line t)
@@ -114,28 +119,25 @@
       indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Treemacs
-(use-package treemacs :ensure t :defer t
-  :config (treemacs-follow-mode 1) ;; Follow the current project.
-  :bind (:map icejam-keys-mode-map
-              ([(hyper b)] . treemacs))) ;; Show the folder tree
+(use-package treemacs :ensure t)
+(with-eval-after-load 'treemacs
+  (treemacs-follow-mode t)
+  (treemacs-project-follow-mode t)
+  (define-key icejam-keys-mode-map [(hyper b)] 'treemacs))
 
-(use-package treemacs-all-the-icons :defer t :requires (treemacs) :ensure t
-  :config
-  (treemacs-load-theme "all-the-icons")
-  (treemacs-project-follow-mode t))
+(use-package treemacs-all-the-icons :ensure t :requires (treemacs))
+(with-eval-after-load 'treemacs-all-the-icons
+  (treemacs-load-theme "all-the-icons"))
 
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
-(use-package keyfreq
-  :defer t
-  :ensure t
-  :config
+(use-package keyfreq :ensure t)
+(with-eval-after-load 'keyfreq
   (keyfreq-mode t)
   (keyfreq-autosave-mode t))
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
-(use-package which-key
-  :ensure t
-  :config
+(use-package which-key :ensure t)
+(with-eval-after-load 'which-key
   (setq which-key-idle-delay 0.5)
   (which-key-mode t))
 
