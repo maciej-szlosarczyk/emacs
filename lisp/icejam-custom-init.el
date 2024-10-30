@@ -63,6 +63,8 @@
   ;; Enable use-package :ensure support for Elpaca.
   (elpaca-use-package-mode))
 
+(elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
+
 (defun icejam-elpaca-write-lock ()
   "Write elpaca lock file."
   (interactive)
