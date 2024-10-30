@@ -50,7 +50,7 @@
 ;;   (load-theme 'catppuccin t t))
 
 ;; Disable cursor blinking
-(blink-cursor-mode 0)
+(blink-cursor-mode nil)
 
 ;; My own theme modifications:
 (with-eval-after-load 'base16-theme
