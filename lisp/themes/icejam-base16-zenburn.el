@@ -16,7 +16,6 @@
 ;; 04 made darker by 5%   #808080 => #7a7a7a
 ;; 0B made lighter by 10% #5f7f5f => #799979
 
-(use-package base16-theme :straight t)
 (declare-function base16-theme-define "base16-theme" (theme-name theme-colors))
 
 (defvar icejam-base16-zenburn-colors
@@ -42,7 +41,8 @@
 (deftheme icejam-base16-zenburn)
 
 ;; Add all the faces to the theme
-(base16-theme-define 'icejam-base16-zenburn icejam-base16-zenburn-colors)
+(with-eval-after-load 'base16-theme
+  (base16-theme-define 'icejam-base16-zenburn icejam-base16-zenburn-colors))
 
 ;; Mark the theme as provided
 (provide-theme 'icejam-base16-zenburn)

@@ -11,8 +11,8 @@
 (require 'icejam-prog-mode)
 (require 'icejam-company-yasnippet)
 
-(use-package slime :straight t)
-(use-package slime-company :straight t
+(use-package slime :ensure t)
+(use-package slime-company :ensure t
   :requires (slime company))
 
 (setq inferior-lisp-program "sbcl")

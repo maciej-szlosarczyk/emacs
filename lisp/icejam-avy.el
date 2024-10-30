@@ -9,12 +9,13 @@
 ;; Avy is a navigation manager.
 
 ;;; Code:
-(use-package avy :straight t :defer t
-  :config
-  (setq avy-timeout-seconds 1)
+(require 'icejam-keys-mode)
+
+(use-package avy :ensure t :defer t
+  :custom (avy-timeout-seconds 1 "Wait for 1 second for candidates")
   :bind (:map icejam-keys-mode-map
-              ([(hyper j)] . avy-goto-char-timer)) ;; Jump to text.
-  )
+              ;; Jump to text in sight with CMD-j
+              ([(hyper j)] . avy-goto-char-timer)))
 
 (provide 'icejam-avy)
 ;;; icejam-avy.el ends here

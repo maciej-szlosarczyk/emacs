@@ -8,7 +8,6 @@
 ;;; Code:
 
 (declare-function base16-theme-define (theme-name colors))
-(use-package base16-theme :straight t :defer t)
 
 (defvar icejam-base16-harmonic-light-colors
   '(:base00 "#f7f9fb"
@@ -33,7 +32,9 @@
 (deftheme icejam-base16-harmonic-light)
 
 ;; Add all the faces to the theme
-(base16-theme-define 'icejam-base16-harmonic-light icejam-base16-harmonic-light-colors)
+(with-eval-after-load 'base16-theme
+  (base16-theme-define
+   'icejam-base16-harmonic-light icejam-base16-harmonic-light-colors))
 
 ;; Mark the theme as provided
 (provide-theme 'icejam-base16-harmonic-light)

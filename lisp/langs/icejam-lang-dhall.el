@@ -5,7 +5,7 @@
 (require 'icejam-prog-mode)
 (require 'icejam-lsp)
 
-(use-package dhall-mode :straight t :defer t :requires (lsp))
+(use-package dhall-mode :ensure t :defer t :requires (lsp))
 
 (defun icejam-lang-activate-dhall-mode ()
   "Reconfigure dhall mode for your own purposes."

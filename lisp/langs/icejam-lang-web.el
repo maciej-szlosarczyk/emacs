@@ -7,7 +7,7 @@
 
 (use-package web-mode
   :requires (lsp-mode flycheck)
-  :straight t)
+  :ensure t)
 
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))

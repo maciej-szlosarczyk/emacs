@@ -15,7 +15,7 @@
 
 (use-package fsharp-mode
   :requires (lsp-mode lsp-ui)
-  :straight t
+  :ensure t
   :defer t)
 
 (defun icejam-activate-fsharp-mode ()

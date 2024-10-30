@@ -10,8 +10,8 @@
 
 (use-package erlang
   :defer t
-  :straight t
-  :requires (lsp-mode lsp-ui))
+  :ensure (:depth 1)
+  :after (lsp lsp-ui))
 
 (cl-defun icejam-erlang-emacs-path (erlang-version)
   "Find path to Emacs tooling for ERLANG-VERSION."
@@ -54,17 +54,6 @@
   "Create plist from current Erlang version."
   (seq-find 'icejam-erlang-current-version--plistp icejam-erlang-available-versions))
 
-;; Flycheck checker for Erlang
-(flycheck-define-checker erlang-otp
-  "An Erlang syntax checker using the Erlang interpreter."
-  :command ("erlc" "-o" temporary-directory "-Wall"
-            "-I" "../include" "-I" "../../include"
-            "-I" "../../../include" source)
-  :error-patterns
-  ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
-   (error line-start (file-name) ":" line ": " (message) line-end))
-  :modes (my-erlang-mode))
-
 (defun icejam-activate-erlang-mode ()
   "All things for all Erlang, including header files."
   (when (featurep 'erlang-start) (unload-feature 'erlang-start))
@@ -86,25 +75,12 @@
   (icejam-set-indent 4)
   (column-enforce-n 80)
 
-  ;; Add include path so that Erlang does not complain about
-  ;; missing header files.
-  (setq-local flycheck-erlang-include-path
-              (list (format "%sdeps" (project-root (project-current)))
-                    (format "%s_build/default/lib" (project-root (project-current)))
-                    (format "%sinclude" (project-root (project-current)))
-                    (format "%sapps" (project-root (project-current)))))
-
-  (setq-local flycheck-erlang-library-path
-              (list (format "%sdeps" (project-root (project-current)))
-                    (format "%s_build/default/lib" (project-root (project-current)))
-                    (format "%sapps" (project-root (project-current)))))
+  ;; Start LSP
+  (lsp)
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet))
-
-  ;; Start LSP server
-  (lsp))
+               '(company-capf company-yasnippet)))
 
 (add-hook 'erlang-mode-hook 'icejam-activate-erlang-mode)
 

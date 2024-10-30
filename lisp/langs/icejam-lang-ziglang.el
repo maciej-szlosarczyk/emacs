@@ -11,7 +11,7 @@
 ;;; Code:
 (require 'icejam-prog-mode)
 
-(use-package zig-mode :straight t :defer t :requires (lsp))
+(use-package zig-mode :ensure t :defer t :requires (lsp))
 
 (defun icejam-activate-zig-mode ()
   "Goodies for editing zig files."

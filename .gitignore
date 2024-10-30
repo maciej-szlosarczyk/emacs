@@ -20,7 +20,7 @@ ac-comphist.dat
 /.cache
 /eln-cache
 .dap-breakpoints
-/straight
+/elpaca
 !straight/versions/default.el
 /speed-type
 /tutorial

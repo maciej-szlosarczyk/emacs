@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-(use-package base16-theme :straight t :defer t)
+(use-package base16-theme :ensure t :defer t)
 
 (defvar base16-summerfruit-light-modified-colors
   '(:base00 "#fdfcfa"

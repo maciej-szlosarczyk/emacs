@@ -16,7 +16,7 @@
 
 (use-package php-mode
   :requires (lsp-mode lsp-ui)
-  :straight t)
+  :ensure t)
 
 (transient-define-prefix icejam-lang-php/context-menu ()
   "PHP Buffer Commands."

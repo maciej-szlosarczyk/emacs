@@ -5,7 +5,7 @@
 ;; Based on harmonic-dark theme by Jannik Seibert (https://github.com/janniks)
 ;;; Code:
 
-(use-package base16-theme :straight t :defer t)
+(use-package base16-theme :ensure t :defer t)
 
 (defvar base16-not-harmonic-colors
   '(:base00 "#102941"

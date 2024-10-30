@@ -4,9 +4,9 @@
 
 (require 'icejam-prog-mode)
 
-(use-package rspec-mode :straight t :defer t)
-(use-package ruby-end :straight t :defer t)
-(use-package rbs-mode :straight t :defer t)
+(use-package rspec-mode :ensure t :defer t)
+(use-package ruby-end :ensure t :defer t)
+(use-package rbs-mode :ensure t :defer t)
 
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-ts-mode))
 

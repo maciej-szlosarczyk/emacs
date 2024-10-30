@@ -13,10 +13,10 @@
 (require 'icejam-prog-mode)
 
 (use-package gleam-ts-mode
-  :straight '(:type git
-              :host github
-              :repo "gleam-lang/gleam-mode"
-              :files ("gleam-ts-mode.el")))
+  :ensure (:type git
+                 :host github
+                 :repo "gleam-lang/gleam-mode"
+                 :files ("gleam-ts-mode.el")))
 
 (add-to-list 'auto-mode-alist '("\\.gleam\\'" . gleam-ts-mode))
 

@@ -12,51 +12,39 @@
 (global-eldoc-mode t)
 
 ;; Revert tag tables without asking
-(require 'etags)
-(setq tags-revert-without-query t)
+(use-package etags :ensure nil
+  :custom (tags-revert-without-query t "Revert tag tables without asking"))
 
 ;;; Show trailing whitespace and remove whitespace on save
-(use-package whitespace
-  :commands whitespace-mode
-  :straight t
-  :defer t
-  :hook (((prog-mode text-mode conf-mode) . whitespace-mode)
-         (before-save . whitespace-cleanup))
-  :config
-  (setq whitespace-style #'(face trailing empty)
-        ;;; Insert newline on save
-        require-final-newline 't))
+(use-package whitespace :ensure nil
+  :custom ((whitespace-style #'(face trailing empty) "New whitespace style.")
+           (require-final-newline 't "Insert newline on save"))
+  :hook ((prog-mode . whitespace-mode)
+         (text-mode . whitespace-mode)
+         (conf-mode . whitespace-mode)
+         (before-save . whitespace-cleanup)))
 
 (setq-default indent-tabs-mode nil)
 
 ;; Use colorful, matching parens
-(use-package rainbow-delimiters
-  :commands rainbow-delimiters-mode
-  :straight t
-  :defer t
-  :hook (((prog-mode text-mode) . rainbow-delimiters-mode))
-  :init
-  ;;; Match parenthasis (left-right)
-
+;; Rework the code below to enumerate each hook separately:
+(use-package rainbow-delimiters :ensure t
+  :hook ((prog-mode . rainbow-delimiters-mode)
+         (text-mode . rainbow-delimiters-mode))
+  :config
   (electric-pair-mode t)
   (show-paren-mode t))
 
 ;;; Show hex (#aaa) colors as colors
-(use-package rainbow-mode
-  :commands rainbow-mode
-  :straight t
-  :hook ((prog-mode text-mode) . rainbow-mode))
+(use-package rainbow-mode :ensure t
+  :hook ((prog-mode . rainbow-mode)
+         (text-mode . rainbow-mode)))
 
 ;; Dash integration
-(use-package dash-at-point
-  :commands dash-at-point
-  :straight t
-  :defer t
-  :config
-  (add-to-list 'dash-at-point-mode-alist
-               '(enh-ruby-mode  . "ruby,rubygems,rails"))
-  (add-to-list 'dash-at-point-mode-alist
-               '(elixir-ts-mode . "elixir,hex")))
+(use-package dash-at-point :ensure t)
+(with-eval-after-load 'dash-at-point
+  (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
+  (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
 
 ;; By default, use 2 spaces for indentation
 (setq tab-width 2)
@@ -69,19 +57,17 @@
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
-(use-package column-enforce-mode
-  :straight t
-  :defer t
-  :config (global-column-enforce-mode t))
+(use-package column-enforce-mode :ensure t
+  :config
+  (declare-function global-column-enforce-mode "column-enforce-mode")
+  (global-column-enforce-mode t))
 
-;; PCRE to emacs regex translations
-(use-package pcre2el :straight t)
+;; PCRE to Emacs regex translations
+(use-package pcre2el :ensure t)
 
 ;; Visual regexp
-(use-package visual-regexp-steroids
-  :straight t
-  :requires (pcre2el)
-  :config (setq vr/engine 'pcre2el))
+(use-package visual-regexp-steroids :ensure t :requires (pcre2el)
+  :custom (vr/engine 'pcre2el "Use pcre2el for regexes"))
 
 (provide 'icejam-prog-mode)
 ;;; icejam-prog-mode.el ends here

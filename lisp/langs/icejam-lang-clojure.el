@@ -7,19 +7,19 @@
 
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-(use-package clojure-mode :defer t :straight t)
+(use-package clojure-mode :defer t :ensure t)
 
 (use-package cider
   :requires clojure-mode
   :commands cider-jack-in
   :defer t
-  :straight t
+  :ensure t
   :config (setq cider-annotate-completion-function t))
 
 (use-package clj-refactor
 	:requires (cider clojure-mode)
 	:defer t
-	:straight t)
+	:ensure t)
 
 ;; Transient
 (transient-define-prefix icejam-lang-cider-context-menu ()
