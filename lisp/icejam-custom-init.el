@@ -15,7 +15,7 @@
 (setq gc-cons-percentage 0.6)
 
 ;; Allow for deeper stacktraces / recursion
-(setq max-lisp-eval-depth 10000)
+;; (setq max-lisp-eval-depth 10000)
 
 ;;; Use elpaca for package management.
 (defvar elpaca-installer-version 0.7)
