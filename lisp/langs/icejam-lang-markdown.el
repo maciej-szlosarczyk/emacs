@@ -3,12 +3,12 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
-
+(declare-function elpaca-installed-p "elpacs")
 (unless (elpaca-installed-p 'markdown-mode)
-  (use-package markdown-mode
-    :ensure t
-    :defer t
-    :init (setq-default markdown-command "pandoc")))
+  (use-package markdown-mode :ensure t))
+
+(with-eval-after-load 'markdown-mode
+  (setq-default markdown-command "pandoc"))
 
 (defun icejam-lang-activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."

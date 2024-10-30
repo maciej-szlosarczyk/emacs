@@ -5,7 +5,8 @@
 
 (require 'icejam-avy)
 (require 'icejam-keys-mode)
-(use-package transient :ensure (:wait t))
+(require 'icejam-blocking)
+;; (use-package transient :ensure (:wait t) :demand t)
 
 (defun icejam-mark-and-indent-whole-buffer ()
   "Mark and indent whole buffer."
@@ -39,18 +40,18 @@
   "Code Commands."
   [""
    ["Manipulate"
-    ("c" "Toggle Comment" comment-line)
-    ("r" "Replace"        vr/replace)
-    ("i" "Indent"         indent-region)
-    ("a" "Align"          align-regexp)]
+    ("c" "Toggle Comment"     comment-line)
+    ("r" "Replace"            vr/replace)
+    ("i" "Indent"             indent-region)]
    ["Complete"
-    ("y" "Snippet"        company-yasnippet)
-    ("m" "Any (Company)"  company-complete)
-    ("g" "Ask GPT"        gptel-menu)]
+    ("y" "Snippet"            company-yasnippet)
+    ("m" "Any (Company)"      company-complete)
+    ("g" "Ask GPT"            gptel-menu)
+    ("e" "Refactor (Elysium)" elysium-query)]
    ["Find"
-    ("s" "Swiper"         consult-line)
-    ("u" "Vundo"          vundo)
-    ("d" "Dash"           dash-at-point)]])
+    ("s" "Swiper"             consult-line)
+    ("u" "Vundo"              vundo)
+    ("d" "Dash"               dash-at-point)]])
 
 (transient-define-prefix icejam-window-menu ()
   "Windows Commands."
@@ -103,8 +104,7 @@
   "Font Commands."
   [""
    ["Everywhere"
-    ("R" "Reset to default" set-font-to-screen)
-    ("s" "Set size" set-font-size)]
+    ("s" "Adjust font size" global-text-scale-adjust)]
    ["In this buffer"
     ("i" "Bigger"           (lambda () (interactive) (text-scale-increase 1)))
     ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))

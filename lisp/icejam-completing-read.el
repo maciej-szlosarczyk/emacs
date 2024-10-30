@@ -1,6 +1,9 @@
 ;;; icejam-completing-read -- Functions related to completing-read -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;;
+;;; completing-read is the way of completing things in minibuffer.  This module
+;;; provides all of that functionality, everything related to minbuffer being helpful.
+;;;
 ;;; Code:
 
 (require 'icejam-keys-mode)
@@ -27,36 +30,30 @@
 (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
 ;; Actual orderless
-(use-package vertico :ensure t)
-(use-package orderless :ensure t)
-(use-package marginalia :ensure t)
-(use-package consult :ensure t)
+(use-package vertico :ensure t
+  :custom ((vertico-scroll-margin 1 "Scroll on N-1")
+           (vertico-count 15 "Show 5 more candidates")
+           (vertico-resize t "Grow and shrink the vertico minibufffer")
+           (vertico-cycle t "Cycle completion"))
+  :config
+  (vertico-mode t))
+
+(use-package orderless :ensure t
+  :custom ((completion-styles '(orderless partial-completion basic)
+                              "Fallback to basic if orderless does not work.")
+           (completion-category-defaults nil)
+           (completion-category-overrides
+            '((file (styles partial-completion))))))
+
+
+(use-package marginalia :ensure t
+  :config (marginalia-mode t))
+(use-package consult :ensure t
+  :bind (:map icejam-keys-mode-map
+              ("C-c t" . find-file)
+              ("M-g"   . consult-goto-line)
+              ("C-c a" . consult-ripgrep)))
 (use-package helpful :ensure t)
-
-(with-eval-after-load 'vertico
-  (setq
-   vertico-scroll-margin 0 ;; Different scroll margin
-   vertico-count 15        ;; Show more candidates
-   vertico-resize t        ;; Grow and shrink the Vertico minibuffer
-   vertico-cycle t         ;; Enable cycling for `vertico-next/previous'
-   )
-  (vertico-mode))
-
-(with-eval-after-load 'orderless
-  (setq
-   ;; Configure a custom style dispatcher (see the Consult wiki)
-   ;; (orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch))
-   ;; (orderless-component-separator #'orderless-escapable-split-on-space)
-   completion-styles '(orderless basic) ;; Fallback to basic
-   completion-category-defaults nil
-   completion-category-overrides '((file (styles partial-completion)))))
-
-(with-eval-after-load 'marginalia
-  (marginalia-mode t))
-
-(with-eval-after-load 'consult
-  (define-key icejam-keys-mode-map (kbd "C-c a") 'consult-ripgrep)
-  (define-key icejam-keys-mode-map (kbd "C-c t") 'find-file))
 
 (provide 'icejam-completing-read)
 ;;; icejam-completing-read.el ends here

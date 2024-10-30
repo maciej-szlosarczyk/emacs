@@ -3,8 +3,9 @@
 ;;; Code:
 
 ;; Use flycheck globally to check syntax and compile languages
-(use-package flycheck :ensure t)
-(with-eval-after-load 'flycheck
+(use-package flycheck :ensure t
+  :custom ((flycheck-emacs-lisp-load-path 'inherit))
+  :config
   (global-flycheck-mode t)
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (unbind-key "C-c ! C-c" flycheck-mode-map)

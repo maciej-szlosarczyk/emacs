@@ -2,17 +2,18 @@
 ;;; Commentary:
 ;;; Company completion framework configuration
 ;;; Code:
+(require 'icejam-blocking)
 
-(use-package yasnippet :ensure t)
-(use-package yasnippet-snippets :ensure t :requires (yasnippet))
-(use-package company :ensure t :requires (yasnippet yasnippet-snippets))
-(use-package company-box :ensure t :requires (company))
-
-(with-eval-after-load 'yasnippet
+(use-package yasnippet :ensure t
+  :config
   (yas-global-mode t)
   (unbind-key "C-c & C-n" yas-minor-mode-map)
   (unbind-key "C-c & C-s" yas-minor-mode-map)
   (unbind-key "C-c & C-v" yas-minor-mode-map))
+
+(use-package yasnippet-snippets :ensure t :after (yasnippet))
+(use-package company-box :ensure t :after (company)
+  :hook (company-mode . company-box-mode))
 
 (with-eval-after-load 'company
   (global-company-mode t)
@@ -84,8 +85,6 @@
   (define-key text-mode-map (kbd "C-c y") 'company-yasnippet)
   (define-key text-mode-map (kbd "<f13>") 'icejam-insert-space-and-complete)
   (define-key text-mode-map (kbd "TAB") 'company-indent-or-complete-common))
-
-(with-eval-after-load 'company-box (add-hook 'company-mode-hook #'company-box-mode))
 
 (provide 'icejam-company-yasnippet)
 ;;; icejam-company-yasnippet.el ends here

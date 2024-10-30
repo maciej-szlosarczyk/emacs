@@ -10,9 +10,7 @@
 
 ;;; Code:
 
-(use-package speed-type
-  :ensure t
-  :defer t)
+(use-package speed-type :ensure t :defer t)
 
 (provide 'icejam-speed-type)
 ;;; icejam-speed-type.el ends here

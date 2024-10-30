@@ -31,17 +31,12 @@
   (defun icejam-lang-activate-yaml-mode ()
     "Activate yaml-mode."
     (lsp))
-
   (add-hook 'yaml-mode-hook 'icejam-lang-activate-yaml-mode))
-
 
 ;; Other text files
 (use-package json-mode :ensure t :defer t)
-(use-package git-modes
-  :ensure t
-  :defer t
-  :hook ((gitignore-mode . whitespace-mode)
-         (before-save . whitespace-cleanup)))
+(use-package git-modes :ensure t :defer t
+  :hook (gitignore . whitespace-mode-hook))
 
 (provide 'icejam-lang-other)
 ;;; icejam-lang-other.el ends here

@@ -3,14 +3,8 @@
 ;;; Global Language Server Protocol Config
 ;;; Code:
 
-;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
-;; This supposedly makes it faster.
-(setenv "LSP_USE_PLISTS" "true")
-
-(use-package lsp-mode
-  :ensure (:depth 5)
-  :requires (company)
-  :config
+;; (use-package lsp-mode :ensure (:depth 5) :requires (company))
+(with-eval-after-load 'lsp-mode
   (setq-default lsp-file-watch-threshold 10000
                 lsp-restart 'auto-restart
                 lsp-prefer-capf t
@@ -65,14 +59,10 @@
   (unbind-key "s-l s d" lsp-mode-map)
   (unbind-key "s-l s q" lsp-mode-map)
   (unbind-key "s-l s r" lsp-mode-map)
-  (unbind-key "s-l s s" lsp-mode-map)
-  :hook ((typescript-mode . lsp-deferred)))
+  (unbind-key "s-l s s" lsp-mode-map))
 
-(use-package lsp-ui
-  :ensure t
-  :requires (lsp-mode)
-  :defer t
-  :config
+(use-package lsp-ui :ensure t :after (lsp-mode))
+(with-eval-after-load 'lsp-ui
   (setq lsp-ui-doc-enable t
         lsp-ui-header t
         lsp-ui-delay 0.5 ;; Wait half a second to display documentation
@@ -80,10 +70,7 @@
         lsp-ui-doc-include-signature t))
 
 ;; Lsp debugger mode
-(use-package dap-mode
-  :ensure t
-  :defer t
-  :requires (lsp-mode lsp-ui))
+(use-package dap-mode :ensure t :after (lsp-mode lsp-ui))
 
 (provide 'icejam-lsp)
 ;;; icejam-lsp.el ends here

@@ -11,11 +11,11 @@
 ;;; Code:
 (require 'icejam-keys-mode)
 
-(use-package avy :ensure t)
-(with-eval-after-load 'avy
-  (setq avy-timeout-seconds 1)
-  ;; Jump to text in sight with CMD-j
-  (define-key icejam-keys-mode-map [(hyper j)] 'avy-goto-char-timer))
+(use-package avy :ensure t :defer t
+  :custom (avy-timeout-seconds 1 "Wait for 1 second for candidates")
+  :bind (:map icejam-keys-mode-map
+              ;; Jump to text in sight with CMD-j
+              ([(hyper j)] . avy-goto-char-timer)))
 
 (provide 'icejam-avy)
 ;;; icejam-avy.el ends here

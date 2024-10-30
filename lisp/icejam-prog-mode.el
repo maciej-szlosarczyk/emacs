@@ -12,40 +12,33 @@
 (global-eldoc-mode t)
 
 ;; Revert tag tables without asking
-(use-package etags :ensure nil)
-(with-eval-after-load 'etags
-  (setq tags-revert-without-query t))
+(use-package etags :ensure nil
+  :custom (tags-revert-without-query t "Revert tag tables without asking"))
 
 ;;; Show trailing whitespace and remove whitespace on save
-(use-package whitespace :ensure nil)
-
-(with-eval-after-load 'whitespace
-  (setq
-   ;; Change whitespace style
-   whitespace-style #'(face trailing empty)
-   ;; Insert newline on save
-   require-final-newline 't)
-
-  (add-hook 'prog-mode-hook #'whitespace-mode)
-  (add-hook 'text-mode-hook #'whitespace-mode)
-  (add-hook 'conf-mode-hook #'whitespace-mode)
-  (add-hook 'before-save-hook #'whitespace-cleanup))
+(use-package whitespace :ensure nil
+  :custom ((whitespace-style #'(face trailing empty) "New whitespace style.")
+           (require-final-newline 't "Insert newline on save"))
+  :hook ((prog-mode . whitespace-mode)
+         (text-mode . whitespace-mode)
+         (conf-mode . whitespace-mode)
+         (before-save . whitespace-cleanup)))
 
 (setq-default indent-tabs-mode nil)
 
 ;; Use colorful, matching parens
-(use-package rainbow-delimiters :ensure t)
-(with-eval-after-load 'rainbow-delimiters
+;; Rework the code below to enumerate each hook separately:
+(use-package rainbow-delimiters :ensure t
+  :hook ((prog-mode . rainbow-delimiters-mode)
+         (text-mode . rainbow-delimiters-mode))
+  :config
   (electric-pair-mode t)
-  (show-paren-mode t)
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'text-mode-hook #'rainbow-delimiters-mode))
+  (show-paren-mode t))
 
 ;;; Show hex (#aaa) colors as colors
-(use-package rainbow-mode :ensure t)
-(with-eval-after-load 'rainbow-mode
-  (add-hook 'prog-mode-hook #'rainbow-mode)
-  (add-hook 'text-mode-hook #'rainbow-mode))
+(use-package rainbow-mode :ensure t
+  :hook ((prog-mode . rainbow-mode)
+         (text-mode . rainbow-mode)))
 
 ;; Dash integration
 (use-package dash-at-point :ensure t)
@@ -64,17 +57,17 @@
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
-(use-package column-enforce-mode :ensure t)
-(with-eval-after-load 'column-enforce-mode
+(use-package column-enforce-mode :ensure t
+  :config
+  (declare-function global-column-enforce-mode "column-enforce-mode")
   (global-column-enforce-mode t))
 
-;; PCRE to emacs regex translations
+;; PCRE to Emacs regex translations
 (use-package pcre2el :ensure t)
 
 ;; Visual regexp
-(use-package visual-regexp-steroids :ensure t :requires (pcre2el))
-(with-eval-after-load 'visual-regexp-steroids
-  (setq vr/engine 'pcre2el))
+(use-package visual-regexp-steroids :ensure t :requires (pcre2el)
+  :custom (vr/engine 'pcre2el "Use pcre2el for regexes"))
 
 (provide 'icejam-prog-mode)
 ;;; icejam-prog-mode.el ends here

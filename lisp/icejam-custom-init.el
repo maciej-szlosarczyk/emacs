@@ -14,6 +14,9 @@
 (setq gc-cons-threshold 500000000)
 (setq gc-cons-percentage 0.6)
 
+;; Allow for deeper stacktraces / recursion
+(setq max-lisp-eval-depth 10000)
+
 ;;; Use elpaca for package management.
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
@@ -54,10 +57,11 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
+(setq use-package-verbose t)
+(setq use-package-compute-statistics t)
 (elpaca elpaca-use-package
   ;; Enable use-package :ensure support for Elpaca.
   (elpaca-use-package-mode))
-
 
 (defun icejam-elpaca-write-lock ()
   "Write elpaca lock file."
@@ -73,6 +77,7 @@
 
 ;; General configuration files.
 (require 'icejam-keys-mode)
+(require 'icejam-blocking)
 (require 'icejam-base)
 (require 'icejam-sys-specific)
 (require 'icejam-tree-sitter)
