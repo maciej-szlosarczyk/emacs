@@ -7,7 +7,7 @@
   :custom ((flycheck-emacs-lisp-load-path 'inherit))
   :config
   (global-flycheck-mode t)
-  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (setopt flycheck-emacs-lisp-load-path 'inherit)
   (unbind-key "C-c ! C-c" flycheck-mode-map)
   (unbind-key "C-c ! C-w" flycheck-mode-map)
   (unbind-key "C-c ! ?" flycheck-mode-map)

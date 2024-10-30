@@ -54,7 +54,7 @@
    )
 
   ;; Absolute defaults for company mode
-  (setq company-backends
+  (setopt company-backends
         '((company-files                ; files & directory
            company-keywords             ; keywords
            company-capf

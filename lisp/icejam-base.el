@@ -15,7 +15,7 @@
 ;;;;;;;; Stolen from Doom Emacs. ;;;;;;;;;;;;;
 
 ;; Update emacs less often
-(setq idle-update-delay 1.0)
+(setopt idle-update-delay 1.0)
 
 ;; Disable bidirectional text rendering for a modest performance boost. I've set
 ;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
@@ -26,16 +26,16 @@
 ;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
 ;; in non-focused windows.
 (setq-default cursor-in-non-selected-windows nil)
-(setq highlight-nonselected-windows nil)
+(setopt highlight-nonselected-windows nil)
 
 ;; More performant rapid scrolling over unfontified regions. May cause brief
 ;; spells of inaccurate syntax highlighting right after scrolling, which should
 ;; quickly self-correct.
-(setq fast-but-imprecise-scrolling t)
+(setopt fast-but-imprecise-scrolling t)
 
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
 (require 'tramp)
-(setq tramp-default-method "ssh")
+(setopt tramp-default-method "ssh")
 
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
@@ -56,19 +56,19 @@
   (gcmh-mode t))
 
 ;; #====================== Backup config #==============================
-(setq backup-directory-alist
+(setopt backup-directory-alist
       `((".*" . "~/.emacs.d/backups/auto-save-list")))
-(setq auto-save-file-name-transforms
+(setopt auto-save-file-name-transforms
       `((".*", "~/.emacs.d/backups/auto-save-list" t)))
 
-(setq backup-by-copying t)
-(setq delete-old-versions t
+(setopt backup-by-copying t)
+(setopt delete-old-versions t
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
 
 ; Do not create .#foo.file lock files
-(setq create-lockfiles nil)
+(setopt create-lockfiles nil)
 
 ;; Enable line numbers and show cursors position
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -78,16 +78,16 @@
 (column-number-mode t)
 
 ;; Turn off sounds
-(setq ring-bell-function 'ignore)
+(setopt ring-bell-function 'ignore)
 
 ;; Enable y/n answers to questions
 (setopt use-short-answers t)
 
 ;; Only warn if a file is bigger than 50 MB when trying to open it
-(setq large-file-warning-threshold 50000000)
+(setopt large-file-warning-threshold 50000000)
 
 ;; Numbers are arbitrary, but work on a large screen. Default is 160
-(setq split-width-threshold 200)
+(setopt split-width-threshold 200)
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -110,13 +110,13 @@
   (direnv-mode t))
 
 ;; Draw underline lower
-(setq x-underline-at-descent-line t)
+(setopt x-underline-at-descent-line t)
 
 ;;; Get rid of bad parts of the windows
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq indicate-buffer-boundaries nil
-      indicate-empty-lines nil)
+(setopt indicate-buffer-boundaries nil
+        indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Treemacs
 (use-package treemacs :ensure t

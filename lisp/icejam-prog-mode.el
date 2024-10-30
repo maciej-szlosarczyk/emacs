@@ -47,8 +47,8 @@
   (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
 
 ;; By default, use 2 spaces for indentation
-(setq tab-width 2)
-(setq tab-stop-list (number-sequence tab-width 200 tab-width))
+(setopt tab-width 2)
+(setopt tab-stop-list (number-sequence tab-width 200 tab-width))
 
 ;; Ensure indentation in steps:
 (defun icejam-set-indent (step)

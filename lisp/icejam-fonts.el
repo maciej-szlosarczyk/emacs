@@ -50,7 +50,7 @@ in icejam-set-font-to-screen.")
 
 (defun icejam-set-lsp-ui-font-hook ()
   "Reset LSP IO font to specified icejam-font and icejam-font-size."
-  (setq lsp-ui-doc-frame-hook nil)
+  (setopt lsp-ui-doc-frame-hook nil)
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)
               (set-face-attribute
@@ -60,8 +60,8 @@ in icejam-set-font-to-screen.")
 (defun icejam-set-font (name size)
   "Set font to NAME and its SIZE to X pixels."
   (interactive "sNew font: \nnEnter size for %s: ")
-  (setq icejam-mut-font name)
-  (setq icejam-mut-font-size size)
+  (setopt icejam-mut-font name)
+  (setopt icejam-mut-font-size size)
 
   (set-face-attribute 'default nil :font (format "%s %d" name size))
 

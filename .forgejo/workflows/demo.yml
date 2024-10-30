@@ -20,7 +20,7 @@ jobs:
         run: npm install -g @emacs-eask/cli
 
       - name: Run tests
-        run: eask test buttercup
+        run: emacs --init-directory . --debug-init --eval "(kill-emacs 0)"
 
       - name: Uninstall eask
         run: npm uninstall -g @emacs-eask/cli

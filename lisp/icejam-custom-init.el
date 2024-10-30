@@ -11,11 +11,11 @@
 ;;; Code:
 
 ;; Set GC at 500 MB for startup
-(setq gc-cons-threshold 500000000)
-(setq gc-cons-percentage 0.6)
+(setopt gc-cons-threshold 500000000)
+(setopt gc-cons-percentage 0.6)
 
 ;; Allow for deeper stacktraces / recursion
-;; (setq max-lisp-eval-depth 10000)
+;; (setopt max-lisp-eval-depth 10000)
 
 ;;; Use elpaca for package management.
 (defvar elpaca-installer-version 0.7)
@@ -58,8 +58,8 @@
 (elpaca `(,@elpaca-order))
 
 ;; Use package settings
-(setq use-package-verbose t)
-(setq use-package-compute-statistics t)
+(setopt use-package-verbose t)
+(setopt use-package-compute-statistics t)
 (elpaca elpaca-use-package
   ;; Enable use-package :ensure support for Elpaca.
   (elpaca-use-package-mode))
@@ -135,8 +135,8 @@
 (require 'icejam-diminish)
 
 ;; Restore GC to normal, but still high
-(setq gc-cons-threshold 200000000)
-(setq gc-cons-percentage 0.2)
+(setopt gc-cons-threshold 200000000)
+(setopt gc-cons-percentage 0.2)
 
 (provide 'icejam-custom-init)
 ;;; icejam-custom-init.el ends here

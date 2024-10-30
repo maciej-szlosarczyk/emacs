@@ -54,7 +54,7 @@
 
 ;; My own theme modifications:
 (with-eval-after-load 'base16-theme
-  (setq base16-theme-256-color-source "colors")
+  (setopt base16-theme-256-color-source 'colors)
   (require 'icejam-base16-zenburn)
   (require 'icejam-base16-harmonic-light)
 
