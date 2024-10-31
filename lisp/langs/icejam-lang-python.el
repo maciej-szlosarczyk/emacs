@@ -17,7 +17,7 @@
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("f" "Format"      lsp-format-buffer)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
-    ("e" "Show Errors" flycheck-list-errors)]]
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 

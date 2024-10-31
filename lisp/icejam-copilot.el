@@ -26,6 +26,7 @@
 
 (use-package gptel :ensure t :defer t
   :config
+  (declare-function gptel-make-anthropic "gptel")
   (setq
    gptel-model 'claude-3-5-sonnet-20241022
    gptel-backend (gptel-make-anthropic "Claude"
@@ -33,9 +34,10 @@
 
 ;; Pretend to be 'AI editor'.
 (use-package elysium :ensure t :defer t
-  :custom
-  ((elysium-window-size 0.33 "The elysium buffer will be 1/3 your screen")
-   (elysium-window-style 'vertical "Elysium buffer will be vertical")))
+  :config
+  (setopt elysium-window-size 0.33) ;; The elysium buffer will be 1/3 your screen
+  (setopt elysium-window-style 'vertical) ;; Elysium buffer will be vertical
+  )
 
 ;; Merging with SMerge
 (use-package smerge-mode :ensure nil

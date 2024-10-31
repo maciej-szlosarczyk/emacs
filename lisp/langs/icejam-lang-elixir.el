@@ -9,8 +9,10 @@
 (declare-function lsp "lsp-mode" nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-(use-package elixir-mode :ensure t)
-(use-package elixir-ts-mode :ensure t :requires (elixir-mode lsp-mode lsp-ui))
+(use-package elixir-mode :ensure t :defer t)
+(use-package elixir-ts-mode :ensure t
+  :after (elixir-mode lsp-mode lsp-ui)
+  :defer t)
 
 (with-eval-after-load 'elixir-ts-mode
   (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
@@ -25,7 +27,7 @@
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("f" "Format"      elixir-format)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
-    ("e" "Show Errors" flycheck-list-errors)]]
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 

@@ -13,16 +13,20 @@
 
 ;; Revert tag tables without asking
 (use-package etags :ensure nil
-  :custom (tags-revert-without-query t "Revert tag tables without asking"))
+  :config
+  (setopt tags-revert-without-query t)  ;; Revert tags without query
+  )
 
 ;;; Show trailing whitespace and remove whitespace on save
 (use-package whitespace :ensure nil
-  :custom ((whitespace-style #'(face trailing empty) "New whitespace style.")
-           (require-final-newline 't "Insert newline on save"))
   :hook ((prog-mode . whitespace-mode)
          (text-mode . whitespace-mode)
          (conf-mode . whitespace-mode)
-         (before-save . whitespace-cleanup)))
+         (before-save . whitespace-cleanup))
+  :config
+  (setopt whitespace-style #'(face trailing empty)) ;; New whitespace style
+  (setopt require-final-newline 't)                 ;; Insert newline on save
+  )
 
 (setq-default indent-tabs-mode nil)
 
@@ -66,8 +70,10 @@
 (use-package pcre2el :ensure t)
 
 ;; Visual regexp
-(use-package visual-regexp-steroids :ensure t :requires (pcre2el)
-  :custom (vr/engine 'pcre2el "Use pcre2el for regexes"))
+(use-package visual-regexp-steroids :ensure t :after (pcre2el)
+  :config
+  (setopt vr/engine 'pcre2el) ;; Use pcre2el for regexes
+  )
 
 (provide 'icejam-prog-mode)
 ;;; icejam-prog-mode.el ends here

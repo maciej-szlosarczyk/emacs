@@ -79,7 +79,7 @@
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)]
    ["Other"
     ("m" "iMenu"       lsp-ui-imenu)
-    ("e" "Show Errors" flycheck-list-errors)]])
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]])
 
 (transient-define-prefix icejam-history-menu ()
   "Buffer History Commands."

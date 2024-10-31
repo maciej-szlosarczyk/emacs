@@ -22,7 +22,7 @@
     ("i" "Indent"   icejam-mark-and-indent-whole-buffer)]
    [""
     ("f" "Format"   lsp-format-buffer)
-    ("e" "Errors"   flycheck-list-errors)
+    ("e" "Errors"   flymake-show-buffer-diagnostics)
     ("o" "Opam Env" opam-switch-set-switch)]]
   [""
    ("q" "Quit"      keyboard-quit)])

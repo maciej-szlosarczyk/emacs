@@ -6,12 +6,15 @@
 
 ;;; Commentary:
 
-;; purescript does a thing.
+;; Configuration for purescript.
 
 ;;; Code:
-(use-package purescript-mode
-  :requires (lsp-mode lsp-ui)
-  :ensure t)
+(require 'icejam-prog-mode)
+
+(use-package purescript-mode :ensure t :defer t
+  :after (lsp-mode lsp-ui))
+
+(declare-function purescript-indentation-mode "purescript-mode")
 
 (defun icejam-activate-purescript-mode ()
   "All things Purescript."

@@ -11,6 +11,7 @@
                 lsp-completion-provider :capf
                 lsp-server-trace nil
                 lsp-lens-enable nil
+                lsp-diagnostics-provider :flymake
                 lsp-lens-mode nil
                 read-process-output-max (* 1024 1024 4)
                 ;; Disable the piece of shit vue LSP server. It activates itself in every

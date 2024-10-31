@@ -11,6 +11,7 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
+(require 'icejam-lsp)
 
 (use-package haskell-mode
   :ensure t
@@ -19,7 +20,7 @@
 (use-package lsp-haskell
   :ensure t
   :defer t
-  :requires (lsp-mode lsp-ui haskell-mode))
+  :after (lsp-mode lsp-ui haskell-mode))
 
 (defun icejam-activate-haskell-mode ()
   "Run this in haskell-mode."

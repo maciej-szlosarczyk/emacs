@@ -32,7 +32,7 @@
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("f" "Format"      cider-format-buffer)
     ("l" "Load"        cider-load-buffer)
-    ("e" "Show Errors" flycheck-list-errors)]]
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q"  "Quit"        keyboard-quit)])
 
@@ -41,7 +41,6 @@
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (cider-mode 1)
-  (setq-local indent-tabs-mode nil)
 
   (define-key
     clojure-mode-map (kbd "C-c l") 'icejam-lang-cider-context-menu)
@@ -58,7 +57,7 @@
 	(setq-local cider-show-error-buffer 'except-in-repl))
 
 (add-hook 'cider-repl-mode-hook 'icejam-lang-clojure-repl-config)
-(add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+(add-hook 'cider-mode-hook 'cider-enable-flex-completion)
 
 (provide 'icejam-lang-clojure)
 ;;; icejam-lang-clojure.el ends here

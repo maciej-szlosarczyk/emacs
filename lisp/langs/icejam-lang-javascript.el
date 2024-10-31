@@ -6,11 +6,10 @@
 (require 'icejam-flycheck)
 (require 'icejam-lsp)
 
-(use-package js2-mode
-  :requires (web-mode company-web lsp-mode lsp-ui)
-  :ensure t)
+(use-package js2-mode :ensure t :defer t
+  :after (web-mode company lsp-mode lsp-ui))
 
-(use-package typescript-mode :ensure t)
+(use-package typescript-mode :ensure t :defer t)
 
 ;; (use-package vue-mode
 ;;   :ensure t

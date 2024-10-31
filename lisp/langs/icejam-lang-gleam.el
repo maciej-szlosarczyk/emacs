@@ -11,8 +11,9 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
+(require 'icejam-lsp)
 
-(use-package gleam-ts-mode
+(use-package gleam-ts-mode :defer t :after (lsp)
   :ensure (:type git
                  :host github
                  :repo "gleam-lang/gleam-mode"

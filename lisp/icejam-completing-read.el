@@ -32,28 +32,39 @@
 
 ;; Actual orderless
 (use-package vertico :ensure t
-  :custom ((vertico-scroll-margin 1 "Scroll on N-1")
-           (vertico-count 15 "Show 5 more candidates")
-           (vertico-resize t "Grow and shrink the vertico minibufffer")
-           (vertico-cycle t "Cycle completion"))
   :config
+  (setopt vertico-scroll-margin 1) ;; Scroll on N-1
+  (setopt vertico-count 15)        ;; Show 5 more candidates
+  (setopt vertico-resize t) ;; Grow and shrink the vertico minibufffer
+  (setopt vertico-cycle t)  ;; Cycle completion
+
+  (declare-function vertico-mode "vertico")
   (vertico-mode t))
 
 (use-package orderless :ensure t
-  :custom ((completion-styles '(orderless partial-completion basic)
-                              "Fallback to basic if orderless does not work.")
-           (completion-category-defaults nil)
-           (completion-category-overrides
-            '((file (styles partial-completion))))))
+  :config
+  (setopt completion-styles '(orderless partial-completion basic)) ;; Fallback to basic if orderless does not work.
+  (setopt completion-category-defaults nil)
+  (setopt completion-category-overrides '((file (styles partial-completion)))))
 
 
 (use-package marginalia :ensure t
-  :config (marginalia-mode t))
+  :config
+  (declare-function marginalia-mode "marginalia")
+  (marginalia-mode t))
+
 (use-package consult :ensure t
+  :config
+  ;; Using ripgrep, show hidden files but ignore contents of .git
+  (setopt consult-ripgrep-args
+          "rg --null --line-buffered --color=never --max-columns=1000 \
+--path-separator / --smart-case --no-heading --with-filename --line-number \
+--search-zip --hidden --glob \"!.git/*\"")
   :bind (:map icejam-keys-mode-map
               ("C-c t" . find-file)
               ("M-g"   . consult-goto-line)
               ("C-c a" . consult-ripgrep)))
+
 (use-package helpful :ensure t)
 
 (provide 'icejam-completing-read)

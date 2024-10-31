@@ -49,10 +49,11 @@
 
 ;; Garbage collection magic hack
 (use-package gcmh :ensure t
-  :custom ((gcmh-verbose nil "Do not log GC messages.")
-           (gcmh-idle-delay 'auto "Compute GC delay based on gcmh-auto-idle-delay-factor")
-           (gcmh-auto-idle-delay-factor 10 "Original value was 10"))
   :config
+  (declare-function gcmh-mode "gcmh")
+  (setopt gcmh-verbose nil) ;; Do not log GC messages
+  (setopt gcmh-idle-delay 'auto) ;; Compute GC delay based on gcmh-auto-idle-delay-factor
+  (setopt gcmh-auto-idle-delay-factor 10) ;; Original value was 10
   (gcmh-mode t))
 
 ;; #====================== Backup config #==============================
@@ -99,10 +100,11 @@
   :if (memq window-system '(x mac ns))
   :ensure t
   :config
+  (declare-function exec-path-from-shell-initialize "exec-path-from-shell")
   (add-to-list 'exec-path "/usr/local/bin")
-    (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
-      (add-to-list 'exec-path-from-shell-variables var))
-    (exec-path-from-shell-initialize))
+  (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
 
 (use-package direnv :ensure t
   :config
@@ -142,8 +144,10 @@
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
 (use-package which-key :ensure t
-  :custom (which-key-idle-delay 0.5)
-  :config (which-key-mode t))
+  :config
+  (declare-function which-key-mode "which-key")
+  (which-key-mode t)
+  (setopt which-key-idle-delay 0.5))
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setopt next-line-add-newlines t)

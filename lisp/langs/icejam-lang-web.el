@@ -5,9 +5,7 @@
 (require 'icejam-lsp)
 (require 'icejam-flycheck)
 
-(use-package web-mode
-  :requires (lsp-mode flycheck)
-  :ensure t)
+(use-package web-mode :after (lsp flycheck) :ensure t :defer t)
 
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))

@@ -55,6 +55,7 @@
 ;; My own theme modifications:
 (with-eval-after-load 'base16-theme
   (setopt base16-theme-256-color-source 'colors)
+  (load-theme 'base16-gruvbox-dark-pale t t)
   (require 'icejam-base16-zenburn)
   (require 'icejam-base16-harmonic-light)
 

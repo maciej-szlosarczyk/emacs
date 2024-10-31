@@ -5,7 +5,7 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-(use-package lispy :ensure t)
+(use-package lispy :ensure t :defer t)
 
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
@@ -17,28 +17,26 @@
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
     ("d" "Explain"     helpful-at-point)
-    ("e" "Show Errors" flycheck-list-errors)]]
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 
 (add-to-list
  'icejam-language-transient-alist '(emacs-lisp-mode . icejam-elisp-lang-menu))
 
-(with-eval-after-load 'lispy
-  (declare-function lispy-mode "lispy")
-  (defun icejam-activate-emacs-lisp-mode ()
-    "Goodies for editing Emacs files."
-    (icejam-set-indent 2) ;; Default indentation of 2 characters
-    (column-enforce-n 80)
+(declare-function lispy-mode "lispy")
+(defun icejam-activate-emacs-lisp-mode ()
+  "Goodies for editing Emacs files."
+  (icejam-set-indent 2) ;; Default indentation of 2 characters
+  (column-enforce-n 80)
 
-    (lispy-mode t)
-    (setq-default indent-tabs-mode nil)
+  (lispy-mode t)
 
-    ;; Company list override
-    (add-to-list (make-local-variable 'company-backends)
-                 '(company-yasnippet company-capf)))
+  ;; Company list override
+  (add-to-list (make-local-variable 'company-backends)
+               '(company-yasnippet company-capf)))
 
-  (add-hook 'emacs-lisp-mode-hook 'icejam-activate-emacs-lisp-mode))
+(add-hook 'emacs-lisp-mode-hook 'icejam-activate-emacs-lisp-mode)
 
 (provide 'icejam-lang-elisp)
 ;;; icejam-lang-elisp.el ends here

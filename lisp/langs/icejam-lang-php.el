@@ -14,9 +14,8 @@
 (require 'icejam-flycheck)
 (require 'icejam-transient)
 
-(use-package php-mode
-  :requires (lsp-mode lsp-ui)
-  :ensure t)
+(use-package php-mode :ensure t :defer t
+  :requires (lsp-mode lsp-ui))
 
 (transient-define-prefix icejam-lang-php/context-menu ()
   "PHP Buffer Commands."
@@ -27,7 +26,7 @@
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
     ("f" "Format"      lsp-format-buffer)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
-    ("e" "Show Errors" flycheck-list-errors)]]
+    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q" "Quit"        keyboard-quit)])
 
