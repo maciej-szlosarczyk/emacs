@@ -3,12 +3,17 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
-(declare-function elpaca-installed-p "elpacs")
+
+;; Markdown is a dependency of LSP mode. By wrapping it in unless we silence
+;; a warning from the byte compiler.
+(declare-function elpaca-installed-p "elpaca")
 (unless (elpaca-installed-p 'markdown-mode)
   (use-package markdown-mode :ensure t))
 
 (with-eval-after-load 'markdown-mode
   (setq-default markdown-command "pandoc"))
+
+(declare-function rxt--re-builder-switch-pcre-mode "pcre2el")
 
 (defun icejam-lang-activate-markdown-mode ()
   "Reconfigure markdown mode for your own purposes."

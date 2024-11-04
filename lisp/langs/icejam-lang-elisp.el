@@ -6,7 +6,9 @@
 (require 'icejam-transient)
 
 (use-package lispy :ensure t :defer t)
+(use-package aggressive-indent :ensure t :defer t)
 
+(declare-function aggressive-indent-mode "aggressive-indent")
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
@@ -30,7 +32,8 @@
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
 
-  (lispy-mode t)
+  (lispy-mode t)           ;; Pseudomodal editing for lisp code
+  (aggressive-indent-mode) ;; Indent lisp automatically
 
   ;; Company list override
   (add-to-list (make-local-variable 'company-backends)

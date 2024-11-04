@@ -60,9 +60,10 @@
 ;; Use package settings
 (setopt use-package-verbose t)
 (setopt use-package-compute-statistics t)
-(elpaca elpaca-use-package
-  ;; Enable use-package :ensure support for Elpaca.
-  (elpaca-use-package-mode))
+
+;; Enable use-package :ensure support for Elpaca.
+(defvar elpaca-use-package)
+(elpaca elpaca-use-package (elpaca-use-package-mode))
 
 (elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
 
@@ -135,7 +136,7 @@
 (require 'icejam-diminish)
 
 ;; Restore GC to normal, but still high
-(setopt gc-cons-threshold 200000000)
+(setopt gc-cons-threshold 204800000)
 (setopt gc-cons-percentage 0.2)
 
 (provide 'icejam-custom-init)
