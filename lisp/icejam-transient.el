@@ -22,7 +22,7 @@
     ("g" "Grep in project"      consult-ripgrep)]
    ["Completions"
     ("a" "Grep in buffer"       consult-line)
-    ("b" "Buffer list"          consult-buffer)
+    ("b" "Find Buffer"          consult-buffer)
     ("t" "Find file"            find-file)]
    ["Magit"
     ("m" "Git status"           magit-status)
@@ -31,6 +31,7 @@
   [""
    ["LISP"
     ("i" "IELM"                 ielm)
+    ("B" "iBuffer"              ibuffer)
     ("e" "eval-region"          eval-region)]
    ["Other"
     ("d" "deft"                 deft)

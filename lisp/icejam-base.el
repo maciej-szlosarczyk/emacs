@@ -97,7 +97,7 @@
 
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
-  :if (memq window-system '(x mac ns))
+  ;; :if (memq window-system '(x mac ns))
   :ensure t
   :config
   (declare-function exec-path-from-shell-initialize "exec-path-from-shell")
@@ -106,10 +106,9 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
-(use-package direnv :ensure t
-  :config
-  (declare-function direnv-mode "direnv")
-  (direnv-mode t))
+;; (use-package envrc :ensure t :hook (elpaca-after-init . envrc-global-mode))
+
+(use-package direnv :ensure t :config (direnv-mode t))
 
 ;; Draw underline lower
 (setopt x-underline-at-descent-line t)

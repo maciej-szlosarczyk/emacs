@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Global Language Server Protocol Config
 ;;; Code:
+(require 'icejam-blocking)
 
 ;; (use-package lsp-mode :ensure (:depth 5) :requires (company))
 (with-eval-after-load 'lsp-mode
@@ -21,8 +22,11 @@
 
                 ;; When needed, enable this hot garbage in dir-locals.el
                 lsp-disabled-clients '(vue-semantic-server
+                                       vls
                                        ;; Ruby LSP servers, none of which actually work.
-                                       ruby-ls rubocop-ls typeprof-ls)
+                                       ruby-ls
+                                       rubocop-ls
+                                       typeprof-ls)
                 lsp-log-io nil
                 lsp-enable-file-watchers nil)
   (unbind-key "s-l =" lsp-mode-map)
@@ -64,11 +68,11 @@
 
 (use-package lsp-ui :ensure t :after (lsp-mode))
 (with-eval-after-load 'lsp-ui
-  (setq lsp-ui-doc-enable t
-        lsp-ui-header t
-        lsp-ui-delay 0.5 ;; Wait half a second to display documentation
-        lsp-ui-doc-position 'at-point
-        lsp-ui-doc-include-signature t))
+  (setopt lsp-ui-doc-enable t
+          lsp-ui-header t
+          lsp-ui-delay 0.5 ;; Wait half a second to display documentation
+          lsp-ui-doc-position 'at-point
+          lsp-ui-doc-include-signature t))
 
 ;; Lsp debugger mode
 (use-package dap-mode :ensure t :after (lsp-mode lsp-ui))
