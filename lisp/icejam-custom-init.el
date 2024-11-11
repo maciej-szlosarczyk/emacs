@@ -67,6 +67,10 @@
 
 (elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
 
+(use-package benchmark-init :ensure (:wait t)
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 (defun icejam-elpaca-write-lock ()
   "Write elpaca lock file."
   (interactive)
