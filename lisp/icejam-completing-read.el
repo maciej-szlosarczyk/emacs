@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;;
 ;;; completing-read is the way of completing things in minibuffer.  This module
-;;; provides all of that functionality, everything related to minbuffer being helpful.
+;;; provides all of that functionality, everything related to minbuffer being
+;;; helpful.
 ;;;
 ;;; Code:
 
@@ -38,6 +39,10 @@
   (setopt vertico-resize t) ;; Grow and shrink the vertico minibufffer
   (setopt vertico-cycle t)  ;; Cycle completion
 
+  ;; Add working page up /down
+  (keymap-set vertico-map "<next>" 'vertico-scroll-up)
+  (keymap-set vertico-map "<prior>" 'vertico-scroll-down)
+
   (declare-function vertico-mode "vertico")
   (vertico-mode t))
 
@@ -62,7 +67,7 @@
 --search-zip --hidden --glob \"!.git/*\"")
   :bind (:map icejam-keys-mode-map
               ("C-c t" . find-file)
-              ("M-g"   . consult-goto-line)
+              ("M-g g" . consult-goto-line)
               ("C-c a" . consult-ripgrep)))
 
 (use-package helpful :ensure t)

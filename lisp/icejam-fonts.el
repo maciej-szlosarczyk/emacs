@@ -18,20 +18,20 @@
 ;; (defconst icejam-font "Input Mono Condensed"
 ;; (defconst icejam-font "SF Mono"
 ;; (defconst icejam-font "Monaco"
-;; (defconst icejam-font "JetBrains Mono"
+;; (defconst icejam-font "JetBrains Mono" "Default font.")
 ;; (defconst icejam-font "JuliaMono"
 ;; (defconst icejam-font "Rec Mono Semicasual"
-;; (defconst icejam-font "Victor Mono"
 ;; (defconst icejam-font "IBM Plex Mono"
 ;; (defconst icejam-font "Berkeley Mono Trial"
 ;; (defconst icejam-font "Inconsolata"
+;; (defconst icejam-font "Victor Mono Medium" "Default font.")
 
-(defconst icejam-font "Iosevka Term"
-  "Default font.")
+(defconst icejam-font "Iosevka Term" "Default font.")
+
 (defconst icejam-font-size 14
   "Default size of then font.
 It is used to calculated the size in relation to the screen
-in icejam-set-font-to-screen.")
+in `icejam-set-font-to-screen`.")
 
 (defcustom icejam-mut-font
   icejam-font
@@ -49,7 +49,7 @@ in icejam-set-font-to-screen.")
 (defvar lsp-ui-doc-frame-hook)
 
 (defun icejam-set-lsp-ui-font-hook ()
-  "Reset LSP IO font to specified icejam-font and icejam-font-size."
+  "Reset LSP IO font to specified `icejam-font` and `icejam-font-size`."
   (setopt lsp-ui-doc-frame-hook nil)
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)

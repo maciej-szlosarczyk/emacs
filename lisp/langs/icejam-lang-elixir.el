@@ -39,7 +39,7 @@
   (icejam-set-indent 2)
   (column-enforce-n 98)
   (lsp)
-  (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
+  ;; (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local lsp-completion-enable-additional-text-edit nil)
   (setq-local company-minimum-prefix-length 3)

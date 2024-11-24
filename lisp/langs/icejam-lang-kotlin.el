@@ -9,10 +9,14 @@
 ;; kotlin does a thing.
 
 ;;; Code:
+(require 'icejam-prog-mode)
+(require 'icejam-blocking)
 
-(use-package kotlin-mode
-	:defer t
-	:ensure t)
+(use-package kotlin-ts-mode :ensure t)
+
+(with-eval-after-load 'kotlin-ts-mode
+  (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.kts\\'" . kotlin-ts-mode)))
 
 (use-package gradle-mode
 	:defer t
@@ -20,15 +24,11 @@
 
 (defun icejam-activate-kotlin-mode ()
   "All things Kotlin."
-  (icejam-set-indent 4)
+  (icejam-set-indent 2)
   (column-enforce-n 100)
-  (lsp)
+  (lsp))
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
-
-(add-hook 'kotlin-mode-hook 'icejam-activate-kotlin-mode)
+(add-hook 'kotlin-ts-mode-hook 'icejam-activate-kotlin-mode)
 
 (provide 'icejam-lang-kotlin)
 ;;; icejam-lang-kotlin.el ends here

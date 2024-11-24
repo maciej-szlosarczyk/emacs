@@ -54,6 +54,7 @@
   (setopt gcmh-verbose nil) ;; Do not log GC messages
   (setopt gcmh-idle-delay 'auto) ;; Compute GC delay based on gcmh-auto-idle-delay-factor
   (setopt gcmh-auto-idle-delay-factor 10) ;; Original value was 10
+  (setopt gcmh-high-cons-threshold (* 128 1024 1024))
   (gcmh-mode t))
 
 ;; #====================== Backup config #==============================

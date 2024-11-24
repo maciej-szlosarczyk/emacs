@@ -17,6 +17,8 @@
 (setenv "LSP_USE_PLISTS" "true")
 (use-package lsp-mode :ensure t)
 
+;; Finally, wait for installation of these four packages.
+(declare-function elpaca-wait "elpaca")
 (elpaca-wait)
 
 (provide 'icejam-blocking)
