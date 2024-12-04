@@ -6,6 +6,10 @@
 
 ;; (use-package lsp-mode :ensure (:depth 5) :requires (company))
 (with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-disabled-clients '(typescript-ts-mode . vue-semantic-server))
+  (add-to-list 'lsp-disabled-clients '(js-mode . vue-semantic-server))
+  (add-to-list 'lsp-disabled-clients '(css-mode . vue-semantic-server))
+
   (setq-default lsp-file-watch-threshold 10000
                 lsp-restart 'auto-restart
                 lsp-prefer-capf t
@@ -15,19 +19,9 @@
                 lsp-diagnostics-provider :flymake
                 lsp-lens-mode nil
                 read-process-output-max (* 1024 1024 4)
-                ;; Disable the piece of shit vue LSP server. It activates itself in every
-                ;; project with .js, .ts or .json file due to something called 'takeover
-                ;; mode' or 'hybrid mode' or some such.
-                ;; It would be okay, but it also doesn't work 99% of the time.
-
-                ;; When needed, enable this hot garbage in dir-locals.el
-                lsp-disabled-clients '(vue-semantic-server
-                                       vls
-                                       ;; Ruby LSP servers, none of which actually work.
-                                       ruby-ls
-                                       rubocop-ls
-                                       typeprof-ls)
                 lsp-log-io nil
+                ;; Do not use Vue language server for everything .JS/TS/TSX
+                lsp-volar-take-over-mode nil
                 lsp-enable-file-watchers nil)
   (unbind-key "s-l =" lsp-mode-map)
   (unbind-key "s-l G" lsp-mode-map)

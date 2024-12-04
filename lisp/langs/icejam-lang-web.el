@@ -31,14 +31,6 @@
 	(setq-local web-mode-markup-indent-offset 2)
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
-
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet))
-
-	(when (string-match-p ".jsx" (buffer-file-name))
-		(lsp))
-	(when (string-match-p ".tsx" (buffer-file-name))
-		(lsp))
 	(when (string-match-p ".vue" (buffer-file-name))
 		(lsp)))
 

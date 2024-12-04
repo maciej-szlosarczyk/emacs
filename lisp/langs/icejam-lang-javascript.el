@@ -9,7 +9,18 @@
 (use-package js2-mode :ensure t :defer t
   :after (web-mode company lsp-mode lsp-ui))
 
-(use-package typescript-mode :ensure t :defer t)
+(use-package typescript-ts-mode :ensure nil :defer t)
+
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-ts-mode))
+
+(defun icejam-activate-typescript-ts-mode ()
+  "Typescript mode overrides."
+  (icejam-set-indent 2)
+  (lsp-deferred)
+  (column-enforce-n 100))
+
+(add-hook 'typescript-ts-mode-hook 'icejam-activate-typescript-ts-mode)
 
 ;; (use-package vue-mode
 ;;   :ensure t

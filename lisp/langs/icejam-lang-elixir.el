@@ -14,9 +14,10 @@
   :after (elixir-mode lsp-mode lsp-ui)
   :defer t)
 
-(with-eval-after-load 'elixir-ts-mode
+(with-eval-after-load 'elixir-mode
   (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode)))
+
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."

@@ -10,17 +10,19 @@
 
 ;;; Code:
 (require 'icejam-prog-mode)
-(require 'icejam-blocking)
 
-(use-package kotlin-ts-mode :ensure t)
+(declare-function lsp "lsp-mode" nil)
+(declare-function column-enforce-n "column-enforce-mode" (number))
 
-(with-eval-after-load 'kotlin-ts-mode
-  (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.kts\\'" . kotlin-ts-mode)))
+(use-package kotlin-ts-mode
+  :ensure t
+  :after (lsp-mode lsp-ui)
+  :defer t)
 
-(use-package gradle-mode
-	:defer t
-	:ensure t)
+(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.kts\\'" . kotlin-ts-mode))
+
+(use-package gradle-mode :defer t :ensure t)
 
 (defun icejam-activate-kotlin-mode ()
   "All things Kotlin."
