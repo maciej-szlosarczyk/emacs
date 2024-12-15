@@ -9,15 +9,17 @@
 (declare-function lsp "lsp-mode" nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-(use-package elixir-mode :ensure t :defer t)
-(use-package elixir-ts-mode :ensure t
-  :after (elixir-mode lsp-mode lsp-ui)
-  :defer t)
-
-(with-eval-after-load 'elixir-mode
+;; Elixir mode is used for formatting through elixir-format function,
+;; so it needs to be loaded without deferring. One it is, we can
+;; make it so that treesit takes over.
+(use-package elixir-mode :ensure t
+  :config
   (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode)))
 
+(use-package elixir-ts-mode :ensure t
+  :after (elixir-mode lsp-mode lsp-ui)
+  :defer t)
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."
@@ -40,17 +42,13 @@
   (icejam-set-indent 2)
   (column-enforce-n 98)
   (lsp)
-  ;; (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
-  (setq-local lsp-eldoc-enable-hover nil)
-  (setq-local lsp-completion-enable-additional-text-edit nil)
-  (setq-local company-minimum-prefix-length 3)
 
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  (setq-local lsp-eldoc-enable-hover nil)
+  (setq-local lsp-completion-enable-additional-text-edit nil)
+  (setq-local company-minimum-prefix-length 3))
 
 (add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
 (add-hook 'elixir-ts-mode-hook 'icejam-activate-elixir-ts-mode)
