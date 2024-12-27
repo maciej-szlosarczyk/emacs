@@ -32,12 +32,25 @@
    gptel-backend (gptel-make-anthropic "Claude"
                    :stream t :key (lambda () anthropic-api-key))))
 
-;; Pretend to be 'AI editor'.
+;; Pretend to be 'AI editor' vol 1. Before usage make sure aider is installed:
+;; $ pip install aider-install
+;; $ aider install
+(use-package aider :ensure (:host github :repo "tninja/aider.el" :files ("aider.el"))
+  :defer t
+  :config
+  (setopt aider-args (list "--model"
+                           "anthropic/claude-3-5-sonnet-20241022"
+                           "--anthropic-api-key"
+                           anthropic-api-key
+                           "--no-auto-commits")))
+
+;; Pretend to be 'AI editor' vol 2.
 (use-package elysium :ensure t :defer t
   :config
-  (setopt elysium-window-size 0.33) ;; The elysium buffer will be 1/3 your screen
-  (setopt elysium-window-style 'vertical) ;; Elysium buffer will be vertical
-  )
+  ;; The elysium buffer will be 1/3 your screen
+  (setopt elysium-window-size 0.33)
+  ;; Elysium buffer will be vertical
+  (setopt elysium-window-style 'vertical))
 
 ;; Merging with SMerge
 (use-package smerge-mode :ensure nil

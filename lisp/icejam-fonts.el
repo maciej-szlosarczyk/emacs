@@ -26,7 +26,8 @@
 ;; (defconst icejam-font "Inconsolata"
 ;; (defconst icejam-font "Victor Mono Medium" "Default font.")
 
-(defconst icejam-font "Iosevka Term" "Default font.")
+;; (defconst icejam-font "Iosevka Term" "Default font.")
+(defconst icejam-font "Iosevka Comfy Motion" "Default font.")
 
 (defconst icejam-font-size 14
   "Default size of then font.
