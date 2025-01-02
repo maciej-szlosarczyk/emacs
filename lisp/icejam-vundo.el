@@ -10,8 +10,11 @@
 
 ;;; Code:
 
-;;;;;;;;;;;;;;;;; Use more advanced undo options
-(use-package vundo :ensure t :defer t)
+;; Undo UI
+(use-package vundo :ensure t :defer t
+  :config
+  ;; Keep 64 MB of undo data, we have enough RAM to do this.
+  (setopt undo-limit (* 64 1024 1024)))
 
 (provide 'icejam-vundo)
 ;;; icejam-vundo.el ends here
