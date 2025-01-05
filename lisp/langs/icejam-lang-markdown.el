@@ -8,7 +8,7 @@
 ;; a warning from the byte compiler.
 (declare-function elpaca-installed-p "elpaca")
 (unless (elpaca-installed-p 'markdown-mode)
-  (use-package markdown-mode :ensure t))
+  (use-package markdown-mode :ensure t :defer t))
 
 (with-eval-after-load 'markdown-mode
   (setq-default markdown-command "pandoc"))

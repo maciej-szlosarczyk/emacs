@@ -12,10 +12,9 @@
 (global-eldoc-mode t)
 
 ;; Revert tag tables without asking
-(use-package etags :ensure nil
+(use-package etags :ensure nil :defer t
   :config
-  (setopt tags-revert-without-query t)  ;; Revert tags without query
-  )
+  (setopt tags-revert-without-query t))
 
 ;;; Show trailing whitespace and remove whitespace on save
 (use-package whitespace :ensure nil
@@ -32,20 +31,19 @@
 
 ;; Use colorful, matching parens
 ;; Rework the code below to enumerate each hook separately:
-(use-package rainbow-delimiters :ensure t
+(use-package rainbow-delimiters :ensure t :defer t
   :hook ((prog-mode . rainbow-delimiters-mode)
-         (text-mode . rainbow-delimiters-mode))
-  :config
-  (electric-pair-mode t)
-  (show-paren-mode t))
+         (text-mode . rainbow-delimiters-mode)
+         (elpaca-after-init . electric-pair-mode)
+         (elpaca-after-init . show-paren-mode)))
 
 ;;; Show hex (#aaa) colors as colors
-(use-package rainbow-mode :ensure t
+(use-package rainbow-mode :ensure t :defer t
   :hook ((prog-mode . rainbow-mode)
          (text-mode . rainbow-mode)))
 
 ;; Dash integration
-(use-package dash-at-point :ensure t)
+(use-package dash-at-point :ensure t :defer t)
 (with-eval-after-load 'dash-at-point
   (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
   (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
@@ -61,13 +59,11 @@
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
-(use-package column-enforce-mode :ensure t
-  :config
-  (declare-function global-column-enforce-mode "column-enforce-mode")
-  (global-column-enforce-mode t))
+(use-package column-enforce-mode :ensure t :defer t
+  :hook (elpaca-after-init . global-column-enforce-mode))
 
 ;; PCRE to Emacs regex translations
-(use-package pcre2el :ensure t)
+(use-package pcre2el :ensure t :defer t)
 
 ;; Visual regexp
 (use-package visual-regexp-steroids :ensure t :after (pcre2el)

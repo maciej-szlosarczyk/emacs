@@ -59,7 +59,7 @@
 
 ;; #====================== Backup config #==============================
 (setopt backup-directory-alist
-      `((".*" . "~/.emacs.d/backups/auto-save-list")))
+        `((".*" . "~/.emacs.d/backups/auto-save-list")))
 (setopt auto-save-file-name-transforms
       `((".*", "~/.emacs.d/backups/auto-save-list" t)))
 
@@ -100,16 +100,18 @@
 (use-package exec-path-from-shell
   ;; :if (memq window-system '(x mac ns))
   :ensure t
+  :defer t
+  :hook ((elpaca-after-init . exec-path-from-shell-initalize))
   :config
   (declare-function exec-path-from-shell-initialize "exec-path-from-shell")
   (add-to-list 'exec-path "/usr/local/bin")
   (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
-    (add-to-list 'exec-path-from-shell-variables var))
-  (exec-path-from-shell-initialize))
+    (add-to-list 'exec-path-from-shell-variables var)))
 
 ;; (use-package envrc :ensure t :hook (elpaca-after-init . envrc-global-mode))
 
-(use-package direnv :ensure t :config (direnv-mode t))
+(use-package direnv :ensure t :defer t
+  :hook ((elpaca-after-init . direnv-mode)))
 
 ;; Draw underline lower
 (setopt x-underline-at-descent-line t)
@@ -121,13 +123,12 @@
         indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Treemacs
-(use-package treemacs :ensure t
+(use-package treemacs :ensure t :defer t
+  :hook ((elpaca-after-init . treemacs-follow-mode)
+         (elpaca-after-init . treemacs-project-follow-mode))
   :commands (treemacs-follow-mode treemacs-project-follow-mode treemacs)
   :bind (:map icejam-keys-mode-map
-              ([(hyper b)] . treemacs))
-  :config
-  (treemacs-follow-mode t)
-  (treemacs-project-follow-mode t))
+              ([(hyper b)] . treemacs)))
 
 (use-package treemacs-all-the-icons :ensure t :defer t
   :requires (treemacs)
@@ -135,18 +136,14 @@
   :config (treemacs-load-theme "all-the-icons"))
 
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
-(use-package keyfreq :ensure t
-  :config
-  (declare-function keyfreq-mode "keyfreq")
-  (declare-function keyfreq-autosave-mode "keyfreq")
-  (keyfreq-mode t)
-  (keyfreq-autosave-mode t))
+(use-package keyfreq :ensure t :defer t
+  :hook ((elpaca-after-init . keyfreq-mode)
+         (elpaca-after-init . keyfreq-autosave-mode)))
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
-(use-package which-key :ensure t
+(use-package which-key :ensure t :defer t
+  :hook ((elpaca-after-init . which-key-mode))
   :config
-  (declare-function which-key-mode "which-key")
-  (which-key-mode t)
   (setopt which-key-idle-delay 0.5))
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line

@@ -32,7 +32,8 @@
 (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
 ;; Actual orderless
-(use-package vertico :ensure t
+(use-package vertico :ensure t :defer t
+  :hook ((elpaca-after-init . vertico-mode))
   :config
   (setopt vertico-scroll-margin 1) ;; Scroll on N-1
   (setopt vertico-count 15)        ;; Show 5 more candidates
@@ -41,22 +42,17 @@
 
   ;; Add working page up /down
   (keymap-set vertico-map "<next>" 'vertico-scroll-up)
-  (keymap-set vertico-map "<prior>" 'vertico-scroll-down)
-
-  (declare-function vertico-mode "vertico")
-  (vertico-mode t))
+  (keymap-set vertico-map "<prior>" 'vertico-scroll-down))
 
 (use-package orderless :ensure t
   :config
-  (setopt completion-styles '(orderless partial-completion basic)) ;; Fallback to basic if orderless does not work.
+  ;; Fallback to basic if orderless does not work.
+  (setopt completion-styles '(orderless partial-completion basic))
   (setopt completion-category-defaults nil)
   (setopt completion-category-overrides '((file (styles partial-completion)))))
 
-
-(use-package marginalia :ensure t
-  :config
-  (declare-function marginalia-mode "marginalia")
-  (marginalia-mode t))
+(use-package marginalia :ensure t :defer t
+  :hook ((elpaca-after-init . marginalia-mode)))
 
 (use-package consult :ensure t
   :config
@@ -70,7 +66,11 @@
               ("M-g g" . consult-goto-line)
               ("C-c a" . consult-ripgrep)))
 
-(use-package helpful :ensure t)
+(use-package helpful :ensure t :defer t
+  :bind (([remap describe-key] . helpful-key)
+         ([remap describe-variable] . helpful-variable)
+         ([remap describe-function] . helpful-callable)
+         ([remap describe-command] . helpful-command)))
 
 (provide 'icejam-completing-read)
 ;;; icejam-completing-read.el ends here

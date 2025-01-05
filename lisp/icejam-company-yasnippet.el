@@ -4,9 +4,9 @@
 ;;; Code:
 (require 'icejam-blocking)
 
-(use-package yasnippet :ensure t
+(use-package yasnippet :ensure t :defer t
+  :hook ((elpaca-after-init . yas-global-mode))
   :config
-  (yas-global-mode t)
   (unbind-key "C-c & C-n" yas-minor-mode-map)
   (unbind-key "C-c & C-s" yas-minor-mode-map)
   (unbind-key "C-c & C-v" yas-minor-mode-map))
@@ -77,7 +77,7 @@
   ;; Only use RETURN for completion in company
   (unbind-key "TAB" company-active-map)
 
-;;; Yasnippet configuration
+  ;; Yasnippet configuration
   (define-key prog-mode-map (kbd "C-c y") 'company-yasnippet)
   (define-key prog-mode-map (kbd "<f13>") 'icejam-insert-space-and-complete)
   (define-key prog-mode-map (kbd "TAB") 'company-indent-or-complete-common)

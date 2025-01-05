@@ -4,8 +4,11 @@
 ;;; Code:
 (require 'icejam-blocking)
 
-;; (use-package lsp-mode :ensure (:depth 5) :requires (company))
-(with-eval-after-load 'lsp-mode
+;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+;; This supposedly makes it faster.
+(setenv "LSP_USE_PLISTS" "true")
+(use-package lsp-mode :ensure t :defer t
+  :config
   (add-to-list 'lsp-disabled-clients '(typescript-ts-mode . vue-semantic-server))
   (add-to-list 'lsp-disabled-clients '(js-mode . vue-semantic-server))
   (add-to-list 'lsp-disabled-clients '(css-mode . vue-semantic-server))
@@ -60,8 +63,8 @@
   (unbind-key "s-l s r" lsp-mode-map)
   (unbind-key "s-l s s" lsp-mode-map))
 
-(use-package lsp-ui :ensure t :after (lsp-mode))
-(with-eval-after-load 'lsp-ui
+(use-package lsp-ui :ensure t :after (lsp-mode) :defer t
+  :config
   (setopt lsp-ui-doc-enable t
           lsp-ui-header t
           lsp-ui-delay 0.5 ;; Wait half a second to display documentation
@@ -69,7 +72,7 @@
           lsp-ui-doc-include-signature t))
 
 ;; Lsp debugger mode
-(use-package dap-mode :ensure t :after (lsp-mode lsp-ui))
+(use-package dap-mode :ensure t :after (lsp-mode lsp-ui) :defer t)
 
 (provide 'icejam-lsp)
 ;;; icejam-lsp.el ends here

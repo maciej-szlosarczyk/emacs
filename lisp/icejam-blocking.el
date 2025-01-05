@@ -12,11 +12,6 @@
 (use-package diminish :ensure t)
 (use-package company :ensure t)
 
-;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
-;; This supposedly makes it faster.
-(setenv "LSP_USE_PLISTS" "true")
-(use-package lsp-mode :ensure t)
-
 ;; Finally, wait for installation of these four packages.
 (declare-function elpaca-wait "elpaca")
 (elpaca-wait)

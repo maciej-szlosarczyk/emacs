@@ -9,17 +9,12 @@
 (declare-function lsp "lsp-mode" nil)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
-;; Elixir mode is used for formatting through elixir-format function,
-;; so it needs to be loaded without deferring. One it is, we can
-;; make it so that treesit takes over.
-(use-package elixir-mode :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.exs\\'" . elixir-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ex\\'" . elixir-ts-mode)))
+;; Only load the elixir-format from elixir mode.
+(use-package elixir-format :defer t
+  :ensure (:type git :host github :repo "elixir-editors/emacs-elixir" :files ("elixir-format.el")))
 
-(use-package elixir-ts-mode :ensure t
-  :after (elixir-mode lsp-mode lsp-ui)
-  :defer t)
+(use-package elixir-ts-mode :ensure t :defer t
+  :after (elixir-format lsp-mode lsp-ui))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."
