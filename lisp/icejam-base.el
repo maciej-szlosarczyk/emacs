@@ -101,14 +101,12 @@
   ;; :if (memq window-system '(x mac ns))
   :ensure t
   :defer t
-  :hook ((elpaca-after-init . exec-path-from-shell-initalize))
+  :hook ((elpaca-after-init . exec-path-from-shell-initialize))
   :config
   (declare-function exec-path-from-shell-initialize "exec-path-from-shell")
   (add-to-list 'exec-path "/usr/local/bin")
   (dolist (var '("DEFT_PATH" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var)))
-
-;; (use-package envrc :ensure t :hook (elpaca-after-init . envrc-global-mode))
 
 (use-package direnv :ensure t :defer t
   :hook ((elpaca-after-init . direnv-mode)))

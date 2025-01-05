@@ -9,6 +9,7 @@
 ;; Set font stuff
 
 ;;; Code:
+(use-package dash :ensure t :defer t)
 
 ;; (defconst icejam-font "Monoid"
 ;; (defconst icejam-font "Fira Mono"
@@ -27,21 +28,27 @@
 ;; (defconst icejam-font "Victor Mono Medium" "Default font.")
 
 ;; (defconst icejam-font "Iosevka Term" "Default font.")
-(defconst icejam-font "Iosevka Comfy Motion" "Default font.")
+(defconst icejam-font-family "Iosevka Comfy Motion" "Default font.")
+(defconst icejam-markdown-font-family "Iosevka Term" "Font used to render code blocks in markdown.")
 
-(defconst icejam-font-size 14
-  "Default size of then font.
-It is used to calculated the size in relation to the screen
+(defconst icejam-font-height 14
+  "Default height of then font.
+It is used to calculated the height in relation to the screen
 in `icejam-set-font-to-screen`.")
 
-(defcustom icejam-mut-font
-  icejam-font
+(defcustom icejam-mut-font-family
+  icejam-font-family
   "Current font, defaults to the one loaded in the beginning."
   :type 'string
   :group 'icejam)
-(defcustom icejam-mut-font-size
-  icejam-font-size
-  "Current font size."
+(defcustom icejam-mut-markdown-font-family
+  icejam-markdown-font-family
+  "Current markdown font family, defaults to the one loaded in the beginning."
+  :type 'string
+  :group 'icejam)
+(defcustom icejam-mut-font-height
+  icejam-font-height
+  "Current font height."
   :type 'integer
   :group 'icejam)
 
@@ -50,85 +57,75 @@ in `icejam-set-font-to-screen`.")
 (defvar lsp-ui-doc-frame-hook)
 
 (defun icejam-set-lsp-ui-font-hook ()
-  "Reset LSP IO font to specified `icejam-font` and `icejam-font-size`."
+  "Reset LSP IO font to specified `icejam-font` and `icejam-font-height`."
   (setopt lsp-ui-doc-frame-hook nil)
-  (add-hook 'lsp-ui-doc-frame-hook
-            (lambda (frame _w)
-              (set-face-attribute
-               'default frame :font
-               (format "%s %d" icejam-mut-font (- icejam-mut-font-size 2))))))
+  (add-hook
+   'lsp-ui-doc-frame-hook
+   (lambda (frame _w)
+     (set-face-attribute 'default frame
+                         :family icejam-mut-font-family
+                         :height (-> icejam-mut-font-height (- 2) (* 10))))))
 
-(defun icejam-set-font (name size)
-  "Set font to NAME and its SIZE to X pixels."
-  (interactive "sNew font: \nnEnter size for %s: ")
-  (setopt icejam-mut-font name)
-  (setopt icejam-mut-font-size size)
+(defun icejam-set-font (family height)
+  "Set font to FAMILY and its HEIGHT to X.
 
-  (set-face-attribute 'default nil :font (format "%s %d" name size))
+Not all faces will be set to this value.  Some of them look better with being
+slightly smaller than the default face, by 1 point.  Those are: `tooltip',
+`company-tooltip', `company-tooltip-annotation', `company-tooltip-mouse'.
 
-  ;; Set completion and modeline font to be 1 pixel point smaller than
-  ;; the general font
-  ;; (set-face-attribute
-  ;;  'markdown-code-face nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'tooltip nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'company-tooltip nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'company-tooltip-annotation nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'company-tooltip-mouse nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'mode-line nil :font (format "%s %d" name (- size 1)))
-  (set-face-attribute
-   'mode-line-inactive nil :font (format "%s %d" name (- size 1)))
+Modeline faces (`mode-line' and `mode-line-inactive') look better if they are
+two points smaller."
+  (interactive "sNew font: \nnEnter height for %s: ")
+  (setopt icejam-mut-font-family family)
+  (setopt icejam-mut-font-height height)
+
+  ;; Set default font.
+  (set-face-attribute 'default nil :family family :height (-> height (* 10)))
+
+  ;; Some font faces look better when they are 1 point smaller.
+  (dolist (face '(tooltip
+                  company-tooltip
+                  company-tooltip-annotation
+                  company-tooltip-mouse))
+    (set-face-attribute face nil :height (-> height (- 1) (* 10))))
+
+  ;; And some, mainly in modeline  with 2 points.
+  (dolist (face '(mode-line mode-line-inactive))
+    (set-face-attribute face nil :height (-> height (- 2) (* 10))))
 
   ;; Call LSP-UI hook
   (icejam-set-lsp-ui-font-hook))
 
 (defun icejam-set-font-to-screen ()
-  "Automatically set font size to suit the monitor."
-  ;; If display is set to emulate FullHD resultion or less, make the font
-  ;; smaller.
+  "Automatically set font height to suit the monitor."
   (interactive)
-  (cond ((eq (x-display-list) nil))
-        ;; built-in screen
-        ((>= 1050 (x-display-pixel-height))
-         (icejam-set-font icejam-font icejam-font-size))
+  ;; Only do anything if there's a display at all.
+  (if (x-display-list)
+      (cond
+       ;; LG 27" screen connected to a MacBook.
+       ((>= 1080 (x-display-pixel-height))
+        (icejam-set-font icejam-font-family icejam-font-height))
 
-        ;; 4K screen on a Mac
-        ((>= 1080 (x-display-pixel-height))
-         (icejam-set-font icejam-font icejam-font-size))
+       ;; MacBook 14" built-in screen.
+       ((>= 1440 (x-display-pixel-height))
+        (icejam-set-font icejam-font-family (+ icejam-font-height 3)))
 
-        ;; Other screens
-        ((>= 1120 (x-display-pixel-height))
-         (icejam-set-font icejam-font icejam-font-size))
+       ;; 4K screen on Windows or Linux
+       ((>= 2160 (x-display-pixel-height))
+        (icejam-set-font icejam-font-family (- icejam-font-height 3))))))
 
-        ((>= 1440 (x-display-pixel-height))
-         (icejam-set-font icejam-font (+ icejam-font-size 3)))
+;; Run the above function once, after elpaca finishes all downloads.
+(add-hook 'elpaca-after-init-hook 'icejam-set-font-to-screen)
 
-        ((>= 1920 (x-display-pixel-height))
-         (icejam-set-font icejam-font icejam-font-size))
+(defun icejam-set-font-height (height)
+  "Set font to a specified HEIGHT."
+  (interactive "nEnter height for font: ")
+  (icejam-set-font icejam-mut-font-family height))
 
-        ;; 4K screen on Windows or Linux
-        ((>= 2160 (x-display-pixel-height))
-         (icejam-set-font icejam-font (- icejam-font-size 3)))
-
-        ;; Default
-        (t (icejam-set-font icejam-font (- icejam-font-size 3)))))
-
-;; Do it automatically on startup
-(icejam-set-font-to-screen)
-
-(defun icejam-set-font-size (size)
-  "Set font to a specified SIZE."
-  (interactive "nEnter size for font: ")
-  (icejam-set-font icejam-mut-font size))
-
-(defun icejam-set-font-size-for-this-frame (new-size)
-  "Set font NEW-SIZE for this frame only."
-  (interactive "nEnter new size for font in this frame: ")
-  (set-frame-font (format "%s %d" icejam-mut-font new-size)))
+(defun icejam-set-font-height-for-this-frame (new-height)
+  "Set font NEW-HEIGHT for this frame only."
+  (interactive "nEnter new height for font in this frame: ")
+  (set-frame-font (format "%s %d" icejam-mut-font-family new-height)))
 
 ;; Remove ugly black line
 (set-face-attribute 'vertical-border nil :foreground

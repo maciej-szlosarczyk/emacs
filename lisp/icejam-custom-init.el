@@ -78,6 +78,7 @@
 
 ;; I don't know why this needs to be here and with a lisp directory, but
 ;; normal subdirs.el file doesn't work.
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/themes"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/langs"))
 
