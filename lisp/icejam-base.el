@@ -48,14 +48,14 @@
 (use-package buffer-move :ensure t :defer t)
 
 ;; Garbage collection magic hack
-(use-package gcmh :ensure t
+(use-package gcmh :ensure t :defer t
+  :commands (gcmh-mode)
+  :hook ((elpaca-after-init . (lambda () (gcmh-mode t))))
   :config
-  (declare-function gcmh-mode "gcmh")
   (setopt gcmh-verbose nil) ;; Do not log GC messages
   (setopt gcmh-idle-delay 'auto) ;; Compute GC delay based on gcmh-auto-idle-delay-factor
   (setopt gcmh-auto-idle-delay-factor 10) ;; Original value was 10
-  (setopt gcmh-high-cons-threshold (* 128 1024 1024))
-  (gcmh-mode t))
+  (setopt gcmh-high-cons-threshold (* 128 1024 1024)))
 
 ;; #====================== Backup config #==============================
 (setopt backup-directory-alist

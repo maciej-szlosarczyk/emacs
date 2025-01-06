@@ -12,8 +12,8 @@
 (use-package company :ensure t)
 
 ;; Finally, wait for installation of these four packages.
-(declare-function elpaca-wait "elpaca")
-(elpaca-wait)
+(if (fboundp 'elpaca-wait)
+    (elpaca-wait))
 
 (provide 'icejam-blocking)
 ;;; icejam-blocking.el ends here

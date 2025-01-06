@@ -59,12 +59,13 @@ in `icejam-set-font-to-screen`.")
 (defun icejam-set-lsp-ui-font-hook ()
   "Reset LSP IO font to specified `icejam-font` and `icejam-font-height`."
   (setopt lsp-ui-doc-frame-hook nil)
-  (add-hook
-   'lsp-ui-doc-frame-hook
-   (lambda (frame _w)
-     (set-face-attribute 'default frame
-                         :family icejam-mut-font-family
-                         :height (-> icejam-mut-font-height (- 2) (* 10))))))
+  (add-hook 'lsp-ui-doc-frame-hook
+            (lambda (frame _w)
+              (set-face-attribute 'default frame
+                                  :family icejam-mut-font-family
+                                  :height (-> icejam-mut-font-height
+                                              (- 2)
+                                              (* 10))))))
 
 (defun icejam-set-font (family height)
   "Set font to FAMILY and its HEIGHT to X.
@@ -80,18 +81,26 @@ two points smaller."
   (setopt icejam-mut-font-height height)
 
   ;; Set default font.
-  (set-face-attribute 'default nil :family family :height (-> height (* 10)))
+  (set-face-attribute 'default nil
+                      :family family
+                      :height (-> height
+                                  (* 10)))
 
   ;; Some font faces look better when they are 1 point smaller.
   (dolist (face '(tooltip
                   company-tooltip
                   company-tooltip-annotation
                   company-tooltip-mouse))
-    (set-face-attribute face nil :height (-> height (- 1) (* 10))))
+    (set-face-attribute face nil :height (-> height
+                                             (- 1)
+                                             (* 10))))
 
-  ;; And some, mainly in modeline  with 2 points.
-  (dolist (face '(mode-line mode-line-inactive))
-    (set-face-attribute face nil :height (-> height (- 2) (* 10))))
+  ;; And some, mainly in modeline with 2 points.
+  (dolist (face '(mode-line
+                  mode-line-inactive))
+    (set-face-attribute face nil :height (-> height
+                                             (- 2)
+                                             (* 10))))
 
   ;; Call LSP-UI hook
   (icejam-set-lsp-ui-font-hook))
@@ -99,20 +108,22 @@ two points smaller."
 (defun icejam-set-font-to-screen ()
   "Automatically set font height to suit the monitor."
   (interactive)
+
   ;; Only do anything if there's a display at all.
   (if (x-display-list)
-      (cond
-       ;; LG 27" screen connected to a MacBook.
-       ((>= 1080 (x-display-pixel-height))
-        (icejam-set-font icejam-font-family icejam-font-height))
+      (let ((pixel-height (x-display-pixel-height)))
+        (cond
+         ;; MacBook 14" built-in screen.
+         ((>= 1080 pixel-height)
+          (icejam-set-font icejam-font-family icejam-font-height))
 
-       ;; MacBook 14" built-in screen.
-       ((>= 1440 (x-display-pixel-height))
-        (icejam-set-font icejam-font-family (+ icejam-font-height 3)))
+         ;; LG 27" screen connected to a MacBook.
+         ((>= 1440 pixel-height)
+          (icejam-set-font icejam-font-family (+ icejam-font-height 3)))
 
-       ;; 4K screen on Windows or Linux
-       ((>= 2160 (x-display-pixel-height))
-        (icejam-set-font icejam-font-family (- icejam-font-height 3))))))
+         ;; 4K screen on Windows or Linux
+         ((>= 2160 pixel-height)
+          (icejam-set-font icejam-font-family (- icejam-font-height 3)))))))
 
 ;; Run the above function once, after elpaca finishes all downloads.
 (add-hook 'elpaca-after-init-hook 'icejam-set-font-to-screen)
@@ -126,15 +137,6 @@ two points smaller."
   "Set font NEW-HEIGHT for this frame only."
   (interactive "nEnter new height for font in this frame: ")
   (set-frame-font (format "%s %d" icejam-mut-font-family new-height)))
-
-;; Remove ugly black line
-(set-face-attribute 'vertical-border nil :foreground
-                    (face-attribute 'fringe :background))
-
-;; Set fringe colors to default, so it does not bother you.
-(set-face-attribute 'fringe nil
-                    :foreground (face-foreground 'default)
-                    :background (face-background 'default))
 
 (provide 'icejam-fonts)
 ;;; icejam-fonts.el ends here
