@@ -5,6 +5,9 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
+;; Dash is a package that creates terse and more natural to me functions to
+;; do basic things in Elisp.
+(use-package dash :ensure t :defer t)
 (use-package lispy :ensure t :defer t)
 (use-package aggressive-indent :ensure t :defer t)
 
@@ -32,6 +35,7 @@
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
 
+  (dash-fontify-mode t)    ;; Fontify dash variables
   (lispy-mode t)           ;; Pseudomodal editing for lisp code
   (aggressive-indent-mode) ;; Indent lisp automatically
 

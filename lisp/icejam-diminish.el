@@ -6,27 +6,32 @@
 
 ;;; Commentary:
 
-;; diminish minor modes
+;; diminish minor modes to remove modeline litter.
 
 ;;; Code:
-(require 'icejam-blocking)
-;; (use-package diminish :ensure t)
+(use-package diminish :ensure t :defer t :commands (diminish))
 
-(with-eval-after-load 'diminish
-  (with-eval-after-load 'flyspell (diminish 'flyspell-mode))
-  (with-eval-after-load 'flycheck (diminish 'flycheck-mode))
-  (with-eval-after-load 'rainbow-mode (diminish 'rainbow-mode))
-  (with-eval-after-load 'undo-tree (diminish 'undo-tree-mode))
-  (with-eval-after-load 'company (diminish 'company-mode))
-  (with-eval-after-load 'which-key (diminish 'which-key-mode))
-  (with-eval-after-load 'eldoc (diminish 'eldoc-mode))
-  (with-eval-after-load 'yasnippet (diminish 'yas-minor-mode))
-  (with-eval-after-load 'whitespace (diminish 'whitespace-mode))
-  (with-eval-after-load 'autorevert (diminish 'auto-revert-mode))
-  (with-eval-after-load 'ivy (diminish 'ivy-mode))
-  (with-eval-after-load 'company-box (diminish 'company-box-mode))
-  (with-eval-after-load 'smerge-mode (diminish 'smerge-mode))
-  (with-eval-after-load 'gcmh (diminish 'gcmh-mode)))
+(defun icejam-diminish-modes ()
+  "Diminish selected modes."
+  (dolist (package-and-mode '((flyspell flyspell-mode)
+                              (flycheck flycheck-mode)
+                              (rainbow-mode rainbow-mode)
+                              (undo-tree undo-tree-mode)
+                              (company company-mode)
+                              (which-key which-key-mode)
+                              (eldoc eldoc-mode)
+                              (yasnippet yas-minor-mode)
+                              (whitespace whitespace-mode)
+                              (autorevert auto-revert-mode)
+                              (ivy ivy-mode)
+                              (company-box company-box-mode)
+                              (smerge-mode smerge-mode)
+                              (gcmh gcmh-mode)))
+    (let ((package (car package-and-mode))
+          (mode (car (last package-and-mode))))
+      (with-eval-after-load package (diminish mode)))))
+
+(add-hook 'elpaca-after-init-hook 'icejam-diminish-modes)
 
 (provide 'icejam-diminish)
 ;;; icejam-diminish.el ends here

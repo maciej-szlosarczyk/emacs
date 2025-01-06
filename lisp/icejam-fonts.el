@@ -3,14 +3,11 @@
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
 ;; Version: 0.1-snapshot
-
 ;;; Commentary:
 
 ;; Set font stuff
 
 ;;; Code:
-(use-package dash :ensure t :defer t)
-
 ;; (defconst icejam-font "Monoid"
 ;; (defconst icejam-font "Fira Mono"
 ;; (defconst icejam-font "Fira Code"
@@ -26,10 +23,13 @@
 ;; (defconst icejam-font "Berkeley Mono Trial"
 ;; (defconst icejam-font "Inconsolata"
 ;; (defconst icejam-font "Victor Mono Medium" "Default font.")
-
 ;; (defconst icejam-font "Iosevka Term" "Default font.")
+
 (defconst icejam-font-family "Iosevka Comfy Motion" "Default font.")
 (defconst icejam-markdown-font-family "Iosevka Term" "Font used to render code blocks in markdown.")
+
+;; Require dash functions to be included:
+(declare-function -> "dash.el")
 
 (defconst icejam-font-height 14
   "Default height of then font.

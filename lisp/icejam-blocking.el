@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package transient :ensure t)
-(use-package diminish :ensure t)
 (use-package company :ensure t)
 
 ;; Finally, wait for installation of these four packages.
