@@ -4,11 +4,6 @@
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-;; ;; Dash is a package that creates terse and more natural to me functions to
-;; ;; do basic things in Elisp.
-(use-package smartparens :ensure t :defer t
-  :commands (smartparens-mode))
-
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
