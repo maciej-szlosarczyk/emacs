@@ -12,8 +12,16 @@
   (unbind-key "C-c & C-v" yas-minor-mode-map))
 
 (use-package yasnippet-snippets :ensure t :after (yasnippet))
-(use-package company-box :ensure t :after (company)
-  :hook (company-mode . company-box-mode))
+
+(use-package kind-icon
+  :ensure t
+  :after company
+  :config
+  (let* ((kind-func (lambda (candidate) (company-call-backend 'kind candidate)))
+         (formatter (kind-icon-margin-formatter `((company-kind . ,kind-func)))))
+    (defun icejam-company-kind-icon-margin (candidate _selected)
+      (funcall formatter candidate))
+    (setopt company-format-margin-function #'icejam-company-kind-icon-margin)))
 
 (with-eval-after-load 'company
   (global-company-mode t)
@@ -55,12 +63,11 @@
 
   ;; Absolute defaults for company mode
   (setopt company-backends
-        '((company-files                ; files & directory
-           company-keywords             ; keywords
-           company-capf
-           )
-          (company-dabbrev company-abbrev)
-          ))
+          '((company-files              ; files & directory
+             company-keywords           ; keywords
+             company-capf)
+            (company-dabbrev company-abbrev)
+            ))
 
   ;; Use standard emacs next and previous bindings for navigating company
   ;; suggestions
