@@ -13,19 +13,35 @@
 
 (use-package yasnippet-snippets :ensure t :after (yasnippet))
 
+
+;; Corfu is the main engine for displaying suggestions.
 (use-package corfu :ensure t :defer t
   :hook ((elpaca-after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :config
+  ;; Go up to go the the last item on the list
+  (setopt corfu-cycle t)
+
+  ;; Show 20 corfu
+  (setopt corfu-count 20)
+
+  ;; Max width of the corfu frame
+  (setopt corfu-max-width 120)
+
+  (setopt corfu-right-margin-width 0.5)
+  (setopt corfu-left-margin-width 0.5)
+  (setopt corfu-bar-width 0.5)
   (setopt corfu-auto-delay 0.2)
   (setopt corfu-popupinfo-delay '(0.4 . 0.2))
   (setopt corfu-auto t)
   (setopt corfu-quit-no-match 'separator))
 
+;; Allow corfu to work in terminal
 (use-package corfu-terminal :ensure t :defer t
   :unless (display-graphic-p)
   :hook ((elpaca-after-init . corfu-terminal-mode)))
 
+;; These are actual completions
 (use-package cape :ensure t :after corfu
   :commands (cape-dabbrev cape-file cape-elisp-symbol)
   :init
@@ -44,12 +60,10 @@
   (add-hook 'prog-mode-hook
             (lambda () (add-hook 'completion-at-point-functions #'yasnippet-capf))))
 
-(use-package kind-icon
-  :ensure t
+(use-package nerd-icons-corfu :ensure t
   :after corfu
   :config
-  (declare-function kind-icon-margin-formatter kind-icon)
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (provide 'icejam-complete-at-point)
 ;;; icejam-complete-at-point.el ends here

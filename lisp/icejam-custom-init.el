@@ -65,7 +65,7 @@
 (defvar elpaca-use-package)
 (elpaca elpaca-use-package (elpaca-use-package-mode))
 
-(elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
+;; (elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
 
 (use-package benchmark-init :ensure (:wait t)
   :config
