@@ -94,7 +94,7 @@
 (require 'icejam-avy)
 (require 'icejam-transient)
 (require 'icejam-prog-mode)
-(require 'icejam-company-yasnippet)
+(require 'icejam-complete-at-point)
 (require 'icejam-copilot)
 (require 'icejam-flycheck)
 (require 'icejam-ispell)

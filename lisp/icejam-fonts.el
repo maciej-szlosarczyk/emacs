@@ -71,8 +71,7 @@ in `icejam-set-font-to-screen`.")
   "Set font to FAMILY and its HEIGHT to X.
 
 Not all faces will be set to this value.  Some of them look better with being
-slightly smaller than the default face, by 1 point.  Those are: `tooltip',
-`company-tooltip', `company-tooltip-annotation', `company-tooltip-mouse'.
+slightly smaller than the default face, by 1 point.  Those are: `tooltip'.
 
 Modeline faces (`mode-line' and `mode-line-inactive') look better if they are
 two points smaller."
@@ -87,10 +86,7 @@ two points smaller."
                                   (* 10)))
 
   ;; Some font faces look better when they are 1 point smaller.
-  (dolist (face '(tooltip
-                  company-tooltip
-                  company-tooltip-annotation
-                  company-tooltip-mouse))
+  (dolist (face '(tooltip))
     (set-face-attribute face nil :height (-> height
                                              (- 1)
                                              (* 10))))

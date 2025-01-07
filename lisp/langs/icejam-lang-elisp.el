@@ -2,16 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'icejam-blocking)
 (require 'icejam-prog-mode)
 (require 'icejam-transient)
 
-;; Dash is a package that creates terse and more natural to me functions to
-;; do basic things in Elisp.
-(use-package dash :ensure t :defer t)
-(use-package lispy :ensure t :defer t)
-(use-package aggressive-indent :ensure t :defer t)
+;; ;; Dash is a package that creates terse and more natural to me functions to
+;; ;; do basic things in Elisp.
+(declare-function elpaca-installed-p "elpaca")
+(unless (elpaca-installed-p 'dash)
+  (use-package dash :ensure t :defer t))
 
-(declare-function aggressive-indent-mode "aggressive-indent")
+;; ;; Adds pseudomodal editing for lisp.
+(unless (elpaca-installed-p 'lispy)
+  (use-package lispy :ensure t :defer t))
+
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
@@ -35,13 +39,14 @@
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
 
-  (dash-fontify-mode t)    ;; Fontify dash variables
-  (lispy-mode t)           ;; Pseudomodal editing for lisp code
-  (aggressive-indent-mode) ;; Indent lisp automatically
+  (dash-fontify-mode t)
+  (lispy-mode t)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-yasnippet company-capf)))
+  (setq-local completion-at-point-functions '(yasnippet-capf
+                                              elisp-completion-at-point
+                                              cape-dabbrev
+                                              cape-file
+                                              cape-elisp-symbol)))
 
 (add-hook 'emacs-lisp-mode-hook 'icejam-activate-emacs-lisp-mode)
 

@@ -44,8 +44,6 @@
     ("r" "Replace"            vr/replace)
     ("i" "Indent"             indent-region)]
    ["Complete"
-    ("y" "Snippet"            company-yasnippet)
-    ("m" "Any (Company)"      company-complete)
     ("g" "Ask GPT"            gptel-menu)
     ("a" "Aider"              aider-transient-menu)
     ("e" "Refactor (Elysium)" elysium-query)]

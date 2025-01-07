@@ -22,11 +22,7 @@
   (column-enforce-n 99)
 
   ;; Run LSP
-  (lsp-deferred)
-
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  (lsp-deferred))
 
 (add-hook 'rust-mode-hook 'icejam-activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)

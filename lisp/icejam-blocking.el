@@ -8,8 +8,8 @@
 ;; These packages are foundational dependency and possibly can be blocking.
 ;;; Code:
 
+;; Nice menus
 (use-package transient :ensure t)
-(use-package company :ensure t)
 
 ;; Finally, wait for installation of these four packages.
 (if (fboundp 'elpaca-wait)

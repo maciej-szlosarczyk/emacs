@@ -9,7 +9,7 @@
 ;;; Code:
 
 (require 'icejam-prog-mode)
-(require 'icejam-company-yasnippet)
+(require 'icejam-complete-at-point)
 
 (use-package slime :ensure t)
 (use-package slime-company :ensure t

@@ -19,10 +19,7 @@
 
   (if (boundp 'c-default-style)
       (setq-local c-default-style "bsd")
-    (defvar c-default-style "bsd"))
-
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-etags company-yasnippet)))
+    (defvar c-default-style "bsd")))
 
 (add-hook 'c-mode-hook 'icejam-lang-activate-clang-mode)
 
