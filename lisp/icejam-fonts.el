@@ -26,6 +26,7 @@
 ;; (defconst icejam-font "Iosevka Term" "Default font.")
 
 (defconst icejam-font-family "Iosevka Comfy Motion" "Default font.")
+(defconst icejam-variable-font-family "Lexica Ultralegible" "Variable pitch font.")
 (defconst icejam-markdown-font-family "Iosevka Term" "Font used to render code blocks in markdown.")
 
 ;; Require dash functions to be included:
@@ -39,6 +40,11 @@ in `icejam-set-font-to-screen`.")
 (defcustom icejam-mut-font-family
   icejam-font-family
   "Current font, defaults to the one loaded in the beginning."
+  :type 'string
+  :group 'icejam)
+(defcustom icejam-mut-variable-font-family
+  icejam-font-family
+  "Current variable-pitch font.  Defaults to `icejam-variable-font-family`."
   :type 'string
   :group 'icejam)
 (defcustom icejam-mut-markdown-font-family
@@ -78,10 +84,17 @@ two points smaller."
   (interactive "sNew font: \nnEnter height for %s: ")
   (setopt icejam-mut-font-family family)
   (setopt icejam-mut-font-height height)
+  (setopt icejam-mut-variable-font-family icejam-variable-font-family)
 
   ;; Set default font.
   (set-face-attribute 'default nil
                       :family family
+                      :height (-> height
+                                  (* 10)))
+
+  ;; Set variable-pitch font
+  (set-face-attribute 'variable-pitch nil
+                      :family icejam-mut-variable-font-family
                       :height (-> height
                                   (* 10)))
 

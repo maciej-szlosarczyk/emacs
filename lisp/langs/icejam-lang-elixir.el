@@ -43,7 +43,11 @@
 
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local lsp-completion-enable-additional-text-edit nil)
-  (setq-local company-minimum-prefix-length 3))
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super #'lsp-completion-at-point
+                                     #'yasnippet-capf)
+                    #'cape-dabbrev
+                    #'cape-file)))
 
 (add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
 (add-hook 'elixir-ts-mode-hook 'icejam-activate-elixir-ts-mode)

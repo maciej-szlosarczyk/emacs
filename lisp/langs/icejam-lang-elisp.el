@@ -7,6 +7,8 @@
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
+(use-package lispy :ensure t :defer t)
+
 (transient-define-prefix icejam-elisp-lang-menu ()
   "Elisp Buffer Commands."
   [""
@@ -24,17 +26,13 @@
 (defun icejam-activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
 
-  ;; Default indentation of 2 characters
-  (icejam-set-indent 2)
-
-  ;; Use 80 char limit.
-  (column-enforce-n 80)
-
-  ;; Parents
-  (smartparens-mode t)
+  (icejam-set-indent 2) ;; Default indentation of 2 characters
+  (column-enforce-n 80) ;; Use 80 char limit.
+  (lispy-mode t)        ;; Modal editing for Lisp
 
   (setq-local completion-at-point-functions
-              (list (cape-capf-super #'elisp-completion-at-point #'yasnippet-capf)
+              (list (cape-capf-super #'elisp-completion-at-point
+                                     #'yasnippet-capf)
                     #'cape-dabbrev
                     #'cape-file
                     #'cape-elisp-symbol)))

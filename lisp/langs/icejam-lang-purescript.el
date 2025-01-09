@@ -25,8 +25,7 @@
   (purescript-indentation-mode t)
 
   ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  )
 
 (add-hook 'purescript-mode-hook 'icejam-activate-purescript-mode)
 

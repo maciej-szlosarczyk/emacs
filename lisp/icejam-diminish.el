@@ -17,7 +17,6 @@
                               (flycheck flycheck-mode)
                               (rainbow-mode rainbow-mode)
                               (undo-tree undo-tree-mode)
-                              (company company-mode)
                               (which-key which-key-mode)
                               (eldoc eldoc-mode)
                               (yasnippet yas-minor-mode)

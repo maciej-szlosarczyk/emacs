@@ -38,31 +38,26 @@
 
 ;; Allow corfu to work in terminal
 (use-package corfu-terminal :ensure t :defer t
-  :unless (display-graphic-p)
+  :if (not (display-graphic-p))
   :hook ((elpaca-after-init . corfu-terminal-mode)))
 
 ;; These are actual completions
 (use-package cape :ensure t :after corfu
-  :commands (cape-dabbrev cape-file cape-elisp-symbol)
-  :init
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (progn
-                (add-hook 'completion-at-point-functions #'cape-dabbrev)
-                (add-hook 'completion-at-point-functions #'cape-file)
-                (add-hook 'completion-at-point-functions #'cape-elisp-symbol)))))
+  :config
+  ;; Set default completion values:
+  (set-default 'completion-at-point-functions
+               (list (cape-capf-super #'lsp-completion-at-point
+                                      #'yasnippet-capf)
+                     #'cape-dabbrev
+                     #'cape-file)))
 
-(use-package yasnippet-capf :ensure t
-  :after corfu
-  :commands (yasnippet-capf)
-  :config (setopt yasnippet-capf-lookup-by 'name)
-  :init
-  (add-hook 'prog-mode-hook
-            (lambda () (add-hook 'completion-at-point-functions #'yasnippet-capf))))
+(use-package yasnippet-capf :ensure t :after corfu
+  :config (setopt yasnippet-capf-lookup-by 'name))
 
 (use-package nerd-icons-corfu :ensure t
   :after corfu
   :config
+  (declare-function nerd-icons-corfu-formatter 'nerd-icons-corfu)
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (provide 'icejam-complete-at-point)
