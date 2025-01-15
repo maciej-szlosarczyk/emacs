@@ -55,7 +55,7 @@
   (setopt gcmh-verbose nil) ;; Do not log GC messages
   (setopt gcmh-idle-delay 'auto) ;; Compute GC delay based on gcmh-auto-idle-delay-factor
   (setopt gcmh-auto-idle-delay-factor 10) ;; Original value was 10
-  (setopt gcmh-high-cons-threshold (* 128 1024 1024)))
+  (setopt gcmh-high-cons-threshold (* 256 1024 1024)))
 
 ;; #====================== Backup config #==============================
 (setopt backup-directory-alist
@@ -65,8 +65,8 @@
 
 (setopt backup-by-copying t)
 (setopt delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
+  kept-new-versions 10
+  kept-old-versions 5
   version-control t)
 
 ; Do not create .#foo.file lock files

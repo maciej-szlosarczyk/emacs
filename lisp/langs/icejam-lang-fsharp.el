@@ -24,9 +24,8 @@
   (column-enforce-n 100)
   (lsp-deferred)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'fsharp-mode-hook 'icejam-activate-fsharp-mode)
 

@@ -47,7 +47,7 @@
 (use-package orderless :ensure t
   :config
   ;; Fallback to basic if orderless does not work.
-  (setopt completion-styles '(orderless partial-completion basic))
+  (setopt completion-styles '(orderless basic))
   (setopt completion-category-defaults nil)
   (setopt completion-category-overrides '((file (styles partial-completion)))))
 

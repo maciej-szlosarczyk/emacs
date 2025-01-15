@@ -21,9 +21,8 @@
   ;; Run LSP
   (lsp-deferred)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'lean4-mode-hook 'icejam-activate-lean-mode)
 

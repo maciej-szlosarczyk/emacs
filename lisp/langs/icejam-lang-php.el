@@ -38,9 +38,8 @@
 
   (define-key php-mode-map (kbd "C-c l") 'icejam-lang-php/context-menu)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'php-mode-hook 'icejam-lang-activate-php-mode)
 

@@ -25,9 +25,11 @@
 ;; (defconst icejam-font "Victor Mono Medium" "Default font.")
 ;; (defconst icejam-font "Iosevka Term" "Default font.")
 
-(defconst icejam-font-family "Iosevka Comfy Motion" "Default font.")
+(defconst icejam-default-font-family "Iosevka Comfy Motion" "Default font.")
 (defconst icejam-variable-font-family "Lexica Ultralegible" "Variable pitch font.")
-(defconst icejam-markdown-font-family "Iosevka Term" "Font used to render code blocks in markdown.")
+(defconst icejam-markdown-font-family "Iosevka Term"
+  "Font used to render code blocks in markdown.
+It is different than default font to keep it visually distinct.")
 
 ;; Require dash functions to be included:
 (declare-function -> "dash.el")
@@ -37,13 +39,13 @@
 It is used to calculated the height in relation to the screen
 in `icejam-set-font-to-screen`.")
 
-(defcustom icejam-mut-font-family
-  icejam-font-family
+(defcustom icejam-mut-default-font-family
+  icejam-default-font-family
   "Current font, defaults to the one loaded in the beginning."
   :type 'string
   :group 'icejam)
 (defcustom icejam-mut-variable-font-family
-  icejam-font-family
+  icejam-default-font-family
   "Current variable-pitch font.  Defaults to `icejam-variable-font-family`."
   :type 'string
   :group 'icejam)
@@ -68,7 +70,7 @@ in `icejam-set-font-to-screen`.")
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)
               (set-face-attribute 'default frame
-                                  :family icejam-mut-font-family
+                                  :family icejam-mut-default-font-family
                                   :height (-> icejam-mut-font-height
                                               (- 2)
                                               (* 10))))))
@@ -82,7 +84,7 @@ slightly smaller than the default face, by 1 point.  Those are: `tooltip'.
 Modeline faces (`mode-line' and `mode-line-inactive') look better if they are
 two points smaller."
   (interactive "sNew font: \nnEnter height for %s: ")
-  (setopt icejam-mut-font-family family)
+  (setopt icejam-mut-default-font-family family)
   (setopt icejam-mut-font-height height)
   (setopt icejam-mut-variable-font-family icejam-variable-font-family)
 
@@ -124,15 +126,15 @@ two points smaller."
         (cond
          ;; MacBook 14" built-in screen.
          ((>= 1080 pixel-height)
-          (icejam-set-font icejam-font-family icejam-font-height))
+          (icejam-set-font icejam-default-font-family icejam-font-height))
 
          ;; LG 27" screen connected to a MacBook.
          ((>= 1440 pixel-height)
-          (icejam-set-font icejam-font-family (+ icejam-font-height 3)))
+          (icejam-set-font icejam-default-font-family (+ icejam-font-height 3)))
 
          ;; 4K screen on Windows or Linux
          ((>= 2160 pixel-height)
-          (icejam-set-font icejam-font-family (- icejam-font-height 3)))))))
+          (icejam-set-font icejam-default-font-family (- icejam-font-height 3)))))))
 
 ;; Run the above function once, after elpaca finishes all downloads.
 (add-hook 'elpaca-after-init-hook 'icejam-set-font-to-screen)
@@ -140,12 +142,12 @@ two points smaller."
 (defun icejam-set-font-height (height)
   "Set font to a specified HEIGHT."
   (interactive "nEnter height for font: ")
-  (icejam-set-font icejam-mut-font-family height))
+  (icejam-set-font icejam-mut-default-font-family height))
 
 (defun icejam-set-font-height-for-this-frame (new-height)
   "Set font NEW-HEIGHT for this frame only."
   (interactive "nEnter new height for font in this frame: ")
-  (set-frame-font (format "%s %d" icejam-mut-font-family new-height)))
+  (set-frame-font (format "%s %d" icejam-mut-default-font-family new-height)))
 
 (provide 'icejam-fonts)
 ;;; icejam-fonts.el ends here

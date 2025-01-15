@@ -13,8 +13,7 @@
 (use-package elixir-format :defer t
   :ensure (:type git :host github :repo "elixir-editors/emacs-elixir" :files ("elixir-format.el")))
 
-(use-package elixir-ts-mode :ensure t :defer t
-  :after (elixir-format lsp-mode lsp-ui))
+(use-package elixir-ts-mode :ensure t :defer t :after (elixir-format lsp-mode lsp-ui))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   "Elixir Buffer Commands."
@@ -28,6 +27,12 @@
     ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
    ("q" "Quit"        keyboard-quit)])
+
+(defun icejam-delete-elixir-snippets ()
+  "This function deletes Elixir snippets I don't use."
+  (-> 'elixir-mode
+      (yas--table-get-create)
+      (yas--remove-template-by-uuid "defmodule")))
 
 (add-to-list
  'icejam-language-transient-alist '(elixir-ts-mode . icejam-elixir-lang-menu))
@@ -43,11 +48,8 @@
 
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local lsp-completion-enable-additional-text-edit nil)
-  (setq-local completion-at-point-functions
-              (list (cape-capf-super #'lsp-completion-at-point
-                                     #'yasnippet-capf)
-                    #'cape-dabbrev
-                    #'cape-file)))
+  (icejam-set-lsp-capfs)
+  (icejam-delete-elixir-snippets))
 
 (add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
 (add-hook 'elixir-ts-mode-hook 'icejam-activate-elixir-ts-mode)

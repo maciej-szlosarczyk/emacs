@@ -23,9 +23,10 @@
          (conf-mode . whitespace-mode)
          (before-save . whitespace-cleanup))
   :config
-  (setopt whitespace-style #'(face trailing empty)) ;; New whitespace style
-  (setopt require-final-newline 't)                 ;; Insert newline on save
-  )
+  (setopt
+   whitespace-style #'(face trailing empty) ;; New whitespace style
+   require-final-newline 't                 ;; Insert newline on save
+   ))
 
 (setq-default indent-tabs-mode nil)
 
@@ -43,10 +44,11 @@
          (text-mode . rainbow-mode)))
 
 ;; Dash integration
-(use-package dash-at-point :ensure t :defer t)
-(with-eval-after-load 'dash-at-point
+(use-package dash-at-point :ensure t :defer t
+  :config
   (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
   (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
+
 
 ;; By default, use 2 spaces for indentation
 (setopt tab-width 2)
@@ -59,8 +61,23 @@
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
+(defun icejam-set-indent-2 () "Set indent to 2." (icejam-set-indent 2))
+(defun icejam-set-indent-4 () "Set indent to 4." (icejam-set-indent 4))
+(defun icejam-set-indent-8 () "Set indent to 8." (icejam-set-indent 8))
+
 (use-package column-enforce-mode :ensure t :defer t
-  :hook (elpaca-after-init . global-column-enforce-mode))
+  :hook (elpaca-after-init . global-column-enforce-mode)
+  :config
+  (declare-function column-enforce-n 'column-enforce-mode)
+  (defun icejam-column-enforce-80 ()
+    "Enforce 80 columns."
+    (column-enforce-n 80))
+  (defun icejam-column-enforce-100 ()
+    "Enforce 100 columns."
+    (column-enforce-n 100))
+  (defun icejam-column-enforce-98 ()
+    "Enforce 98 columns."
+    (column-enforce-n 98)))
 
 ;; PCRE to Emacs regex translations
 (use-package pcre2el :ensure t :defer t)
@@ -68,8 +85,9 @@
 ;; Visual regexp
 (use-package visual-regexp-steroids :ensure t :after (pcre2el)
   :config
-  (setopt vr/engine 'pcre2el) ;; Use pcre2el for regexes
-  )
+  ;; Use pcre2el for regexes - so that I can use brackets more naturally with
+  ;; regexp.
+  (setopt vr/engine 'pcre2el))
 
 (provide 'icejam-prog-mode)
 ;;; icejam-prog-mode.el ends here

@@ -30,9 +30,8 @@
   (lsp)
   (column-enforce-n 99)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'python-mode-hook 'icejam-lang-activate-python-mode)
 

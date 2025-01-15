@@ -27,6 +27,11 @@
 (use-package gptel :ensure t :defer t
   :config
   (declare-function gptel-make-anthropic "gptel")
+  (declare-function gptel-make-ollama "gptel")
+  (gptel-make-ollama "Ollama@Linux"
+    :host "192.168.88.110:11434"
+    :stream t
+    :models '(qwen2.5-coder:7b qwen2.5-coder:14b))
   (setq
    gptel-model 'claude-3-5-sonnet-20241022
    gptel-backend (gptel-make-anthropic "Claude"
@@ -38,19 +43,22 @@
 (use-package aider :ensure (:host github :repo "tninja/aider.el" :files ("aider.el"))
   :defer t
   :config
+  ;; (setenv "OLLAMA_API_BASE" "http://127.0.0.1:11434")
+  (setenv "OLLAMA_API_BASE" "http://192.168.88.110:11434")
   (setopt aider-args (list "--model"
-                           "anthropic/claude-3-5-sonnet-20241022"
-                           "--anthropic-api-key"
-                           anthropic-api-key
-                           "--no-auto-commits")))
+                           "ollama_chat/qwen2.5-coder:14b"
+                           "--no-auto-commits"
+                           "--no-analytics"
+                           "--no-gitignore")))
 
 ;; Pretend to be 'AI editor' vol 2.
 (use-package elysium :ensure t :defer t
   :config
-  ;; The elysium buffer will be 1/3 your screen
-  (setopt elysium-window-size 0.33)
-  ;; Elysium buffer will be vertical
-  (setopt elysium-window-style 'vertical))
+  (setopt
+   ;; The elysium buffer will be 1/3 your screen
+   elysium-window-size 0.33
+   ;; Elysium buffer will be vertical
+   elysium-window-style 'vertical))
 
 ;; Merging with SMerge
 (use-package smerge-mode :ensure nil

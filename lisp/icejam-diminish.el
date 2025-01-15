@@ -23,7 +23,6 @@
                               (whitespace whitespace-mode)
                               (autorevert auto-revert-mode)
                               (ivy ivy-mode)
-                              (company-box company-box-mode)
                               (smerge-mode smerge-mode)
                               (gcmh gcmh-mode)))
     (let ((package (car package-and-mode))

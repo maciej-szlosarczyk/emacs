@@ -23,9 +23,8 @@
   ;; Start LSP
   (lsp)
 
-  ;; Company list override
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'ruby-ts-mode-hook 'rspec-mode)
 (add-hook 'ruby-ts-mode-hook 'ruby-end-mode)

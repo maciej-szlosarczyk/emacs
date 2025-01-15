@@ -7,7 +7,7 @@
 (require 'icejam-lsp)
 
 (use-package js2-mode :ensure t :defer t
-  :after (web-mode company lsp-mode lsp-ui))
+  :after (web-mode lsp-mode lsp-ui))
 
 (use-package typescript-ts-mode :ensure nil :defer t)
 
@@ -47,9 +47,7 @@
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
-  ;; "Company list override."
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-capf company-yasnippet)))
+  (icejam-set-lsp-capfs))
 
 (add-hook 'js2-mode-hook 'icejam-activate-js2-mode)
 

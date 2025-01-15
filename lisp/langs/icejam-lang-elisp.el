@@ -38,6 +38,7 @@
                     #'cape-elisp-symbol)))
 
 (add-hook 'emacs-lisp-mode-hook 'icejam-activate-emacs-lisp-mode)
+(add-hook 'ielm-mode-hook 'icejam-set-elisp-capfs)
 
 (provide 'icejam-lang-elisp)
 ;;; icejam-lang-elisp.el ends here

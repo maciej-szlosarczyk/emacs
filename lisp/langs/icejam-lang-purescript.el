@@ -24,8 +24,8 @@
   ;; Purescript indentation
   (purescript-indentation-mode t)
 
-  ;; Company list override
-  )
+  ;; Capf override
+  (icejam-set-lsp-capfs))
 
 (add-hook 'purescript-mode-hook 'icejam-activate-purescript-mode)
 

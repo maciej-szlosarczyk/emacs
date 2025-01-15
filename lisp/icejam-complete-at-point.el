@@ -1,6 +1,6 @@
 ;;; icejam-complete-at-point.el -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
-;;; Company completion framework configuration
+;;; Completion framework configuration
 ;;; Code:
 (require 'icejam-blocking)
 
@@ -13,28 +13,24 @@
 
 (use-package yasnippet-snippets :ensure t :after (yasnippet))
 
-
 ;; Corfu is the main engine for displaying suggestions.
 (use-package corfu :ensure t :defer t
   :hook ((elpaca-after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :config
   ;; Go up to go the the last item on the list
-  (setopt corfu-cycle t)
+  (setopt corfu-cycle t
+          corfu-count 20 ;; Show 20 completion candidates
 
-  ;; Show 20 corfu
-  (setopt corfu-count 20)
-
-  ;; Max width of the corfu frame
-  (setopt corfu-max-width 120)
-
-  (setopt corfu-right-margin-width 0.5)
-  (setopt corfu-left-margin-width 0.5)
-  (setopt corfu-bar-width 0.5)
-  (setopt corfu-auto-delay 0.2)
-  (setopt corfu-popupinfo-delay '(0.4 . 0.2))
-  (setopt corfu-auto t)
-  (setopt corfu-quit-no-match 'separator))
+          corfu-max-width 120 ;; Max width of the corfu frame
+          corfu-right-margin-width 0.5
+          corfu-left-margin-width 0.5
+          corfu-bar-width 0.5
+          corfu-auto-delay 0.1
+          corfu-popupinfo-delay '(0.4 . 0.2)
+          corfu-auto t
+          corfu-quit-no-match 'separator
+          ))
 
 ;; Allow corfu to work in terminal
 (use-package corfu-terminal :ensure t :defer t
@@ -44,12 +40,35 @@
 ;; These are actual completions
 (use-package cape :ensure t :after corfu
   :config
+  (declare-function cape-dabbrev 'cape)
+  (declare-function cape-file 'cape)
+  (declare-function cape-keyword 'cape)
+
   ;; Set default completion values:
   (set-default 'completion-at-point-functions
-               (list (cape-capf-super #'lsp-completion-at-point
-                                      #'yasnippet-capf)
-                     #'cape-dabbrev
-                     #'cape-file)))
+               (list #'cape-dabbrev #'cape-file #'cape-keyword)))
+
+(defun icejam-set-no-lsp-capfs ()
+  "Set `completion-at-point-function` to non-LSP list."
+  (setq-local completion-at-point-functions
+              (list #'cape-dabbrev #'cape-file #'cape-keyword)))
+
+(defun icejam-set-lsp-capfs ()
+  "Set `completion-at-point-function` to list where LSP is supported."
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super #'lsp-completion-at-point
+                                     #'yasnippet-capf)
+                    #'cape-dabbrev
+                    #'cape-file)))
+
+(defun icejam-set-elisp-capfs ()
+  "Set `completion-at-point-function` to what is useful in Elisp."
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super #'elisp-completion-at-point
+                                     #'yasnippet-capf)
+                    #'cape-dabbrev
+                    #'cape-file
+                    #'cape-elisp-symbol)))
 
 (use-package yasnippet-capf :ensure t :after corfu
   :config (setopt yasnippet-capf-lookup-by 'name))
