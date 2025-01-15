@@ -5,7 +5,8 @@
 
 (require 'icejam-avy)
 (require 'icejam-keys-mode)
-(require 'icejam-blocking)
+
+(use-package transient :ensure (:wait t))
 
 (defun icejam-mark-and-indent-whole-buffer ()
   "Mark and indent whole buffer."
@@ -96,8 +97,8 @@
     ("]" "Down"  buf-move-down)]
    ["Jump to"
     ("w" "Word" avy-goto-word-1)
-    ("l" "Character" avy-goto-line)
-    ("c" "Line" avy-goto-char-2)]])
+    ("l" "Line" avy-goto-line)
+    ("c" "Character" avy-goto-char-2)]])
 
 (transient-define-prefix icejam-font-menu ()
   "Font Commands."
@@ -128,6 +129,18 @@ You can pass MAYBE-MODE to find mode explicitly."
   (interactive)
   (funcall (icejam-language-transient-for-mode)))
 
+(transient-define-prefix icejam-command-palette ()
+  "All transient menus in one place."
+  [""
+   ["The thing you are editing"
+    ("p" "Project" icejam-project-menu)
+    ("c" "Code" icejam-code-menu)
+    ("l" "Language" icejam-transient-for-lang)]
+   ["The editor itself"
+    ("w" "Window" icejam-window-menu)
+    ("s" "History" icejam-history-menu)
+    ("f" "Font" icejam-font-menu)]])
+
 (define-key icejam-keys-mode-map (kbd "C-c p") 'icejam-project-menu)
 (define-key icejam-keys-mode-map (kbd "C-c c") 'icejam-code-menu)
 (define-key icejam-keys-mode-map (kbd "C-c w") 'icejam-window-menu)
@@ -135,6 +148,7 @@ You can pass MAYBE-MODE to find mode explicitly."
 (define-key icejam-keys-mode-map (kbd "C-c f") 'icejam-font-menu)
 (define-key icejam-keys-mode-map (kbd "C-c m") 'icejam-move-menu)
 (define-key icejam-keys-mode-map (kbd "C-c l") 'icejam-transient-for-lang)
+(define-key icejam-keys-mode-map (kbd "H-p") 'icejam-command-palette)
 
 (provide 'icejam-transient)
 ;;; icejam-transient.el ends here

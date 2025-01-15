@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Completion framework configuration
 ;;; Code:
-(require 'icejam-blocking)
-
 (use-package yasnippet :ensure t :defer t
   :hook ((elpaca-after-init . yas-global-mode))
   :config

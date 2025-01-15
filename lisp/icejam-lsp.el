@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Global Language Server Protocol Config
 ;;; Code:
-(require 'icejam-blocking)
 
 ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
 ;; This supposedly makes it faster.

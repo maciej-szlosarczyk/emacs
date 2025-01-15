@@ -86,7 +86,6 @@
 
 ;; General configuration files.
 (use-package icejam-keys-mode :ensure nil)
-(use-package icejam-blocking :ensure nil)
 (use-package icejam-base :ensure nil)
 (use-package icejam-sys-specific :ensure nil)
 (use-package icejam-tree-sitter :ensure nil)
