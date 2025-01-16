@@ -16,17 +16,17 @@
 (use-package elixir-ts-mode :ensure t :defer t :after (elixir-format lsp-mode lsp-ui))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
-  "Elixir Buffer Commands."
+  [[:description
+    (lambda ()
+      (concat (propertize "Code actions for " 'face 'transient-heading)
+              (propertize (format "%s" major-mode) 'face 'transient-key)
+              (propertize ":\n" 'face 'transient-heading)))
+    ("m" "LSP iMenu"                           lsp-ui-imenu)
+    ("r" "Reload buffer"                       icejam-revert-buffer-no-confirm)
+    ("f" "Format buffer with Elixir formatter" elixir-format)
+    ("e" "Show errors"                         flymake-show-buffer-diagnostics)]]
   [""
-   ["LSP"
-    ("m" "iMenu"       lsp-ui-imenu)]
-   ["Buffer"
-    ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("f" "Format"      elixir-format)
-    ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
-    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
-  [""
-   ("q" "Quit"        keyboard-quit)])
+   ("q" "Quit"                                 keyboard-quit)])
 
 (defun icejam-delete-elixir-snippets ()
   "This function deletes Elixir snippets I don't use."

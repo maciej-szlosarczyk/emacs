@@ -15,100 +15,106 @@
 
 (transient-define-prefix icejam-project-menu ()
   "Project Commands."
-  [""
-   ["Project"
+  [["Project"
     ("s" "Switch project"       project-switch-project)
     ("f" "Find file in project" project-find-file)
-    ("g" "Grep in project"      consult-ripgrep)]
-   ["Completions"
-    ("a" "Grep in buffer"       consult-line)
-    ("b" "Find Buffer"          consult-buffer)
+    ("g" "Grep in project"      consult-ripgrep)
     ("t" "Find file"            find-file)]
    ["Magit"
     ("m" "Git status"           magit-status)
     ("C" "Git checkout"         magit-checkout)
-    ("M" "Git blame"            magit-blame)]]
-  [""
-   ["LISP"
+    ("M" "Git blame"            magit-blame)]
+   ["Completions"
+    ("a" "Grep in buffer"       consult-line)
+    ("b" "Find Buffer"          consult-buffer)]]
+  [["LISP"
     ("i" "IELM"                 ielm)
     ("B" "iBuffer"              ibuffer)
-    ("e" "eval-region"          eval-region)]
-   ["Other"
+    ("e" "eval-region"          eval-region)]]
+  [["Other"
     ("d" "deft"                 deft)
-    ("T" "Speed Type"           speed-type-text)]])
+    ("T" "Speed Type"           speed-type-text)]]
+  [[""
+    ("q" "Quit" keyboard-quit)]])
 
 (transient-define-prefix icejam-code-menu ()
   "Code Commands."
-  [""
-   ["Manipulate"
+  [["Manipulate"
     ("c" "Toggle Comment"     comment-line)
     ("r" "Replace"            vr/replace)
-    ("i" "Indent"             indent-region)]
-   ["Complete"
-    ("g" "Ask GPT"            gptel-menu)
-    ("a" "Aider"              aider-transient-menu)
-    ("e" "Refactor (Elysium)" elysium-query)]
-   ["Find"
+    ("i" "Indent"             indent-region)]]
+  [["Complete"
+    ("g" "Ask GPTel"             gptel-menu)
+    ("a" "Aider"                 aider-transient-menu)
+    ("e" "Refactor with Elysium" elysium-query)]]
+   [["Find"
     ("s" "Swiper"             consult-line)
     ("u" "Vundo"              vundo)
     ("d" "Dash"               dash-at-point)]])
 
-(transient-define-prefix icejam-window-menu ()
-  "Windows Commands."
+(transient-define-prefix icejam-buffer-menu ()
+  "Buffers and windows."
   [""
-   ["Move"
-    ("<left>" " Left"   windmove-left)
-    ("<right>" "Right"  windmove-right)
-    ("<up>" "   Up"     windmove-up)
-    ("<down>" " Down"   windmove-down)]
+   ["Move Cursor"
+    :pad-keys t
+    ("<left>"  "Left buffer" windmove-left)
+    ("<right>" "Right buffer" windmove-right)
+    ("<up>"    "Top buffer" windmove-up)
+    ("<down>"  "Bottom buffer" windmove-down)]
+   ["Move this buffer"
+    :pad-keys t
+    ("v[" "To left" buf-move-left)
+    ("v]" "To right"  buf-move-right)
+    ("h[" "Up" buf-move-up)
+    ("h]" "Down"  buf-move-down)]]
+  [["Jump to"
+    ("w" "Word" avy-goto-word-1)
+    ("l" "Line" avy-goto-line)
+    ("c" "Character" avy-goto-char-2)]
    ["Split"
-    ("h" "Horizontally" split-window-below)
-    ("v" "Vertically"   split-window-right)]
-   ["Kill"
-    ""
-    ""
-    ""
-    ("k" "Kill Buffer"  kill-buffer-and-window)]])
+    ("\\" "To right" split-window-right)
+    ("/"  "To bottom" split-window-below)]]
+  [["Buffers"
+    :pad-keys t
+    ("s[" "Go to previous buffer" previous-buffer)
+    ("s]" "Go to next buffer" next-buffer)
+    ("bi" "iBuffer" ibuffer)
+    ("bf" "Find buffer" consult-buffer)
+    ("k" "Kill buffer and window" kill-buffer-and-window)]]
+  [["Fonts"
+    :pad-keys t
+    ("fs" "Adjust font size globally" global-text-scale-adjust)
+    ("fi" "Increase by one in this buffer"
+     (lambda () (interactive) (text-scale-increase 1)))
+    ("fd" "Decrease by one in this buffer"
+     (lambda () (interactive) (text-scale-decrease 1)))
+    ("fr" "Reset this buffer"
+     (lambda () (interactive) (text-scale-adjust 0)))]]
+  [[""
+    ("q" "Quit" keyboard-quit)]])
 
 (transient-define-prefix icejam-language-menu ()
   "Language (Buffer) Commands."
-  [""
-   ["Buffer"
-    ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("f" "Format"      lsp-format-buffer)
-    ("i" "Indent"      icejam-mark-and-indent-whole-buffer)]
-   ["Other"
-    ("m" "iMenu"       lsp-ui-imenu)
-    ("e" "Show Errors" flymake-show-buffer-diagnostics)]])
+  [[:description
+    (lambda ()
+      (concat (propertize "Code actions for " 'face 'transient-heading)
+              (propertize (format "%s" major-mode) 'face 'transient-key)
+              (propertize ":\n" 'face 'transient-heading)))
 
-(transient-define-prefix icejam-history-menu ()
-  "Buffer History Commands."
-  ["History"
-   ("[" "Previous" previous-buffer)
-   ("]" "Next" previous-buffer)])
+    ("r" "Reload buffer" icejam-revert-buffer-no-confirm)
+    ("e" "Show errors" flymake-show-buffer-diagnostics)
 
-(transient-define-prefix icejam-move-menu ()
-  "Move Commands."
-  [""
-   ["Move this buffer"
-    ("{" "Up"    buf-move-left)
-    ("[" "Left"  buf-move-right)
-    ("}" "Right" buf-move-up)
-    ("]" "Down"  buf-move-down)]
-   ["Jump to"
-    ("w" "Word" avy-goto-word-1)
-    ("l" "Line" avy-goto-line)
-    ("c" "Character" avy-goto-char-2)]])
+    ;; This only appears for emacs-lisp-mode
+    ("d" "Explain thing at point" helpful-at-point :if-mode emacs-lisp-mode)
 
-(transient-define-prefix icejam-font-menu ()
-  "Font Commands."
-  [""
-   ["Everywhere"
-    ("s" "Adjust font size" global-text-scale-adjust)]
-   ["In this buffer"
-    ("i" "Bigger"           (lambda () (interactive) (text-scale-increase 1)))
-    ("d" "Smaller"          (lambda () (interactive) (text-scale-decrease 1)))
-    ("r" "Reset"            (lambda () (interactive) (text-scale-adjust 0)))]])
+    ;; These only appear for LSP mode
+    ("m" "LSP iMenu" lsp-ui-imenu
+     :if (lambda () (bound-and-true-p lsp-mode)))
+    ("f" "Format buffer with LSP formatter" lsp-format-buffer
+     :if (lambda () (bound-and-true-p lsp-mode)))
+
+    ;; Finally, quit.
+    ("q" "Quit" keyboard-quit)]])
 
 (defcustom icejam-language-transient-alist
   '()
@@ -131,22 +137,19 @@ You can pass MAYBE-MODE to find mode explicitly."
 
 (transient-define-prefix icejam-command-palette ()
   "All transient menus in one place."
-  [""
+  ["All my stuff in one place\n"
    ["The thing you are editing"
     ("p" "Project" icejam-project-menu)
     ("c" "Code" icejam-code-menu)
-    ("l" "Language" icejam-transient-for-lang)]
+    ("l" "Language" icejam-transient-for-lang)
+    ("r" "Revert Buffer" icejam-revert-buffer-no-confirm)]
    ["The editor itself"
-    ("w" "Window" icejam-window-menu)
-    ("s" "History" icejam-history-menu)
-    ("f" "Font" icejam-font-menu)]])
+    ("b" "iBuffer" ibuffer)
+    ("w" "Window" icejam-buffer-menu)]])
 
 (define-key icejam-keys-mode-map (kbd "C-c p") 'icejam-project-menu)
 (define-key icejam-keys-mode-map (kbd "C-c c") 'icejam-code-menu)
-(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam-window-menu)
-(define-key icejam-keys-mode-map (kbd "C-c s") 'icejam-history-menu)
-(define-key icejam-keys-mode-map (kbd "C-c f") 'icejam-font-menu)
-(define-key icejam-keys-mode-map (kbd "C-c m") 'icejam-move-menu)
+(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam-buffer-menu)
 (define-key icejam-keys-mode-map (kbd "C-c l") 'icejam-transient-for-lang)
 (define-key icejam-keys-mode-map (kbd "H-p") 'icejam-command-palette)
 

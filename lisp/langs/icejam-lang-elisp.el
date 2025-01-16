@@ -9,20 +9,6 @@
 
 (use-package lispy :ensure t :defer t)
 
-(transient-define-prefix icejam-elisp-lang-menu ()
-  "Elisp Buffer Commands."
-  [""
-   ["Buffer"
-    ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
-    ("d" "Explain"     helpful-at-point)
-    ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
-  [""
-   ("q" "Quit"        keyboard-quit)])
-
-(add-to-list
- 'icejam-language-transient-alist '(emacs-lisp-mode . icejam-elisp-lang-menu))
-
 (defun icejam-activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."
 

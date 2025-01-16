@@ -25,6 +25,10 @@
           corfu-left-margin-width 0.5
           corfu-bar-width 0.5
           corfu-auto-delay 0.1
+          ;; Do not insert when you type a word that happens to be a
+          ;; completion candidate. A typical example is `format`, which
+          ;; is a yas snippet.
+          corfu-on-exact-match 'nil
           corfu-popupinfo-delay '(0.4 . 0.2)
           corfu-auto t
           corfu-quit-no-match 'separator
