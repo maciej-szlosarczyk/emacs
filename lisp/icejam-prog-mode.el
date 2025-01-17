@@ -80,10 +80,11 @@
     (column-enforce-n 98)))
 
 ;; PCRE to Emacs regex translations
-(use-package pcre2el :ensure t :defer t)
+(use-package pcre2el :ensure t :defer 3)
 
 ;; Visual regexp
-(use-package visual-regexp-steroids :ensure t :after (pcre2el)
+(use-package visual-regexp-steroids :ensure t
+  :after (pcre2el)
   :config
   ;; Use pcre2el for regexes - so that I can use brackets more naturally with
   ;; regexp.

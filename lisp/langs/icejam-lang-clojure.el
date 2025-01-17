@@ -2,16 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
-(require 'icejam-transient)
-
 (declare-function column-enforce-n "column-enforce-mode" (number))
+(declare-function icejam-set-indent 'icejam-prog-mode)
 
 (use-package clojure-mode :defer t :ensure t)
 
 (use-package cider
   :requires clojure-mode
-  :commands cider-jack-in
+  :commands (cider-mode cider-jack-in)
   :defer t
   :ensure t
   :config (setq cider-annotate-completion-function t))

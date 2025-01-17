@@ -2,7 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function lsp-deferred 'lsp-mode)
+
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package rust-mode
   :ensure t
@@ -22,7 +26,8 @@
   (column-enforce-n 99)
 
   ;; Run LSP
-  (lsp-deferred))
+  (lsp-deferred)
+  (icejam-set-lsp-capfs))
 
 (add-hook 'rust-mode-hook 'icejam-activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)

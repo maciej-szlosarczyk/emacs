@@ -10,8 +10,10 @@
 
 ;;; Code:
 
-(require 'icejam-prog-mode)
-(require 'icejam-lsp)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function lsp-deferred 'lsp-mode)
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package haskell-mode
   :ensure t

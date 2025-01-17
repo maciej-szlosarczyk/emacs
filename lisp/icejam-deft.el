@@ -3,9 +3,6 @@
 ;;; Notational velocity, backed by OneDrive.
 ;;; Code:
 
-(require 'icejam-keys-mode)
-(require 'icejam-transient)
-
 (use-package deft :ensure t :defer t
   :config
   (setopt deft-directory (substitute-in-file-name "$DEFT_PATH")

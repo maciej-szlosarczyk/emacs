@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
-
 (declare-function column-enforce-n "column-enforce-mode" (number))
 
 (defun icejam-lang-activate-clang-mode ()

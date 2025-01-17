@@ -9,7 +9,10 @@
 ;; ziglang does a thing.
 
 ;;; Code:
-(require 'icejam-prog-mode)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function lsp 'lsp-mode)
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package zig-mode :ensure t :defer t :requires (lsp))
 
@@ -21,7 +24,8 @@
 
   ;; Set indentation to 4 chars
   (icejam-set-indent 4)
-  (lsp))
+  (lsp)
+  (icejam-set-lsp-capfs))
 
 (add-hook 'zig-mode-hook 'icejam-activate-zig-mode)
 

@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
-(require 'icejam-flycheck)
-(require 'icejam-lsp)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function lsp-deferred 'lsp-mode)
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package js2-mode :ensure t :defer t
   :after (web-mode lsp-mode lsp-ui))

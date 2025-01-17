@@ -2,9 +2,7 @@
 ;;; Commentary:
 ;;; Global Transient definitions.
 ;;; Code:
-
-(require 'icejam-avy)
-(require 'icejam-keys-mode)
+(eval-when-compile (defvar icejam-keys-mode-map))
 
 (use-package transient :ensure (:wait t))
 
@@ -16,22 +14,22 @@
 (transient-define-prefix icejam-project-menu ()
   "Project Commands."
   [["Project"
-    ("s" "Switch project"       project-switch-project)
+    ("s" "Switch project" project-switch-project)
     ("f" "Find file in project" project-find-file)
-    ("g" "Grep in project"      consult-ripgrep)
-    ("t" "Find file"            find-file)]
+    ("g" "Grep in project" consult-ripgrep)
+    ("t" "Find file anywhere" find-file)]
    ["Magit"
-    ("m" "Git status"           magit-status)
-    ("C" "Git checkout"         magit-checkout)
-    ("M" "Git blame"            magit-blame)]
+    ("m" "Git status" magit-status)
+    ("C" "Git checkout" magit-checkout)
+    ("M" "Git blame" magit-blame)]
    ["Completions"
-    ("a" "Grep in buffer"       consult-line)
-    ("b" "Find Buffer"          consult-buffer)]]
+    ("a" "Find line by contents" consult-line)
+    ("b" "Find buffer by name" consult-buffer)]]
   [["LISP"
     ("i" "IELM"                 ielm)
     ("B" "iBuffer"              ibuffer)
-    ("e" "eval-region"          eval-region)]]
-  [["Other"
+    ("e" "eval-region"          eval-region)]
+   ["Other"
     ("d" "deft"                 deft)
     ("T" "Speed Type"           speed-type-text)]]
   [[""
@@ -137,7 +135,7 @@ You can pass MAYBE-MODE to find mode explicitly."
 
 (transient-define-prefix icejam-command-palette ()
   "All transient menus in one place."
-  ["All my stuff in one place\n"
+  ["Command palette\n"
    ["The thing you are editing"
     ("p" "Project" icejam-project-menu)
     ("c" "Code" icejam-code-menu)
@@ -147,11 +145,11 @@ You can pass MAYBE-MODE to find mode explicitly."
     ("b" "iBuffer" ibuffer)
     ("w" "Window" icejam-buffer-menu)]])
 
-(define-key icejam-keys-mode-map (kbd "C-c p") 'icejam-project-menu)
-(define-key icejam-keys-mode-map (kbd "C-c c") 'icejam-code-menu)
-(define-key icejam-keys-mode-map (kbd "C-c w") 'icejam-buffer-menu)
-(define-key icejam-keys-mode-map (kbd "C-c l") 'icejam-transient-for-lang)
-(define-key icejam-keys-mode-map (kbd "H-p") 'icejam-command-palette)
+(keymap-set icejam-keys-mode-map "C-c p" #'icejam-project-menu)
+(keymap-set icejam-keys-mode-map "C-c c" #'icejam-code-menu)
+(keymap-set icejam-keys-mode-map "C-c w" #'icejam-buffer-menu)
+(keymap-set icejam-keys-mode-map "C-c l" #'icejam-transient-for-lang)
+(keymap-set icejam-keys-mode-map "H-p" #'icejam-command-palette)
 
 (provide 'icejam-transient)
 ;;; icejam-transient.el ends here

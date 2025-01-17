@@ -6,8 +6,7 @@
 ;;; helpful.
 ;;;
 ;;; Code:
-
-(require 'icejam-keys-mode)
+(eval-when-compile (defvar icejam-keys-mode-map))
 
 ;; Preparations for using Vertico/Orderless
 (setopt

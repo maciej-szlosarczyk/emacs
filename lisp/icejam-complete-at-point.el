@@ -20,7 +20,7 @@
   (setopt corfu-cycle t
           corfu-count 20 ;; Show 20 completion candidates
 
-          corfu-max-width 120 ;; Max width of the corfu frame
+          corfu-max-width 100 ;; Max width of the corfu frame
           corfu-right-margin-width 0.5
           corfu-left-margin-width 0.5
           corfu-bar-width 0.5
@@ -31,8 +31,7 @@
           corfu-on-exact-match 'nil
           corfu-popupinfo-delay '(0.4 . 0.2)
           corfu-auto t
-          corfu-quit-no-match 'separator
-          ))
+          corfu-quit-no-match 'separator))
 
 ;; Allow corfu to work in terminal
 (use-package corfu-terminal :ensure t :defer t
@@ -45,6 +44,8 @@
   (declare-function cape-dabbrev 'cape)
   (declare-function cape-file 'cape)
   (declare-function cape-keyword 'cape)
+  (declare-function cape-elisp-symbol 'cape)
+  (declare-function cape-capf-super 'cape)
 
   ;; Set default completion values:
   (set-default 'completion-at-point-functions
@@ -57,6 +58,7 @@
 
 (defun icejam-set-lsp-capfs ()
   "Set `completion-at-point-function` to list where LSP is supported."
+  (declare-function lsp-completion-at-point 'lsp-mode)
   (setq-local completion-at-point-functions
               (list (cape-capf-super #'lsp-completion-at-point
                                      #'yasnippet-capf)
@@ -72,10 +74,12 @@
                     #'cape-file
                     #'cape-elisp-symbol)))
 
-(use-package yasnippet-capf :ensure t :after corfu
-  :config (setopt yasnippet-capf-lookup-by 'name))
+(use-package yasnippet-capf :ensure t :after corfu :defer 1
+  :config
+  (declare-function yasnippet-capf 'yasnippet)
+  (setopt yasnippet-capf-lookup-by 'name))
 
-(use-package nerd-icons-corfu :ensure t
+(use-package nerd-icons-corfu :ensure t :defer 2
   :after corfu
   :config
   (declare-function nerd-icons-corfu-formatter 'nerd-icons-corfu)

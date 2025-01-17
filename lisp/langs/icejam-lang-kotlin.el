@@ -9,10 +9,10 @@
 ;; kotlin does a thing.
 
 ;;; Code:
-(require 'icejam-prog-mode)
-
-(declare-function lsp "lsp-mode" nil)
-(declare-function column-enforce-n "column-enforce-mode" (number))
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function lsp 'lsp-mode)
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package kotlin-ts-mode
   :ensure t
@@ -28,7 +28,8 @@
   "All things Kotlin."
   (icejam-set-indent 2)
   (column-enforce-n 100)
-  (lsp))
+  (lsp)
+  (icejam-set-lsp-capfs))
 
 (add-hook 'kotlin-ts-mode-hook 'icejam-activate-kotlin-mode)
 

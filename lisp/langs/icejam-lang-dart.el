@@ -1,8 +1,7 @@
 ;;; dart -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(require 'icejam-prog-mode)
+(declare-function lsp 'lsp-mode)
 
 (use-package dart-mode :ensure t :defer t)
 (use-package lsp-dart :defer t :ensure t :requires (dart-mode lsp))

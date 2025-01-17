@@ -9,11 +9,8 @@
 ;; pkg/base defines basic packages and environment.
 
 ;;; Code:
-(require 'icejam-keys-mode)
 
-;;;;;;;; Other optimizations ;;;;;;;;;;;;;;;;;
 ;;;;;;;; Stolen from Doom Emacs. ;;;;;;;;;;;;;
-
 ;; Update emacs less often
 (setopt idle-update-delay 1.0)
 
@@ -34,8 +31,9 @@
 (setopt fast-but-imprecise-scrolling t)
 
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
-(require 'tramp)
-(setopt tramp-default-method "ssh")
+(use-package tramp :ensure nil :defer 3
+  :config
+  (setopt tramp-default-method "ssh"))
 
 ;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") 'newline)
@@ -123,6 +121,8 @@
         indicate-empty-lines nil)
 
 ;;;;;;;;;;;;;;;;; Treemacs
+(eval-when-compile (defvar icejam-keys-mode-map))
+
 (use-package treemacs :ensure t :defer t
   :hook ((elpaca-after-init . treemacs-follow-mode)
          (elpaca-after-init . treemacs-project-follow-mode))

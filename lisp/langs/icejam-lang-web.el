@@ -2,8 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-lsp)
-(require 'icejam-flycheck)
+(declare-function lsp 'lsp-mode)
 
 (use-package web-mode :after (lsp flycheck) :ensure t :defer t)
 

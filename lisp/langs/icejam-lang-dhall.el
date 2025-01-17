@@ -1,9 +1,7 @@
 ;;; dhall -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(require 'icejam-prog-mode)
-(require 'icejam-lsp)
+(declare-function lsp 'lsp-mode)
 
 (use-package dhall-mode :ensure t :defer t :requires (lsp))
 

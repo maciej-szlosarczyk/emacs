@@ -7,7 +7,7 @@
 (defconst IS-BSD (eq system-type 'berkeley-unix))
 (defconst IS-GNU (eq system-type 'gnu/linux))
 
-(require 'icejam-keys-mode)
+(eval-when-compile (defvar icejam-keys-mode-map))
 
 (defun icejam-function-delete-window ()
   "Kill a window."
@@ -31,24 +31,24 @@
             (setq mac-command-modifier 'meta))))
 
       ;; Mac binding (fix)
-      (define-key icejam-keys-mode-map (kbd "H-<right>") #'end-of-line)
-      (define-key icejam-keys-mode-map (kbd "H-<left>") #'beginning-of-line)
-      (define-key icejam-keys-mode-map (kbd "H-<up>") #'scroll-down) ; WTF is this reverse, I dunno
-      (define-key icejam-keys-mode-map (kbd "H-<down>") #'scroll-up)
+      (keymap-set icejam-keys-mode-map "H-<right>" #'end-of-line)
+      (keymap-set icejam-keys-mode-map "H-<left>" #'beginning-of-line)
+      (keymap-set icejam-keys-mode-map "H-<up>" #'scroll-down) ; WTF is this reverse, I dunno
+      (keymap-set icejam-keys-mode-map "H-<down>" #'scroll-up)
 
       ;; Use CMD bindings that you know from the operating system
-      (define-key icejam-keys-mode-map [(hyper a)] #'mark-whole-buffer) ;; Select all
-      (define-key icejam-keys-mode-map [(hyper v)] #'yank) ;; Paste
-      (define-key icejam-keys-mode-map [(hyper x)] #'kill-region) ;; Cut
-      (define-key icejam-keys-mode-map [(hyper c)] #'kill-ring-save) ;; Copy
-      (define-key icejam-keys-mode-map [(hyper s)] #'save-buffer) ;; Save
-      (define-key icejam-keys-mode-map [(hyper z)] #'undo) ;; Undo
-      (define-key icejam-keys-mode-map [(hyper Z)] #'undo-redo) ;; Redo
-      (define-key icejam-keys-mode-map [(hyper q)] #'kill-emacs) ;; Close emacs
-      (define-key icejam-keys-mode-map [(hyper w)] #'icejam-function-delete-window) ;; Close window
+      (keymap-set icejam-keys-mode-map "H-a" #'mark-whole-buffer) ;; Select all
+      (keymap-set icejam-keys-mode-map "H-v" #'yank) ;; Paste
+      (keymap-set icejam-keys-mode-map "H-x" #'kill-region) ;; Cut
+      (keymap-set icejam-keys-mode-map "H-c" #'kill-ring-save) ;; Copy
+      (keymap-set icejam-keys-mode-map "H-s" #'save-buffer) ;; Save
+      (keymap-set icejam-keys-mode-map "H-z" #'undo) ;; Undo
+      (keymap-set icejam-keys-mode-map "H-Z" #'undo-redo) ;; Redo
+      (keymap-set icejam-keys-mode-map "H-q" #'kill-emacs) ;; Close emacs
+      (keymap-set icejam-keys-mode-map "H-w" #'icejam-function-delete-window) ;; Close window
 
       ;; And then some extras
-      (define-key icejam-keys-mode-map [(hyper l)] #'goto-line) ;; Goto Line
+      (keymap-set icejam-keys-mode-map "H-l" #'goto-line) ;; Goto Line
       ;; Disable meta on right alt (useful for Polish characters)
       ;; (setq mac-right-option-modifier nil)
 
@@ -70,39 +70,39 @@
 (if IS-GNU
     (progn
       ;; Save and undo
-      (define-key icejam-keys-mode-map (kbd "s-s") #'save-buffer)
-      (define-key icejam-keys-mode-map (kbd "s-z") #'undo)
-      (define-key icejam-keys-mode-map (kbd "s-Z") #'undo-redo)
-      (define-key icejam-keys-mode-map (kbd "s-a") #'mark-whole-buffer)
+      (keymap-set icejam-keys-mode-map (kbd "s-s") #'save-buffer)
+      (keymap-set icejam-keys-mode-map (kbd "s-z") #'undo)
+      (keymap-set icejam-keys-mode-map (kbd "s-Z") #'undo-redo)
+      (keymap-set icejam-keys-mode-map (kbd "s-a") #'mark-whole-buffer)
 
       ;; Copy and paste bindings
-      (define-key icejam-keys-mode-map (kbd "s-x") #'kill-region)
-      (define-key icejam-keys-mode-map (kbd "s-v") #'yank)
-      (define-key icejam-keys-mode-map (kbd "s-c") #'kill-ring-save)
+      (keymap-set icejam-keys-mode-map (kbd "s-x") #'kill-region)
+      (keymap-set icejam-keys-mode-map (kbd "s-v") #'yank)
+      (keymap-set icejam-keys-mode-map (kbd "s-c") #'kill-ring-save)
 
       ;; Linux Ergo bindings (fix)
-      (define-key icejam-keys-mode-map (kbd "C-<right>") #'end-of-line)
-      (define-key icejam-keys-mode-map (kbd "C-<left>") #'beginning-of-line)
-      (define-key icejam-keys-mode-map (kbd "C-<up>") #'scroll-down) ; WTF is this reverse, I dunno
-      (define-key icejam-keys-mode-map (kbd "C-<down>") #'scroll-up)))
+      (keymap-set icejam-keys-mode-map (kbd "C-<right>") #'end-of-line)
+      (keymap-set icejam-keys-mode-map (kbd "C-<left>") #'beginning-of-line)
+      (keymap-set icejam-keys-mode-map (kbd "C-<up>") #'scroll-down) ; WTF is this reverse, I dunno
+      (keymap-set icejam-keys-mode-map (kbd "C-<down>") #'scroll-up)))
 
 ;; BSD-specific config
 (if IS-BSD
     (progn
-      (define-key icejam-keys-mode-map (kbd "A-<right>") #'end-of-line)
-      (define-key icejam-keys-mode-map (kbd "A-<left>") #'beginning-of-line)
-      (define-key icejam-keys-mode-map (kbd "A-<up>") #'scroll-down) ; WTF is this reverse, I dunno
-      (define-key icejam-keys-mode-map (kbd "A-<down>") #'scroll-up)
+      (keymap-set icejam-keys-mode-map (kbd "A-<right>") #'end-of-line)
+      (keymap-set icejam-keys-mode-map (kbd "A-<left>") #'beginning-of-line)
+      (keymap-set icejam-keys-mode-map (kbd "A-<up>") #'scroll-down) ; WTF is this reverse, I dunno
+      (keymap-set icejam-keys-mode-map (kbd "A-<down>") #'scroll-up)
 
-      (define-key icejam-keys-mode-map (kbd "A-a") #'mark-whole-buffer)
-      (define-key icejam-keys-mode-map (kbd "A-v") #'yank)
-      (define-key icejam-keys-mode-map (kbd "A-x") #'kill-region)
-      (define-key icejam-keys-mode-map (kbd "A-c") #'kill-ring-save)
-      (define-key icejam-keys-mode-map (kbd "A-s") #'save-buffer)
-      (define-key icejam-keys-mode-map (kbd "A-l") #'goto-line)
-      (define-key icejam-keys-mode-map (kbd "A-w") #'icejam-function-delete-window)
-      (define-key icejam-keys-mode-map (kbd "A-z") #'undo)
-      (define-key icejam-keys-mode-map (kbd "A-q") #'kill-emacs)))
+      (keymap-set icejam-keys-mode-map (kbd "A-a") #'mark-whole-buffer)
+      (keymap-set icejam-keys-mode-map (kbd "A-v") #'yank)
+      (keymap-set icejam-keys-mode-map (kbd "A-x") #'kill-region)
+      (keymap-set icejam-keys-mode-map (kbd "A-c") #'kill-ring-save)
+      (keymap-set icejam-keys-mode-map (kbd "A-s") #'save-buffer)
+      (keymap-set icejam-keys-mode-map (kbd "A-l") #'goto-line)
+      (keymap-set icejam-keys-mode-map (kbd "A-w") #'icejam-function-delete-window)
+      (keymap-set icejam-keys-mode-map (kbd "A-z") #'undo)
+      (keymap-set icejam-keys-mode-map (kbd "A-q") #'kill-emacs)))
 
 (provide 'icejam-sys-specific)
 ;;; icejam-sys-specific.el ends here

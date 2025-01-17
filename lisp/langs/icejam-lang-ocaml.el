@@ -2,12 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-transient)
-(require 'icejam-prog-mode)
 (declare-function lsp "lsp-mode" nil)
 
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(eval-when-compile (defvar icejam-language-transient-alist))
+
 (use-package merlin :defer t :ensure t)
-(use-package opam-switch-mode :defer t :ensure t)
+(use-package opam-switch-mode :defer t :ensure t :commands (opam-switch-mode))
 (use-package dune :defer t :ensure t)
 (use-package tuareg :defer t :ensure t)
 
@@ -48,7 +50,8 @@
   (icejam-set-indent 2)
   (opam-switch-mode t)
   (icejam-load-ocaml-site-packages)
-  (lsp))
+  (lsp)
+  (icejam-set-lsp-capfs))
 
 (add-hook 'tuareg-mode-hook 'icejam-activate-tuareg-mode)
 

@@ -19,43 +19,39 @@
 ;; Globally enable my minor mode
 (icejam-keys-mode)
 
-;;; Helpful key bindings
-(define-key icejam-keys-mode-map (kbd "C-c \\") 'split-window-right) ;; Split window to the right
-(define-key icejam-keys-mode-map (kbd "C-c /") 'split-window-below) ;; Split window to the bottom
-
-;; Move between windows key bindings
-(define-key icejam-keys-mode-map (kbd "C-c <left>") 'windmove-left)
-(define-key icejam-keys-mode-map (kbd "C-c <right>") 'windmove-right)
-(define-key icejam-keys-mode-map (kbd "C-c <up>") 'windmove-up)
-(define-key icejam-keys-mode-map (kbd "C-c <down>") 'windmove-down)
-
-;; The same, but without using arrow keys
-(define-key icejam-keys-mode-map (kbd "C-c [") 'windmove-left)
-(define-key icejam-keys-mode-map (kbd "C-c ]") 'windmove-right)
-(define-key icejam-keys-mode-map (kbd "C-c {") 'windmove-up)
-(define-key icejam-keys-mode-map (kbd "C-c }") 'windmove-down)
-
-;; Kill current buffer and window
-(define-key icejam-keys-mode-map (kbd "C-c q") 'kill-buffer-and-window)
-
-;; List buffers
-(define-key icejam-keys-mode-map (kbd "C-c b") 'ibuffer)
-
-;; Revert without asking
 (defun icejam-revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
 
-(define-key icejam-keys-mode-map (kbd "C-c r") 'icejam-revert-buffer-no-confirm)
+;; Splitting window
+(keymap-set icejam-keys-mode-map "C-c \\" #'split-window-right)
+(keymap-set icejam-keys-mode-map "C-c /" #'split-window-below)
 
-;;;;;;;;; Emacs bindings ;;;;;;;;;;;;;;;;;;;;;
-(define-key icejam-keys-mode-map [home] 'beginning-of-line)
-(define-key icejam-keys-mode-map [end] 'end-of-line)
+;; Move between windows
+(keymap-set icejam-keys-mode-map "C-c <left>" #'windmove-left)
+(keymap-set icejam-keys-mode-map "C-c <right>" #'windmove-right)
+(keymap-set icejam-keys-mode-map "C-c <up>" #'windmove-up)
+(keymap-set icejam-keys-mode-map "C-c <down>" #'windmove-down)
+
+;; History of buffers
+(keymap-set icejam-keys-mode-map "C-c s [" #'previous-buffer)
+(keymap-set icejam-keys-mode-map "C-c s ]" #'next-buffer)
+
+;; List of buffers buffer
+(keymap-set icejam-keys-mode-map "C-c b" #'ibuffer)
+
+;; Manipulate buffers (kill or revert)
+(keymap-set icejam-keys-mode-map "C-c q" #'kill-buffer-and-window)
+(keymap-set icejam-keys-mode-map "C-c r" #'icejam-revert-buffer-no-confirm)
+
+;; Make emacs behave like a normal editor from 21st century.
+(keymap-set icejam-keys-mode-map "<home>" 'beginning-of-line)
+(keymap-set icejam-keys-mode-map "<end>" 'end-of-line)
 
 ;;;;;;;;; Translate keys ;;;;;;;;;;;;;;;;;;;;;
-(define-key key-translation-map (kbd "<f6>") (kbd "C-c l")) ;; On F6, send C-c l
-(define-key key-translation-map (kbd "<f7>") (kbd "C-c c")) ;; On F7, send C-c c
-(define-key key-translation-map (kbd "<f8>") (kbd "C-c p")) ;; On F8, send C-c p
+(keymap-set key-translation-map "<f6>" "C-c l") ;; On F6, send C-c l
+(keymap-set key-translation-map "<f7>" "C-c c") ;; On F7, send C-c c
+(keymap-set key-translation-map "<f8>" "C-c p") ;; On F8, send C-c p
 
 (provide 'icejam-keys-mode)
 ;;; icejam-keys-mode.el ends here

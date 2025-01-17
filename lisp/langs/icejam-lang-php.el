@@ -9,15 +9,15 @@
 ;; php related settings
 
 ;;; Code:
-
-(require 'icejam-prog-mode)
-(require 'icejam-flycheck)
-(require 'icejam-transient)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(eval-when-compile (defvar icejam-language-transient-alist))
 
 (use-package php-mode :ensure t :defer t
   :requires (lsp-mode lsp-ui))
 
-(transient-define-prefix icejam-lang-php/context-menu ()
+(transient-define-prefix icejam-lang-php-context-menu ()
   "PHP Buffer Commands."
   [""
    ["LSP"
@@ -36,7 +36,7 @@
   (icejam-set-indent 4)
   (column-enforce-n 80)
 
-  (define-key php-mode-map (kbd "C-c l") 'icejam-lang-php/context-menu)
+  (keymap-set php-mode-map "C-c l" #'icejam-lang-php-context-menu)
 
   ;; Capf override
   (icejam-set-lsp-capfs))

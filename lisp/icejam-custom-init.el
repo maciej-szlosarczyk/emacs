@@ -12,7 +12,12 @@
 
 ;; Set GC at 500 MB for startup
 (setopt gc-cons-threshold 500000000)
-(setopt gc-cons-percentage 0.6)
+(setopt gc-cons-percentage 5.0)
+
+(add-hook 'after-init-hook (lambda ()
+                             ;; Restore GC to normal, but still high
+                             (setopt gc-cons-threshold 204800000)
+                             (setopt gc-cons-percentage 0.2)))
 
 ;; Allow for deeper stacktraces / recursion
 ;; (setopt max-lisp-eval-depth 10000)
@@ -137,10 +142,6 @@
 
 ;; Diminish modeline litter
 (use-package icejam-diminish :ensure nil)
-
-;; Restore GC to normal, but still high
-(setopt gc-cons-threshold 204800000)
-(setopt gc-cons-percentage 0.2)
 
 (provide 'icejam-custom-init)
 ;;; icejam-custom-init.el ends here

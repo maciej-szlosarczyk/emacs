@@ -9,8 +9,6 @@
 ;; Avy is a navigation manager.
 
 ;;; Code:
-(require 'icejam-keys-mode)
-
 (use-package avy :ensure t :defer t
   :config
   (setopt avy-timeout-seconds 1.0) ;; Wait for 1 second for candidates

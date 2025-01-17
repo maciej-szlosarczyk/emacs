@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-keys-mode)
+(eval-when-compile (defvar icejam-keys-mode-map))
 
 (use-package magit
   :ensure t

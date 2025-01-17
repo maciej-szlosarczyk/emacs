@@ -2,16 +2,22 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
-(require 'icejam-flycheck)
-(require 'icejam-transient)
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function -> 'dash)
+(declare-function lsp 'lsp-mode)
+(declare-function yas--table-get-create 'yasnippet)
+(declare-function yas--remove-template-by-uuid 'yasnippet)
 
-(declare-function lsp "lsp-mode" nil)
-(declare-function column-enforce-n "column-enforce-mode" (number))
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(eval-when-compile (defvar icejam-language-transient-alist))
 
 ;; Only load the elixir-format from elixir mode.
 (use-package elixir-format :defer t
-  :ensure (:type git :host github :repo "elixir-editors/emacs-elixir" :files ("elixir-format.el")))
+  :ensure (:type git
+                 :host github
+                 :repo "elixir-editors/emacs-elixir"
+                 :files ("elixir-format.el")))
 
 (use-package elixir-ts-mode :ensure t :defer t :after (elixir-format lsp-mode lsp-ui))
 
@@ -21,12 +27,12 @@
       (concat (propertize "Code actions for " 'face 'transient-heading)
               (propertize (format "%s" major-mode) 'face 'transient-key)
               (propertize ":\n" 'face 'transient-heading)))
-    ("m" "LSP iMenu"                           lsp-ui-imenu)
-    ("r" "Reload buffer"                       icejam-revert-buffer-no-confirm)
+    ("m" "LSP iMenu" lsp-ui-imenu)
+    ("r" "Reload buffer" icejam-revert-buffer-no-confirm)
+    ("e" "Show errors" flymake-show-buffer-diagnostics)
     ("f" "Format buffer with Elixir formatter" elixir-format)
-    ("e" "Show errors"                         flymake-show-buffer-diagnostics)]]
-  [""
-   ("q" "Quit"                                 keyboard-quit)])
+
+    ("q" "Quit" keyboard-quit)]])
 
 (defun icejam-delete-elixir-snippets ()
   "This function deletes Elixir snippets I don't use."

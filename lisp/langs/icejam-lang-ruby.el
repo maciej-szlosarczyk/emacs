@@ -2,9 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'icejam-prog-mode)
+(declare-function lsp 'lsp-mode)
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(eval-when-compile (defvar icejam-language-transient-alist))
 
-(use-package rspec-mode :ensure t :defer t)
+(use-package rspec-mode :ensure t :defer t :commands (rspec-install-snippets))
 (use-package ruby-end :ensure t :defer t)
 (use-package rbs-mode :ensure t :defer t)
 

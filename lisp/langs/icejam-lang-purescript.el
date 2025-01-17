@@ -9,7 +9,10 @@
 ;; Configuration for purescript.
 
 ;;; Code:
-(require 'icejam-prog-mode)
+
+(declare-function column-enforce-n 'column-enforce-mode (number))
+(declare-function icejam-set-indent 'icejam-prog-mode)
+(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 
 (use-package purescript-mode :ensure t :defer t
   :after (lsp-mode lsp-ui))

@@ -10,7 +10,6 @@
 ;; community.
 
 ;;; Code:
-
 (use-package tree-sitter-langs :ensure t :defer t
   :commands tree-sitter-langs--bin-dir
   :hook
