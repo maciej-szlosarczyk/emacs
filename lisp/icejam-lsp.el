@@ -65,13 +65,12 @@
 (use-package lsp-ui :ensure t :after (lsp-mode) :defer t
   :config
   (setopt lsp-ui-doc-enable t
-          lsp-ui-header t
-          lsp-ui-delay 0.5 ;; Wait half a second to display documentation
+          lsp-ui-doc-delay 0.5 ;; Wait half a second to display documentation
           lsp-ui-doc-position 'at-point
           lsp-ui-doc-include-signature t))
 
 ;; Lsp debugger mode
-(use-package dap-mode :ensure t :after (lsp-mode lsp-ui) :defer t)
+(use-package dap-mode :ensure t :after (lsp-mode) :defer t)
 
 (provide 'icejam-lsp)
 ;;; icejam-lsp.el ends here

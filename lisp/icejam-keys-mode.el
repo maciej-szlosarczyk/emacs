@@ -45,8 +45,8 @@
 (keymap-set icejam-keys-mode-map "C-c r" #'icejam-revert-buffer-no-confirm)
 
 ;; Make emacs behave like a normal editor from 21st century.
-(keymap-set icejam-keys-mode-map "<home>" 'beginning-of-line)
-(keymap-set icejam-keys-mode-map "<end>" 'end-of-line)
+(keymap-set icejam-keys-mode-map "<home>" #'beginning-of-line)
+(keymap-set icejam-keys-mode-map "<end>" #'end-of-line)
 
 ;;;;;;;;; Translate keys ;;;;;;;;;;;;;;;;;;;;;
 (keymap-set key-translation-map "<f6>" "C-c l") ;; On F6, send C-c l

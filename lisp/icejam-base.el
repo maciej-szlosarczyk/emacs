@@ -18,7 +18,8 @@
 ;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
 ;; is an undefined state and suggest this to be just as good:
 (setq-default bidi-display-reordering 'left-to-right
-              bidi-paragraph-direction 'left-to-right)
+              bidi-paragraph-direction 'left-to-right
+              bidi-inhibit-bpa t)
 
 ;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
 ;; in non-focused windows.
@@ -31,7 +32,7 @@
 (setopt fast-but-imprecise-scrolling t)
 
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
-(use-package tramp :ensure nil :defer 3
+(use-package tramp :ensure nil :defer 5
   :config
   (setopt tramp-default-method "ssh"))
 
@@ -89,7 +90,8 @@
 (setopt large-file-warning-threshold 50000000)
 
 ;; Numbers are arbitrary, but work on a large screen. Default is 160
-(setopt split-width-threshold 200)
+(setopt split-width-threshold 190)
+
 ;;;;;;;;;;;;;;;;;;;;;; Shell stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -148,10 +150,6 @@
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setopt next-line-add-newlines t)
-
-;;;;;;;;;;;;;;;;; Speed up long line display by disabling bidirectional text
-(setq-default bidi-paragraph-direction 'left-to-right
-              bidi-inhibit-bpa t)
 
 (provide 'icejam-base)
 ;;; icejam-base.el ends here

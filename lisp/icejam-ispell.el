@@ -3,7 +3,7 @@
 ;;; Highlight misspelled words
 ;;; Code:
 
-(use-package ispell :ensure nil :defer 2
+(use-package ispell :ensure nil :defer t
   :config
   (setopt ispell-program-name "aspell")
   (setopt ispell-extra-args '("--run-together" "--run-together-limit=5" "--run-together-min=2")))

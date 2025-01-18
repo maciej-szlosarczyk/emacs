@@ -23,10 +23,9 @@
          (conf-mode . whitespace-mode)
          (before-save . whitespace-cleanup))
   :config
-  (setopt
-   whitespace-style #'(face trailing empty) ;; New whitespace style
-   require-final-newline 't                 ;; Insert newline on save
-   ))
+  (setopt whitespace-style #'(face trailing empty) ;; New whitespace style
+          require-final-newline 't ;; Insert newline on save
+          ))
 
 (setq-default indent-tabs-mode nil)
 
@@ -49,11 +48,6 @@
   (add-to-list 'dash-at-point-mode-alist '(enh-ruby-mode  . "ruby,rubygems,rails"))
   (add-to-list 'dash-at-point-mode-alist '(elixir-ts-mode . "elixir,hex")))
 
-
-;; By default, use 2 spaces for indentation
-(setopt tab-width 2)
-(setopt tab-stop-list (number-sequence tab-width 200 tab-width))
-
 ;; Ensure indentation in steps:
 (defun icejam-set-indent (step)
   "Set indentation to STEP."
@@ -61,26 +55,14 @@
   (setq-local tab-width step)
   (setq-local tab-stop-list (number-sequence step 200 step)))
 
-(defun icejam-set-indent-2 () "Set indent to 2." (icejam-set-indent 2))
-(defun icejam-set-indent-4 () "Set indent to 4." (icejam-set-indent 4))
-(defun icejam-set-indent-8 () "Set indent to 8." (icejam-set-indent 8))
+;; By default, use 2 spaces for indentation
+(icejam-set-indent 2)
 
 (use-package column-enforce-mode :ensure t :defer t
-  :hook (elpaca-after-init . global-column-enforce-mode)
-  :config
-  (declare-function column-enforce-n 'column-enforce-mode)
-  (defun icejam-column-enforce-80 ()
-    "Enforce 80 columns."
-    (column-enforce-n 80))
-  (defun icejam-column-enforce-100 ()
-    "Enforce 100 columns."
-    (column-enforce-n 100))
-  (defun icejam-column-enforce-98 ()
-    "Enforce 98 columns."
-    (column-enforce-n 98)))
+  :hook (elpaca-after-init . global-column-enforce-mode))
 
 ;; PCRE to Emacs regex translations
-(use-package pcre2el :ensure t :defer 3)
+(use-package pcre2el :ensure t :defer 5)
 
 ;; Visual regexp
 (use-package visual-regexp-steroids :ensure t

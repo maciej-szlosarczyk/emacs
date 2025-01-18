@@ -1,23 +1,27 @@
 ;;; rust -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp-deferred 'lsp-mode)
-
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function lsp-deferred 'lsp-mode)
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point))
 
 (use-package rust-mode
   :ensure t
   :defer t
-  :config
-  (setq rust-mode-treesitter-derive t))
+  :config (setopt rust-mode-treesitter-derive t))
+
+(use-package rustic
+  :ensure t
+  :defer t
+  :after (rust-mode)
+  :config (setopt rustic-format-on-save nil))
 
 (use-package flycheck-rust
   :ensure t
   :defer t
-  :requires (rust-mode lsp))
+  :after (rust-mode lsp))
 
 (defun icejam-activate-rust-mode ()
   "All things for Rust mode."

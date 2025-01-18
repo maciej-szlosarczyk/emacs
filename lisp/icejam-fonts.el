@@ -25,9 +25,9 @@
 ;; (defconst icejam-font "Victor Mono Medium" "Default font.")
 ;; (defconst icejam-font "Iosevka Term" "Default font.")
 
-(defconst icejam-default-font-family "Iosevka Comfy Motion" "Default font.")
+(defconst icejam-default-font-family "Iosevka Term" "Default font.")
 (defconst icejam-variable-font-family "Lexica Ultralegible" "Variable pitch font.")
-(defconst icejam-markdown-font-family "Iosevka Term"
+(defconst icejam-markdown-font-family "Iosevka Comfy Motion"
   "Font used to render code blocks in markdown.
 It is different than default font to keep it visually distinct.")
 

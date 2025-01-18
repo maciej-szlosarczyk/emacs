@@ -43,6 +43,7 @@
 ;; (use-package zenburn-theme :ensure t
 ;;   :config
 ;;   (load-theme 'zenburn t t))
+
 ;; (use-package catppuccin-theme :ensure t
 ;;   :custom
 ;;   ((catpuccin-flavor 'frappe))
@@ -61,7 +62,7 @@
 
   (if (memq window-system '(x mac ns))
       (enable-theme 'icejam-base16-zenburn)
-      (enable-theme 'icejam-base16-zenburn)))
+    (enable-theme 'icejam-base16-zenburn)))
 
 (provide 'icejam-themes)
 ;;; icejam-themes.el ends here

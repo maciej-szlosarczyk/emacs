@@ -1,9 +1,11 @@
 ;;; languages/elisp -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-elisp-capfs 'icejam-complete-at-point)
-(declare-function icejam-set-indent 'icejam-prog-mode)
+
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-elisp-capfs 'icejam-complete-at-point)
+  (declare-function icejam-set-indent 'icejam-prog-mode))
 
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 

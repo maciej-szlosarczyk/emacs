@@ -2,15 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function -> 'dash)
-(declare-function lsp 'lsp-mode)
-(declare-function yas--table-get-create 'yasnippet)
-(declare-function yas--remove-template-by-uuid 'yasnippet)
-
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
-(eval-when-compile (defvar icejam-language-transient-alist))
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function -> 'dash)
+  (declare-function lsp 'lsp-mode)
+  (declare-function yas--table-get-create 'yasnippet)
+  (declare-function yas--remove-template-by-uuid 'yasnippet)
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+  (defvar icejam-language-transient-alist))
 
 ;; Only load the elixir-format from elixir mode.
 (use-package elixir-format :defer t

@@ -74,12 +74,12 @@
                     #'cape-file
                     #'cape-elisp-symbol)))
 
-(use-package yasnippet-capf :ensure t :after corfu :defer 1
+(use-package yasnippet-capf :ensure t :after corfu :defer t
   :config
   (declare-function yasnippet-capf 'yasnippet)
   (setopt yasnippet-capf-lookup-by 'name))
 
-(use-package nerd-icons-corfu :ensure t :defer 2
+(use-package nerd-icons-corfu :ensure t :defer 5
   :after corfu
   :config
   (declare-function nerd-icons-corfu-formatter 'nerd-icons-corfu)

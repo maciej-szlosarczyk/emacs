@@ -40,8 +40,7 @@
   (column-enforce-n 80)
   (cider-mode 1)
 
-  (define-key
-    clojure-mode-map (kbd "C-c l") 'icejam-lang-cider-context-menu)
+  (define-key clojure-mode-map (kbd "C-c l") 'icejam-lang-cider-context-menu)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)
