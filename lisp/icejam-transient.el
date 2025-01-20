@@ -114,6 +114,17 @@
     ;; Finally, quit.
     ("q" "Quit" keyboard-quit)]])
 
+(transient-define-prefix icejam-elpaca-menu ()
+  "Commands related to packages."
+  [["Packages and compilation"
+    ("m" "Open Elpaca manager" elpaca-manager)
+    ("f" "Fetch all package updates" elpaca-fetch-all)
+    ("s" "Symlink treesitter grammar objects" icejam-tree-sitter-symlink-grammar-objects)
+    ("p" "Prune native compilation cache" native-compile-prune-cache)
+    ("w" "Write elpaca lockfile" icejam-elpaca-write-lock)]]
+  [[""
+    ("q" "Quit" keyboard-quit)]])
+
 (defcustom icejam-language-transient-alist
   '()
   "List of functions to call for language transient."
@@ -143,6 +154,7 @@ You can pass MAYBE-MODE to find mode explicitly."
     ("r" "Revert Buffer" icejam-revert-buffer-no-confirm)]
    ["The editor itself"
     ("b" "iBuffer" ibuffer)
+    ("P" "Packages" icejam-elpaca-menu)
     ("w" "Window" icejam-buffer-menu)]])
 
 (keymap-set icejam-keys-mode-map "C-c p" #'icejam-project-menu)
