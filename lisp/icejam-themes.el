@@ -59,6 +59,7 @@
   (load-theme 'base16-gruvbox-dark-pale t t)
   (require 'icejam-base16-zenburn)
   (require 'icejam-base16-harmonic-light)
+  (require 'icejam-base16-catppuccin-latte)
 
   (if (memq window-system '(x mac ns))
       (enable-theme 'icejam-base16-zenburn)

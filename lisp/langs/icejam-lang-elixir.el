@@ -19,7 +19,8 @@
                  :repo "elixir-editors/emacs-elixir"
                  :files ("elixir-format.el")))
 
-(use-package elixir-ts-mode :ensure t :defer t :after (elixir-format lsp-mode lsp-ui))
+(use-package elixir-ts-mode :ensure t :defer t
+  :after (elixir-format lsp-mode lsp-ui))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   [[:description
@@ -38,7 +39,7 @@
   "This function deletes Elixir snippets I don't use."
   (-> 'elixir-mode
       (yas--table-get-create)
-      (yas--remove-template-by-uuid "defmodule")))
+      (yas--remove-template-by-uuid "defmodule XXX end")))
 
 (add-to-list
  'icejam-language-transient-alist '(elixir-ts-mode . icejam-elixir-lang-menu))
@@ -52,8 +53,8 @@
   ;; If needed, switch the one below to false to disable documentation pop-ups
   ;; (setq-local lsp-ui-doc-enable t)
 
-  (setq-local lsp-eldoc-enable-hover nil)
-  (setq-local lsp-completion-enable-additional-text-edit nil)
+  (setq-local lsp-eldoc-enable-hover nil
+              lsp-completion-enable-additional-text-edit nil)
   (icejam-set-lsp-capfs)
   (icejam-delete-elixir-snippets))
 

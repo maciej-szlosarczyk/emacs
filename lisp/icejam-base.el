@@ -146,7 +146,7 @@
 (use-package which-key :ensure t :defer t
   :hook ((elpaca-after-init . which-key-mode))
   :config
-  (setopt which-key-idle-delay 0.5))
+  (setopt which-key-idle-delay 0.2))
 
 ;;;;;;;;;;;;;;;;; Use C-n to create a new line
 (setopt next-line-add-newlines t)

@@ -18,9 +18,9 @@
 (use-package nginx-mode :ensure t :defer t)
 (use-package
   jenkinsfile-mode
-  :ensure (:repo "https://github.com/john2x/jenkinsfile-mode.git" :branch "master")
+  :ensure (:repo "https://github.com/john2x/jenkinsfile-mode.git"
+                 :branch "master")
   :defer t)
-(use-package lua-mode :ensure t :defer t)
 
 ;; Graphql schema definition files.
 (use-package graphql-mode :ensure t :defer t

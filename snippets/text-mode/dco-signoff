@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name: dco-signoff
+# --
+Signed-off-by: Maciej Szlosarczyk (${1:maciej@sosek.net})

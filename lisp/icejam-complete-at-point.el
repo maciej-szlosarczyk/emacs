@@ -49,12 +49,16 @@
 
   ;; Set default completion values:
   (set-default 'completion-at-point-functions
-               (list #'cape-dabbrev #'cape-file #'cape-keyword)))
+               (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
+                     #'cape-file
+                     #'cape-keyword)))
 
 (defun icejam-set-no-lsp-capfs ()
   "Set `completion-at-point-function` to non-LSP list."
   (setq-local completion-at-point-functions
-              (list #'cape-dabbrev #'cape-file #'cape-keyword)))
+              (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
+                    #'cape-file
+                    #'cape-keyword)))
 
 (defun icejam-set-lsp-capfs ()
   "Set `completion-at-point-function` to list where LSP is supported."

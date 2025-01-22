@@ -128,6 +128,7 @@
 (use-package icejam-lang-javascript :ensure nil)
 (use-package icejam-lang-kotlin :ensure nil)
 (use-package icejam-lang-lean :ensure nil)
+(use-package icejam-lang-lua :ensure nil)
 (use-package icejam-lang-markdown :ensure nil)
 (use-package icejam-lang-ocaml :ensure nil)
 (use-package icejam-lang-other :ensure nil)
