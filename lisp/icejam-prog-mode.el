@@ -72,5 +72,8 @@
   ;; regexp.
   (setopt vr/engine 'pcre2el))
 
+;; Format all programming languages with the same package
+(use-package apheleia :ensure t :defer t)
+
 (provide 'icejam-prog-mode)
 ;;; icejam-prog-mode.el ends here

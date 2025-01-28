@@ -101,14 +101,13 @@
 
     ("r" "Reload buffer" icejam-revert-buffer-no-confirm)
     ("e" "Show errors" flymake-show-buffer-diagnostics)
+    ("f" "Format buffer with apheleia formatter" apheleia-format-buffer)
 
     ;; This only appears for emacs-lisp-mode
     ("d" "Explain thing at point" helpful-at-point :if-mode emacs-lisp-mode)
 
     ;; These only appear for LSP mode
     ("m" "LSP iMenu" lsp-ui-imenu
-     :if (lambda () (bound-and-true-p lsp-mode)))
-    ("f" "Format buffer with LSP formatter" lsp-format-buffer
      :if (lambda () (bound-and-true-p lsp-mode)))
 
     ;; Finally, quit.

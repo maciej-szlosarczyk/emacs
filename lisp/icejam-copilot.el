@@ -31,7 +31,7 @@
   (gptel-make-ollama "Ollama@Linux"
     :host "192.168.88.110:11434"
     :stream t
-    :models '(qwen2.5-coder:7b qwen2.5-coder:14b))
+    :models '(qwen2.5-coder:7b qwen2.5-coder:14b deepseek-r1:14b deepseek-r1:32b))
   (setq
    gptel-model 'claude-3-5-sonnet-20241022
    gptel-backend (gptel-make-anthropic "Claude"
@@ -46,7 +46,7 @@
   ;; (setenv "OLLAMA_API_BASE" "http://127.0.0.1:11434")
   (setenv "OLLAMA_API_BASE" "http://192.168.88.110:11434")
   (setopt aider-args (list "--model"
-                           "ollama_chat/qwen2.5-coder:14b"
+                           "ollama_chat/deepseek-r1:32b"
                            "--no-auto-commits"
                            "--no-analytics"
                            "--no-gitignore")))

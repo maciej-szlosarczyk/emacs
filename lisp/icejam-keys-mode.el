@@ -37,6 +37,10 @@
 (keymap-set icejam-keys-mode-map "C-c s [" #'previous-buffer)
 (keymap-set icejam-keys-mode-map "C-c s ]" #'next-buffer)
 
+;; These are slightly more conveniently located on an Ergodox/Moonlander
+(keymap-set icejam-keys-mode-map "C-c s <left>" #'previous-buffer)
+(keymap-set icejam-keys-mode-map "C-c s <right>" #'next-buffer)
+
 ;; List of buffers buffer
 (keymap-set icejam-keys-mode-map "C-c b" #'ibuffer)
 

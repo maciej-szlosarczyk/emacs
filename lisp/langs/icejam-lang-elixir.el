@@ -10,17 +10,12 @@
   (declare-function yas--remove-template-by-uuid 'yasnippet)
   (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
-  (defvar icejam-language-transient-alist))
+  (defvar icejam-language-transient-alist)
+  (defvar apheleia-mode-alist))
 
-;; Only load the elixir-format from elixir mode.
-(use-package elixir-format :defer t
-  :ensure (:type git
-                 :host github
-                 :repo "elixir-editors/emacs-elixir"
-                 :files ("elixir-format.el")))
-
-(use-package elixir-ts-mode :ensure t :defer t
-  :after (elixir-format lsp-mode lsp-ui))
+(use-package elixir-ts-mode :ensure t :defer t :after (apheleia lsp-mode lsp-ui)
+  :config
+  (add-to-list 'apheleia-mode-alist '(heex-ts-mode . mix-format)))
 
 (transient-define-prefix icejam-elixir-lang-menu ()
   [[:description
@@ -31,7 +26,7 @@
     ("m" "LSP iMenu" lsp-ui-imenu)
     ("r" "Reload buffer" icejam-revert-buffer-no-confirm)
     ("e" "Show errors" flymake-show-buffer-diagnostics)
-    ("f" "Format buffer with Elixir formatter" elixir-format)
+    ("f" "Format buffer with Elixir formatter" apheleia-format-buffer)
 
     ("q" "Quit" keyboard-quit)]])
 
@@ -60,6 +55,18 @@
 
 (add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
 (add-hook 'elixir-ts-mode-hook 'icejam-activate-elixir-ts-mode)
+
+;; (use-package ert :ensure nil :defer t)
+;; (ert-deftest icejam-activate-elixir-ts-mode ()
+;;   "Test `elixir-ts-mode` activation."
+;;   (with-temp-buffer
+;;     (elixir-ts-mode)
+;;     (icejam-activate-elixir-ts-mode)
+;;     (should (eq major-mode 'elixir-ts-mode))
+;;     (should (bound-and-true-p column-enforce-mode))
+;;     (should (equal " 98col" (buffer-local-value 'column-enforce-mode-line-string
+;;                                             (current-buffer))))
+;;     (should (eq 2 (buffer-local-value 'tab-width (current-buffer))))))
 
 (provide 'icejam-lang-elixir)
 ;;; icejam-lang-elixir.el ends here

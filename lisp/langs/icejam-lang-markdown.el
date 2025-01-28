@@ -21,7 +21,7 @@
     ;; Render HTML preview with pandoc
     (setq-default markdown-command '("pandoc"
                                      "-f"
-                                     "markdown"
+                                     "markdown_mmd"
                                      "-t"
                                      "html5"
                                      "--template"
