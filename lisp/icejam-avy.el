@@ -8,6 +8,8 @@
 
 ;; Avy is a navigation manager.
 
+(eval-when-compile (defvar icejam-keys-mode-map))
+
 ;;; Code:
 (use-package avy :ensure t :defer t
   :config
