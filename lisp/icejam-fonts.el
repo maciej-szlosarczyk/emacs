@@ -128,7 +128,7 @@ two points smaller."
          ((>= 1080 pixel-height)
           (icejam-set-font icejam-default-font-family icejam-font-height))
 
-         ;; LG 27" screen connected to a MacBook.
+         ;; 27" screen connected to a MacBook.
          ((>= 1440 pixel-height)
           (icejam-set-font icejam-default-font-family (+ icejam-font-height 3)))
 
