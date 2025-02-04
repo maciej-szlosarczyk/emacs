@@ -70,7 +70,8 @@
 (defvar elpaca-use-package)
 (elpaca elpaca-use-package (elpaca-use-package-mode))
 
-(elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
+;; (elpaca-load-lockfile (concat user-emacs-directory "elpaca.lock"))
+;; (setopt elpaca-lock-file (concat user-emacs-directory "elpaca.lock"))
 
 (use-package benchmark-init :ensure (:wait t)
   :config
@@ -79,7 +80,7 @@
 (defun icejam-elpaca-write-lock ()
   "Write elpaca lock file."
   (interactive)
-  (elpaca-write-lockfile (concat user-emacs-directory "elpaca.lock")))
+  (elpaca-write-lock-file (concat user-emacs-directory "elpaca.lock")))
 
 ;; I don't know why this needs to be here and with a lisp directory, but
 ;; normal subdirs.el file doesn't work.

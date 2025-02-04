@@ -39,6 +39,9 @@
   (setopt vertico-resize t) ;; Grow and shrink the vertico minibufffer
   (setopt vertico-cycle t)  ;; Cycle completion
 
+  ;; Use H-enter to submit current value instead of first matching candidate
+  (keymap-set vertico-map "H-<return>" 'vertico-exit-input)
+
   ;; Add working page up /down
   (keymap-set vertico-map "<next>" 'vertico-scroll-up)
   (keymap-set vertico-map "<prior>" 'vertico-scroll-down))
