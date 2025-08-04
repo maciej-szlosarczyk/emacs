@@ -23,7 +23,7 @@
 ;; (setopt max-lisp-eval-depth 10000)
 
 ;;; Use elpaca for package management.
-(defvar elpaca-installer-version 0.9)
+(defvar elpaca-installer-version 0.11)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
@@ -100,7 +100,7 @@
 (use-package icejam-transient :ensure nil)
 (use-package icejam-prog-mode :ensure nil)
 (use-package icejam-complete-at-point :ensure nil)
-(use-package icejam-copilot :ensure nil)
+(use-package icejam-aider :ensure nil)
 (use-package icejam-flycheck :ensure nil)
 (use-package icejam-ispell :ensure nil)
 (use-package icejam-deft :ensure nil)

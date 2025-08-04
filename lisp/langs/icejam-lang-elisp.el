@@ -10,6 +10,7 @@
 (add-to-list 'auto-mode-alist '("/Eask\\'" . emacs-lisp-mode))
 
 (use-package lispy :ensure t :defer t :commands (lispy-mode))
+;; (use-package geiser-guile :ensure t :defer t)
 
 (defun icejam-activate-emacs-lisp-mode ()
   "Goodies for editing Emacs files."

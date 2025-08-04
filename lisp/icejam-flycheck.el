@@ -10,6 +10,47 @@
              '(emacs-lisp emacs-lisp-checkdoc
                           emacs-lisp-package sh-shellcheck))))
 
+(declare-function flymake--project-diagnostics-buffer 'flymake)
+(declare-function flymake--diagnostics-buffer-name 'flymake)
+(declare-function flymake-project-diagnostics-mode 'flymake)
+(declare-function flymake-diagnostics-buffer-mode 'flymake)
+
+(use-package el-patch :ensure t :defer t
+  :config
+  ;; Show the diagnostics from flymake in a second window (usually on the
+  ;; opposite side from this one) instead of at the bottom of the current one.
+  ;; Essentially revert the interesting part of this commit:
+  ;; https://github.com/emacs-mirror/emacs/commit/419550c7907275bf962986e1cc8fba1989d8659c
+  (el-patch-feature 'flymake)
+  (with-eval-after-load 'flymake
+    (el-patch-defun flymake-show-project-diagnostics ()
+      "Show a list of Flymake diagnostics for the current project."
+      (interactive)
+      (let* ((prj (project-current))
+             (root (project-root prj))
+             (buffer (flymake--project-diagnostics-buffer root)))
+        (with-current-buffer buffer
+          (flymake-project-diagnostics-mode)
+          (setq-local flymake--project-diagnostic-list-project prj)
+          (display-buffer (current-buffer))
+          (revert-buffer))))
+
+    (el-patch-defun flymake-show-buffer-diagnostics ()
+      "Show a list of Flymake diagnostics for current buffer."
+      (interactive)
+      (unless flymake-mode
+        (user-error "Flymake mode is not enabled in the current buffer"))
+      (let* ((name (flymake--diagnostics-buffer-name))
+             (source (current-buffer))
+             (target (or (get-buffer name)
+                         (with-current-buffer (get-buffer-create name)
+                           (flymake-diagnostics-buffer-mode)
+                           (current-buffer)))))
+        (with-current-buffer target
+          (setq flymake--diagnostics-buffer-source source)
+          (display-buffer (current-buffer))
+          (revert-buffer))))))
+
 ;; Use flymake, the built in linter/checker.
 (use-package flymake :ensure nil
   :defer t

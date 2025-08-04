@@ -24,14 +24,18 @@
           corfu-right-margin-width 0.5
           corfu-left-margin-width 0.5
           corfu-bar-width 0.5
-          corfu-auto-delay 0.1
           ;; Do not insert when you type a word that happens to be a
           ;; completion candidate. A typical example is `format`, which
           ;; is a yas snippet.
-          corfu-on-exact-match 'nil
+          corfu-on-exact-match 'quit
+          corfu-quit-at-boundary t
           corfu-popupinfo-delay '(0.4 . 0.2)
           corfu-auto t
-          corfu-quit-no-match 'separator))
+          corfu-auto-delay 0.8
+          corfu-quit-no-match 'separator
+
+          ;; Invoke completion with tab when needed.
+          tab-always-indent 'complete))
 
 ;; Allow corfu to work in terminal
 (use-package corfu-terminal :ensure t :defer t

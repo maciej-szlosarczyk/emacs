@@ -5,7 +5,7 @@
 ;; Based on harmonic-dark theme by Jannik Seibert (https://github.com/janniks)
 ;;; Code:
 
-(use-package base16-theme :ensure t :defer t)
+(use-package icejam-themes :ensure nil)
 
 (defvar base16-not-harmonic-colors
   '(:base00 "#102941"
@@ -30,6 +30,7 @@
 (deftheme base16-not-harmonic)
 
 ;; Add all the faces to the theme
+(declare-function base16-theme-define 'base16-theme)
 (base16-theme-define 'base16-not-harmonic base16-not-harmonic-colors)
 
 ;; Customise things

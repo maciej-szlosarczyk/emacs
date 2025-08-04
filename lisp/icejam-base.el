@@ -31,6 +31,9 @@
 ;; quickly self-correct.
 (setopt fast-but-imprecise-scrolling t)
 
+;; Trust local folder
+(setopt trusted-content '("~/.emacs.d/" "~/Development/"))
+
 ;;;;;;;;; TRAMP configuration ;;;;;;;;;;;;;;;;
 (use-package tramp :ensure nil :defer 5
   :config
@@ -75,7 +78,9 @@
 (dolist (mode '(prog-mode-hook
                 text-mode-hook
                 conf-mode-hook))
-  (add-hook mode 'display-line-numbers-mode))
+  (add-hook mode 'display-line-numbers-mode)
+  ;; Highlight current line.
+  (add-hook mode 'hl-line-mode))
 
 ;; (global-display-line-numbers-mode t)
 (column-number-mode t)
@@ -140,10 +145,12 @@
 ;;;;;;;;;;;;;;;;; Record frequency of different commands. Review them later
 (use-package keyfreq :ensure t :defer t
   :hook ((elpaca-after-init . keyfreq-mode)
-         (elpaca-after-init . keyfreq-autosave-mode)))
+         (elpaca-after-init . keyfreq-autosave-mode))
+  :config
+  (setopt keyfreq-file (concat user-emacs-directory "emacs.keyfreq")))
 
 ;;;;;;;;;;;;;;;;; Show hints about key combinations
-(use-package which-key :ensure t :defer t
+(use-package which-key :ensure nil :defer t
   :hook ((elpaca-after-init . which-key-mode))
   :config
   (setopt which-key-idle-delay 0.2))

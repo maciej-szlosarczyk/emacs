@@ -25,6 +25,8 @@ ac-comphist.dat
 /speed-type
 /tutorial
 /tree-sitter
+emacs.keyfreq
+ielm-history.eld
 
 # Ignore actual init as it can contain private data
 init.el

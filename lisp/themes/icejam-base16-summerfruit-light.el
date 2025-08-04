@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-(use-package base16-theme :ensure t :defer t)
+(use-package icejam-themes :ensure nil)
 
 (defvar base16-summerfruit-light-modified-colors
   '(:base00 "#fdfcfa"
@@ -32,6 +32,7 @@
 (deftheme base16-summerfruit-light-modified)
 
 ;; Add all the faces to the theme
+(declare-function base16-theme-define 'base16-theme)
 (base16-theme-define 'base16-summerfruit-light-modified base16-summerfruit-light-modified-colors)
 
 ;; Mark the theme as provided

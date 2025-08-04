@@ -13,7 +13,7 @@
   (defvar icejam-language-transient-alist)
   (defvar apheleia-mode-alist))
 
-(use-package elixir-ts-mode :ensure t :defer t :after (apheleia lsp-mode lsp-ui)
+(use-package elixir-ts-mode :ensure t :defer t :after (apheleia)
   :config
   (add-to-list 'apheleia-mode-alist '(heex-ts-mode . mix-format)))
 

@@ -43,7 +43,7 @@
     ("i" "Indent"             indent-region)]]
   [["Complete"
     ("g" "Ask GPTel"             gptel-menu)
-    ("a" "Aider"                 aider-transient-menu)
+    ("a" "Aider"                 aidermacs-transient-menu)
     ("e" "Refactor with Elysium" elysium-query)]]
    [["Find"
     ("s" "Swiper"             consult-line)
@@ -70,6 +70,8 @@
     ("l" "Line" avy-goto-line)
     ("c" "Character" avy-goto-char-2)]
    ["Split"
+    ("sr" "To right" split-window-right)
+    ("sb" "To bottom" split-window-below)
     ("\\" "To right" split-window-right)
     ("/"  "To bottom" split-window-below)]]
   [["Buffers"

@@ -26,6 +26,10 @@
 ;; Splitting window
 (keymap-set icejam-keys-mode-map "C-c \\" #'split-window-right)
 (keymap-set icejam-keys-mode-map "C-c /" #'split-window-below)
+(keymap-set icejam-keys-mode-map "C-c \"" #'split-window-right)
+(keymap-set icejam-keys-mode-map "C-c %" #'split-window-below)
+(keymap-set icejam-keys-mode-map "C-c '" #'split-window-right)
+(keymap-set icejam-keys-mode-map "C-c 5" #'split-window-below)
 
 ;; Move between windows
 (keymap-set icejam-keys-mode-map "C-c <left>" #'windmove-left)

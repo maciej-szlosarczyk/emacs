@@ -1,4 +1,4 @@
-;;; icejam-copilot.el --- summary
+;;; icejam-aider.el --- summary
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -40,16 +40,29 @@
 ;; Pretend to be 'AI editor' vol 1. Before usage make sure aider is installed:
 ;; $ pip install aider-install
 ;; $ aider install
-(use-package aider :ensure (:host github :repo "tninja/aider.el" :files ("aider.el"))
+;; (use-package aider :ensure (:host github :repo "tninja/aider.el")
+;;   :defer t
+;;   :config
+;;   ;; (setenv "OLLAMA_API_BASE" "http://127.0.0.1:11434")
+;;   (setenv "OLLAMA_API_BASE" "http://192.168.88.110:11434")
+;;   (setopt aider-args (list "--model"
+;;                            "ollama_chat/deepseek-r1:32b"
+;;                            "--no-auto-commits"
+;;                            "--no-analytics"
+;;                            "--no-gitignore")))
+
+(use-package aidermacs :ensure (:host github :repo "MatthewZMD/aidermacs")
   :defer t
   :config
   ;; (setenv "OLLAMA_API_BASE" "http://127.0.0.1:11434")
-  (setenv "OLLAMA_API_BASE" "http://192.168.88.110:11434")
-  (setopt aider-args (list "--model"
-                           "ollama_chat/deepseek-r1:32b"
-                           "--no-auto-commits"
-                           "--no-analytics"
-                           "--no-gitignore")))
+  (setenv "OLLAMA_API_BASE" "http://192.168.88.13:11434")
+  (setopt aidermacs-use-architect-mode t)
+  (setopt aidermacs-default-model "ollama_chat/qwen2.5-coder:32b")
+  (setopt aider-extra-args (list "--model"
+                                 "ollama_chat/qwen2.5-coder:32b"
+                                 "--no-auto-commits"
+                                 "--no-analytics"
+                                 "--no-gitignore")))
 
 ;; Pretend to be 'AI editor' vol 2.
 (use-package elysium :ensure t :defer t
@@ -64,5 +77,5 @@
 (use-package smerge-mode :ensure nil
   :hook ((prog-mode . smerge-mode)))
 
-(provide 'icejam-copilot)
-;;; icejam-copilot.el ends here
+(provide 'icejam-aider)
+;;; icejam-aider.el ends here

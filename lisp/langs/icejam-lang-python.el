@@ -4,7 +4,11 @@
 (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
 (declare-function lsp 'lsp-mode)
 (declare-function column-enforce-n "column-enforce-mode" (number))
-(eval-when-compile (defvar icejam-language-transient-alist))
+(declare-function transient-define-prefix 'transient)
+
+(eval-when-compile
+  (defvar icejam-language-transient-alist)
+  (defvar icejam-python-lang-menu))
 
 (transient-define-prefix icejam-python-lang-menu ()
   "Python Buffer Commands."
