@@ -9,25 +9,20 @@
 ;; Fsharp configuration
 
 ;;; Code:
-
-(declare-function lsp-deferred 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
 (declare-function column-enforce-n 'column-enforce-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package fsharp-mode
-  :requires (lsp-mode lsp-ui)
-  :ensure t
-  :defer t)
+(use-package fsharp-mode :ensure t :defer t)
 
 (defun icejam-activate-fsharp-mode ()
   "Activate F# goodies."
   (icejam-set-indent 4)
   (column-enforce-n 100)
-  (lsp-deferred)
+  (eglot-ensure)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'fsharp-mode-hook 'icejam-activate-fsharp-mode)
 

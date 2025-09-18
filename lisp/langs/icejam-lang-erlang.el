@@ -2,15 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function lsp 'lsp-mode)
 (declare-function column-enforce-n 'column-enforce-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package erlang
-  :defer t
-  :ensure (:depth 1)
-  :after (lsp lsp-ui))
+(use-package erlang :defer t :ensure (:depth 1))
 
 (defun icejam-activate-erlang-mode ()
   "Start Erlang related editing process."
@@ -18,10 +14,10 @@
   (column-enforce-n 80)
 
   ;; Start LSP
-  (lsp)
+  (eglot-ensure)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'erlang-mode-hook 'icejam-activate-erlang-mode)
 

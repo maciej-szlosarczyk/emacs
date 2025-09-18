@@ -1,14 +1,12 @@
 ;;; dart -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function lsp 'lsp-mode)
 
 (use-package dart-mode :ensure t :defer t)
-(use-package lsp-dart :defer t :ensure t :requires (dart-mode lsp))
 
 (defun icejam-lang-activate-dart-mode ()
   "Reconfigure dart mode for your own purposes."
-  (lsp))
+  (eglot-ensure))
 
 (add-hook 'dart-mode-hook 'icejam-lang-activate-dart-mode)
 

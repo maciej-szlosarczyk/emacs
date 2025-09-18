@@ -108,9 +108,7 @@
     ;; This only appears for emacs-lisp-mode
     ("d" "Explain thing at point" helpful-at-point :if-mode emacs-lisp-mode)
 
-    ;; These only appear for LSP mode
-    ("m" "LSP iMenu" lsp-ui-imenu
-     :if (lambda () (bound-and-true-p lsp-mode)))
+    ("m" "iMenu" consult-imenu)
 
     ;; Finally, quit.
     ("q" "Quit" keyboard-quit)]])

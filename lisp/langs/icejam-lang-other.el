@@ -27,13 +27,12 @@
   :mode ("\\.graphqls\\'" . graphql-mode))
 
 ;; Yaml
-(declare-function lsp "lsp-mode" nil)
-(use-package yaml-mode :ensure t :defer t :requires (lsp))
+(use-package yaml-mode :ensure t :defer t)
 
 (with-eval-after-load 'yaml-mode
   (defun icejam-lang-activate-yaml-mode ()
     "Activate yaml-mode."
-    (lsp))
+    (eglot-ensure))
   (add-hook 'yaml-mode-hook 'icejam-lang-activate-yaml-mode))
 
 ;; Other text files

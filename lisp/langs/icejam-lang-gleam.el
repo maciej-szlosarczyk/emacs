@@ -10,26 +10,22 @@
 
 ;;; Code:
 (declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package gleam-ts-mode :defer t :after (lsp)
-  :ensure (:type git
-                 :host github
-                 :repo "gleam-lang/gleam-mode"
-                 :files ("gleam-ts-mode.el")))
+(use-package gleam-ts-mode :defer t :ensure t
+  :mode (rx ".gleam" eos))
 
-(add-to-list 'auto-mode-alist '("\\.gleam\\'" . gleam-ts-mode))
+;; (add-to-list 'auto-mode-alist '("\\.gleam\\'" . gleam-ts-mode))
 
 (defun icejam-lang-activate-gleam-mode ()
   "All things Gleam."
   (icejam-set-indent 2)
   (column-enforce-n 100)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
-(add-hook 'gleam-mode-hook 'icejam-lang-activate-gleam-mode)
+(add-hook 'gleam-ts-mode-hook 'icejam-lang-activate-gleam-mode)
 
 (provide 'icejam-lang-gleam)
 ;;; icejam-lang-gleam.el ends here

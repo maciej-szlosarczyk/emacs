@@ -1,10 +1,7 @@
 ;;; web -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(declare-function lsp 'lsp-mode)
-
-(use-package web-mode :after (lsp flycheck) :ensure t :defer t)
+(use-package web-mode :ensure t :defer t)
 
 ;; Eex Web mode
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
@@ -31,7 +28,7 @@
   (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 	(when (string-match-p ".vue" (buffer-file-name))
-		(lsp)))
+    (eglot-ensure)))
 
 (add-hook 'web-mode-hook 'icejam-activate-web-mode)
 

@@ -10,11 +10,10 @@
 
 ;;; Code:
 (declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package zig-mode :ensure t :defer t :requires (lsp))
+(use-package zig-mode :ensure t :defer t)
 
 (defun icejam-activate-zig-mode ()
   "Goodies for editing zig files."
@@ -24,8 +23,8 @@
 
   ;; Set indentation to 4 chars
   (icejam-set-indent 4)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'zig-mode-hook 'icejam-activate-zig-mode)
 

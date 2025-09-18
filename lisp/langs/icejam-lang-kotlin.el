@@ -10,14 +10,10 @@
 
 ;;; Code:
 (declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package kotlin-ts-mode
-  :ensure t
-  :after (lsp-mode lsp-ui)
-  :defer t)
+(use-package kotlin-ts-mode :ensure t :defer t)
 
 (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.kts\\'" . kotlin-ts-mode))
@@ -28,8 +24,8 @@
   "All things Kotlin."
   (icejam-set-indent 2)
   (column-enforce-n 100)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'kotlin-ts-mode-hook 'icejam-activate-kotlin-mode)
 

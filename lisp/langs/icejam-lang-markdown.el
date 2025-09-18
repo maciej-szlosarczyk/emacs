@@ -6,7 +6,7 @@
   (declare-function elpaca-installed-p "elpaca")
   (declare-function column-enforce-n 'column-enforce-mode (number))
   (declare-function icejam-set-indent 'icejam-prog-mode)
-  (declare-function icejam-set-no-lsp-capfs 'icejam-prog-mode)
+  (declare-function icejam-set-no-eglot-capfs 'icejam-prog-mode)
   (declare-function rxt--re-builder-switch-pcre-mode "pcre2el"))
 
 ;; Markdown is a dependency of LSP mode. By wrapping it in unless we silence

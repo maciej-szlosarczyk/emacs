@@ -11,20 +11,19 @@
 ;;; Code:
 (declare-function column-enforce-n 'column-enforce-mode (number))
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 (eval-when-compile (defvar icejam-language-transient-alist))
 
-(use-package php-mode :ensure t :defer t
-  :requires (lsp-mode lsp-ui))
+(use-package php-mode :ensure t :defer t)
 
 (transient-define-prefix icejam-lang-php-context-menu ()
   "PHP Buffer Commands."
   [""
    ["LSP"
-    ("m" "iMenu"       lsp-ui-imenu)]
+    ("m" "iMenu"       consult-imenu)]
    ["Buffer"
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("f" "Format"      lsp-format-buffer)
+    ("f" "Format"      eglot-format-buffer)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
     ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
@@ -39,7 +38,7 @@
   (keymap-set php-mode-map "C-c l" #'icejam-lang-php-context-menu)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'php-mode-hook 'icejam-lang-activate-php-mode)
 

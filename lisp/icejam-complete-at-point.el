@@ -57,19 +57,17 @@
                      #'cape-file
                      #'cape-keyword)))
 
-(defun icejam-set-no-lsp-capfs ()
+(defun icejam-set-no-eglot-capfs ()
   "Set `completion-at-point-function` to non-LSP list."
   (setq-local completion-at-point-functions
               (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
                     #'cape-file
                     #'cape-keyword)))
 
-(defun icejam-set-lsp-capfs ()
+(defun icejam-set-eglot-capfs ()
   "Set `completion-at-point-function` to list where LSP is supported."
-  (declare-function lsp-completion-at-point 'lsp-mode)
   (setq-local completion-at-point-functions
-              (list (cape-capf-super #'lsp-completion-at-point
-                                     #'yasnippet-capf)
+              (list (cape-capf-super #'yasnippet-capf #'eglot-completion-at-point)
                     #'cape-dabbrev
                     #'cape-file)))
 

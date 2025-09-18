@@ -1,8 +1,7 @@
 ;;; python -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
-(declare-function lsp 'lsp-mode)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 (declare-function column-enforce-n "column-enforce-mode" (number))
 (declare-function transient-define-prefix 'transient)
 
@@ -14,10 +13,10 @@
   "Python Buffer Commands."
   [""
    ["LSP"
-    ("m" "iMenu"       lsp-ui-imenu)]
+    ("m" "iMenu"       consult-imenu)]
    ["Buffer"
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("f" "Format"      lsp-format-buffer)
+    ("f" "Format"      eglot-format-buffer)
     ("i" "Indent"      icejam-mark-and-indent-whole-buffer)
     ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
@@ -29,11 +28,11 @@
 
 (defun icejam-lang-activate-python-mode ()
   "Activate python mode."
-  (lsp)
+  (eglot-ensure)
   (column-enforce-n 99)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'python-mode-hook 'icejam-lang-activate-python-mode)
 

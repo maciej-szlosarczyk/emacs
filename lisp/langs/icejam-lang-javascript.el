@@ -3,12 +3,10 @@
 ;;; Code:
 
 (declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp-deferred 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package js2-mode :ensure t :defer t
-  :after (web-mode lsp-mode lsp-ui))
+(use-package js2-mode :ensure t :defer t :after(web-mode))
 
 (use-package typescript-ts-mode :ensure nil :defer t)
 
@@ -18,7 +16,7 @@
 (defun icejam-activate-typescript-ts-mode ()
   "Typescript mode overrides."
   (icejam-set-indent 2)
-  (lsp-deferred)
+  (eglot-ensure)
   (column-enforce-n 100))
 
 (add-hook 'typescript-ts-mode-hook 'icejam-activate-typescript-ts-mode)
@@ -36,19 +34,17 @@
 	(icejam-set-indent 2)
 
   (when (not (string-match-p ".json" (buffer-file-name)))
-    (lsp-deferred))
+    (eglot-ensure))
 
 	(column-enforce-n 80)
 	(setq-local js2-basic-offset 2)
   (setq-local js2-strict-missing-semi-warning nil)
-  (setq-local lsp-eldoc-enable-hover nil)
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
 
-  (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'js2-mode-hook 'icejam-activate-js2-mode)
 

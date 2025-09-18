@@ -2,9 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function lsp 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 (eval-when-compile (defvar icejam-language-transient-alist))
 
 (use-package rspec-mode :ensure t :defer t :commands (rspec-install-snippets))
@@ -24,10 +23,10 @@
   (setq ruby-insert-encoding-magic-comment nil)
 
   ;; Start LSP
-  (lsp)
+  (eglot-ensure)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'ruby-ts-mode-hook 'rspec-mode)
 (add-hook 'ruby-ts-mode-hook 'ruby-end-mode)

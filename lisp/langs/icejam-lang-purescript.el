@@ -12,10 +12,9 @@
 
 (declare-function column-enforce-n 'column-enforce-mode (number))
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package purescript-mode :ensure t :defer t
-  :after (lsp-mode lsp-ui))
+(use-package purescript-mode :ensure t :defer t)
 
 (declare-function purescript-indentation-mode "purescript-mode")
 
@@ -28,7 +27,7 @@
   (purescript-indentation-mode t)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'purescript-mode-hook 'icejam-activate-purescript-mode)
 

@@ -1,11 +1,8 @@
 ;;; ocaml -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(declare-function lsp "lsp-mode" nil)
-
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 (eval-when-compile (defvar icejam-language-transient-alist))
 
 (use-package merlin :defer t :ensure t)
@@ -50,8 +47,8 @@
   (icejam-set-indent 2)
   (opam-switch-mode t)
   (icejam-load-ocaml-site-packages)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'tuareg-mode-hook 'icejam-activate-tuareg-mode)
 

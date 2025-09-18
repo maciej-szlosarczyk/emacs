@@ -1,4 +1,4 @@
-;;; icejam-lang-lua.el --- summary
+;;; icejam-lang-lua.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -11,19 +11,18 @@
 ;;; Code:
 (eval-when-compile
   (declare-function column-enforce-n 'column-enforce-mode (number))
-  (declare-function lsp 'lsp-mode)
   (declare-function icejam-set-indent 'icejam-prog-mode)
-  (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
   (defvar icejam-language-transient-alist))
 
-(use-package lua-mode :ensure t :defer t :after (lsp-mode))
+(use-package lua-mode :ensure t :defer t)
 
 (defun icejam-activate-lua-mode ()
   "All things related to Lua."
   (icejam-set-indent 4)
   (column-enforce-n 100)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'lua-mode-hook 'icejam-activate-lua-mode)
 

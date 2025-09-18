@@ -10,21 +10,17 @@
 
 ;;; Code:
 (declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function lsp 'lsp-mode)
 (declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
-(use-package go-mode
-  :requires (lsp-mode lsp-ui)
-  :defer t
-  :ensure t)
+(use-package go-mode :defer t :ensure t)
 
 (defun icejam-activate-golang-mode ()
   "Activate my own Golang mode settings."
   (icejam-set-indent 8)
   (column-enforce-n 100)
-  (lsp)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'go-mode-hook #'icejam-activate-golang-mode)
 

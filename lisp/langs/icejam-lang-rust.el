@@ -3,9 +3,8 @@
 ;;; Code:
 (eval-when-compile
   (declare-function column-enforce-n 'column-enforce-mode (number))
-  (declare-function lsp-deferred 'lsp-mode)
   (declare-function icejam-set-indent 'icejam-prog-mode)
-  (declare-function icejam-set-lsp-capfs 'icejam-complete-at-point))
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package rust-mode
   :ensure t
@@ -30,8 +29,8 @@
   (column-enforce-n 99)
 
   ;; Run LSP
-  (lsp-deferred)
-  (icejam-set-lsp-capfs))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'rust-mode-hook 'icejam-activate-rust-mode)
 (add-hook 'rust-mode-hook 'flycheck-rust-setup)

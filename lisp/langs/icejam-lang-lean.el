@@ -1,9 +1,7 @@
 ;;; lean -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-
-(declare-function lsp-deferred 'lsp-mode)
-(declare-function icejam-set-lsp-capfs 'icejam-complete-at-point)
+(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
 
 (use-package lean4-mode
   :ensure (lean4-mode
@@ -11,7 +9,6 @@
            :host github
            :repo "leanprover/lean4-mode"
            :files ("*.el" "data"))
-  :requires (lsp)
   :defer t)
 
 (defun icejam-activate-lean-mode ()
@@ -19,10 +16,10 @@
   (interactive)
 
   ;; Run LSP
-  (lsp-deferred)
+  (eglot-ensure)
 
   ;; Capf override
-  (icejam-set-lsp-capfs))
+  (icejam-set-eglot-capfs))
 
 (add-hook 'lean4-mode-hook #'icejam-activate-lean-mode)
 

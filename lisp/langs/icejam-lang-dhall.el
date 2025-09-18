@@ -1,13 +1,13 @@
 ;;; dhall -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function lsp 'lsp-mode)
 
-(use-package dhall-mode :ensure t :defer t :requires (lsp))
+(use-package dhall-mode :ensure t :defer t)
 
 (defun icejam-lang-activate-dhall-mode ()
   "Reconfigure dhall mode for your own purposes."
-  (lsp))
+  (eglot-ensure)
+  (icejam-set-eglot-capfs))
 
 (add-hook 'dhall-mode-hook 'icejam-lang-activate-dhall-mode)
 (add-hook 'dhall-mode-hook 'display-line-numbers-mode)
