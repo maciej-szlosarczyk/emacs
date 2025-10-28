@@ -26,4 +26,8 @@
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
 
+;; set path for native compilation to work
+(setenv "PATH" "/Users/maciej/.local/share/zinit/polaris/bin:/Users/maciej/.asdf/shims:/Users/maciej/.local/bin:/Users/maciej/.opam/default/bin:/Users/maciej/.go/bin:/Users/maciej/.elan/bin:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:/Users/maciej/.dotnet/tools:/Applications/Postgres.app/Contents/Versions/latest/bin:/Applications/kitty.app/Contents/MacOS")
+(setq exec-path (split-string (getenv "PATH") path-separator))
+
 ;;; early-init.el ends here

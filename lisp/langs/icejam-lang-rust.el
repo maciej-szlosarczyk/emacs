@@ -15,7 +15,8 @@
   :ensure t
   :defer t
   :after (rust-mode)
-  :config (setopt rustic-format-on-save nil))
+  :config (setopt rustic-format-on-save nil)
+  (setopt rustic-lsp-client 'eglot))
 
 (use-package flycheck-rust
   :ensure t

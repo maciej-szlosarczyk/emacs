@@ -135,7 +135,8 @@
          (elpaca-after-init . treemacs-project-follow-mode))
   :commands (treemacs-follow-mode treemacs-project-follow-mode treemacs)
   :bind (:map icejam-keys-mode-map
-              ([(hyper b)] . treemacs)))
+              ([(hyper b)] . treemacs))
+  :config (setopt treemacs-tag-follow-delay 1.0))
 
 (use-package treemacs-all-the-icons :ensure t :defer t
   :requires (treemacs)

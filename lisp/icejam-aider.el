@@ -1,4 +1,4 @@
-;;; icejam-aider.el --- summary
+;;; icejam-aider.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -56,10 +56,10 @@
   :config
   ;; (setenv "OLLAMA_API_BASE" "http://127.0.0.1:11434")
   (setenv "OLLAMA_API_BASE" "http://192.168.88.13:11434")
-  (setopt aidermacs-use-architect-mode t)
-  (setopt aidermacs-default-model "ollama_chat/qwen2.5-coder:32b")
+  (setopt aidermacs-default-chat-mode 'architect)
+  (setopt aidermacs-default-model "ollama_chat/qwen3-coder:30b")
   (setopt aider-extra-args (list "--model"
-                                 "ollama_chat/qwen2.5-coder:32b"
+                                 "ollama_chat/qwen3-coder:30b"
                                  "--no-auto-commits"
                                  "--no-analytics"
                                  "--no-gitignore")))
