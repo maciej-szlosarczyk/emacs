@@ -9,5 +9,8 @@
   :custom-face
   (eldoc-box-markdown-separator ((t (:inherit (fringe))))))
 
+;; Add debugger support to emacs.
+(use-package dape :ensure t)
+
 (provide 'icejam-eglot)
 ;;; icejam-eglot.el ends here

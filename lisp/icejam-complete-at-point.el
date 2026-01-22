@@ -31,7 +31,7 @@
           corfu-quit-at-boundary t
           corfu-popupinfo-delay '(0.4 . 0.2)
           corfu-auto t
-          corfu-auto-delay 0.8
+          corfu-auto-delay 0.2
           corfu-quit-no-match 'separator
 
           ;; Invoke completion with tab when needed.
