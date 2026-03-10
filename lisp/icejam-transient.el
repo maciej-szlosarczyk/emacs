@@ -41,10 +41,6 @@
     ("c" "Toggle Comment"     comment-line)
     ("r" "Replace"            vr/replace)
     ("i" "Indent"             indent-region)]]
-  [["Complete"
-    ("g" "Ask GPTel"             gptel-menu)
-    ("a" "Aider"                 aidermacs-transient-menu)
-    ("e" "Refactor with Elysium" elysium-query)]]
    [["Find"
     ("s" "Swiper"             consult-line)
     ("u" "Vundo"              vundo)

@@ -3,7 +3,8 @@
 ;;; Global Language Server Protocol Config
 ;;; Code:
 
-(use-package eldoc-box :ensure t
+(use-package eldoc-box
+  :ensure (:host github :repo "casouri/eldoc-box" :ref "595262ec8ff56e8f86ef77d8e69339e84117e5f0")
   :hook ((emacs-lisp-mode . eldoc-box-hover-at-point-mode)
          (eglot--managed-mode . eldoc-box-hover-at-point-mode))
   :custom-face
