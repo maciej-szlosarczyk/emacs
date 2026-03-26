@@ -26,6 +26,9 @@
 (add-to-list
  'icejam-language-transient-alist '(python-mode . icejam-python-lang-menu))
 
+;; Python template language
+(use-package jinja2-mode :ensure t :defer t)
+
 (defun icejam-lang-activate-python-mode ()
   "Activate python mode."
   (eglot-ensure)
