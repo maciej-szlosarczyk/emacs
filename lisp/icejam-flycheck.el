@@ -49,7 +49,17 @@
         (with-current-buffer target
           (setq flymake--diagnostics-buffer-source source)
           (display-buffer (current-buffer))
-          (revert-buffer))))))
+          (revert-buffer)))))
+
+  (el-patch-feature 'magit-commit)
+  (with-eval-after-load 'magit-commit
+    (el-patch-defun git-commit-setup-capf ()
+      "Set completion-at-point-functions to be actually useful."
+      (setq-local completion-at-point-functions
+                  (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
+                        #'cape-file
+                        #'cape-keyword
+                        #'ispell-completion-at-point)))))
 
 ;; Use flymake, the built in linter/checker.
 (use-package flymake :ensure nil
