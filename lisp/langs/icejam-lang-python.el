@@ -1,11 +1,10 @@
 ;;; python -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
-(declare-function column-enforce-n "column-enforce-mode" (number))
-(declare-function transient-define-prefix 'transient)
-
 (eval-when-compile
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+  (declare-function column-enforce-n "column-enforce-mode" (number))
+  (declare-function transient-define-prefix 'transient)
   (defvar icejam-language-transient-alist)
   (defvar icejam-python-lang-menu))
 

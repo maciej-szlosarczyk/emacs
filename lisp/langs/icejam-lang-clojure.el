@@ -2,8 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function column-enforce-n "column-enforce-mode" (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
+(eval-when-compile
+  (defvar icejam-language-transient-alist)
+  (defvar icejam-clojure-lang-menu)
+  (declare-function column-enforce-n "column-enforce-mode" (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function transient-define-prefix 'transient))
 
 (use-package clojure-mode :defer t :ensure t)
 
@@ -20,7 +24,7 @@
 	:ensure t)
 
 ;; Transient
-(transient-define-prefix icejam-lang-cider-context-menu ()
+(transient-define-prefix icejam-clojure-lang-menu ()
   "Clojure Buffer Commands."
   [""
    ["Cider"
@@ -34,13 +38,14 @@
   [""
    ("q"  "Quit"        keyboard-quit)])
 
+(add-to-list
+ 'icejam-language-transient-alist '(clojure-mode . icejam-clojure-lang-menu))
+
 (defun icejam-lang-activate-clojure-mode ()
   "Goodies for clojure files."
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (cider-mode 1)
-
-  (define-key clojure-mode-map (kbd "C-c l") 'icejam-lang-cider-context-menu)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)

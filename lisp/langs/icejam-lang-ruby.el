@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
-(eval-when-compile (defvar icejam-language-transient-alist))
+(eval-when-compile
+  (defvar icejam-language-transient-alist)
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package rspec-mode :ensure t :defer t :commands (rspec-install-snippets))
 (use-package ruby-end :ensure t :defer t)

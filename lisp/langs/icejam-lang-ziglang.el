@@ -1,4 +1,4 @@
-;;; ziglang.el --- summary
+;;; ziglang.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -9,9 +9,10 @@
 ;; ziglang does a thing.
 
 ;;; Code:
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package zig-mode :ensure t :defer t)
 

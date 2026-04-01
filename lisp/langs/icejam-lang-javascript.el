@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package js2-mode :ensure t :defer t :after(web-mode))
 

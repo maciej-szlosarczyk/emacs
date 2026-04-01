@@ -1,9 +1,12 @@
 ;;; ocaml -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
-(eval-when-compile (defvar icejam-language-transient-alist))
+(eval-when-compile
+  (defvar icejam-ocaml-lang-menu 'icejam-lang-ocaml)
+  (defvar icejam-language-transient-alist)
+  (declare-function transient-define-prefix 'transient)
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package merlin :defer t :ensure t)
 (use-package opam-switch-mode :defer t :ensure t :commands (opam-switch-mode))

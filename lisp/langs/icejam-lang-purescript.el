@@ -10,13 +10,13 @@
 
 ;;; Code:
 
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function purescript-indentation-mode 'purescript-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package purescript-mode :ensure t :defer t)
-
-(declare-function purescript-indentation-mode "purescript-mode")
 
 (defun icejam-activate-purescript-mode ()
   "All things Purescript."

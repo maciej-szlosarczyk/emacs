@@ -14,6 +14,9 @@
 ;; Update emacs less often
 (setopt idle-update-delay 1.0)
 
+;; Prefer newer byte-compiled code
+(setopt load-prefer-newer t)
+
 ;; Disable bidirectional text rendering for a modest performance boost. I've set
 ;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
 ;; is an undefined state and suggest this to be just as good:

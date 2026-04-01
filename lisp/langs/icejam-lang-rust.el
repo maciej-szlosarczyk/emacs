@@ -21,7 +21,7 @@
 (use-package flycheck-rust
   :ensure t
   :defer t
-  :after (rust-mode lsp))
+  :after (rust-mode))
 
 (defun icejam-activate-rust-mode ()
   "All things for Rust mode."

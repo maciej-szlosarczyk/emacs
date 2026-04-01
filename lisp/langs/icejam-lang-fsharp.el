@@ -9,9 +9,10 @@
 ;; Fsharp configuration
 
 ;;; Code:
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function column-enforce-n 'column-enforce-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function column-enforce-n 'column-enforce-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package fsharp-mode :ensure t :defer t)
 
