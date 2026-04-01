@@ -1,8 +1,20 @@
-;;; pkg/transient -- summary -*- lexical-binding: t; -*-
+;;; icejam-transient -- summary -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Global Transient definitions.
 ;;; Code:
-(eval-when-compile (defvar icejam-keys-mode-map))
+(eval-when-compile
+  (defvar icejam-keys-mode-map)
+  (defvar icejam-project-menu)
+  (defvar icejam-code-menu)
+  (defvar icejam-buffer-menu)
+  (defvar icejam-elpaca-menu)
+  (defvar icejam-language-menu)
+  (defvar icejam-command-palette)
+  (declare-function transient-define-prefix 'transient)
+  (declare-function icejam-project-menu 'icejam-transient)
+  (declare-function icejam-code-menu 'icejam-transient)
+  (declare-function icejam-buffer-menu 'icejam-transient)
+  (declare-function icejam-command-palette 'icejam-transient))
 
 (use-package transient :ensure (:wait t))
 

@@ -1,4 +1,4 @@
-;;; php.el --- summary -*- lexical-binding: t; -*-
+;;; icejam-lang-php.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -9,14 +9,17 @@
 ;; php related settings
 
 ;;; Code:
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
-(eval-when-compile (defvar icejam-language-transient-alist))
+(eval-when-compile
+  (defvar icejam-language-transient-alist)
+  (defvar icejam-php-lang-menu)
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+  (declare-function transient-define-prefix 'transient))
 
 (use-package php-mode :ensure t :defer t)
 
-(transient-define-prefix icejam-lang-php-context-menu ()
+(transient-define-prefix icejam-php-lang-menu ()
   "PHP Buffer Commands."
   [""
    ["LSP"
@@ -29,18 +32,18 @@
   [""
    ("q" "Quit"        keyboard-quit)])
 
+(add-to-list
+ 'icejam-language-transient-alist '(php-mode . icejam-php-lang-menu))
 
-(defun icejam-lang-activate-php-mode ()
+(defun icejam-activate-php-mode ()
   "All things php."
   (icejam-set-indent 4)
   (column-enforce-n 80)
 
-  (keymap-set php-mode-map "C-c l" #'icejam-lang-php-context-menu)
-
   ;; Capf override
   (icejam-set-eglot-capfs))
 
-(add-hook 'php-mode-hook 'icejam-lang-activate-php-mode)
+(add-hook 'php-mode-hook 'icejam-activate-php-mode)
 
 (provide 'icejam-lang-php)
 ;;; icejam-lang-php.el ends here

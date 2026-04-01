@@ -4,6 +4,9 @@
 
 (use-package dhall-mode :ensure t :defer t)
 
+(eval-when-compile
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
+
 (defun icejam-lang-activate-dhall-mode ()
   "Reconfigure dhall mode for your own purposes."
   (eglot-ensure)

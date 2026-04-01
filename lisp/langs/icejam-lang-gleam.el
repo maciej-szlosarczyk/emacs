@@ -9,9 +9,10 @@
 ;; Gleam language support
 
 ;;; Code:
-(declare-function column-enforce-n 'column-enforce-mode (number))
-(declare-function icejam-set-indent 'icejam-prog-mode)
-(declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+(eval-when-compile
+  (declare-function column-enforce-n 'column-enforce-mode (number))
+  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
 (use-package gleam-ts-mode :defer t :ensure t
   :mode (rx ".gleam" eos))

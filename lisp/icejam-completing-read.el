@@ -6,7 +6,9 @@
 ;;; helpful.
 ;;;
 ;;; Code:
-(eval-when-compile (defvar icejam-keys-mode-map))
+(eval-when-compile
+  (defvar icejam-keys-mode-map)
+  (defvar crm-separator))
 
 ;; Preparations for using Vertico/Orderless
 (setopt
@@ -21,6 +23,7 @@
  '(read-only t cursor-intangible t face minibuffer-prompt))
 
 (defun crm-indicator (args)
+  "Work with ARGS in `completing-read-multiple`."
   (cons (format "[CRM%s] %s"
                 (replace-regexp-in-string
                  "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""

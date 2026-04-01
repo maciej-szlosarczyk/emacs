@@ -1,4 +1,4 @@
-;;; icejam-treesitter.el --- summary
+;;; icejam-treesitter.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk

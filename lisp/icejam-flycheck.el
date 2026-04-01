@@ -4,16 +4,21 @@
 
 ;; Use flycheck checks with flymake.
 (use-package flymake-flycheck :ensure t :defer t :config
-(setq-default
-     flycheck-disabled-checkers
-     (append (default-value 'flycheck-disabled-checkers)
-             '(emacs-lisp emacs-lisp-checkdoc
-                          emacs-lisp-package sh-shellcheck))))
+  (setq-default
+   flycheck-disabled-checkers
+   (append (default-value 'flycheck-disabled-checkers)
+           '(emacs-lisp emacs-lisp-checkdoc emacs-lisp-package sh-shellcheck))))
 
-(declare-function flymake--project-diagnostics-buffer 'flymake)
-(declare-function flymake--diagnostics-buffer-name 'flymake)
-(declare-function flymake-project-diagnostics-mode 'flymake)
-(declare-function flymake-diagnostics-buffer-mode 'flymake)
+(eval-when-compile
+  (declare-function flymake--project-diagnostics-buffer 'flymake)
+  (declare-function flymake--diagnostics-buffer-name 'flymake)
+  (declare-function flymake-project-diagnostics-mode 'flymake)
+  (declare-function flymake-diagnostics-buffer-mode 'flymake)
+  (declare-function cape-capf-super 'cape)
+  (declare-function cape-dabbrev 'cape)
+  (declare-function cape-file 'cape)
+  (declare-function cape-keyword 'cape)
+  (declare-function yasnippet-capf 'yasnippet-capf))
 
 (use-package el-patch :ensure t :defer t
   :config
@@ -51,10 +56,13 @@
           (display-buffer (current-buffer))
           (revert-buffer)))))
 
-  (el-patch-feature 'magit-commit)
-  (with-eval-after-load 'magit-commit
+  (el-patch-feature 'git-commit)
+  (with-eval-after-load 'git-commit
+    ;; Reverts the contents of this commit:
+    ;; https://github.com/magit/magit/commit/2366db4b3b792fbd191c1d653014bfc6343b270c
     (el-patch-defun git-commit-setup-capf ()
-      "Set completion-at-point-functions to be actually useful."
+      "Set completion-at-point-functions to use cape completions in
+`magit-commit' screens."
       (setq-local completion-at-point-functions
                   (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
                         #'cape-file
