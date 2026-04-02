@@ -1,4 +1,5 @@
 on: [push]
+
 jobs:
   test:
     name: Test config on ${{matrix.node}}
@@ -9,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: https://code.forgejo.org/actions/checkout@v6
+        uses: https://code.forgejo.org/actions/checkout@v5
 
       - name: Setup NodeJS
-        uses: https://code.forgejo.org/actions/setup-node@v6
+        uses: https://code.forgejo.org/actions/setup-node@v5
         with:
           node-version: ${{matrix.node}}
 
