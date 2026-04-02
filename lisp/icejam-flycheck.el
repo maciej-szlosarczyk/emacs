@@ -54,20 +54,7 @@
         (with-current-buffer target
           (setq flymake--diagnostics-buffer-source source)
           (display-buffer (current-buffer))
-          (revert-buffer)))))
-
-  (el-patch-feature 'git-commit)
-  (with-eval-after-load 'git-commit
-    ;; Reverts the contents of this commit:
-    ;; https://github.com/magit/magit/commit/2366db4b3b792fbd191c1d653014bfc6343b270c
-    (el-patch-defun git-commit-setup-capf ()
-      "Set completion-at-point-functions to use cape completions in
-`magit-commit' screens."
-      (setq-local completion-at-point-functions
-                  (list (cape-capf-super #'cape-dabbrev #'yasnippet-capf)
-                        #'cape-file
-                        #'cape-keyword
-                        #'ispell-completion-at-point)))))
+          (revert-buffer))))))
 
 ;; Use flymake, the built in linter/checker.
 (use-package flymake :ensure nil

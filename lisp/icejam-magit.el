@@ -2,7 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(eval-when-compile (defvar icejam-keys-mode-map))
+(eval-when-compile
+  (defvar icejam-keys-mode-map)
+  (declare-function git-commit-setup-capf 'git-commit))
 
 (use-package magit
   :ensure t
@@ -13,7 +15,10 @@
               ("<f5> b" . magit-blame-addition)
               ("<f5> g" . magit-status))
   (:map magit-blame-mode-map
-        ("<f5> b" . 'magit-blame-quit)))
+        ("<f5> b" . 'magit-blame-quit))
+  :config
+  (setopt git-commit-setup-hook
+          (remove #'git-commit-setup-capf git-commit-setup-hook)))
 
 (provide 'icejam-magit)
 ;;; icejam-magit.el ends here
