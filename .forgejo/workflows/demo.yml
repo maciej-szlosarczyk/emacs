@@ -5,7 +5,7 @@ jobs:
     runs-on: docker
     strategy:
       matrix:
-        node: ["24"]
+        node: ["20"]
 
     steps:
       - name: Checkout
