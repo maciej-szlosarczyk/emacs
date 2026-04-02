@@ -4,10 +4,9 @@
 
 (use-package fish-mode :ensure t :defer t)
 
-(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\zshrc\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.envrc\\'" . sh-mode))
+(dolist
+    (ending '("\\.zsh\\'" "\\.zshrc\\'" "\\.envrc\\'" "\\.zshrc\\'"))
+  (add-to-list 'auto-mode-alist (cons ending 'sh-mode)))
 
 (provide 'icejam-lang-sh)
 ;;; icejam-lang-sh.el ends here
