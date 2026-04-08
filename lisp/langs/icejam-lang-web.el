@@ -13,11 +13,11 @@
 ;; Vue JS
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
-(setq web-mode-extra-auto-pairs
-      '(("eex"  . (("<%" "%>")))
-        ("leex"  . (("<%" "%>")))
-        ("erb"  . (("<%" "%>")
-                   ("beg" "end")))))
+(setopt web-mode-extra-auto-pairs
+        '(("eex"  . (("<%" "%>")))
+          ("leex"  . (("<%" "%>")))
+          ("erb"  . (("<%" "%>")
+                     ("beg" "end")))))
 
 (defun icejam-activate-web-mode ()
 	"Web mode overrides."
@@ -25,7 +25,6 @@
 	(setq-local web-mode-script-padding 2)
 	(setq-local web-mode-code-indent-offset 2)
 	(setq-local web-mode-markup-indent-offset 2)
-  (setq-local lsp-eldoc-enable-hover nil)
   (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
 	(when (string-match-p ".vue" (buffer-file-name))
     (eglot-ensure)))

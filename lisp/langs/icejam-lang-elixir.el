@@ -46,8 +46,6 @@
   (column-enforce-n 98)
   (eglot-ensure)
 
-  ;; If needed, switch the one below to false to disable documentation pop-ups
-  ;; (setq-local lsp-ui-doc-enable t)
   (icejam-set-eglot-capfs)
   (icejam-delete-elixir-snippets))
 

@@ -24,6 +24,9 @@
               bidi-paragraph-direction 'left-to-right
               bidi-inhibit-bpa t)
 
+;; Skip fontification when you are typing
+(setopt redisplay-skip-fontification-on-input t)
+
 ;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
 ;; in non-focused windows.
 (setq-default cursor-in-non-selected-windows nil)
@@ -63,18 +66,16 @@
   (setopt gcmh-high-cons-threshold (* 256 1024 1024)))
 
 ;; #====================== Backup config #==============================
-(setopt backup-directory-alist
-        `((".*" . "~/.emacs.d/backups/auto-save-list")))
-(setopt auto-save-file-name-transforms
-      `((".*", "~/.emacs.d/backups/auto-save-list" t)))
+(setopt
+ backup-directory-alist `((".*" . "~/.emacs.d/backups/auto-save-list"))
+ auto-save-file-name-transforms `((".*" ,"~/.emacs.d/backups/auto-save-list" t))
+ backup-by-copying t
+ delete-old-versions t
+ kept-new-versions 10
+ kept-old-versions 5
+ version-control t)
 
-(setopt backup-by-copying t)
-(setopt delete-old-versions t
-  kept-new-versions 10
-  kept-old-versions 5
-  version-control t)
-
-; Do not create .#foo.file lock files
+;; Do not create .#foo.file lock files
 (setopt create-lockfiles nil)
 
 ;; Enable line numbers and show cursors position
@@ -149,8 +150,7 @@
   :hook ((elpaca-after-init . treemacs-follow-mode)
          (elpaca-after-init . treemacs-project-follow-mode))
   :commands (treemacs-follow-mode treemacs-project-follow-mode treemacs)
-  :bind (:map icejam-keys-mode-map
-              ([(hyper b)] . treemacs))
+  :bind (:map icejam-keys-mode-map ([(hyper b)] . treemacs))
   :config (setopt treemacs-tag-follow-delay 1.0))
 
 (use-package treemacs-all-the-icons :ensure t :defer t

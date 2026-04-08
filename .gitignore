@@ -12,8 +12,6 @@ eshell/history
 tramp
 url/*
 transient/*
-.lsp-session-*
-lsp-cache
 eshell/*
 .yas-compiled-snippets.el
 ac-comphist.dat

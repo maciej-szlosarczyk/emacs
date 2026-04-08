@@ -1,4 +1,4 @@
-;;; icejam-custom-init.el --- summary
+;;; icejam-custom-init.el --- summary -*- lexical-binding: t; -*-
 
 ;; Author: Maciej Szlosarczyk
 ;; Maintainer: Maciej Szlosarczyk
@@ -9,15 +9,32 @@
 ;; custom-init does a thing.
 
 ;;; Code:
+(eval-when-compile
+  (declare-function elpaca 'elpaca)
+  (declare-function elpaca-process-queues 'elpaca)
+  (declare-function elpaca-generate-autoloads 'elpaca)
+  (declare-function elpaca-write-lock-file 'elpaca)
+  (declare-function elpaca-use-package-mode 'elpaca-use-package))
 
 ;; Set GC at 500 MB for startup
 (setopt gc-cons-threshold 500000000)
 (setopt gc-cons-percentage 5.0)
 
-(add-hook 'after-init-hook (lambda ()
+(add-hook 'elpaca-after-init-hook (lambda ()
                              ;; Restore GC to normal, but still high
-                             (setopt gc-cons-threshold 204800000)
+                             (setopt gc-cons-threshold (* 100 1024 1024 2))
                              (setopt gc-cons-percentage 0.2)))
+
+;; Increase how much data emacs reads from processes to 4 MB.
+(setopt read-process-output-max (* 4 1024 1024))
+
+;; Change file handler for startup
+(defvar last-file-name-handler-alist file-name-handler-alist)
+(setopt file-name-handler-alist nil)
+(add-hook 'after-init-hook (lambda ()
+                             ;; Restore to normal file handler
+                             (setopt file-name-handler-alist
+                                     last-file-name-handler-alist)))
 
 ;; Allow for deeper stacktraces / recursion
 ;; (setopt max-lisp-eval-depth 10000)
@@ -88,7 +105,9 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp/themes"))
 (add-to-list 'load-path (concat user-emacs-directory "lisp/langs"))
 
-(defgroup :icejam nil "My customisation group.")
+(defgroup icejam nil
+  "My customisation group."
+  :group 'local)
 
 ;; General configuration files.
 (use-package icejam-keys-mode :ensure nil)
