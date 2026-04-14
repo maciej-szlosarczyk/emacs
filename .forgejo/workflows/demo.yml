@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: podman
+    runs-on: act-runner
     name: Test config on ${{matrix.node}}
     strategy:
       matrix:
