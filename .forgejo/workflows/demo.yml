@@ -2,6 +2,7 @@ on: [push]
 
 jobs:
   test:
+    runs-on: docker
     name: Test config on ${{matrix.node}}
     strategy:
       matrix:
