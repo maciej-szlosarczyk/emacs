@@ -107,6 +107,9 @@
 ;; Disable warning related to PATH on startup
 (defvar exec-path-from-shell-check-startup-files nil)
 
+(eval-when-compile
+  (declare-function exec-path-from-shell-initialize 'exec-path-from-shell))
+
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
   ;; :if (memq window-system '(x mac ns))
@@ -114,7 +117,6 @@
   :defer t
   :hook ((elpaca-after-init . exec-path-from-shell-initialize))
   :config
-  (declare-function exec-path-from-shell-initialize "exec-path-from-shell")
   (add-to-list 'exec-path "/usr/local/bin")
   (dolist (var '("DEFT_PATH"
                  "LANG"

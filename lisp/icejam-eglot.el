@@ -3,6 +3,11 @@
 ;;; Global Language Server Protocol Config
 ;;; Code:
 
+(use-package eglot :ensure nil
+  :config
+  ;; Use Ruby-Lsp instead of Solargraph
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+
 (use-package eldoc-box
   :ensure (:host github :repo "casouri/eldoc-box")
   :hook ((emacs-lisp-mode . eldoc-box-hover-at-point-mode)

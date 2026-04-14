@@ -4,6 +4,8 @@
 
 (eval-when-compile
   (defvar icejam-language-transient-alist)
+  (defvar eglot-server-programs)
+  (defvar ruby-insert-encoding-magic-comment)
   (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
@@ -21,7 +23,7 @@
   (add-to-list (make-local-variable 'flycheck-disabled-checkers) 'ruby-reek 'ruby-rubocop)
 
   ;; Do not insert magic encoding comment at the begining of each file
-  (setq ruby-insert-encoding-magic-comment nil)
+  (setopt ruby-insert-encoding-magic-comment nil)
 
   ;; Start LSP
   (eglot-ensure)

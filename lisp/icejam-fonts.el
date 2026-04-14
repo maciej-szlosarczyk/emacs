@@ -34,7 +34,7 @@ It is different than default font to keep it visually distinct.")
 
 ;; Require dash functions to be included:
 (eval-when-compile
-  (declare-function -> "dash.el"))
+  (declare-function -> 'dash))
 
 (defconst icejam-font-height 14
   "Default height of then font.
