@@ -4,16 +4,19 @@
 
 (eval-when-compile
   (defvar icejam-keys-mode-map)
+  (defvar magit-blame-mode-map)
+  (defvar git-commit-setup-hook)
   (declare-function git-commit-setup-capf 'git-commit))
 
 (use-package magit
   :ensure t
   :commands (magit-blame-quit)
   :defer t
-  :bind (:map icejam-keys-mode-map
-              ("<f5> c" . magit-checkout)
-              ("<f5> b" . magit-blame-addition)
-              ("<f5> g" . magit-status))
+  :bind
+  (:map icejam-keys-mode-map
+        ("<f5> c" . magit-checkout)
+        ("<f5> b" . magit-blame-addition)
+        ("<f5> g" . magit-status))
   (:map magit-blame-mode-map
         ("<f5> b" . 'magit-blame-quit))
   :config

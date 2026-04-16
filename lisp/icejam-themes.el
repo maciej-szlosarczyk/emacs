@@ -10,34 +10,7 @@
   (setopt enable-theme-functions 'spaceline-compile))
 
 (use-package base16-theme :ensure t)
-
-;; (use-package apropospriate-theme :ensure t
-;;   :config (load-theme 'apropospriate-light t t))
-;; (use-package leuven-theme :ensure t
-;;   :config
-;;   (load-theme 'leuven t t))
 (use-package modus-themes :ensure t)
-;; (use-package darktooth-theme :ensure t
-;;   :config
-;;   (load-theme 'darktooth t t))
-
-;; (use-package color-theme-sanityinc-tomorrow :ensure t
-;;   :config
-;;   ;; Dark themes
-;;   (load-theme 'sanityinc-tomorrow-eighties t t)
-;;   (load-theme 'sanityinc-tomorrow-night t t)
-;;   ;; Light theme
-;;   (load-theme 'sanityinc-tomorrow-day t t))
-
-;; (use-package zenburn-theme :ensure t
-;;   :config
-;;   (load-theme 'zenburn t t))
-
-;; (use-package catppuccin-theme :ensure t
-;;   :custom
-;;   ((catpuccin-flavor 'frappe))
-;;   :config
-;;   (load-theme 'catppuccin t t))
 
 ;; Disable cursor blinking
 (blink-cursor-mode 0)
@@ -54,10 +27,10 @@
   (load-theme 'modus-operandi-tinted t t)
   (require 'icejam-base16-zenburn)
   (require 'icejam-base16-harmonic-light)
-  (require 'icejam-base16-catppuccin-latte)
+  (require 'icejam-base16-catppuccin-frappe)
 
   (if (memq window-system '(x mac ns))
-      (enable-theme 'icejam-base16-zenburn)
+      (enable-theme 'icejam-base16-catppuccin-frappe)
     (enable-theme 'icejam-base16-zenburn)))
 
 (provide 'icejam-themes)
