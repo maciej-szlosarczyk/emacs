@@ -10,6 +10,7 @@
 
 ;;; Code:
 (declare-function agent-shell-make-environment-variables 'agent-shell)
+(defvar icejam-variables-to-load-in-agent-shell '())
 
 (use-package agent-shell
   :ensure t
@@ -21,9 +22,9 @@
   (setopt agent-shell-anthropic-claude-environment
           (agent-shell-make-environment-variables :inherit-env t))
   (setopt agent-shell-opencode-environment
-          (agent-shell-make-environment-variables
-           :inherit-env t
-           "GOOGLE_CLOUD_PROJECT" "mv-ai-architecture"))
+          (apply #'agent-shell-make-environment-variables
+                 :inherit-env t
+                 icejam-variables-to-load-in-agent-shell))
   (setopt
    agent-shell-opencode-default-model-id
    "google-vertex-anthropic/claude-sonnet-4-6@default"))

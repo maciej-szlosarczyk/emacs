@@ -110,6 +110,9 @@
 (eval-when-compile
   (declare-function exec-path-from-shell-initialize 'exec-path-from-shell))
 
+;; This should be defined in secrets.
+(defvar icejam-variables-to-load-from-shell '())
+
 ;; Allow to execute path from shell
 (use-package exec-path-from-shell
   ;; :if (memq window-system '(x mac ns))
@@ -118,19 +121,7 @@
   :hook ((elpaca-after-init . exec-path-from-shell-initialize))
   :config
   (add-to-list 'exec-path "/usr/local/bin")
-  (dolist (var '("DEFT_PATH"
-                 "LANG"
-                 "LC_CTYPE"
-                 "CLAUDE_CODE_USE_VERTEX"
-                 "CLOUD_ML_REGION"
-                 "ANTHROPIC_VERTEX_PROJECT_ID"
-                 "VERTEX_REGION_CLAUDE_3_5_HAIKU"
-                 "VERTEX_REGION_CLAUDE_3_5_SONNET"
-                 "VERTEX_REGION_CLAUDE_3_7_SONNET"
-                 "VERTEX_REGION_CLAUDE_4_0_OPUS"
-                 "VERTEX_REGION_CLAUDE_4_0_SONNET"
-                 "VERTEX_REGION_CLAUDE_4_1_OPUS"
-                 "ANTHROPIC_MODEL"))
+  (dolist (var icejam-variables-to-load-from-shell)
     (add-to-list 'exec-path-from-shell-variables var)))
 
 (use-package direnv :ensure t :defer t
