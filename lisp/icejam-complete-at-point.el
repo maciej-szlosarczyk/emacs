@@ -8,6 +8,7 @@
   (declare-function cape-file 'cape)
   (declare-function cape-keyword 'cape)
   (declare-function cape-elisp-symbol 'cape)
+  (declare-function cape-capf-prefix-length 'cape)
   (declare-function cape-capf-super 'cape)
   (declare-function yasnippet-capf 'yasnippet)
   (declare-function nerd-icons-corfu-formatter 'nerd-icons-corfu)
@@ -29,7 +30,7 @@
   :config
   ;; Go up to go the the last item on the list
   (setopt corfu-cycle t
-          corfu-count 20 ;; Show 20 completion candidates
+          corfu-count 20      ;; Show 20 completion candidates
           corfu-max-width 100 ;; Max width of the corfu frame
           corfu-right-margin-width 0.5
           corfu-left-margin-width 0.5
@@ -72,18 +73,18 @@
   "Set `completion-at-point-function` to list where LSP is supported."
   (setq-local completion-at-point-functions
               (list
-               (cape-capf-super #'yasnippet-capf #'eglot-completion-at-point)
-               #'cape-dabbrev
-               #'cape-file)))
+                (cape-capf-super #'yasnippet-capf #'eglot-completion-at-point)
+                #'cape-dabbrev
+                #'cape-file)))
 
 (defun icejam-set-elisp-capfs ()
   "Set `completion-at-point-function` to what is useful in Elisp."
   (setq-local completion-at-point-functions
               (list (cape-capf-super #'elisp-completion-at-point
-                                     #'yasnippet-capf)
-                    #'cape-dabbrev
-                    #'cape-file
-                    #'cape-elisp-symbol)))
+                                      #'yasnippet-capf)
+                     #'cape-dabbrev
+                     #'cape-file
+                     #'cape-elisp-symbol)))
 
 (use-package yasnippet-capf :ensure t :after corfu :defer t
   :config

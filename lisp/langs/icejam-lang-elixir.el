@@ -10,6 +10,7 @@
   (declare-function yas--remove-template-by-uuid 'yasnippet)
   (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+  (declare-function icejam-start-eglot 'icejam-eglot)
   (defvar icejam-language-transient-alist)
   (defvar icejam-elixir-lang-menu)
   (defvar apheleia-mode-alist))
@@ -44,9 +45,8 @@
   "All things Elixir."
   (icejam-set-indent 2)
   (column-enforce-n 98)
-  (eglot-ensure)
-
   (icejam-set-eglot-capfs)
+  (icejam-start-eglot)
   (icejam-delete-elixir-snippets))
 
 (add-hook 'heex-ts-mode-hook 'icejam-activate-elixir-ts-mode)
