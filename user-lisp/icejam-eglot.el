@@ -12,11 +12,21 @@
   ;; Use Ruby-Lsp instead of Solargraph
   (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp"))
 
+  ;; Use gleam LSP
+  (add-to-list 'eglot-server-programs '((gleam-ts-mode) "gleam" "lsp"))
+
+  ;; Use Kotlin-LSP provided by Jetbrains
+  (add-to-list 'eglot-server-programs
+               '((kotlin-mode kotlin-ts-mode) "kotlin-lsp" "--stdio"))
+
   (setopt eglot-advertise-cancellation t)
 
   ;; Automatically kill eglot when last buffer associated with a project is
   ;; closed.
   (setopt eglot-autoshutdown t)
+
+  (setopt eglot-connect-timeout 60)
+  (setopt eglot-extend-to-xref t)
 
   ;; Set up server specific switches globally
   (setq-default eglot-workspace-configuration

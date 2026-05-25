@@ -33,8 +33,11 @@
 (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
 (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
+;; Vertico relies on Emacs 31 compatibility
+(use-package compat :ensure t)
+
 ;; Actual orderless
-(use-package vertico :ensure (:host github :repo "minad/vertico" :ref "e4338c5bae2c725be2940726be170bc034af3b6c") :defer t
+(use-package vertico :ensure t :defer t
   :hook ((elpaca-after-init . vertico-mode))
   :config
   (setopt vertico-scroll-margin 1) ;; Scroll on N-1
@@ -49,17 +52,17 @@
   (keymap-set vertico-map "<next>" 'vertico-scroll-up)
   (keymap-set vertico-map "<prior>" 'vertico-scroll-down))
 
-(use-package orderless :ensure (:host github :repo "oantolin/orderless" :ref "3a2a32181f7a5bd7b633e40d89de771a5dd88cc7")
+(use-package orderless :ensure t
   :config
   ;; Fallback to basic if orderless does not work.
   (setopt completion-styles '(orderless basic))
   (setopt completion-category-defaults nil)
   (setopt completion-category-overrides '((file (styles partial-completion)))))
 
-(use-package marginalia :ensure (:host github :repo "minad/marginalia" :ref "4a0628dfdf944a5d307d31d2a514825cc5386986") :defer t
+(use-package marginalia :ensure t :defer t
   :hook ((elpaca-after-init . marginalia-mode)))
 
-(use-package consult :ensure (:host github :repo "minad/consult" :ref "45fdad7b234141ea572267024c8f4b08dd2e1022")
+(use-package consult :ensure t
   :config
   ;; Using ripgrep, show hidden files but ignore contents of .git
   (setopt consult-ripgrep-args

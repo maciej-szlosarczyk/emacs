@@ -14,8 +14,7 @@
   (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point))
 
-(use-package gleam-ts-mode :defer t :ensure t
-  :mode (rx ".gleam" eos))
+(use-package gleam-ts-mode :defer t :ensure t :mode (rx ".gleam" eos))
 
 ;; (add-to-list 'auto-mode-alist '("\\.gleam\\'" . gleam-ts-mode))
 
@@ -23,7 +22,7 @@
   "All things Gleam."
   (icejam-set-indent 2)
   (column-enforce-n 100)
-  (eglot-ensure)
+  (icejam-start-eglot)
   (icejam-set-eglot-capfs))
 
 (add-hook 'gleam-ts-mode-hook 'icejam-lang-activate-gleam-mode)

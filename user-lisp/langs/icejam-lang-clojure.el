@@ -5,8 +5,11 @@
 (eval-when-compile
   (defvar icejam-language-transient-alist)
   (defvar icejam-clojure-lang-menu)
+  (defvar cider-annotate-completion-function)
+  (defvar cider-show-error-buffer)
   (declare-function column-enforce-n "column-enforce-mode" (number))
   (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function icejam-start-eglot 'icejam-eglot)
   (declare-function transient-define-prefix 'transient))
 
 (use-package clojure-mode :defer t :ensure t)
@@ -46,6 +49,8 @@
   (icejam-set-indent 2) ;; Default indentation of 2 characters
   (column-enforce-n 80)
   (cider-mode 1)
+
+  (icejam-start-eglot)
 
   ;; Do not enable paredit for clojure
   ;; (paredit-mode 1)

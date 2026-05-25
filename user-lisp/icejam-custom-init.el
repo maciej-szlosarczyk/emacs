@@ -101,9 +101,9 @@
 
 ;; I don't know why this needs to be here and with a lisp directory, but
 ;; normal subdirs.el file doesn't work.
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
-(add-to-list 'load-path (concat user-emacs-directory "lisp/themes"))
-(add-to-list 'load-path (concat user-emacs-directory "lisp/langs"))
+(add-to-list 'load-path (concat user-emacs-directory "user-lisp"))
+(add-to-list 'load-path (concat user-emacs-directory "user-lisp/themes"))
+(add-to-list 'load-path (concat user-emacs-directory "user-lisp/langs"))
 
 (defgroup icejam nil
   "My customisation group."
@@ -146,6 +146,7 @@
 (use-package icejam-lang-golang :ensure nil)
 (use-package icejam-lang-haskell :ensure nil)
 (use-package icejam-lang-javascript :ensure nil)
+(use-package icejam-lang-java :ensure nil)
 (use-package icejam-lang-kotlin :ensure nil)
 (use-package icejam-lang-lua :ensure nil)
 (use-package icejam-lang-markdown :ensure nil)

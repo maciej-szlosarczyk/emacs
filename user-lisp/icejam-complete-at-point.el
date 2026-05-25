@@ -24,7 +24,7 @@
 (use-package yasnippet-snippets :ensure t :after (yasnippet))
 
 ;; Corfu is the main engine for displaying suggestions.
-(use-package corfu :ensure (:host github :repository "minad/corfu" :ref "856171ac98c3aaa629caa011be7cd3a9405e6e0f") :defer t
+(use-package corfu :ensure t :defer t
   :hook ((elpaca-after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :config
@@ -54,7 +54,7 @@
   :hook ((elpaca-after-init . corfu-terminal-mode)))
 
 ;; These are actual completions
-(use-package cape :ensure (:host github :repository "minad/cape" :ref "2e15e1909754752f66096dde1b8d639d6eb25f35") :after corfu
+(use-package cape :ensure t :after corfu
   :config
   ;; Set default completion values:
   (set-default 'completion-at-point-functions
