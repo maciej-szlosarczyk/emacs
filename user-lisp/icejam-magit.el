@@ -3,10 +3,10 @@
 ;;; Code:
 
 (eval-when-compile
-  (defvar icejam-keys-mode-map)
-  (defvar magit-blame-mode-map)
+  (declare-function git-commit-setup-capf 'git-commit)
   (defvar git-commit-setup-hook)
-  (declare-function git-commit-setup-capf 'git-commit))
+  (defvar icejam-keys-mode-map)
+  (defvar magit-blame-mode-map))
 
 (use-package magit
   :ensure t

@@ -3,22 +3,29 @@
 ;;; Code:
 
 ;; Use flycheck checks with flymake.
+(eval-when-compile
+  (declare-function cape-capf-super 'cape)
+  (declare-function cape-dabbrev 'cape)
+  (declare-function cape-file 'cape)
+  (declare-function cape-keyword 'cape)
+  (declare-function el-patch-defun 'el-patch)
+  (declare-function el-patch-feature 'el-patch)
+  (declare-function flymake--diagnostics-buffer-name 'flymake)
+  (declare-function flymake--project-diagnostics-buffer 'flymake)
+  (declare-function flymake-diagnostics-buffer-mode 'flymake)
+  (declare-function flymake-project-diagnostics-mode 'flymake)
+  (declare-function project-root 'project)
+  (declare-function yasnippet-capf 'yasnippet-capf)
+  (defvar flymake--diagnostics-buffer-source)
+  (defvar flymake-mode)
+  (defvar flymake-show-buffer-diagnostics)
+  (defvar flymake-show-project-diagnostics))
+
 (use-package flymake-flycheck :ensure t :defer t :config
   (setq-default
    flycheck-disabled-checkers
    (append (default-value 'flycheck-disabled-checkers)
            '(emacs-lisp emacs-lisp-checkdoc emacs-lisp-package sh-shellcheck))))
-
-(eval-when-compile
-  (declare-function flymake--project-diagnostics-buffer 'flymake)
-  (declare-function flymake--diagnostics-buffer-name 'flymake)
-  (declare-function flymake-project-diagnostics-mode 'flymake)
-  (declare-function flymake-diagnostics-buffer-mode 'flymake)
-  (declare-function cape-capf-super 'cape)
-  (declare-function cape-dabbrev 'cape)
-  (declare-function cape-file 'cape)
-  (declare-function cape-keyword 'cape)
-  (declare-function yasnippet-capf 'yasnippet-capf))
 
 (use-package el-patch :ensure t :defer t
   :config

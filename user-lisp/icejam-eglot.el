@@ -31,13 +31,16 @@
   ;; Set up server specific switches globally
   (setq-default eglot-workspace-configuration
                 ;; Elixir configuration
-                '(:elixirLS (
+                '(
+                  :elixirLS (
                              :autoBuild t
                              :dialyzerEnabled t
                              :incrementalDialyzer :json-false
                              :autoInsertRequiredAlias :json-false
                              :suggestSpecs t
-                             )))
+                             )
+                  )
+                )
 
   ;; Eglot insists on adding itself to the completion-at-point-functions but
   ;; that means that it overrides our combined value of (eglot + yasnippet)

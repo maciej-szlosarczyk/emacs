@@ -3,14 +3,16 @@
 ;;; Code:
 
 (eval-when-compile
-  (defvar icejam-language-transient-alist)
-  (defvar icejam-clojure-lang-menu)
-  (defvar cider-annotate-completion-function)
-  (defvar cider-show-error-buffer)
   (declare-function column-enforce-n "column-enforce-mode" (number))
+  (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
   (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-start-eglot 'icejam-eglot)
-  (declare-function transient-define-prefix 'transient))
+  (declare-function lispy-mode 'lispy-mode)
+  (declare-function transient-define-prefix 'transient)
+  (defvar cider-annotate-completion-function)
+  (defvar cider-show-error-buffer)
+  (defvar icejam-clojure-lang-menu)
+  (defvar icejam-language-transient-alist))
 
 (use-package clojure-mode :defer t :ensure t)
 
@@ -35,7 +37,7 @@
     ("t" "Test"        cider-test-run-loaded-tests)]
    ["Buffer"
     ("r" "Reload"      icejam-revert-buffer-no-confirm)
-    ("f" "Format"      cider-format-buffer)
+    ("f" "Format"      eglot-format-buffer)
     ("l" "Load"        cider-load-buffer)
     ("e" "Show Errors" flymake-show-buffer-diagnostics)]]
   [""
@@ -47,17 +49,21 @@
 (defun icejam-lang-activate-clojure-mode ()
   "Goodies for clojure files."
   (icejam-set-indent 2) ;; Default indentation of 2 characters
-  (column-enforce-n 80)
+  (column-enforce-n 100)
   (cider-mode 1)
 
+  ;; Use lispy mode in Clojure
+  (lispy-mode t)
+
+  ;; Use LSP in clojure
+  (icejam-set-eglot-capfs)
   (icejam-start-eglot)
 
-  ;; Do not enable paredit for clojure
-  ;; (paredit-mode 1)
 	;; Do not show separate error window when in REPL
   (setq cider-show-error-buffer 'except-in-repl))
 
 (add-hook 'clojure-mode-hook 'icejam-lang-activate-clojure-mode)
+(add-hook 'edn-mode-hook 'icejam-lang-activate-clojure-mode)
 
 (defun icejam-lang-clojure-repl-config ()
   "Do not show stacktrace when in REPL."

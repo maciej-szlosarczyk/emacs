@@ -11,10 +11,10 @@
 ;;; Code:
 (eval-when-compile
   (declare-function elpaca 'elpaca)
-  (declare-function elpaca-process-queues 'elpaca)
   (declare-function elpaca-generate-autoloads 'elpaca)
-  (declare-function elpaca-write-lock-file 'elpaca)
-  (declare-function elpaca-use-package-mode 'elpaca-use-package))
+  (declare-function elpaca-process-queues 'elpaca)
+  (declare-function elpaca-use-package-mode 'elpaca-use-package)
+  (declare-function elpaca-write-lock-file 'elpaca))
 
 ;; Set GC at 500 MB for startup
 (setopt gc-cons-threshold 500000000)
@@ -163,6 +163,9 @@
 
 ;; Diminish modeline litter
 (use-package icejam-diminish :ensure nil)
+
+;; This is a temporary workaround for elpaca not working properly:
+(progn (elpaca-process-queues) (run-hooks 'elpaca-after-init-hook))
 
 (provide 'icejam-custom-init)
 ;;; icejam-custom-init.el ends here

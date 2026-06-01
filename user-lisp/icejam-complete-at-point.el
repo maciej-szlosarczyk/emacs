@@ -3,16 +3,18 @@
 ;;; Completion framework configuration
 ;;; Code:
 (eval-when-compile
-  (defvar corfu-terminal-mode 'corfu-terminal)
-  (declare-function cape-dabbrev 'cape)
-  (declare-function cape-file 'cape)
-  (declare-function cape-keyword 'cape)
-  (declare-function cape-elisp-symbol 'cape)
   (declare-function cape-capf-prefix-length 'cape)
   (declare-function cape-capf-super 'cape)
-  (declare-function yasnippet-capf 'yasnippet)
+  (declare-function cape-dabbrev 'cape)
+  (declare-function cape-elisp-symbol 'cape)
+  (declare-function cape-file 'cape)
+  (declare-function cape-keyword 'cape)
+  (declare-function eglot-completion-at-point 'eglot)
   (declare-function nerd-icons-corfu-formatter 'nerd-icons-corfu)
-  (declare-function eglot-completion-at-point 'eglot))
+  (declare-function yasnippet-capf 'yasnippet)
+  (defvar corfu-margin-formatters)
+  (defvar corfu-terminal-mode 'corfu-terminal)
+  (defvar yas-minor-mode-map))
 
 (use-package yasnippet :ensure t :defer t
   :hook ((elpaca-after-init . yas-global-mode))

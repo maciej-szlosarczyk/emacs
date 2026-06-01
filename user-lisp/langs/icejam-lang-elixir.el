@@ -3,17 +3,17 @@
 ;;; Code:
 
 (eval-when-compile
-  (declare-function transient-define-prefix 'transient)
-  (declare-function column-enforce-n 'column-enforce-mode (number))
   (declare-function -> 'dash)
-  (declare-function yas--table-get-create 'yasnippet)
-  (declare-function yas--remove-template-by-uuid 'yasnippet)
-  (declare-function icejam-set-indent 'icejam-prog-mode)
+  (declare-function column-enforce-n 'column-enforce-mode (number))
   (declare-function icejam-set-eglot-capfs 'icejam-complete-at-point)
+  (declare-function icejam-set-indent 'icejam-prog-mode)
   (declare-function icejam-start-eglot 'icejam-eglot)
-  (defvar icejam-language-transient-alist)
+  (declare-function transient-define-prefix 'transient)
+  (declare-function yas--remove-template-by-uuid 'yasnippet)
+  (declare-function yas--table-get-create 'yasnippet)
+  (defvar apheleia-mode-alist)
   (defvar icejam-elixir-lang-menu)
-  (defvar apheleia-mode-alist))
+  (defvar icejam-language-transient-alist))
 
 (use-package elixir-ts-mode :ensure t :defer t :after (apheleia)
   :config
